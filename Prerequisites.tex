@@ -154,6 +154,17 @@ Notice the difference between ``$\bigcup$" and ``$\cup$" (respectively, ``$\bigc
 We say that a collection of sets $\{A_{\alpha}\}_{\alpha\in\Delta}$ is \textbf{pairwise disjoint} if $A_{\alpha} \cap A_{\beta}=\emptyset$ whenever $\alpha\neq \beta$.
 \end{definition}
 
+\begin{exercise}
+Draw a Venn diagram of a collection of 3 sets that are pairwise disjoint.
+\end{exercise}
+
+\begin{exercise}
+Provide an example of a collection of three sets, say $\{A_1, A_2, A_3\}$, such that the collection is \emph{not} pairwise disjoint, but 
+\[
+\bigcap_{n=1}^3 A_n=\emptyset.
+\]
+\end{exercise}
+
 \begin{definition}
 An \textbf{ordered pair} is an object of the form $(x,y)$. Two ordered pairs $(x,y)$ and $(a,b)$ are \textbf{equal} if $x=a$ and $y=b$. 
 \end{definition}
@@ -174,6 +185,18 @@ That is, $X\times Y$ is the set of all ordered pairs where the first element is 
 \prod_{i=1}^{n} X_i=X_1\times \cdots \times X_n=\{(x_1,\ldots,x_n): \mbox{each } x_i\in X_i\}.
 \]
 \end{definition}
+
+\begin{exercise}
+What general conclusion can you make about $X\times Y$ versus $Y\times X$?  When will they be equal?
+\end{exercise}
+
+\begin{exercise}
+If $X$ and $Y$ are both finite sets, then how many elements will $X\times Y$ have?  Be as specific as possible.
+\end{exercise}
+
+\begin{exercise}
+Let $X=[0,1]$ and let $Y=\{1\}$.  Describe geometrically what $X\times Y$, $Y\times X$, $X\times X$, and $Y\times Y$ look like.
+\end{exercise}
 
 \end{section}
 
@@ -225,6 +248,10 @@ R=\{(a,b),(a,c),(b,b),(b,c),(c,d),(c,e),(d,d),(d,a),(e,a)\}.
 
 \end{example}
 
+\begin{exercise}
+Let $A=\{a,b,c\}$ and define $\sim=\{(a,a),(a,b),(b,c),(c,b),(c,a)\}$.  Draw the digraph for $\sim$.
+\end{exercise}
+
 \begin{definition}
 Let $\sim$ be a relation on a set $A$.
 \begin{enumerate}
@@ -234,9 +261,43 @@ Let $\sim$ be a relation on a set $A$.
 \end{enumerate}
 \end{definition}
 
+\begin{exercise}
+Given a finite set $A$ and a relation $\sim$, describe what each of reflexive, symmetric, and transitive look like in terms of a digraph.
+\end{exercise}
+
+\begin{exercise}
+Let $P$ be the set of people at a party and define $N$ via $(x,y)\in N$ iff $x$ knows the name of $y$.  Describe what it would mean for $N$ to be reflexive, symmetric, and transitive.
+\end{exercise}
+
 \begin{definition}
 Let $\sim$ be a relation on a set $A$.  Then $\sim$ is called an \textbf{equivalence relation} if $\sim$ is reflexive, symmetric, and transitive.
 \end{definition}
+
+\begin{exercise}
+Determine which of the following are equivalence relations.  Some of these occurred in the last section of notes and you are welcome to use your answers from those problems.
+
+\begin{enumerate}\label{exer:lots of them}
+\item\label{exer:facebook} Let $P_f$ denote the set of all people with accounts on Facebook.  Define  $F$ via $xFy$ iff $x$ is friends with $y$. 
+\item Let $P$ be the set of all people and define $H$ via $xHy$ iff $x$ and $y$ have the same height.
+\item Let $P$ be the set of all people and define $T$ via $xTy$ iff $x$ is taller than $y$.
+\item Consider the relation ``divides" on $\mathbb{N}$.
+\item Let $L$ be the set of lines and define $||$ via $l_1||l_2$ iff $l_1$ is parallel to $l_2$.
+\item Let $C[0,1]$ be the set of continuous functions on $[0,1]$.  Define $f\sim g$ iff
+\[
+\int_0^1|f(x)|\ dx=\int_0^1|g(x)|\ dx.
+\]
+\item Define $\sim$ on $\mathbb{N}$ via $n\sim m$ iff $n+m$ is even.
+\item Define $D$ on $\mathbb{R}$ via $(x,y)\in D$ iff $x=2y$.
+\item\label{exer:mod 5} Define $\sim$ on $\mathbb{Z}$ via $a\sim b$ iff $a-b$ is a multiple of 5.
+\item Define $\sim$ on $\mathbb{R}^2$ via $(x_1,y_1)\sim (x_2,y_2)$ iff $x_1^2+y_1^2=x_2^2+y_2^2$.
+\item Define $\sim$ on $\mathbb{R}$ via $x\sim y$ iff $\lfloor x\rfloor =\lfloor y\rfloor$, where $\lfloor x\rfloor$ is the greatest integer less than or equal to $x$ (e.g., $\lfloor \pi\rfloor=3$, $\lfloor -1.5\rfloor=-2$, and $\lfloor 4\rfloor=4$).
+\item Define $\sim$ on $\mathbb{R}$ via $x \sim y$ iff $|x-y|<1$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Find $[1]$ and $[2]$ for the relation given in part \ref{exer:mod 5} of Exercise \ref{exer:lots of them}.  How many different sets of relatives are there?  What are they?
+\end{exercise}
 
 \begin{definition}
 Let $\sim$ be a relation on a set $A$ (not necessarily an equivalence relation) and let $x\in A$.  Then we define the \textbf{set of relatives of $x$} via
@@ -249,6 +310,14 @@ Also, define
 \]
 Notice that $\Omega_{\sim}$ is a set of sets.  In particular, an element in $\Omega_{\sim}$ is a subset of $A$ (equivalently, an element of $\mathcal{P}(A)$).  Other common notations for $[x]$ include $\overline{x}$ and $R_x$.
 \end{definition}
+
+\begin{exercise}
+Find $[1]$ and $[2]$ for the relation given in part \ref{exer:mod 5} of Exercise \ref{exer:lots of them}.  How many different sets of relatives are there?  What are they?
+\end{exercise}
+
+\begin{exercise}
+If $\sim$ is an equivalence relation on a finite set $A$, then what is the connection between the equivalence classes and the corresponding digraph?
+\end{exercise}
 
 \begin{theorem}
 Suppose $\sim$ is an equivalence relation on a set $A$ and let $a,b\in A$.  Then $[a]=[b]$ iff $a\sim b$.
@@ -272,7 +341,6 @@ The upshot of Theorem \ref{thm:equiv yields partition} is that given an equivale
 
 \end{section}
 
-
 \begin{section}{Partitions}
 
 \begin{definition}
@@ -289,6 +357,14 @@ The next theorem spells out half of the close connection between partitions and 
 \begin{theorem}
 Let $\sim$ be an equivalence relation on a set $A$.  Then $\Omega_{\sim}$ forms a partition of $A$.
 \end{theorem}
+
+\begin{exercise}
+Consider the equivalence relation
+\[
+\sim=\{(1,1),(1,2),(2,1), (2,2),(3,3),(4,4),(4,5),(5,4),(5,5),(6,6),(5,6),(6,5),(4,6),(6,4)\}
+\]
+on the set $A=\{1,2,3,4,5,6\}$.  Find the partition determined by $\Omega_{\sim}$.
+\end{exercise}
 
 It turns out that we can reverse the situation, as well.  That is, given a partition, we can form an equivalence relation.  Before proving this, we need a definition.
 
@@ -350,6 +426,36 @@ It follows immediately from the definition that $\range(f)\subseteq \codom(f)$. 
 If $f$ is a function and $(x,y)\in f$, then we may refer to $x$ as the \textbf{input} of $f$ and $y$ as the \textbf{output} of $f$.
 \end{remark}
 
+\begin{exercise}\label{exer:lots}
+Let $X=\{\circ, \square,\triangle,\smiley\}$ and $Y=\{a,b,c,d,e\}$.  Determine whether each of the following represent functions.  Explain.  If the relation is a function, determine the domain, codomain, and range.
+
+\begin{enumerate}
+\item $f:X\to Y$ defined via $f=\{(\circ, a),(\square,b),(\triangle,c),(\smiley,d)\}$.
+\item $g:X\to Y$ defined via $g=\{(\circ, a),(\square,b),(\triangle,c),(\smiley,c)\}$.
+\item $h:X\to Y$ defined via $h=\{(\circ, a),(\square,b),(\triangle,c),(\circ,d)\}$.
+\item $k:X\to Y$ defined via $k=\{(\circ, a),(\square,b),(\triangle,c),(\smiley,d),(\square,e)\}$.
+\item $l:X\to Y$ defined via $l=\{(\circ, e),(\square,e),(\triangle,e),(\smiley,e)\}$.
+\item $m:X\to Y$ defined via $m=\{(\circ, a),(\triangle,b),(\smiley,c)\}$.
+\item $\operatorname{happy}:Y\to X$ defined via $\operatorname{happy}(y)=\smiley$ for all $y\in Y$.
+\item $\operatorname{id}:X\to X$ defined via $\operatorname{id}(x)=x$ for all $x\in X$.
+\item $\operatorname{nugget}:X\to X$ defined via 
+\[
+\operatorname{nugget}(x)=\begin{cases}
+x, & \mbox{if } x\mbox{ is a geometric shape},\\
+\square, & \mbox{otherwise}.
+\end{cases}
+\]
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Let $f:X\to Y$ be a function and suppose that $X$ and $Y$ have $n$ and $m$ elements in them, respectively.  Also, suppose that $n<m$.  Is it possible for $\range(f)=\codom(f)$?  Explain.
+\end{exercise}
+
+\begin{exercise}
+In high school I am sure that you were told that a graph represents a function if it passes the \textbf{vertical line test}.  Using our terminology of ordered pairs, explain why this works.
+\end{exercise}
+
 \begin{definition}
 Two functions are equal if they have the same domain, same codomain, and the same set of ordered pairs in the relation.
 \end{definition}
@@ -371,6 +477,17 @@ Let $f:X\to Y$ be a function.
 \end{enumerate}
 \end{definition}
 
+\begin{exercise}
+Provide an example of each of the following.  You may draw a bubble diagram, write down a list of ordered pairs, or write a formula (as long as the domain and codomain are clear).  Assume that $X$ and $Y$ are finite sets.
+\begin{enumerate}
+\item A function $f:X\to Y$ that is one-to-one but not onto.
+\item A function $f:X\to Y$ that is onto but not one-to-one.
+\item A function $f:X\to Y$ that is both one-to-one and onto.
+\item A function $f:X\to Y$ that is neither one-to-one nor onto.
+\end{enumerate}
+
+\end{exercise}
+
 \begin{theorem}
 Let $f:X\to Y$ be a function.  Then $f$ is one-to-one iff for all $x_{1}, x_{2}\in X$, if $f(x_{1})=f(x_{2})$, then $x_{1}=x_{2}$.
 \end{theorem}
@@ -390,6 +507,16 @@ If $f:X\to Y$ and $g:Y\to Z$ are functions, then a new function $g\circ f:X\to Z
 \begin{remark}
 It is important to notice that the function on the right is the one that ``goes first.''
 \end{remark}
+
+\begin{exercise}
+In each case, give examples of finite sets $X$, $Y$, and $Z$, and functions $f:X\to Y$ and $g:Y\to Z$ that satisfy the given conditions.  Drawing bubble diagrams is sufficient.
+\begin{enumerate}
+\item $f$ is onto, but $g\circ f$ is not onto.
+\item $g$ is onto, but $g\circ f$ is not onto.
+\item $f$ is one-to-one, but $g\circ f$ is not one-to-one.
+\item $g$ is one-to-one, but $g\circ f$ is not.
+\end{enumerate}
+\end{exercise}
 
 \begin{theorem}
 If $f:X\to Y$ and $g:Y\to Z$ are both functions that are onto, then $g\circ f$ is also onto.
@@ -413,6 +540,10 @@ f^{-1}=\{(f(x),x):x\in X\}.
 \begin{remark}
 Notice that we called $f^{-1}$ a relation and not a function.  In some circumstances $f^{-1}$ will be a function and sometimes it won't be.
 \end{remark}
+
+\begin{exercise}
+Provide an example of a function $f:X\to Y$ such that $f^{-1}$ is \emph{not} a function.  A bubble diagram is sufficient.
+\end{exercise}
 
 \begin{theorem}
 Let $f:X\to Y$ be a function.  Then $f^{-1}$ is a function iff $f$ is $f$ is 1-1.
