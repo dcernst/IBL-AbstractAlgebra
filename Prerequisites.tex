@@ -1,4 +1,499 @@
 \chapter{Prerequisites}
 \label{chapter:prerequisites}
+\thispagestyle{empty}
 
-blah
+I'll organize this section better later, but for now, here's a brain dump of some concepts you should be familiar with.
+
+\begin{section}{Basic Set Theory}
+
+\begin{definition}
+A \textbf{set} is a collection of objects called \textbf{elements}. If $A$ is a set and $x$ is an element of $A$, we write
+$x\in A$. Otherwise, we write $x\notin A$.
+\end{definition}
+
+\begin{definition}
+The set containing no elements is called the \textbf{empty set}, and is denoted by the symbol $\emptyset$.
+\end{definition}
+
+If we think of a set as a box containing some stuff, then the empty set is a box with nothing in it.
+
+\begin{definition}[Interval Notation]
+For $a,b\in\mathbb{R}$ with $a<b$, we define the following.
+\begin{enumerate}
+\item $(a,b)=\{x\in\mathbb{R}:a<x<b\}$
+\item $(a,\infty)=\{x\in\mathbb{R}:a<x\}$
+\item $(-\infty,b)=\{x\in\mathbb{R}:x<b\}$
+\item $[a,b]=\{x\in\mathbb{R}:a\leq x\leq b\}$
+\end{enumerate}
+We analogously define $[a,b)$, $(a,b]$, $[a,\infty)$, and $(-\infty,b]$.
+\end{definition}
+
+\begin{remark}
+There are a few sets with common names that we should be familiar with.
+\begin{enumerate}
+\item \textbf{Natural Numbers:} $\mathbb{N}=\{1,2,3,\ldots\}$
+\item \textbf{Integers:} $\mathbb{Z}=\{\ldots,-3,-2,-1,0,1,2,3,\ldots\}$
+\item \textbf{Real Numbers:} $\mathbb{R}=(-\infty,\infty)$\footnote{This is really a cop out.  If you look at the definition of the interval $(-\infty,\infty)$, we are being circular.}
+\item \textbf{Complex Numbers:} $\mathbb{C}=\{a+bi:a,b\in\mathbb{R}\}$, where $i=\sqrt{-1}$ is the imaginary unit.
+\end{enumerate}
+\end{remark}
+
+\begin{definition} 
+The language associated to sets is specific.  We will often define sets using the following notation, called \textbf{set builder notation}.
+\[
+S=\{x \in A: x \mbox{ satisfies some condition}\}
+\]
+The first part ``$x \in A$" denotes what type of $x$ is being considered.  The statements to the right of the colon are the conditions that $x$ must satisfy in order to be members of the set.  This notation is read as ``The set of all $x$ in $A$ such that $x$ satisfies some condition,'' where ``some condition" is something specific about the restrictions on $x$ relative to $A$.
+\end{definition}
+
+\begin{definition}
+If $A$ and $B$ are sets, then we say that $A$ is a \textbf{subset} of $B$, written $A\subseteq B$, provided that every element of $A$ is also an element of $B$.
+\end{definition}
+
+\begin{remark}
+Observe that $A\subseteq B$ is equivalent to ``For all $x$ (in the universe of discourse), if $x\in A$, then $x\in B$."  Since we know how to deal with ``for all" statements and conditional propositions, we know how to go about proving $A\subseteq B$.
+\end{remark}
+
+\begin{theorem}[Transitivity of subsets]
+Suppose that $A$, $B$, and $C$ are sets.  If $A\subseteq B$ and $B\subseteq C$, then $A\subseteq C$.
+\end{theorem}
+
+\begin{definition}
+If $A\subseteq B$, then $A$ is called a \textbf{proper subset} provided that $A\neq B$.  In this case, we may write $A\subset B$ or $A\subsetneq B$.\footnote{\emph{Warning:} Some books use $\subset$ to mean $\subseteq$.}
+\end{definition}
+
+\begin{definition}
+Let $A$ and $B$ be sets.
+\begin{enumerate}
+\item The \textbf{union} of the sets $A$ and $B$ is $A \cup B =\{x\in U : x\in A \mbox{ or } x\in B \}$.
+
+\item The \textbf{intersection} of the sets $A$ and $B$ is $A \cap B =\{x\in U : x\in A \mbox{ and } x\in B \}$.
+
+\item The \textbf{set difference} of the sets $A$ and $B$ is $A \setminus B =\{x\in U : x\in A \mbox{ and } x\notin B \}$.
+
+\item The \textbf{complement of $A$} (relative to $U$) is the set $A^c=U \setminus A =\{x \in U : x \notin A\}$.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}
+If two sets $A$ and $B$ have the property that $A \cap B = \emptyset$, then we say that $A$ and $B$ are \textbf{disjoint} sets.
+\end{definition}
+
+\begin{theorem}
+Let $A$ and $B$ be sets.  If $A \subseteq B$, then $B^c \subseteq A^c$.
+\end{theorem}
+
+\begin{definition}
+Two sets $A$ and $B$ are \textbf{equal} if and only if $A \subseteq B$ and $B \subseteq A$.  In this case we write $A = B$.
+\end{definition}
+
+\begin{remark}
+Given two sets $A$ and $B$, if we want to prove $A=B$, then we have to do two separate ``mini" proofs: one for $A\subseteq B$ and one for $B\subseteq A$.
+\end{remark}
+
+\begin{theorem}
+Let $A$ and $B$ be sets.  Then $A\setminus B = A \cap B^c$.
+\end{theorem}
+
+\begin{theorem}[DeMorgan's Law]
+Let $A$ and $B$ be sets. Then 
+\begin{enumerate}
+\item $(A \cup B)^c = A^c \cap B^c$,
+\item $(A \cap B)^c = A^c \cup B^c$.
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Distribution of Union and Intersection]
+Let $A$, $B$, and $C$ be sets. Then
+\begin{enumerate}
+\item $A \cup(B\cap C) = (A\cup B)\cap (A\cup C)$,
+\item $A\cap (B\cup C)= (A\cap B)\cup (A\cap C)$.
+\end{enumerate}
+\end{theorem}
+
+\begin{definition}
+Suppose we have a collection $\{A_{\alpha}\}_{\alpha\in\Delta}$.
+
+\begin{enumerate}
+\item The \textbf{union of the entire collection} is defined via
+\[
+\bigcup_{\alpha\in\Delta} A_{\alpha}=\{x:x\in A_{\alpha} \mbox{ for some }\alpha\in \Delta\}.
+\]
+
+\item The \textbf{intersection of the entire collection} is defined via
+\[
+\bigcap_{\alpha\in\Delta} A_{\alpha}=\{x:x\in A_{\alpha} \mbox{ for all }\alpha\in \Delta\}.
+\]
+\end{enumerate}
+\end{definition}
+
+\begin{example} 
+In the special case that $\Delta=\mathbb{N}$, we write
+\[
+\bigcup_{n=1}^{\infty}A_n= \{ x : x \in A_n \mbox{ for some } n \in \mathbb{N}\}= A_1\cup A_2 \cup A_3 \cup \cdots
+\] 
+and
+\[
+\bigcap_{n=1}^{\infty}A_n= \{ x : x \in A_n \mbox{ for all } n \in \mathbb{N}\} = A_1\cap A_2 \cap A_3 \cap \cdots
+\] 
+Similarly, if $\Delta=\{1,2,3,4\}$, then
+\[
+\bigcup_{n=1}^{4}A_n= A_1\cup A_2 \cup A_3 \cup A_4
+\] 
+and
+\[
+\bigcap_{n=1}^{4}A_n= A_1\cap A_2 \cap A_3 \cap A_4.
+\] 
+\end{example}
+
+\begin{remark}
+Notice the difference between ``$\bigcup$" and ``$\cup$" (respectively, ``$\bigcap$" and ``$\cap$").  The larger versions of the union and intersection symbols very much like the notation that you've likely seen for sums (e.g., $\displaystyle \sum_{i=1}^\infty i^2$).
+\end{remark}
+
+\begin{definition}
+We say that a collection of sets $\{A_{\alpha}\}_{\alpha\in\Delta}$ is \textbf{pairwise disjoint} if $A_{\alpha} \cap A_{\beta}=\emptyset$ whenever $\alpha\neq \beta$.
+\end{definition}
+
+\begin{definition}
+An \textbf{ordered pair} is an object of the form $(x,y)$. Two ordered pairs $(x,y)$ and $(a,b)$ are \textbf{equal} if $x=a$ and $y=b$. 
+\end{definition}
+
+\begin{definition}
+An \textbf{$n$-tuple} is an object of the form $(x_1, x_2,\ldots,x_n)$.  Each $x_i$ is referred to as the $i$th \textbf{component}.
+\end{definition}
+
+Note that an ordered pair is just a 2-tuple.
+
+\begin{definition}
+If $X$ and $Y$ are sets, the \textbf{Cartesian product} of $X$ and $Y$ is defined by
+\[
+X\times Y=\{(x,y): x\in X, y\in Y\}.
+\]
+That is, $X\times Y$ is the set of all ordered pairs where the first element is from $X$ and the second element is from $Y$.  The set $X\times X$ is sometimes denoted by $X^2$.  We similarly define the Cartesian product of $n$ sets, say $X_1, \ldots, X_n$, by
+\[
+\prod_{i=1}^{n} X_i=X_1\times \cdots \times X_n=\{(x_1,\ldots,x_n): \mbox{each } x_i\in X_i\}.
+\]
+\end{definition}
+
+\end{section}
+
+\begin{section}{Relations}
+
+\begin{definition}
+Let $X$ and $Y$ be sets. A \textbf{relation} from a set $X$ to a set $Y$ is a subset of $X \times Y$. A relation on $X$ is a subset of $X \times X$.  
+\end{definition}
+
+\begin{remark}
+Different notations for relations are used in different contexts.  When talking about relations in the abstract, we indicate that a pair $(a,b)$ is in the relation by some notation like $a\sim b$, which is read ``$a$ is related to $b$."
+\end{remark}
+
+\begin{remark}
+We can often represent relations using graphs or digraphs.  Given a finite set $X$ and a relation $\sim$ on $X$, a \textbf{digraph} (short for \emph{directed graph}) is a discrete graph having the members of $X$ as vertices and a directed edge from $x$ to $y$ iff $x\sim y$.
+\end{remark}
+
+\begin{example}
+Figure~\ref{fig:digraph} depicts a digraph that represents a relation $R$ given by
+\[
+R=\{(a,b),(a,c),(b,b),(b,c),(c,d),(c,e),(d,d),(d,a),(e,a)\}.
+\]
+
+\begin{figure}[h]
+\begin{center}
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
+                    semithick]
+  \tikzstyle{every state}=[]
+
+  \node[state] (A)                    {$a$};
+  \node[state]         (B) [above right of=A] {$b$};
+  \node[state]         (D) [below right of=A] {$d$};
+  \node[state]         (C) [below right of=B] {$c$};
+  \node[state]         (E) [below of=D]       {$e$};
+
+  \path (A) edge              node {} (B)
+            edge              node {} (C)
+        (B) edge [loop above] node {} (B)
+            edge              node {} (C)
+        (C) edge              node {} (D)
+            edge [bend left]  node {} (E)
+        (D) edge [loop below] node {} (D)
+            edge              node {} (A)
+        (E) edge [bend left]  node {} (A);
+\end{tikzpicture}
+\caption{An example of a digraph for a relation.}\label{fig:digraph}
+\end{center}
+\end{figure}
+
+\end{example}
+
+\begin{definition}
+Let $\sim$ be a relation on a set $A$.
+\begin{enumerate}
+\item $\sim$ is \textbf{reflexive} if for all $x\in A$, $x\sim x$ (every element is related to itself).
+\item $\sim$ is \textbf{symmetric} if for all $x,y\in A$, if $x\sim y$, then $y\sim x$.
+\item $\sim$ is \textbf{transitive} if for all $x,y,z\in A$, if $x\sim y$ and $y\sim z$, then $x\sim z$.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}
+Let $\sim$ be a relation on a set $A$.  Then $\sim$ is called an \textbf{equivalence relation} if $\sim$ is reflexive, symmetric, and transitive.
+\end{definition}
+
+\begin{definition}
+Let $\sim$ be a relation on a set $A$ (not necessarily an equivalence relation) and let $x\in A$.  Then we define the \textbf{set of relatives of $x$} via
+\[
+[x]=\{y\in A: x\sim y\}.
+\]
+Also, define
+\[
+\Omega_{\sim}=\{[x]:x\in A\}.
+\]
+Notice that $\Omega_{\sim}$ is a set of sets.  In particular, an element in $\Omega_{\sim}$ is a subset of $A$ (equivalently, an element of $\mathcal{P}(A)$).  Other common notations for $[x]$ include $\overline{x}$ and $R_x$.
+\end{definition}
+
+\begin{theorem}
+Suppose $\sim$ is an equivalence relation on a set $A$ and let $a,b\in A$.  Then $[a]=[b]$ iff $a\sim b$.
+\end{theorem}
+
+\begin{theorem}\label{thm:equiv yields partition}
+Suppose $\sim$ is an equivalence relation on a set $A$.  Then
+\begin{enumerate}
+\item $\bigcup_{x\in A}[x]=A$, and
+\item for all $x,y\in A$, either $[x]=[y]$ or $[x]\cap [y]=\emptyset$.
+\end{enumerate}
+\end{theorem}
+
+\begin{definition}
+In light of Theorem \ref{thm:equiv yields partition}, if $\sim$ is an equivalence relation on a set $A$, then we refer to each $[x]$ as the \textbf{equivalence class} of $x$.  In this case, $\Omega_{\sim}$ is the set of equivalence classes determined by $\sim$.
+\end{definition}
+
+\begin{remark}
+The upshot of Theorem \ref{thm:equiv yields partition} is that given an equivalence relation, every element lives in exactly one equivalence class.  We'll see in the next section of notes that we can run this in reverse.  That is, if we separate out the elements of a set so that every element is an element of exactly one subset (like the bins of my kid's toys), then this determines an equivalence relation.  More on this later.
+\end{remark}
+
+\end{section}
+
+
+\begin{section}{Partitions}
+
+\begin{definition}
+A collection $\Omega$ of nonempty subsets of a set $A$ is said to be a \textbf{partition} of $A$ if the elements of $\Omega$ satisfy:
+\begin{enumerate}
+\item Given $X,Y\in\Omega$, either $X=Y$ or $X\cap Y=\emptyset$ (We can't have both at the same time. Do you see why?), and
+\item $\displaystyle \bigcup_{X\in\Omega}X=A$.
+\end{enumerate}
+That is, the elements of $\Omega$ are pairwise disjoint and their union is all of $A$.
+\end{definition}
+
+The next theorem spells out half of the close connection between partitions and equivalence relations.  Hopefully you were anticipating this.
+
+\begin{theorem}
+Let $\sim$ be an equivalence relation on a set $A$.  Then $\Omega_{\sim}$ forms a partition of $A$.
+\end{theorem}
+
+It turns out that we can reverse the situation, as well.  That is, given a partition, we can form an equivalence relation.  Before proving this, we need a definition.
+
+\begin{definition}
+Let $A$ be a set and $\Omega$ any collection of subsets from $\mathcal{P}(A)$ (not necessarily a partition).  If $a,b\in A$, we will define $a$ to be $\Omega$-related to $b$ if there exists an $R\in \Omega$ that contains both $a$ and $b$.  This relation is denoted by $\sim_{\Omega}$ and is called the \textbf{relation on $A$ associated to $\Omega$}.
+\end{definition}
+
+\begin{remark}
+This definition may look more awkward than the actual underlying concept.  The idea is that if two elements are in the same subset, then they are related.  For example, when my kids pick up all their toys and put them in the appropriate toy bins, we say that two toys are related if they are in the same bin.
+\end{remark}
+
+\begin{remark}
+Notice that we have two notations that looks similar: $\Omega_{\sim}$ and $\sim_{\Omega}$.  
+\begin{enumerate}
+\item $\Omega_{\sim}$ is the collection of subsets of $A$ determined by the relation $\sim$.
+\item $\sim_{\Omega}$ is the relation determined by the collection of subsets $\Omega$.
+\end{enumerate}
+\end{remark}
+
+\begin{theorem}
+Let $A$ be a set and let $\Omega$ be a partition of $A$.  Then $\sim_{\Omega}$ is an equivalence relation.
+\end{theorem}
+
+\begin{remark}
+The previous theorem says that every partition determines a natural equivalence relation.  Namely, two elements are related if they are in the same equivalence class.
+\end{remark}
+
+\end{section}
+
+\begin{section}{Functions}
+
+\begin{definition}
+Let $X$ and $Y$ be two nonempty sets.  A \textbf{function} from set $X$ to set $Y$, denoted $f:X\to Y$, is a relation (i.e., subset of $X\times Y$) such that:
+
+\begin{enumerate}\label{def:function}
+\item For each $x\in X$, there exists $y\in Y$ such that $(x,y)\in f$, and
+\item If $(x,y_{1}), (x,y_{2}) \in f$, then $y_{1}=y_{2}$.
+\end{enumerate}
+Note that if $(x,y)\in f$, we usually write $y=f(x)$ and say that ``$f$ maps $x$ to $y$.''
+\end{definition}
+
+\begin{remark}
+Item 1 of Definition \ref{def:function} says that every element of $X$ appears in the first coordinate of an ordered pair in the relation.  Item 2 says that each element of $X$ only appears once in the first coordinate of an ordered pair in the relation.  It is important to note that there are no restrictions on whether an element of $Y$ ever appears in the second coordinate.  Furthermore, if an element of $B$ appears in the second coordinate, it may appear again in a different ordered pair.
+\end{remark}
+
+\begin{definition}
+The set $X$ from Definition \ref{def:function} is called the \textbf{domain} of $f$ and is denoted by $\dom(f)$.  The set $Y$ is called the \textbf{codomain} of $f$ and is denoted by $\codom(f)$.  The set
+\[
+\range(f)=\{y\in Y: \mbox{there exists }x\mbox{ such that } y=f(x)\}
+\]
+is called the \textbf{range} of $f$ or the \textbf{image of $X$} under $f$.
+\end{definition}
+
+\begin{remark}
+It follows immediately from the definition that $\range(f)\subseteq \codom(f)$.  However, it is possible that the range of $f$ is strictly smaller.
+\end{remark}
+
+\begin{remark}
+If $f$ is a function and $(x,y)\in f$, then we may refer to $x$ as the \textbf{input} of $f$ and $y$ as the \textbf{output} of $f$.
+\end{remark}
+
+\begin{definition}
+Two functions are equal if they have the same domain, same codomain, and the same set of ordered pairs in the relation.
+\end{definition}
+
+\begin{remark}
+If two functions are defined by the same algebraic formula, but have different domains, then they are \emph{not} equal.  For example, the function $f:\mathbb{R}\to \mathbb{R}$ defined via $f(x)=x^{2}$ is not equal to the function $g:\mathbb{N}\to\mathbb{N}$ defined via $g(x)=x^{2}$.
+\end{remark}
+
+\begin{theorem}
+If $f:X\to Y$ and $g:X\to Y$ are functions, then $f=g$ iff $f(x)=g(x)$ for all $x\in X$.
+\end{theorem}
+
+\begin{definition}
+Let $f:X\to Y$ be a function.
+\begin{enumerate}
+\item The function $f$ is said to be \textbf{one-to-one} (or \textbf{injective}) if for all $y\in \range(f)$, there is a unique $x\in X$ such that $y=f(x)$.
+\item The function $f$ is said to be \textbf{onto} (or \textbf{surjective}) if for all $y\in Y$, there exists $x\in X$ such that $y=f(x)$.
+\item If $f$ is both one-to-one and onto, we say that $f$ is a \textbf{one-to-one correspondence} (or a \textbf{bijection}).
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}
+Let $f:X\to Y$ be a function.  Then $f$ is one-to-one iff for all $x_{1}, x_{2}\in X$, if $f(x_{1})=f(x_{2})$, then $x_{1}=x_{2}$.
+\end{theorem}
+
+\begin{remark}
+The previous theorem gives a technique for proving that a given function is one-to-one.  Start by assuming that $f(x_{1})=f(x_{2})$ and then work to show that $x_{1}=x_{2}$.
+\end{remark}
+
+\begin{remark}
+To show that a given function is onto, you should start with an arbitrary $y\in \range(f)$ and then work to show that there exists $x\in X$ such that $y=f(x)$.
+\end{remark}
+
+\begin{definition}
+If $f:X\to Y$ and $g:Y\to Z$ are functions, then a new function $g\circ f:X\to Z$ can be defined by $(g\circ f)(x)=g(f(x))$ for all $x\in\dom(f)$.
+\end{definition}
+
+\begin{remark}
+It is important to notice that the function on the right is the one that ``goes first.''
+\end{remark}
+
+\begin{theorem}
+If $f:X\to Y$ and $g:Y\to Z$ are both functions that are onto, then $g\circ f$ is also onto.
+\end{theorem}
+
+\begin{theorem}
+If $f:X\to Y$ and $g:Y\to Z$ are both functions that are one-to-one, then $g\circ f$ is also one-to-one.
+\end{theorem}
+
+\begin{corollary}
+If $f:X\to Y$ and $g:Y\to Z$ are both one-to-one correspondences, then $g\circ f$ is also a one-to-one correspondence.
+\end{corollary}
+
+\begin{definition}
+Let $f:X\to Y$ be a function.  The relation $f^{-1}$, called \textbf{$f$ inverse}, is defined via
+\[
+f^{-1}=\{(f(x),x):x\in X\}.
+\]
+\end{definition}
+
+\begin{remark}
+Notice that we called $f^{-1}$ a relation and not a function.  In some circumstances $f^{-1}$ will be a function and sometimes it won't be.
+\end{remark}
+
+\begin{theorem}
+Let $f:X\to Y$ be a function.  Then $f^{-1}$ is a function iff $f$ is $f$ is 1-1.
+\end{theorem}
+
+\begin{theorem}\label{thm:comp of inverses}
+Let $f:X\to Y$ be a function and suppose that $f^{-1}$ is a function.  Then
+\begin{enumerate}
+\item $(f\circ f^{-1})(x)=x$ for all $x\in Y$, and
+\item $(f^{-1}\circ f)(x)=x$ for all $x\in X$.
+\end{enumerate}
+(You only need to prove one of these statements; the other is similar.)
+\end{theorem}
+
+\begin{theorem}\label{thm:unique inverse}
+Let $f:X\to Y$ and $g:Y\to X$ be functions such that $f$ is a one-to-one correspondence.  If $(f\circ g)(x)=x$ for all $x\in Y$ and $(g\circ f)(x)=x$ for all $x\in X$, then $g=f^{-1}$.
+\end{theorem}
+
+\begin{remark}
+The upshot of the previous two theorems is that if $f^{-1}$ is a function, then it is the only one satisfying the two-sided ``undoing'' property exhibited in Theorem \ref{thm:comp of inverses}.
+\end{remark}
+
+The next theorem can be considered to be a converse of Theorem \ref{thm:unique inverse}.
+
+\begin{theorem}
+Let $f:X\to Y$ and $g:Y\to X$ be functions satisfying $(f\circ g)(x)=x$ for all $x\in Y$ and $(g\circ f)(x)=x$ for all $x\in X$.  Then $f$ is a one-to-one correspondence.
+\end{theorem}
+
+\begin{theorem}
+Let $f:X\to Y$ and $g:Y\to Z$ be functions.  If $f$ and $g$ are both one-to-one correspondences, then $(g\circ f)^{-1}=f^{-1}\circ g^{-1}$.
+\end{theorem}
+
+\end{section}
+
+\begin{section}{Induction}
+
+Induction is a technique for proving statements of the form ``For all $n\in\mathbb{N}$, $P(n)$,'' where $P(n)$ is some predicate involving $n$.  Notice that this is a statement about natural numbers and not some other set. 
+
+\begin{axiom}[Axiom of Induction]
+Let $S\subseteq \mathbb{N}$ such that both
+\begin{enumerate}
+\item $1\in S$, and
+\item if $k\in S$, then $k+1\in S$.
+\end{enumerate}
+Then $S=\mathbb{N}$.
+\end{axiom}
+
+\begin{remark}
+Recall that an axiom is a basic mathematical assumption.  That is, we are assuming that the Axiom of Induction is true, which I'm hoping that you can agree is a pretty reasonable assumption.  I like to think of the first hypothesis of the Axiom of Induction as saying that we have a first rung of a ladder.  The second hypothesis says that if we have some random rung, we can always get to the next rung.  Taken together, this says that we can get from the first rung to the second, from the second to the third, and so on.  Again, we are assuming that the ``and so on'' works as expected here.
+\end{remark}
+
+\begin{theorem}[Principle of Mathematical Induction]
+Let $P(1), P(2), P(3), \ldots$ be a sequence of statements, one for each natural number.\footnote{In this case, you should think of $P(n)$ as a predicate, where $P(1)$ is the statement that corresponds to substituting in the value 1 for $n$.} Assume
+\begin{enumerate}
+\item $P(1)$ is true, and
+\item If $P(k)$ is true, then $P(k+1)$ is true.
+\end{enumerate}
+Then $P(n)$ is true for all $n\in\mathbb{N}$.\footnote{\emph{Hint:} Let $S=\{k\in \mathbb{N}: P_k \text{ is true}\}$ and use the Axiom of Induction.  The set $S$ is sometimes called the \emph{truth set}.  Your job is to show that the truth set is all of $\mathbb{N}$.}
+\end{theorem}
+
+\begin{remark}
+The Principal of Mathematical Induction (PMI) provides us with a process for proving statements of the form: ``For all $n\in\mathbb{N}$, $P(n)$,'' where $P(n)$ is some predicate involving $n$.  Hypothesis (1) above is called the \textbf{base step} while (2) is called the \textbf{inductive step}.
+\end{remark} 
+
+\begin{skeleton}[Proof by induction for $(\forall n\in\mathbb{N})P(n)$]
+Here is what the general structure for a proof by induction looks like.  Remarks are in parentheses.
+
+\bigskip
+
+\begin{textbox}
+\begin{proof}
+We proceed by induction.
+\begin{enumerate}
+\item[(i)] Base step: (Verify that $P(1)$ is true.  This often, but not always, amounts to plugging $n=1$ into two sides of some claimed equation and verifying that both sides are actually equal.  Don't assume that they are equal!)
+
+\item[(ii)] Inductive step:  (Your goal is to prove that ``For all $k\in\mathbb{N}$, if $P(k)$ is true, then $P(k+1)$ is true.'')  Let $k\in\mathbb{N}$ and assume that $P(k)$ is true.  (Now, do some stuff to show that $P(k+1)$ is true.)  Therefore, $P(k+1)$ is true.
+\end{enumerate}
+Thus, by the PMI, $P(n)$ is true for all $n\in\mathbb{N}$.
+\end{proof}
+\end{textbox}
+
+\end{skeleton}
+
+\end{section}

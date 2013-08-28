@@ -1,6 +1,8 @@
 \documentclass[12pt,oneside]{book}
 
-\usepackage{subfiles}
+%\usepackage{subfiles}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
 \usepackage[notextcomp]{kpfonts} 
 %\usepackage{kmath,kerkis}
 \usepackage{graphicx}
@@ -11,7 +13,6 @@
 \usepackage{stmaryrd}
 \usepackage{amsthm}
 \usepackage[margin=1in]{geometry}
-\usepackage[parfill]{parskip}
 \usepackage[hang,flushmargin,symbol*]{footmisc}
 \usepackage{color}
 \definecolor{darkblue}{rgb}{0, 0, .6}
@@ -37,7 +38,8 @@
 \cfoot{}
 \rfoot{}
 
-\newtheorem{theorem}{Theorem}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[chapter]
 \newtheorem{acknowledgement}[theorem]{Acknowledgement}
 \newtheorem{algorithm}[theorem]{Algorithm}
 \newtheorem{axiom}[theorem]{Axiom}
@@ -59,7 +61,15 @@
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{solution}[theorem]{Solution}
 \newtheorem{summary}[theorem]{Summary}
+\newtheorem{skeleton}[theorem]{Skeleton Proof}
 \newtheorem{activity}[theorem]{Activity}
+
+\newsavebox{\savepar}
+\newenvironment{textbox}{\noindent\begin{lrbox}{\savepar}\begin{minipage}[c]{.98\textwidth}}{\end{minipage}\end{lrbox}\fcolorbox{black}{white}{\usebox{\savepar}}}
+
+\newcommand{\dom}{\operatorname{Dom}}
+\newcommand{\codom}{\operatorname{Codom}}
+\newcommand{\range}{\operatorname{Rng}}
 
 \begin{document}
 
@@ -87,18 +97,25 @@ or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisc
 \includegraphics{by-sa.png}
 \end{center}
 
+\noindent Here is a partial list of people that I need to thank for supplying content, advice, and feedback.
+\begin{itemize}
+\item Ben Woodruff
+\item Josh Wiscons
+\item Dave Richeson
+\item Nathan Carter
+\item \emph{The Elements of Style for Proofs} (see Appendix~\ref{appendix:elements_of_style}) is a blending of work by \href{http://www.cord.edu/faculty/ahendric/}{Anders Hendrickson} and Dave Richeson.
+\end{itemize}
+
 \tableofcontents
 \thispagestyle{empty}
 
-\subfile{Acknowledgements}
-
 %\include{Acknowledgements}
-%\include{Introduction}
-%%\include{Prerequisites}
-%\include{IntuitiveDefinitionGroups}
-%%Appendices
-%\include{ElementsOfStyle}
-%\include{FancyMathematicalTerms}
-%\include{Definitions}
+\include{Introduction}
+\include{Prerequisites}
+\include{IntuitiveDefinitionGroups}
+%Appendices
+\include{ElementsOfStyle}
+\include{FancyMathematicalTerms}
+\include{Definitions}
 
 \end{document}
