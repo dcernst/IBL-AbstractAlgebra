@@ -2,7 +2,8 @@
 
 %\usepackage{subfiles}
 \usepackage{tikz}
-\usetikzlibrary{arrows,automata}
+\usetikzlibrary{arrows,automata,positioning}
+\usepackage{rotating}
 \usepackage[notextcomp]{kpfonts} 
 %\usepackage{kmath,kerkis}
 \usepackage{graphicx}
@@ -64,6 +65,7 @@
 \newtheorem{summary}[theorem]{Summary}
 \newtheorem{skeleton}[theorem]{Skeleton Proof}
 \newtheorem{activity}[theorem]{Activity}
+\newtheorem{intuitivedef}[theorem]{Intuitive Definition}
 
 \newsavebox{\savepar}
 \newenvironment{textbox}{\noindent\begin{lrbox}{\savepar}\begin{minipage}[c]{.98\textwidth}}{\end{minipage}\end{lrbox}\fcolorbox{black}{white}{\usebox{\savepar}}}
