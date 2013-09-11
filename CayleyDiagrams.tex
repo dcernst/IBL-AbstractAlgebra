@@ -93,3 +93,19 @@ Consider the Cayley diagram for $\Spin_{1\times 2}$, but remove all the red arro
 \begin{exercise}
 Repeat the previous exercise, but this time remove only the green arrows.  What about the blue arrows?
 \end{exercise}
+
+In general, a Cayley diagram for a group $G$ is a digraph having the set of actions of $G$ as its vertices and the directed edges (i.e., arrows) correspond to the generators of the group.  Recall that the generators are a potentially smaller set of actions from which you can derive all the actions of the group.  The way you can derive new actions is by forming words in the generators.  Rule 2 guarantees that we every action is reversible, so we also allow the use of a generator's reversal in our words.  
+
+The arrows follow the direction of the action that it corresponds to. If a generator is its own reversal, then the arrows corresponding to that generator are two-way arrows.  We need a way to tell our arrow types apart.  One way to do this is to color them.  Another way would be to label the arrows by their corresponding generator.
+
+Remember that in any group there is always a do-nothing action.  One of the vertices should be labeled as the do-nothing action.  Each vertex is labeled with a word that corresponds to the sequence of arrows that we can follow from the do-nothing action to the particular vertex.  Since there are possibly many sequences of arrows that could take us from the do-nothing vertex to another, each vertex could be labeled with many different words.
+
+In the Cayley diagram for $\Spin_{1\times 2}$, our vertices were fancy pictures of scrambled $1\times 2$ Spinpossible boards.  This wasn't necessary, but is convenient and appealing for aesthetic reasons.  Also, we never actually labeled the vertices with the corresponding words.  However, these are easy to obtain by following the sequence of arrows.  Of course, in order to do this, we need to know that the vertex that is the solved board corresponds to the do-nothing action.
+
+\begin{exercise}
+Assume $G$ is a group and $S$ is a set of generators for $G$. Suppose we draw the Cayley diagram for $G$ using the actions of $S$ as our arrows and we color the arrows according to which generator they correspond to.  Assume that each vertex is labeled with a word.  If the arrows are not labeled, how can you tell which generator they correspond to?
+\end{exercise}
+
+\begin{exercise}
+Assume $G$ is a group.  Suppose that $S$ and $S'$ are two different sets that generate $G$.  If you draw the Cayley diagram for $G$ using $S$ and then draw the Cayley diagram for $G$ using $S'$, what features of the two graphs are the same and which are potentially different?
+\end{exercise}
