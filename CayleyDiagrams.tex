@@ -90,7 +90,7 @@ Using the Cayley diagram for $\Spin_{1\times 2}$, find three distinct words that
 Consider the Cayley diagram for $\Spin_{1\times 2}$, but remove all the red arrows.  This corresponds to forbidding the spin that rotates the full $1\times 2$ board.  Can we obtain all of the scrambled boards from the solved board using only blue and green arrows?
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\label{exer:minimal_Cayley_Spin1by2}
 Repeat the previous exercise, but this time remove only the green arrows.  What about the blue arrows?
 \end{exercise}
 
@@ -104,11 +104,11 @@ In the Cayley diagram for $\Spin_{1\times 2}$, our vertices were fancy pictures 
 
 The next two exercises may be too abstract for you at the moment.  Give them a shot and if you can't do them now, come back to them after you've constructed a few Cayley diagrams.
 
-\begin{exercise}
-Assume $G$ is a group and $S$ is a set of generators for $G$. Suppose we draw the Cayley diagram for $G$ using the actions of $S$ as our arrows and we color the arrows according to which generator they correspond to.  Assume that each vertex is labeled with a word.  If the arrows are not labeled, how can you tell which generator they correspond to?
+\begin{exercise}\label{exer:understanding_arrows}
+Assume $G$ is a group of actions and $S$ is a set of generators for $G$. Suppose we draw the Cayley diagram for $G$ using the actions of $S$ as our arrows and we color the arrows according to which generator they correspond to.  Assume that each vertex is labeled with a word in the generators or their reversals.  If the arrows are not labeled, how can you tell which generator they correspond to?
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\label{exer:changing_generators_for_Cayley_diagram}
 Assume $G$ is a group.  Suppose that $S$ and $S'$ are two different sets that generate $G$.  If you draw the Cayley diagram for $G$ using $S$ and then draw the Cayley diagram for $G$ using $S'$, what features of the two graphs are the same and which are potentially different?
 \end{exercise}
 
@@ -124,7 +124,7 @@ Consider the group consisting of the actions that rearranges two coins, say a pe
 \end{enumerate}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\label{exer:introducing_R4}
 Consider a square puzzle piece that fits perfectly into a square hole.  Let $R_4$ be the group of actions consisting of rotating the square by an appropriate amount so that it fits back into the hole.
 \begin{enumerate}
 \item[(a)] Write down all possible actions using verbal descriptions.  Are there lots of ways to describe each of your actions?
@@ -134,7 +134,7 @@ Consider a square puzzle piece that fits perfectly into a square hole.  Let $R_4
 \end{enumerate}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\label{exer:introducing_D3}
 Consider a puzzle piece like the one in the previous exercise, except this time, let's assume that the piece and the hole are an equilateral triangle.  Let $D_3$ be the group of actions that allow the triangle to fit back in the hole.  In addition to rotations, we will also allow the triangle to be flipped over.  To give us a common starting point, let's assume the triangle and hole are positioned so that a base of the triangle is down.  Also, let's label both the points of the hole and the points of the triangle with the numbers 1, 2, and 3.  Assume the labeling on the hole starts with 1 on top and then continues around in the obvious way going clockwise.  Label the puzzle piece in the same way and let's assume that the triangle starts in the position that has the labels matching (i.e., the point of the triangle labeled 1 is in the corner of the hole labeled 1, etc.).
 \begin{enumerate}
 \item[(a)] How many actions are there?  Can you describe them?  One way to do this would be to indicate where the labels of the triangle are in the hole.
@@ -147,6 +147,63 @@ Consider a puzzle piece like the one in the previous exercise, except this time,
 \end{enumerate}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\label{exer:introducing_D4}
 Repeat the above exercise, but do it for a square instead of a triangle.  You'll need to make some modifications to $r$ and $s$.  The resulting group is called $D_4$.
 \end{exercise}
+
+\begin{exercise}
+Consider the group from Exercise~\ref{exer:introducing_Z}.  Using ``add 1" (or simply 1) as the generator\footnote{Recall that Rule 2 guarantees that every action is reversible.  So, if we have ``add 1", we also have ``add $-1$."}, describe what the Cayley diagram for this group would look like.  Draw a chunk of the Cayley diagram.  Can you think of another generating set?  What will the Cayley diagram look like in this case?
+\end{exercise}
+
+Now that you've constructed a few examples for yourself, you should have a pretty healthy understanding of Cayley diagrams.  There are still lots of properties to discover and opportunities to gain more intuition.  If you weren't able to complete exercises~\ref{exer:introducing_Z} and \ref{exer:changing_generators_for_Cayley_diagram}, go give them another shot.
+
+By the way, Cayley diagrams are named after their inventor Arthur Cayley, a nineteenth century British mathematician.  We'll see his name pop up a couple more times in the course.  
+
+Not only are Cayley diagrams visually pleasing, but they provide a map for the group in question.  That is, they provide a method for navigating the group.  Following sequences of arrows tells us how to do or undo an action.  However, each Cayley diagram very much depends on the set of generators that are chosen to generate the group.  If we change the generating set, we may end up with a very different looking Cayley diagram.  This was the point of Exercise~\ref{exer:changing_generators_for_Cayley_diagram}.  It's important to drive this point home, so let's construct an explicit example.
+
+\begin{exercise}\label{exer:alternate_D3}
+In Exercise~\ref{exer:introducing_D3}, you constructed the Cayley diagram for the group called $D_3$.  In this case, you used the generators $r$ and $s$.  Now, let $s'$ be the action that reflection that swaps the corners of the triangle that are in the corners of the hole labeled by 1 and 2.  
+\begin{enumerate}
+\item[(a)] Justify that $s$ and $s'$ generate all of $D_3$.  \emph{Hint:} Is it enough to generate $r$ with $s$ and $s'$?
+\item[(b)] Construct the Cayley diagram for $D_3$ using $s$ and $s'$ as your generators.  Did you get a different diagram than you did in Exercise~\ref{exer:introducing_D3}?
+\end{enumerate}
+\end{exercise}
+
+Let's do a few more exercises involving Cayley diagrams.
+
+\begin{exercise}
+Consider the Cayley diagram give below.
+%\begin{center}
+%\includegraphics{rotation6.png}
+%\end{center}
+Describe a group of actions and a set of generators that would yield this Cayley diagram.
+\end{exercise}
+
+We haven't explicitly defined what a Cayley diagram actually is yet.  So, it's not completely obvious that the diagram in the previous exercise is actually a diagram for a group.  But rest assured; this Cayley diagram truly does correspond to a group.  It's important to point out that we can't just throw together a digraph willy nilly and expect it to be a Cayley diagram.
+
+\begin{exercise}
+Consider the following diagram.
+%\begin{center}
+%\includegraphics{nonCayley.png}
+%\end{center}
+Explain why the diagram cannot possibly be a Cayley diagram for a group.  How many reasons can you come up with?
+\end{exercise}
+
+\begin{exercise}\label{exer:properties_Cayley}
+Let $G$ be a group of and $S$ is a set of generators for $G$. Suppose we draw the Cayley diagram for $G$ using the actions of $S$ as our arrows and we color the arrows according to which generator they correspond to.  
+\begin{enumerate}
+\item[(a)] Explain why there must be a sequence of arrows (forwards or backwards) from the vertex labeled $e$ to every other vertex.  Do you think this is true for every pair of vertices?
+\item[(b)] Recall that $G$ must satisfy Rule 1.  What restriction does this put on our Cayley diagram?
+\item[(c)] Since $G$ must satisfy Rule 3, what constraints does this place on the Cayley diagram?  Try to draw a diagram that is almost a Cayley diagram but violates Rule 3.
+\item[(d)] Since $G$ must satisfy Rule 2, what does this imply about the Cayley diagram?  Can you construct a diagram that is almost a Cayley diagram but violates Rule 2?  To do this, you may need to violate another one of our rules.
+\item[(e)] What property does Rule 4 force the Cayley diagram to have?  Can you construct a diagram that is almost a Cayley diagram but violates Rule 4? 
+\end{enumerate}
+\end{exercise}
+
+In the previous exercise, you discovered several properties embodied by all Cayley diagrams. Unfortunately, not every diagram having these properties will yield a Cayley diagram.  For example, the diagram below satisfies the properties you discovered in Exercise~\ref{exer:properties_Cayley}, but it turns out that this cannot be a diagram for any group.
+
+%\begin{center}
+%\includegraphics{nonregular.png}
+%\end{center}
+
+This fact exposes one of the weaknesses of our intuitive definition of a group and is one of the many reasons we will soon require a more rigorous definition.

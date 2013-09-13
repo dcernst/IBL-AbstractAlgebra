@@ -1,0 +1,31 @@
+\chapter{An Introduction to Subgroups and Isomorphisms}
+\label{chapter:intro_subgroups_isomorphisms}
+\thispagestyle{empty}
+
+In this chapter, we'll continue to utilize our intuitive definition of a group.  That is, a group $G$ is a set of actions that satisfies the following rules.
+
+\begin{description}
+\item[Rule 1.] There is a predefined list of actions that never changes.
+\item[Rule 2.] Every action is reversible.
+\item[Rule 3.] Every action is deterministic.
+\item[Rule 4.] Any sequence of consecutive actions is also an action.
+\end{description}
+
+In the previous chapter, we constructed lots of Cayley diagrams for various groups.  To construct a Cayley diagram for a group $G$, we need to first identify a set of generators, say $S$.  Recall that our choice of generators is important as changing the generators can result in a different Cayley diagram.  
+
+In the Cayley diagram for $G$ using $S$, all the actions of $G$ are represented by the vertices of the graph.  Each vertex corresponds to a unique action.  This does not imply that there is a unique way to obtain a given action from the generators.  Each of the generators determines an arrow type in the diagram.  One way to distinguish the different arrow types is by using different colors.  An arrow of a particular color always represents the same generator.
+
+One of the vertices in the diagram is labeled by the do-nothing action, often denoted by $e$.  Each of the other vertices are labeled by words that correspond to following arrows (forwards or backwards) from $e$ to a given vertex.  There may be many ways to do this as each sequence of arrows corresponds to a unique word.  So, a vertex could be potentially labeled by many words.  However, we'll often just pick one.  Also, one potentially confusing item is that we read our words from right to left.  That is, the first arrow we follow out of $e$ is the rightmost generator in the word.
+
+\begin{exercise}
+Recall the definition of ``subset."  What do you think ``subgroup" means?  Try to come up with a potential definition.  Try not to read any further before doing this.
+\end{exercise}
+
+Before continuing, gather up the following Cayley diagrams:
+\begin{itemize}
+\item $\Spin_{1\times 2}$. There are 3 of these.  I drew one for you in Chapter~\ref{chapter:cayley_diagrams} and you discovered two more in Exercise~\ref{exer:minimal_Cayley_Spin1by2}.
+\item $R_4$.  See Exercise~\ref{exer:introducing_R4}.
+\item $D_3$.  There are two of these.  See exercises \ref{exer:introducing_D3} and \ref{exer:alternate_D3}.
+\item $D_4$.  See Exercise~\ref{exer:introducing_D4}.
+\end{itemize}
+
