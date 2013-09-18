@@ -197,16 +197,22 @@ By now you've probably seen enough examples of Cayley diagrams to witness some p
 
 \noindent Recall that $S_2$ is the group that acts on two coins by swapping their positions.  In this case, $s$ is the action that swaps the left and right coins and $e$ is the do-nothing action.  
 
-If you look at any of the versions of the Cayley diagrams for $\Spin_{1\times 2}$, $D_3$, $D_4$, and $Q_8$ that we've seen, it is easy to identify the portions that ``look like" $S_2$.  For example, if you isolate the vertices labeled $1$ and $-1$ and the two-way arrow between them in the Cayley diagram above for $Q_8$, this looks just like the Cayley diagram for $S_2$.  The clones of the subgroup $\langle -1\rangle=\{1,-1\}$ in $Q_8$ look like $S_2$, as well, but they do not contain the do-nothing action, so they aren't as nice a match.  If we match up the two do-nothing actions, namely $e$ in $S_2$ and $1$ in $Q_8$, then $s$ would pair up with $-1$.
+If you look at any of the versions of the Cayley diagrams for $\Spin_{1\times 2}$, $D_3$, $D_4$, and $Q_8$ that we've seen, it is easy to identify the portions that ``look like" $S_2$.  For example, if you isolate the Cayley diagram for the subgroup $\langle -1\rangle=\{1,-1\}$ in $Q_8$, we see that it looks just like the Cayley diagram for $S_2$, except the labels are not identical.  The clones of the subgroup $\langle -1\rangle=\{1,-1\}$ in $Q_8$ look like $S_2$, as well, but they do not contain the do-nothing action.  
 
-In this case, we say that $S_2$ and the subgroup $\langle -1\rangle$ of $Q_8$ are \textbf{isomorphic} under the correspondence $e\leftrightarrow 1$ and $s\leftrightarrow -1$.  This one-to-one correspondence between the two groups is called an \textbf{isomorphism}.  What this means is that these two groups have the same structure and characteristics.  Or, in other words, these two groups essentially do the ``same kind" of thing.  Clearly, the two do-nothing actions behave the same way.  Also, $s$ and $-1$ both have the property that doing the action twice results in having done nothing (i.e., each element is its own reverse).  Since there are only two elements, there isn't anything else to check.  In groups with more elements, things can get much more complicated.  
+The one thing that is different about the Cayley diagram for $S_2$ and the Cayley diagram for $\langle -1\rangle$ is that the labels are different.  If set the Cayley diagram for $S_2$ on top of the Cayley diagram for $\langle -1\rangle$ such that the do-nothing actions match up, then $s$ and $-1$ would correspond to each other.  In other words, the two Cayley diagrams are identical up to relabeling the vertices.
 
-It is important to point out that $S_2$ and $\langle -1\rangle$ (in $Q_8$) are not equal.  But in some sense they behave in the same way.
+In this case, we say that $S_2$ and the subgroup $\langle -1\rangle$ of $Q_8$ are \textbf{isomorphic} under the correspondence $e\leftrightarrow 1$ and $s\leftrightarrow -1$.  This one-to-one correspondence between the two groups is called an \textbf{isomorphism}.  
 
-If you look at the original Cayley diagram for $\Spin_{1\times 2}$ (with generators $s, t_1, t_2$), we can see three subgroups that look like $S_2$; namely $\langle s\rangle$, $\langle t_1\rangle$, and $\langle t_2\rangle$.  Each of these three subgroups is isomorphic to $S_2$.  There is one serious potential for confusion here.  Notice that there is an $s$ in $S_2$ and an $s$ in $\Spin_{1\times 2}$.  Despite having identical names, these are not the same element.  Since we only have 26 letters in our alphabet this sort of thing is unavoidable.  Under the isomorphism between $S_2$ and the subgroup $\langle s\rangle$ in $\Spin_{1\times 2}$, the two elements with the same name match up.  That is, these two elements are the ones in each group with the same behavior.
+What this means is that these two groups have the same structure and characteristics.  Or, in other words, these two groups essentially do the ``same kind" of thing.  Clearly, the two do-nothing actions behave the same way.  Also, $s$ and $-1$ both have the property that doing the action twice results in having done nothing (i.e., each element is its own reverse).  Since there are only two elements, there isn't anything else to check.  In groups with more elements, things can get much more complicated.  
+
+It is important to point out that $S_2$ and $\langle -1\rangle$ (in $Q_8$) are not equal.  But they have the same structure.  Identifying when to two groups have the same structure (i.e., isomorphic) is an important pursuit in group theory.
+
+If you look at the original Cayley diagram for $\Spin_{1\times 2}$ (with generators $s, t_1, t_2$), we can see three subgroups that look like $S_2$; namely $\langle s\rangle$, $\langle t_1\rangle$, and $\langle t_2\rangle$.  Each of these three subgroups is isomorphic to $S_2$.  
+
+There is one serious potential for confusion here.  Notice that there is an $s$ in $S_2$ and an $s$ in $\Spin_{1\times 2}$.  Despite having identical names, they are not the same element.  Since we only have 26 letters in our alphabet this sort of thing is unavoidable.  Under the isomorphism between $S_2$ and the subgroup $\langle s\rangle$ in $\Spin_{1\times 2}$, the two elements with the same name match up.  That is, these two elements are the ones in each group with the same behavior.
 
 \begin{exercise}
-Can you find any other subgroups or groups that are isomorphic to $S_2$.
+Can you find any other subgroups or groups that are isomorphic to $S_2$?
 \end{exercise}
 
 Let's write down an official definition of isomorphic.
@@ -215,9 +221,11 @@ Let's write down an official definition of isomorphic.
 Let $G$ and $G$ be two groups.  We say that $G_1$ and $G_2$ are \textbf{isomorphic} if there exist generating sets $S$ and $S'$ for $G$ and $G'$, respectively, such that the corresponding Cayley diagrams are identical where we ignore the labels on the vertices and recolor the edges if necessary.  In this case, we write $G\cong G'$.  Otherwise, we say that $G$ and $G'$ are not isomorphic.  If $G$ and $G'$ are isomorphic, then the one-to-one correspondence determined by matching up the corresponding generators and respecting arrow paths is called an \textbf{isomorphism}.
 \end{definition}
 
-The last sentence in the definition above might be a bit much to handle at the moment, but as we construct more examples, the concept should become clear.  
+The last sentence in the definition above might be a bit much to handle at the moment, but as we construct more examples, the concept should become clear.  The general idea is to take to to identical Cayley diagrams (ignoring labels) for $G$ and $G'$ and then set one on top of the other so that the vertices and arrows of the same color match up.  This should be done so that the do-nothing actions correspond to each other.  Then it becomes clear which actions in $G$ correspond to which actions in $G'$.  There might be many ways to do this.
 
-Consider the group $R_4$ with generator $r$ (rotation by $90^\circ$ clockwise).  Now, take a look at the Cayley diagram for $Q_8$ with generators $i, j, -1$.  It should be easy to convince yourself that $R_4$ is isomorphic to both $\langle i\rangle=\{1,i,-i,-1\}$ and $\langle j\rangle=\{1,j,-j,-1\}$.  Let's just focus on $\langle i\rangle$.  How do $R_4$ and $\langle i\rangle$ match up?  We want to pair elements in each group with an element in the other group that has the same behavior.  Clearly, $e$ and $1$ match up since these are the two do-nothing actions.  Also, the reason why we noticed these two groups were isomorphic is because their Cayley diagrams looked the same.  Since each Cayley diagram only had one arrow type determined by $r$ and $i$, we should pair these two elements.  Now, following the arrows around the diagram, we see that $r^2$ must pair with $i^2=-1$ and $r^3$ corresponds to $i^3=-i$.  In summary, the isomorphism between $R_4$ and $\langle i\rangle$ (in $Q_8$) is given by $e\leftrightarrow 1$, $r\leftrightarrow r$, $r^2\leftrightarrow -1$, and $r^3\leftrightarrow -i$.  You should take a moment to convince yourself that the elements that correspond to each other really do behave in similar ways.
+Consider the group $R_4$ with generator $r$ (rotation by $90^\circ$ clockwise).  Now, take a look at the Cayley diagram for $Q_8$ with generators $i, j, -1$.  It should be easy to convince yourself that $R_4$ is isomorphic to both $\langle i\rangle=\{1,i,-i,-1\}$ and $\langle j\rangle=\{1,j,-j,-1\}$.  However, you have to do some rearranging of one of the diagrams to set one on top of the other.  Let's just focus on $\langle i\rangle$.  
+
+How do $R_4$ and $\langle i\rangle$ match up?  We want to pair elements in each group with an element in the other group that has the same behavior.  Clearly, $e$ and $1$ match up since these are the two do-nothing actions.  Also, the reason why we noticed these two groups were isomorphic is because their Cayley diagrams looked the same.  Since each Cayley diagram only had one arrow type determined by $r$ and $i$, we should pair these two elements.  Now, following the arrows around the diagram, we see that $r^2$ must pair with $i^2=-1$ and $r^3$ corresponds to $i^3=-i$.  In summary, the isomorphism between $R_4$ and $\langle i\rangle$ (in $Q_8$) is given by $e\leftrightarrow 1$, $r\leftrightarrow r$, $r^2\leftrightarrow -1$, and $r^3\leftrightarrow -i$.  You should take a moment to convince yourself that the elements that correspond to each other really do behave in similar ways.
 
 Now, take a look at the Cayley diagram for $D_4$ with generators $r$ and $s$.  As we noticed in Exercise~\ref{exer:R4_in_D4}, $R_4$ is a subgroup of $D_4$.  We could say that this subgroup is isomorphic to $R_4$, but in this case, we can say something even stronger: they are equal!
 
@@ -235,14 +243,59 @@ Find the orders of the following groups: $S_2$, $\Spin_{1\times 3}$, $\Spin_{3\t
 Suppose $G$ and $G'$ are two groups of actions such that $G\cong G'$.  Then $|G|=|G'|$.
 \end{theorem}
 
-Unfortunately, the converse of the previous theorem is not true in general.  That is, two groups that have the same order may or may not be isomorphic.  Loosely speaking, if one group has a property that the other does not have, then the two groups cannot be isomorphic.  For example, if one group has the property that every pair of actions commutes (i.e., the order\footnote{Don't confuse the word ``order" in this sentence with the order of a group.} of the actions does not matter), but another group has a pair of actions that do not commute, then the two groups cannot be isomorphic.  Moreover, if one group contains an action that requires a minimum of $k$ applications to get back to the do-nothing action, but a second group does not have such an element, then the two groups cannot be isomorphic.  Justifying these two claims takes a bit of work and for now, we'll put that on hold.  For the time being, if you don't see why these claims about when two groups are not isomorphic are true, just take them on faith and we will return to the issue in a later chapter.
+Unfortunately, the converse of the previous theorem is not true in general.  That is, two groups that have the same order may or may not be isomorphic.  
+
+Loosely speaking, if one group has a property that the other does not have, then the two groups cannot be isomorphic.  For example, if one group has the property that every pair of actions commutes (i.e., the order\footnote{Don't confuse the word ``order" in this sentence with the order of a group.} of the actions does not matter), but another group has a pair of actions that do not commute, then the two groups cannot be isomorphic.  Moreover, if one group contains an action that requires a minimum of $k$ applications to get back to the do-nothing action, but a second group does not have such an element, then the two groups cannot be isomorphic.  
+
+Justifying these two claims takes a bit of work and for now, we'll put that on hold.  For the time being, if you don't see why these claims about when two groups are not isomorphic are true, just take them on faith and we will return to the issue in a later chapter.  Feel free to use these ideas in the exercises that follow.
 
 Let's do a bit more exploring.
 
+\begin{exercise}
+Using $h$ and $v$ as generators, draw the Cayley diagram for $V_4$.
+\end{exercise}
+
+Notice that our standard Cayley diagram for $R_4$ does not look like the Cayley diagram that you just constructed for $V_4$.  This does \emph{not} imply that these two groups are not isomorphic.
+
 \begin{problem}
-Prove that $R_4$ and $V_4$ are not isomorphic.
+Determine whether $R_4$ and $V_4$ are isomorphic.  Justify your answer.  If they are isomorphic, specify the isomorphism by listing the correspondence of elements.
 \end{problem}
 
-Let's explore some more.
+\begin{problem}
+Consider the group given by the Cayley diagram in Exercise~\ref{exer:intro_R6}.  Let's assume that this is the rotation group for a regular hexagon---called $R_6$.  Determine whether $R_6$ and $D_3$ are isomorphic.  Justify your answer.  If they are isomorphic, specify the isomorphism by listing the correspondence of elements.
+\end{problem}
+
+\begin{exercise}
+Consider two light switches on a wall side by side.  Consider the group of actions that consists of all possible actions that you can do to the two light switches.  For example, one action is toggle the left light switch while leaving the right alone.  Let's call this group $L_2$.
+\begin{enumerate}
+\item[(a)] How many distinct actions does $L_2$ have?
+\item[(b)] Can you find a minimal generating set for $L_2$?  If so, give these actions names and then write all of the actions of $L_2$ as words in your generator(s).
+\item[(c)] Using your generators from part (b), draw a Cayley diagram for $L_2$.
+\end{enumerate}
+\end{exercise}
+
+\begin{problem}
+Determine whether $L_2$ and $V_4$ are isomorphic.  Justify your answer.  If they are isomorphic, specify the isomorphism by listing the correspondence of elements.
+\end{problem}
+
+\begin{problem}
+Determine whether $Q_8$ and $D_4$ are isomorphic.  Justify your answer.  If they are isomorphic, specify the isomorphism by listing the correspondence of elements.
+\end{problem}
+
+\begin{problem}
+Determine whether $\Spin_{1\times 2}$ and $D_4$ are isomorphic.  Justify your answer.  If they are isomorphic, specify the isomorphism by listing the correspondence of elements.
+\end{problem}
+
+\begin{exercise}
+Consider the group that acts on three coins that are in a row by rearranging their positions (but not flipping them over).  This group is called $S_3$.  Numbering the positions of the coins (not the coins themselves) 1, 2, 3 from left to right.  Let $s_1$ be the action that swap the coins in positions 1 and 2.  Similarly, let $s_2$ be the action that swaps coins in positions 2 and 3.
+\begin{enumerate}
+\item[(a)] The group $S_3$ consists of 6 actions, which we can generate with $s_1$ and $s_2$.  Write all 6 actions as words in $s_1$ and $s_2$.
+\item[(b)] Using $s_1$ and $s_2$ as generators, draw a Cayley diagram for $S_3$.
+\end{enumerate}
+\end{exercise}
+
+\begin{problem}
+Determine whether $S_3$ and $D_3$ are isomorphic.  Justify your answer.  If they are isomorphic, specify the isomorphism by listing the correspondence of elements.  Don't forget that we've drawn two different Cayley diagrams for $D_3$.
+\end{problem}
 
 \end{section}
