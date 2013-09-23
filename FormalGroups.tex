@@ -1,0 +1,211 @@
+\chapter{A Formal Approach to Groups}
+\label{chapter:formal_groups}
+\thispagestyle{empty}
+
+In this chapter we finally introduce the formal definition of a group.  From this point on, our focus will shift from developing intuition to studying the abstract properties of groups.  However, we should not abandon the intuition we have gained.  As we progress, your intuitive understanding of groups will continue to improve and you should rely on this understanding as you try to make sense of the notions that follow.  There has been plenty of intentional foreshadowing, so expect to revisit concepts you've already encountered.  We'll also encounter plenty of new stuff, too.
+
+It is important to point out that things are about to get quite a bit more difficult for most of you.  Be patient and persistent!
+
+\begin{section}{Binary Operations}
+After learning to count as a child, you likely learned how to add, subtract, multiply, and divide with natural numbers.  Loosely speaking, these operations are examples of binary operations since we are combining two objects to obtain a single object.  More formally, we have the following definition.
+
+\begin{definition}
+A \textbf{binary operation} $*$ on a set $A$ is a function from $A\times A$ into $A$.  For each $(a,b)\in A\times A$, we denote the element $*(a,b)$ via $a*b$.
+\end{definition}
+
+\begin{remark}
+Don't misunderstand the use of $*$ in this context.  We are not implying that $*$ is the ordinary multiplication of real numbers that you are familiar with.  We use $*$ to represent a generic binary operation.  
+\end{remark}
+
+\begin{remark}
+Notice that since the codomain of a binary operation on a set $A$ is $A$, binary operations require that we yield an element of $A$ when combining to elements of $A$.  In this case, we say that $A$ is \textbf{closed} under $*$.  Binary operations have this closure property by definition.  Also, since binary operations are functions, any attempt to combine two elements from $A$ should result in a \emph{unique} element of $A$.  In this case, we say that $*$ is \textbf{well-defined}.  Moreover, since the domain of $*$ is $A\times A$, it must be the case that $*$ is defined for \emph{all} pairs of elements from $A$.
+\end{remark}
+
+\begin{example}
+Examples of binary operations include $+$ (addition), $-$ (subtraction), and $\cdot$ (multiplication) on the real numbers.  However, $\div$ (division) is not a binary operation on the set of real numbers because all elements of the form $(a,0)$ are not in the domain $\mathbb{R}\times \mathbb{R}$ since we cannot divide by 0.  Yet, $\div$ is a suitable binary operation on $\mathbb{R}\setminus \{0\}$.
+\end{example}
+
+\begin{example}
+Let $C$ be the set of continuous functions from $\mathbb{R}$ to $\mathbb{R}$.  Then $\circ$ (function composition) is a binary operation on $C$.
+\end{example}
+
+\begin{example}
+Consider the 6 actions of $D_3$.  The composition of these actions is a binary operation on $D_3$.  In fact, composition of actions for each of the groups that we have seen is a binary operation on the given group.  Notice that we never used a symbol for these binary operations, but rather used juxtaposition (i.e., $ab$ is the juxtaposition of $a$ and $b$).
+\end{example}
+
+\begin{example}
+Let $M_{2\times 2}(\mathbb{R})$ be the set of $2\times 2$ matrices with real number entries.  Then matrix multiplication is a binary operation on $M_{2\times 2}(\mathbb{R})$.
+\end{example}
+
+\begin{exercise}
+Explain why composition of spins is not a binary operation on the set of allowable spins in $\Spin_{3\times 3}$.
+\end{exercise}
+
+\begin{exercise}
+Let $M(\mathbb{R})$ be the set of matrices (of any size) with real number entries.  Is matrix addition a binary operation on $M(\mathbb{R})$?  How about matrix multiplication?
+\end{exercise}
+
+\begin{exercise}
+Determine whether $\cup$ (union) and $\cap$ (intersection) are binary operations on $\mathcal{P}(\mathbb{Z})$ (i.e., the power set of the integers).
+\end{exercise}
+
+\begin{exercise}
+Consider the closed interval $[0,1]$ and define $*$ on $[0,1]$ via $a*b=\mathrm{min}\{a,b\}$ (i.e., take the minimum of $a$ and $b$).  Determine whether $*$ is a binary operation on $[0,1]$.
+\end{exercise}
+
+Some binary operations have additional properties.
+
+\begin{definition}
+Let $A$ be a set and let $*$ be a binary operation on $A$.
+\begin{enumerate}
+\item We say that $*$ is \textbf{associative} if and only if $(a*b)*c=a*(b*c)$ for all $a,b,c\in A$.
+\item We say that $*$ is \textbf{commutative} if and only if $a*b=b*a$ for all $a,b\in A$.
+\end{enumerate}
+\end{definition}
+
+\begin{exercise}
+Provide at least one example of a binary operation and the corresponding set that is commutative.  How about not commutative?
+\end{exercise}
+
+\begin{theorem}
+Let $A$ be a set and let $F$ be the set of functions from $A$ to $A$.  Then function composition is an associative binary operation on $F$.
+\end{theorem}
+
+When the set $A$ is finite, we can represent a binary operation on $A$ using a table in which the elements of the set are listed across the top and the left side (in the same order).  The entry in the $i$th row and $j$th column of the table represents the output of combining the element that labels the $i$th row with the element that labels the $j$th column (order matters).
+
+\begin{example}\label{example:table}
+Consider the following table.
+\begin{center}
+\begin{tabu}{c|[2pt]c|c|c}
+%\begin{tabular}{|c||c|c|c|}
+$*$ & $a$ & $b$ & $c$ \\ \tabucline[2pt]{-}
+$a$ & $b$ & $c$ & $b$ \\
+\hline $b$ & $a$ & $c$ & $b$  \\
+\hline $c$ & $c$ & $b$ & $a$
+\end{tabu}
+\end{center}
+This table represents a binary operation on the set $A=\{a,b,c\}$.  In this case, $a*b=c$ while $b*a=a$.  This shows that $*$ is not commutative.
+\end{example}
+
+\begin{exercise}
+What property must a table for a binary operation have in order for the operation to be commutative?
+\end{exercise}
+
+\begin{exercise}\label{exer:table_missing_entries}%Exercise 1.2.6 in Fraleigh
+Fill in the missing entries in the following table so that $*$ defines an associative binary operation on $\{a,b,c,d\}$.
+\begin{center}
+\begin{tabu}{c|[2pt]c|c|c|c}
+    $*$ & $a$ & $b$ & $c$ & $d$ \\\tabucline[2pt]{-}
+    $a$ & $a$ & $b$ & $c$ & $d$ \\\hline
+    $b$ & $b$ & $a$ & $c$ & $d$ \\\hline
+    $c$ & $c$ & $d$ & $c$ & $d$ \\\hline
+    $d$ &  &  & & 
+\end{tabu}
+\end{center}
+\end{exercise}
+
+\end{section}
+
+\begin{section}{Groups}
+Without further ado, here is our official definition of a group.
+
+\begin{definition}\label{def:group}
+A group $(G,*)$ is a set $G$ together with a binary operation $*$ such that the following axioms hold.
+\begin{description}
+\item[Axiom 0.] The set $G$ is closed under $*$.
+\item[Axiom 1.] The operation $*$ is associative.
+\item[Axiom 2.] There is an element $e\in G$ such that for all $g\in G$, $e*g=g*e=g$.  We call $e$ the \textbf{identity}.
+\item[Axiom 3.] Corresponding to each $g\in G$, there is an element $g'\in G$ such that $g*g'=g'*g=e$.  In this case, $g'$ is called the \textbf{inverse} of $g$, which we shall denote as $g^{-1}$.
+\end{description}
+\end{definition}
+
+\begin{remark}
+A few comments are in order.
+\begin{enumerate}
+\item Notice that a group has two parts to it, namely, a set and a binary operation.  For simplicity, $(G,*)$ is a group, we will often refer to $G$ as being the group.  However, you must remember that the binary operation is part of the structure.
+\item Axiom 2 forces $G$ to be nonempty.
+\item In the generic case, even if $*$ is not actually multiplication, we will refer to $a*b$ as the product of $a$ and $b$.
+\item We are not requiring $*$ to be commutative.  If $*$ is commutative, then we say that $G$ is \textbf{abelian}\footnote{Commutative groups are called abelian in honor of the Norwegian mathematician Niels Abel (1802--1829).} (or \textbf{commutative}).
+\end{enumerate}
+\end{remark}
+
+\begin{exercise}
+Explain why Axiom 0 is unnecessary.
+\end{exercise}
+
+At this time, we have two definitions of a group.  The first one was intended to provide an intuitive introduction and Definition~\ref{def:group} provides a rigorous mathematical definition.  We should confirm that these two definitions are in fact compatible.
+
+\begin{exercise}
+Compare and contrast our two definitions of a group.  How do the rules and axioms match up?
+\end{exercise}
+
+\begin{exercise}
+Quickly verify that $\Spin_{1\times 3}$, $S_2$, $R_4$, $D_3$, $D_4$, $V_4$, and $Q_8$ are groups under composition of actions.
+\end{exercise}
+
+\begin{exercise}
+Determine whether each of the following are groups.  If the pair is a group, determine whether it is abelian and identify the identity.  Explain your answers.
+\begin{enumerate}
+\item[(a)] $(\mathbb{Z},+)$
+\item[(b)] $(\mathbb{N},+)$
+\item[(c)] $(\mathbb{Z},\cdot)$
+\item[(d)] $(\mathbb{R},+)$
+\item[(e)] $(\mathbb{R},\cdot)$
+\item[(f)] $(\mathbb{R},\cdot)$
+\item[(g)] $(\mathbb{R}\setminus \{0\},\cdot)$
+\item[(h)] $(M_{2\times 2}(\mathbb{R}),+)$
+\item[(i)] $(M_{2\times 2}(\mathbb{R}),*)$, where $*$ is matrix multiplication.
+\item[(j)] $(\{a,b,c\},*)$, where $*$ is the operation determined by the table in Example~\ref{example:table}.
+\item[(k)] $(\{a,b,c,d\},*)$, where $*$ is the operation determined by the table in Exercise~\ref{exer:table_missing_entries}.
+\end{enumerate}
+\end{exercise}
+
+Notice that in Axiom 3 of Definition~\ref{def:group}, we said \emph{the} identity and not \emph{an} identity.  Implicitly, this implies that the identity is unique.
+
+\begin{theorem}
+Let $G$ be a group with binary operation $*$.  Then there is a unique identity element in $G$.  That is, there is only one element $e$ in $G$ such that $g*e=e*g=g$ for all $g\in G$.
+\end{theorem}
+
+The following theorem is crucial for proving many theorems about groups.
+
+\begin{theorem}[Cancellation Law]
+Let $(G,*)$ be a group and let $g,x,y\in G$.  Then $g*x=g*y$ if and only if $x=y$.  Similarly, $x*g=y*g$ if and only if $x=y$.\footnote{You only need to prove one of these statements as the proof of the other is symmetric.}
+\end{theorem}
+
+\begin{exercise}
+Show that $(\mathbb{R},\cdot)$ fails the Cancellation Law (confirming the fact that it is not a group).
+\end{exercise}
+
+\begin{corollary}
+Let $G$ be a group with binary operation $*$.  Then each $g\in G$ has a unique inverse.
+\end{corollary}
+
+Recall that a group may or may not be abelian.  However, if one product is equal to the identity, then reverse the order yields the same result.
+
+\begin{theorem}
+Let $G$ be a group with binary operation $*$.  If $g*h=e$, then $h*g=e$.
+\end{theorem}
+
+The upshot of the previous theorem is if we have a ``left inverse" then we automatically have a ``right inverse" (and vice versa).
+
+The next theorem should not be surprising.
+
+\begin{theorem}
+Let $(G,*)$ be a group and let $g\in G$.  Then $(g^{-1})^{-1}=g$.
+\end{theorem}
+
+Group tables...
+
+\end{section}
+
+\begin{section}{Revisiting Cayley Diagrams}
+
+Coming soon...
+
+\end{section}
+
+\begin{section}{Subgroups}
+
+Coming soon...
+
+\end{section}
