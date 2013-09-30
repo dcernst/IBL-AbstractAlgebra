@@ -265,7 +265,11 @@ $e$ & $e$ & $a$ & $b$ & $c$ \\
 
 \noindent Is this a table for a group?  First, we see that the binary operation determined by the table is closed.  Second, we see that $e$ is acting as the identity.  Since every row and column has the identity element $e$ appearing, we know that every element has an inverse (do you see why that follows?).  The only thing left to check is associativity.  Imagine for a moment what this entails.  It's messy right?!  And this is only for a group of order 4.
 
-Thankfully, we can rely on some prior knowledge to help out with associativity.  It turns out that if you look closely, the group table for $V_4$ looks the ``same" as the table above.  What do we mean by ``same" here?  The names for elements are different (except for $e$), but the product of corresponding elements yields the corresponding results.  To see what I mean, let's color both tables with white, red, blue, and green in such a way that each element corresponds to a unique color.  If we choose our colors wisely, it is easy to see that both tables have the same structure.
+Thankfully, we can rely on some prior knowledge to help out with associativity.  It turns out that if you look closely, the group table for $V_4$ looks the ``same" as the table above.  What do we mean by ``same" here?  The names for elements are different (except for $e$), but 
+\begin{quotation}
+\emph{the product of corresponding elements yields the corresponding results.}
+\end{quotation}
+To see what I mean, let's color both tables with white, red, blue, and green in such a way that each element corresponds to a unique color.  If we choose our colors wisely, it is easy to see that both tables have the same structure.
 
 \begin{center}
 \begin{tabu}{c|[2pt]c|c|c|c}
@@ -285,7 +289,7 @@ $e$ & $e$ & \cellcolor{red}$a$ & \cellcolor{blue}$b$ & \cellcolor{green}$c$ \\
 \end{tabu}
 \end{center}
 
-Since we already know that $V_4$ is a group, we know that the binary operation for $V_4$ is associative.  
+\noindent Since we already know that $V_4$ is a group, we know that the binary operation for $V_4$ is associative.  
 
 \begin{exercise}
 Explain why the discussion above implies that the binary operation determined by the table on the right above must be associative.  Have we shown that $(A,*)$ is a group?
@@ -311,12 +315,14 @@ Suppose we have a table for $(G,*)$, where $G$ is finite.  Further suppose that 
 
 Consider the class of all possible groups.  It turns out that ``isomorphic" ($\cong$) determines an equivalence relation.  That is, under this relation two groups are related if and only if they are isomorphic.  We'll prove this formally later when we have a more rigorous definition of isomorphic.
 
-\begin{exercise}
+\begin{problem}
 Explain why all groups with a single element are isomorphic.
-\end{exercise}
+\end{problem}
 
-\begin{exercise}
-Consider a group with exactly two elements, say $e$ and $a$.  Complete the following group table.
+In this case, we say that ``up to isomorphism" there is only one group with a single element.
+
+\begin{problem}
+Consider a group $(G,*)$ of order 2.  Suppose that $G=\{e,a\}$.  Complete the following group table for $G$.
 
 \begin{center}
 \begin{tabu}{c|[2pt]c|c}
@@ -325,8 +331,40 @@ $e$ &  &  \\
 \hline $a$ &  & 
 \end{tabu}
 \end{center}
-Explain why every group with two elements must be isomorphic to $S_2$.
-\end{exercise}
+Explain why every group with 2 elements must be isomorphic to $S_2$.
+\end{problem}
+
+The previous problem implies that up to isomorphism, there is only one group of order 2.
+
+\begin{problem}
+Consider a group $(G,*)$ of order 3.  Suppose that $G=\{e,a,b\}$.  Complete the following group table for $G$.
+
+\begin{center}
+\begin{tabu}{c|[2pt]c|c|c}
+$*$ & $e$ & $a$ & $c$ \\ \tabucline[2pt]{-}
+$e$ &  &  & \\
+\hline $a$ &  & & \\
+\hline $b$ &  & &
+\end{tabu}
+\end{center}
+Explain why every group with 3 elements must be isomorphic to $R_3$.
+\end{problem}
+
+\begin{problem}
+Consider a group $(G,*)$ of order 4.  Suppose that $G=\{e,a,b,c\}$.  Assuming that $e$ is the identity, the first row and first column of the corresponding group table must be completed as follows.
+
+\begin{center}
+\begin{tabu}{c|[2pt]c|c|c|c}
+$*$ & $e$ & $a$ & $b$ & $c$ \\ \tabucline[2pt]{-}
+$e$ &  $e$ & $a$ & $b$ & $c$ \\
+\hline $a$ & $a$ & ? & & \\
+\hline $b$ & $b$ & & & \\
+\hline $c$ & $c$ & & &
+\end{tabu}
+\end{center}
+
+\noindent The cell with the question mark cannot be filled with an $a$.  So, this entry must be either $e$, $b$, or $c$.  However, it should be easy to see the cases with $b$ and $c$ are symmetric.  Thus, there are two cases: (i) the entry with the question mark is filled with $e$, (ii) the entry with the question mark is (without loss of generality) filled with $b$.  Complete the group table in each of these two cases.  Recall that we've seen two non-isomorphic groups of order 2, namely $R_4$ and $V_4$.  What conclusion can you make about groups of order 4?
+\end{problem}
 
 \end{section}
 
