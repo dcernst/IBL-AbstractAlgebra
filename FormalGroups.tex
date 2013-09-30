@@ -77,7 +77,6 @@ When the set $A$ is finite, we can represent a binary operation on $A$ using a t
 Consider the following table.
 \begin{center}
 \begin{tabu}{c|[2pt]c|c|c}
-%\begin{tabular}{|c||c|c|c|}
 $*$ & $a$ & $b$ & $c$ \\ \tabucline[2pt]{-}
 $a$ & $b$ & $c$ & $b$ \\
 \hline $b$ & $a$ & $c$ & $b$  \\
@@ -179,7 +178,13 @@ Show that $(\mathbb{R},\cdot)$ fails the Cancellation Law (confirming the fact t
 Let $G$ be a group with binary operation $*$.  Then each $g\in G$ has a unique inverse.
 \end{corollary}
 
-Recall that a group may or may not be abelian.  However, if one product is equal to the identity, then reverse the order yields the same result.
+\begin{theorem}\label{thm:unique_soln}
+Let $(G,*)$ be a group and let $g,h\in G$.  Then the equations $g*x=h$ and $y*g=h$ have unique solutions for $x$ and $y$ in $G$.  
+\end{theorem}
+
+While proving the previous few theorems, hopefully one of the things you realized is that you can multiply both sides of a group equation by the same element but that you have to do it on the same side of each half.  That is, since a group may or may not be abelian, if I multiply one side of an equation on the left by a group element, then we must multiply the other side of the equation on the left by the same group element.
+
+Despite the fact that a group may or may not be abelian, if one product is equal to the identity, then reversing the order yields the same result.
 
 \begin{theorem}
 Let $G$ be a group with binary operation $*$.  If $g*h=e$, then $h*g=e$.
@@ -193,7 +198,135 @@ The next theorem should not be surprising.
 Let $(G,*)$ be a group and let $g\in G$.  Then $(g^{-1})^{-1}=g$.
 \end{theorem}
 
-Group tables...
+\begin{definition}
+Let $(G,*)$ be a group and let $g\in G$.  Then for $n\in \mathbb{N}$, we define
+\[
+g^n=\underbrace{g*g*\cdots *g}_{n\text{ factors}}
+\]
+and
+\[
+g^{-n}=\underbrace{g^{-1}*g^{-1}*\cdots *g^{-1}}_{n\text{ factors}}.
+\]
+Moreover, we define $g^0=e$.
+\end{definition}
+
+The good news is that the rules of exponents you are familiar with still hold for groups.
+
+\begin{theorem}
+Let $(G,*)$ be a group and let $g\in G$.  If $n\in\mathbb{Z}$, then:
+\begin{enumerate}
+\item $g^n*g^m=g^{n+m}$,
+\item $(g^n)^{-1}=g^{-n}$.
+\end{enumerate}
+\end{theorem}
+
+\end{section}
+
+\begin{section}{Group Tables}
+Recall that we could represent a binary operation on a finite set using a table.  Since groups have binary operations at their core, we can represent a finite group (i.e., a group with finitely many elements) using a table, called a \textbf{group table}. For example, the following is a group table for $V_4$.
+
+\begin{center}
+\begin{tabu}{c|[2pt]c|c|c|c}
+$*$ & $e$ & $v$ & $h$ & $vh$ \\ \tabucline[2pt]{-}
+$e$ & $e$ & $v$ & $h$ & $vh$ \\
+\hline $v$ & $v$ & $e$ & $vh$ & $h$  \\
+\hline $h$ & $h$ & $vh$ & $e$ & $v$\\
+\hline $vh$ & $vh$ & $h$ & $v$ & $e$
+\end{tabu}
+\end{center}
+
+\begin{exercise}
+Verify that $V_4$ is an abelian group.  What feature of the group table makes this clear?
+\end{exercise}
+
+Notice that above I said, ``a group table for $V_4$" and not ``the group table."  The reason for this is that if we chose a different order of the elements (e.g., swap rows 1 and 4---which swaps columns 1 and 4, as well), then the table would look slightly different.  Also, if we had chosen a different generating set, then the names of the elements would look different.  Regardless, the table still captures the same information about the binary operation.
+
+\begin{exercise}
+Create group tables for the following groups: $S_2$, $R_3$, $R_4$, $D_3$, $S_3$, $D_4$, and $Q_8$.  Which groups are abelian?
+\end{exercise}
+
+Perhaps you noticed when creating the tables above that each element of the group appeared exactly once in each row and column, respectively.  This is true, in general.  Use Theorem~\ref{thm:unique_soln}, to prove the following theorem.
+
+\begin{theorem}
+Let $(G,*)$ be a finite group.  Then each element of $G$ appears exactly once in each row and each column, respectively, in any group table for $G$.
+\end{theorem}
+
+We can also use tables to define groups.  For example, consider the following table on the set $A=\{e,a,b,c\}$.
+
+\begin{center}
+\begin{tabu}{c|[2pt]c|c|c|c}
+$*$ & $e$ & $a$ & $b$ & $c$ \\ \tabucline[2pt]{-}
+$e$ & $e$ & $a$ & $b$ & $c$ \\
+\hline $a$ & $a$ & $e$ & $c$ & $b$  \\
+\hline $b$ & $b$ & $c$ & $e$ & $a$\\
+\hline $c$ & $c$ & $b$ & $a$ & $e$
+\end{tabu}
+\end{center}
+
+\noindent Is this a table for a group?  First, we see that the binary operation determined by the table is closed.  Second, we see that $e$ is acting as the identity.  Since every row and column has the identity element $e$ appearing, we know that every element has an inverse (do you see why that follows?).  The only thing left to check is associativity.  Imagine for a moment what this entails.  It's messy right?!  And this is only for a group of order 4.
+
+Thankfully, we can rely on some prior knowledge to help out with associativity.  It turns out that if you look closely, the group table for $V_4$ looks the ``same" as the table above.  What do we mean by ``same" here?  The names for elements are different (except for $e$), but the product of corresponding elements yields the corresponding results.  To see what I mean, let's color both tables with white, red, blue, and green in such a way that each element corresponds to a unique color.  If we choose our colors wisely, it is easy to see that both tables have the same structure.
+
+\begin{center}
+\begin{tabu}{c|[2pt]c|c|c|c}
+$*$ & $e$ & \cellcolor{red}$v$ & \cellcolor{blue}$h$ & \cellcolor{green}$vh$ \\ \tabucline[2pt]{-}
+$e$ & $e$ & \cellcolor{red}$v$ & \cellcolor{blue}$h$ & \cellcolor{green}$vh$ \\
+\hline \cellcolor{red}$v$ & \cellcolor{red}$v$ & $e$ & \cellcolor{green}$vh$ & \cellcolor{blue}$h$  \\
+\hline \cellcolor{blue}$h$ & \cellcolor{blue}$h$ & \cellcolor{green}$vh$ & $e$ & \cellcolor{red}$v$\\
+\hline \cellcolor{green}$vh$ & \cellcolor{green}$vh$ & \cellcolor{blue}$h$ & \cellcolor{red}$v$ & $e$
+\end{tabu}
+\hspace{1cm}
+\begin{tabu}{c|[2pt]c|c|c|c}
+$*$ & $e$ & \cellcolor{red}$a$ & \cellcolor{blue}$b$ & \cellcolor{green}$c$ \\ \tabucline[2pt]{-}
+$e$ & $e$ & \cellcolor{red}$a$ & \cellcolor{blue}$b$ & \cellcolor{green}$c$ \\
+\hline \cellcolor{red}$a$ & \cellcolor{red}$a$ & $e$ & \cellcolor{green}$c$ & \cellcolor{blue}$b$  \\
+\hline \cellcolor{blue}$b$ & \cellcolor{blue}$b$ & \cellcolor{green}$c$ & $e$ & \cellcolor{red}$a$\\
+\hline \cellcolor{green}$c$ & \cellcolor{green}$c$ & \cellcolor{blue}$b$ & \cellcolor{red}$a$ & $e$
+\end{tabu}
+\end{center}
+
+Since we already know that $V_4$ is a group, we know that the binary operation for $V_4$ is associative.  
+
+\begin{exercise}
+Explain why the discussion above implies that the binary operation determined by the table on the right above must be associative.  Have we shown that $(A,*)$ is a group?
+\end{exercise}
+
+It is important to point out that if we can not chosen our colors wisely, then perhaps the colorings of the two tables would not agree.  Moreover, if we had made the same color choices for elements, but then rearranged columns and rows of one table, the colorings of the two tables would not agree.  This doesn't imply anything.  The point is whether we \emph{can} get the tables to match.
+
+\begin{exercise}
+Draw the Cayley diagram for $(A,*)$ with generators $a$ and $b$.  Explain why this implies that $V_4$ and $A$ (under their respective binary operations) are isomorphic.  
+\end{exercise}
+
+\begin{exercise}
+Is it possible to color the group table for $R_4$ so that it matches the coloring of $V_4$?  Explain your answer.
+\end{exercise}
+
+\begin{problem}
+Let $(G,*)$ and $(G',\circ)$ be two finite groups.  Suppose we can arrange the rows and columns and color elements in such a way that the colorings for the two group tables agree.  Explain why this implies that the two groups are isomorphic.
+\end{problem}
+
+\begin{problem}
+Suppose we have a table for $(G,*)$, where $G$ is finite.  Further suppose that (i) there is an identity element, and (ii) every element appears exactly once in each row and column, respectively.  Explain why the only thing we need to verify in order for $(G,*)$ to be a group is that $*$ is associative.
+\end{problem}
+
+Consider the class of all possible groups.  It turns out that ``isomorphic" ($\cong$) determines an equivalence relation.  That is, under this relation two groups are related if and only if they are isomorphic.  We'll prove this formally later when we have a more rigorous definition of isomorphic.
+
+\begin{exercise}
+Explain why all groups with a single element are isomorphic.
+\end{exercise}
+
+\begin{exercise}
+Consider a group with exactly two elements, say $e$ and $a$.  Complete the following group table.
+
+\begin{center}
+\begin{tabu}{c|[2pt]c|c}
+$*$ & $e$ & $a$ \\ \tabucline[2pt]{-}
+$e$ &  &  \\
+\hline $a$ &  & 
+\end{tabu}
+\end{center}
+Explain why every group with two elements must be isomorphic to $S_2$.
+\end{exercise}
 
 \end{section}
 
