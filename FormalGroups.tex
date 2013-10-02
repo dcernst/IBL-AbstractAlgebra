@@ -160,7 +160,7 @@ Determine whether each of the following are groups.  If the pair is a group, det
 
 Notice that in Axiom 2 of Definition~\ref{def:group}, we said \emph{the} identity and not \emph{an} identity.  Implicitly, this implies that the identity is unique.
 
-\begin{theorem}
+\begin{theorem}\label{thm:unique_id}
 Let $G$ be a group with binary operation $*$.  Then there is a unique identity element in $G$.  That is, there is only one element $e$ in $G$ such that $g*e=e*g=g$ for all $g\in G$.
 \end{theorem}
 
@@ -313,6 +313,10 @@ Let $(G,*)$ and $(G',\circ)$ be two finite groups.  Suppose we can arrange the r
 Suppose we have a table for $(G,*)$, where $G$ is finite.  Further suppose that (i) there is an identity element, and (ii) every element appears exactly once in each row and column, respectively.  Explain why the only thing we need to verify in order for $(G,*)$ to be a group is that $*$ is associative.
 \end{problem}
 
+\begin{problem}%Exercise 4.18 in VGT
+Suppose that $(G,*)$ is a group.  Theorem~\ref{thm:unique_id} guarantees that there is a unique identity in $G$.  When creating the group table for $G$, what goes wrong if you try to include two different identity elements?
+\end{problem}
+
 Consider the class of all possible groups.  It turns out that ``isomorphic" ($\cong$) determines an equivalence relation.  That is, under this relation two groups are related if and only if they are isomorphic.  We'll prove this formally later when we have a more rigorous definition of isomorphic.
 
 \begin{problem}
@@ -366,10 +370,118 @@ $e$ &  $e$ & $a$ & $b$ & $c$ \\
 \noindent The cell with the question mark cannot be filled with an $a$.  So, this entry must be either $e$, $b$, or $c$.  However, it should be easy to see the cases with $b$ and $c$ are symmetric.  Thus, there are two cases: (i) the entry with the question mark is filled with $e$, (ii) the entry with the question mark is (without loss of generality) filled with $b$.  Complete the group table in each of these two cases.  Recall that we've seen two non-isomorphic groups of order 2, namely $R_4$ and $V_4$.  What conclusion can you make about groups of order 4?
 \end{problem}
 
+So far we've seen that there are unique groups up to isomorphism of orders 1, 2, and 3, but that there are two groups up to isomorphism of order 4.  A general question we will want to address is, how many groups are there of order $n$?
+
+In a future chapter we will be able to prove that there is only one group up to isomorphism of order 5, namely those groups isomorphic to $R_5$ (i.e., rotation group of a regular pentagon).
+
+We've seen three groups of order 6, namely $R_6$, $D_3$, and $S_3$.  However, $D_3\cong S_3$ (see Problem \ref{prob:D3_iso_S3}) while $R_6$ is not isomorphic to either of these (see Problem \ref{prob:R6_not_iso_D3}).  So, we can conclude that there are at least two groups up to isomorphism of order 6.   But are there others?  It turns out that the answer is yes, but why?
+
+The group $R_7$ is the group of rotations of a regular 7-sided polygon.  This group has order 7.  Are there other groups of order 7 that are not isomorphic to $R_7$? 
+
+We've encountered four groups of order 8, namely $D_4$, $\Spin_{1\times 2}$, $Q_8$, and $R_8$.  Of these, only $D_4$ and $\Spin_{1\times 2}$ are isomorphic.  Thus, there are at least three groups up to isomorphism of order 8.  However, are these the only ones?  It turns out that the answer is no.  What are the missing ones?
+
 \end{section}
 
-\begin{section}{Revisiting Cayley Diagrams}
+\begin{section}{Revisiting Cayley Diagrams and Our Original Definition of a Group}%This section closely mimics Section 6.1 in VGT
 
-Coming soon...
+Let's begin with a couple exercises.
+
+\begin{exercise}\label{exer:nonregular1}%Exercise 4.16 in VGT
+Consider the following diagram that we saw at the end of Chapter~\ref{chapter:cayley_diagrams}.
+\begin{center}
+\includegraphics[width=5in]{nonregular.png}
+\end{center}
+\begin{enumerate}
+\item[(a)] Consider Rules 1--4 of our original definition of a group (see Definition~\ref{def:informal_group}).  Does the above diagram satisfy Rules 1--4?
+\item[(b)] Try to convert this diagram into a group table.  Does the table represent a group? What goes wrong?
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exer:nonregular2}%Exercise 4.16 in VGT
+Consider the following diagram.
+
+\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=4mm]
+\tikzstyle{b} = [draw,very thick,blue,stealth-stealth]
+\tikzstyle{r} = [draw, very thick, red,-stealth]
+
+\begin{center}
+\begin{tikzpicture}[auto]
+\node (1) at (0,0) [vert] {};
+\node (2) at (2,0) [vert] {};
+\node (3) at (4,0) [vert] {};
+\node (4) at (6,0) [vert] {};
+\node (5) at (0,2) [vert] {};
+\node (6) at (2,2) [vert] {};
+\node (7) at (4,2) [vert] {};
+\node (8) at (6,2) [vert] {};
+
+\path[b] (1) to (5);
+\path[b] (2) to (6);
+\path[b] (3) to (8);
+\path[b] (4) to (7);
+
+\path[r] (1) to (2);
+\path[r] (2) to (3);
+\path[r] (3) to (4);
+\path[r] (4) to [bend left] (1);
+\path[r] (5) to (6);
+\path[r] (6) to (7);
+\path[r] (7) to (8);
+\path[r] (8) to [bend right] (5);
+\end{tikzpicture}
+\end{center}
+\begin{enumerate}
+\item[(a)] Does the above diagram satisfy Rules 1--4 of Definition~\ref{def:informal_group}?
+\item[(b)] Try to convert this diagram into a group table.  Does the table represent a group? What goes wrong?
+\end{enumerate}
+\end{exercise}
+
+As the previous two exercises indicate, the moral of the story is that our original intuitive definition of a group has a weakness.  It does not agree with our formal definition of a group given in Definition~\ref{def:group}.  Let's see if we can figure out what goes wrong.
+
+Consider the Cayley diagram for $D_3$ with generators $r$ and $s$.
+
+\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=8mm]
+\tikzstyle{h} = [draw,very  thick, blue,stealth-stealth]
+\tikzstyle{r} = [draw, very thick, red,-stealth]
+
+\begin{center}
+\begin{tikzpicture}[scale=.75,auto]
+\node (e) at (90:2) [vert] {$e$};
+\node (r) at (-30:2) [vert] {$r$};
+\node (rr) at (210:2) [vert] {$r^2$};
+\node (h) at (90:4) [vert] {$s$};
+\node (hr) at (210:4) [vert] {$rs$};
+\node (hrr) at (-30:4) [vert] {$r^2s$};
+\draw [r] (e) to [bend left] (r);
+\draw [r] (r) to [bend left] (rr);
+\draw [r] (rr) to [bend left] (e);
+\draw [r] (h) to [bend right] (hr);
+\draw [r] (hr) to [bend right] (hrr);
+\draw [r] (hrr) to [bend right] (h);
+\draw [h] (e) to (h);
+\draw [h] (r) to (hrr);
+\draw [h] (rr) to (hr);
+\end{tikzpicture}
+\end{center}
+
+\noindent Notice that we labeled the lower right corner of the Cayley diagram with the word $r^2s$.  This means that we first followed a blue arrow out of $e$ and then two red arrows.  However, we could also get to this vertex by first doing a red arrow out of $e$ followed by a blue arrow.  So, we could also have labeled this vertex with the word $sr$.  The upshot is that $r^2s=sr$.  These types of group equations are called \textbf{relations}.
+
+We discovered this relation by starting at $e$ and then traveling a sequence of arrows to get to the vertex in the lower right corner.  However, notice that following a blue and then two red arrows is \emph{always} the same as following a red arrow and then a blue arrow regardless of which vertex we start at.  That is, the relation $r^2s=sr$ holds universally across the entire Cayley diagram.
+
+Cayley diagrams for groups will always have this uniform symmetry.  The fancy way of saying this is that Cayley diagrams are \textbf{regular}.  In other words, a diagram is regular if every internal pattern repeats itself throughout the diagram.
+
+\begin{exercise}
+Identify two other relations that the above Cayley diagram for $D_3$ exhibits.  Find one that involves both $r^{-1}$ (i.e., following a red arrow backwards) and $s$.  Convince yourself that your relations appear throughout the diagram.
+\end{exercise}
+
+\begin{exercise}
+Verify that the diagrams in Exercise~\ref{exer:nonregular1} and \ref{exer:nonregular2} are not regular.
+\end{exercise}
+
+\begin{problem}
+Explain why the Cayley diagram for a group must be regular.
+\end{problem}
+
+The discussion and exercises above lead us to conclude that one thing missing from our original intuitive definition of a group is regularity.  It turns out that this is the only thing missing.  That is, if we add the requirement of regularity to our intuitive definition, we could convert it into a rigorous definition that is equivalent to Definition~\ref{def:group}.  However, we won't bother doing this since our intuitive definition served its purpose.
 
 \end{section}
