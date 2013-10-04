@@ -17,7 +17,7 @@ In the Cayley diagram for $G$ using $S$, all the actions of $G$ are represented 
 
 One of the vertices in the diagram is labeled by the do-nothing action, often denoted by $e$.  Each of the other vertices are labeled by words that correspond to following arrows (forwards or backwards) from $e$ to a given vertex.  There may be many ways to do this as each sequence of arrows corresponds to a unique word.  So, a vertex could be potentially labeled by many words.  However, we'll often just pick one.  Also, one potentially confusing item is that we read our words from right to left.  That is, the first arrow we follow out of $e$ is the rightmost generator in the word.
 
-\begin{section}{Subgroups}
+\begin{section}{Subgroups}\label{sec:intuitive_subgroups}
 
 \begin{exercise}
 Recall the definition of ``subset."  What do you think ``subgroup" means?  Try to come up with a potential definition.  Try not to read any further before doing this.
@@ -52,13 +52,13 @@ In light of Exercise~\ref{exer:R4_subgroup_D_4}, we would write $R_4\leq D_4$.  
 
 The next theorem\footnote{Perhaps we should call this an ``Intuitive Theorem" since we are using an intuitive definition of a group.} tells us that if we already have a subset of a group, we only need to check two of our rules instead of four.
 
-\begin{theorem}
+\begin{theorem}\label{thm:informal_subgroup_criterion}
 Let $G$ be a group of actions and let $H\subseteq G$. Then $H$ is a subgroup if and only if $H$ satisfies Rules 2 and 4.%Note: I should probably discuss how the predefined list of generators in Rule 1 is potentially modified.
 \end{theorem}
 
-There is one subgroup that every group has.
+There are a couple subgroups that every group has.
 
-\begin{theorem}
+\begin{theorem}\label{thm:trivial_subgroup1}
 Let $G$ be a group of actions.  Then $\{e\}\leq G$.
 \end{theorem}
 
@@ -68,7 +68,7 @@ Let $G$ be a group and let $e\in G$.  What does the Cayley diagram for the subgr
 
 Earlier, we referred to subgroups as being ``smaller."  However, our definition does not imply that this has to be the case.
 
-\begin{theorem}
+\begin{theorem}\label{thm:trivial_subgroup2}
 Let $G$ be a group of actions.  Then $G\leq G$.
 \end{theorem}
 

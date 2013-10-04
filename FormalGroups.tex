@@ -295,7 +295,7 @@ $e$ & $e$ & \cellcolor{red}$a$ & \cellcolor{blue}$b$ & \cellcolor{green}$c$ \\
 Explain why the discussion above implies that the binary operation determined by the table on the right above must be associative.  Have we shown that $(A,*)$ is a group?
 \end{exercise}
 
-It is important to point out that if we can not chosen our colors wisely, then perhaps the colorings of the two tables would not agree.  Moreover, if we had made the same color choices for elements, but then rearranged columns and rows of one table, the colorings of the two tables would not agree.  This doesn't imply anything.  The point is whether we \emph{can} get the tables to match.
+It is important to point out that if we had not chosen our colors wisely, then perhaps the colorings of the two tables would not agree.  Moreover, if we had made the same color choices for elements, but then rearranged columns and rows of one table, the colorings of the two tables would not agree.  This doesn't imply anything.  The point is whether we \emph{can} get the tables to match.
 
 \begin{exercise}
 Draw the Cayley diagram for $(A,*)$ with generators $a$ and $b$.  Explain why this implies that $V_4$ and $A$ (under their respective binary operations) are isomorphic.  
@@ -483,5 +483,94 @@ Explain why the Cayley diagram for a group must be regular.
 \end{problem}
 
 The discussion and exercises above lead us to conclude that one thing missing from our original intuitive definition of a group is regularity.  It turns out that this is the only thing missing.  That is, if we add the requirement of regularity to our intuitive definition, we could convert it into a rigorous definition that is equivalent to Definition~\ref{def:group}.  However, we won't bother doing this since our intuitive definition served its purpose.
+
+\end{section}
+
+\begin{section}{Revisiting Subgroups}
+
+Back in Section~\ref{sec:intuitive_subgroups}, we introduced the notion of subgroup.  In light of our official definition of a group, we more or less have the same definition as before, but let's restate it here using slightly more formal language.
+
+\begin{definition}
+Let $(G,*)$ be a group and let $H$ be a subset of $G$.  Then $H$ is a \textbf{subgroup} of $G$, written $H\leq G$, provided that $H$ is a group in its own right under the binary operation inherited from $G$.
+\end{definition}
+
+The phrase ``under the binary operation inherited from $G$" means that to combine two elements in $H$, we should treat the elements as if they were in $G$ and perform $G$'s binary operation.
+
+Recall that Theorems~\ref{thm:trivial_subgroup1} and \ref{thm:trivial_subgroup2} tell us that $\langle e\rangle=\{e\}$ and $G$ are always subgroups of $G$. This is still true even using our official definition of a group.  These two subgroups are referred to as the \textbf{trivial subgroups}\footnote{Some textbooks will refer to $\{e\}$ as being the trivial subgroup and $G$ as the improper subgroup.}.  All other subgroups are called \textbf{nontrivial}.  If $H$ is a nontrivial subgroup of a group $G$, then we may write $H<G$.
+
+Using our unofficial definition of a group, Theorem~\ref{thm:informal_subgroup_criterion} told us that a subset $H$ of a group $G$ was a subgroup if it satisfied Rules 2 and 4.  The theorem below is the analogous statement for our official definition of a group.
+
+\begin{theorem}
+Suppose $(G,*)$ is a group and $H\subseteq G$.  Then $H\leq G$ if and only if (i) $H$ for all $h\in H$, $h^{-1} in H$, as well, and (ii) $H$ is closed under the binary operation of $G$.
+\end{theorem}
+
+\begin{exercise}
+Consider $(\mathbb{R}^3,+)$, where $\mathbb{R}^3$ is the set of all 3-entry row vectors with real number entries (e.g., $(a,b,c)$ where $a,b,c\in\mathbb{R}$) and $+$ is ordinary vector addition.  It turns out that $(\mathbb{R}^3,+)$ is an abelian group with identity $(0,0,0)$.  
+\begin{enumerate}
+\item[(a)] Let $H$ be the subset of $\mathbb{R}^3$ consisting of vectors with first coordinate 0.  Is $H$ is a subgroup of $\mathbb{R}^3$?  Prove your answer.
+\item[(b)] Let $K$ be the subset of $\mathbb{R}^3$ consisting of vectors whose entries sum to 0.  Is $K$ is a subgroup of $\mathbb{R}^3$?  Prove your answer.
+\item[(c)] Construct a subset of $\mathbb{R}^3$ (different from $H$ and $K$) that is \emph{not} a subgroup of $\mathbb{R}^3$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exer:nZ}
+Consider the group $(\mathbb{Z},+)$ (under ordinary addition).
+\begin{enumerate}
+\item[(a)] Show that the even integers, written $2\mathbb{Z}:=\{2k:k\in\mathbb{Z}\}$, form a subgroup of $\mathbb{Z}$.
+\item[(b)] Show that the odd integers are not a subgroup of $\mathbb{Z}$.
+\item[(c)] Show that all subsets of the form $n\mathbb{Z}:=\{nk:k\in\mathbb{Z}\}$ are subgroups of $\mathbb{Z}$.
+\item[(d)] Are there any other subgroups besides the ones listed in part (c)?  Explain your answer.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Consider the group of symmetries of a regular octagon.  This group is denoted by $D_8$, where the operation is composition of actions.  The group $D_8$ consists of 16 elements (8 rotations and 8 reflections).  Let $H$ be the subset consisting of the following clockwise rotations: $0^\circ$, $90^\circ$, $180^\circ$, and $270^\circ$.  Determine whether $H$ is a subgroup of $D_8$ and justify your answer.
+\end{exercise}
+
+\begin{exercise}
+Consider the groups $(\mathbb{R},+)$ and $(\mathbb{R}\setminus\{0\},\cdot)$.  Explain why $\mathbb{R}\setminus\{0\}$ is not a subgroup of $\mathbb{R}$ despite the fact that $\mathbb{R}\setminus\{0\}\subseteq\mathbb{R}$ and both are groups.
+\end{exercise}
+
+\begin{theorem}
+Suppose $(G,*)$ is a group and let $H,K\leq G$.  Then $H\cap K\leq G$.
+\end{theorem}
+
+\begin{theorem}
+Suppose $(G,*)$ is a group.  Define
+\[
+Z(G):=\{z\in G:zg=gz\text{ for all } g\in G\}
+\]
+(called the \textbf{center} of $G$).  Then $Z(G)$ is an abelian subgroup of $G$.
+\end{theorem}
+
+The following definition formalizes Definition~\ref{def:subgroup_gen_by}.
+
+\begin{definition}
+Let $(G,*)$ be a group and let $S$ be a nonempty subset of $G$.  Then we define $\langle S\rangle$ to be the set consisting of all possible (finite) products of elements from $S$ and their inverses.  The set $\langle S\rangle$ is called the \textbf{subgroup generated by $S$}.  The elements of $S$ are called \textbf{generators} of $\langle S\rangle$.
+\end{definition}
+
+Note that $S$ may be finite or infinite.  Moreover, even if $S$ is finite, $\langle S\rangle$ may be infinite.  Also, it is important to point out that we are not putting any restrictions about efficiency on $S$ in the definition above.  That is, it is possible that some elements are included in $S$ that are not necessary to generate all of the elements of $\langle S\rangle$.
+
+In cases when we know what the elements of $S$ actually are, then we will list them inside the angle brackets without the set braces.  For example, if $S=\{a,b,c\}$, then we will write $\langle a, b, c\rangle$ instead of $\langle \{a,b,c\}\rangle$.  In the special case when $S$ equals a single element, say $S=\{a\}$, then
+\[
+\langle a\rangle =\{a^n:n\in\mathbb{Z}\},
+\]
+which is called the \textbf{subgroup generated by $a$}.  
+
+The set $\langle S\rangle$ is called the ``subgroup generated by $S$", so it better be a subgroup!
+
+\begin{theorem}
+Let $(G,*)$ be a group and let $S\subseteq G$.  Then $\langle S\rangle \leq G$.  Moreover, $\langle S\rangle$ is the smallest subgroup of $G$ containing $S$.
+\end{theorem}
+
+\begin{exercise}
+In Exercise~\ref{exer:nZ} we introduced the notation $n\mathbb{Z}$.  Write these subgroups in the ``generated by" notation.  That is, find a set $S$ such that $\langle S\rangle =n\mathbb{Z}$.  Can you find more than one way to do it?
+\end{exercise}
+
+Every subgroup can be written in the ``generated by" form.  That is, if $H$ is a subgroup of a group $G$, then there always exists a subset $S$ of $G$ such that $\langle S\rangle=H$.  In particular, $\langle H\rangle=H$.
+
+More coming soon...
+
+%More exercises with gen by stuff, subgroup lattices, short discussion on visualizing subgroups
 
 \end{section}
