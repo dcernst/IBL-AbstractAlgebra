@@ -267,7 +267,7 @@ $e$ & $e$ & $a$ & $b$ & $c$ \\
 
 Thankfully, we can rely on some prior knowledge to help out with associativity.  It turns out that if you look closely, the group table for $V_4$ looks the ``same" as the table above.  What do we mean by ``same" here?  The names for elements are different (except for $e$), but 
 \begin{quotation}
-\emph{the product of corresponding elements yields the corresponding results.}
+\emph{the product of corresponding elements yields the corresponding result.}
 \end{quotation}
 To see what I mean, let's color both tables with white, red, blue, and green in such a way that each element corresponds to a unique color.  If we choose our colors wisely, it is easy to see that both tables have the same structure.
 
@@ -305,7 +305,7 @@ Draw the Cayley diagram for $(A,*)$ with generators $a$ and $b$.  Explain why th
 Is it possible to color the group table for $R_4$ so that it matches the coloring of $V_4$?  Explain your answer.
 \end{exercise}
 
-\begin{problem}
+\begin{problem}\label{prob:iso_same_group_table}
 Let $(G,*)$ and $(G',\circ)$ be two finite groups.  Suppose we can arrange the rows and columns and color elements in such a way that the colorings for the two group tables agree.  Explain why this implies that the two groups are isomorphic.
 \end{problem}
 
@@ -661,5 +661,33 @@ Several times we've referred to the fact that some subgroups are visible in a Ca
 \begin{problem}
 Suppose $(G,*)$ is a finite group and let $H\leq G$.  Can you describe a process that ``reveals" the subgroup $H$ inside the group table for $G$?  Where will the clones for $H$ end up?
 \end{problem}
+
+\end{section}
+
+\begin{section}{Revisiting Isomorphisms}
+
+Suppose $(G_1,*)$ and $(G_2,\circ)$ are two groups.  Recall that $G_1$ and $G_2$ are isomorphic, written $G_1\cong G_2$, provided that we can choose generating sets for $G_1$ and $G_2$, respectively, so that the Cayley diagrams for both groups are identical (ignoring the labels on the vertices).  When two groups are isomorphic, it means that they have identical structure up to relabeling the names of the elements of the group.
+
+One consequence of two groups being isomorphic is that there is a one-to-one correspondence between the elements of the group.  This correspondence is referred to as an isomorphism.  In other words, an isomorphism is a one-to-one and onto function that preserves the structure of the two groups.  
+
+Having an isomorphism between two groups immediately implies that they have the same order, i.e., $|G_1|=|G_2|$ (see Theorem~\ref{thm:iso_same_order}).  However, it is extremely important to remember that two groups having the same order does \emph{not} imply that the two groups are isomorphic.  Said another way, having a one-to-one correspondence between two groups does not imply that the two groups are isomorphic.  They must also have the same structure!
+
+\begin{exercise}
+Provide an example of two groups that have the same order but are not isomorphic.
+\end{exercise}
+
+After we introduced groups tables, we also discussed the fact that $G_1\cong G_2$ exactly when we can arrange the rows and columns and color elements in such a way that the colorings for the two group tables agree (see Problem~\ref{prob:iso_same_group_table}).  The upshot of this is that if $G_1\cong G_2$, then
+\begin{quotation}
+\emph{the product of corresponding elements yields the corresponding result.}
+\end{quotation}
+This is the essence of what it means for two groups to have the same structure.  
+
+Let's try to make a little more sense of this.  Suppose that $G_1\cong G_2$ and imagine we have arranged the rows and columns of their respective group tables and colored the elements in such a way that the colorings for the two group tables agree.  Now, let $x,y\in G_1$.  Then these two elements have corresponding elements in the group table for $G_2$, say $x'$ and $y'$, respectively.  In other words, $x$ and $x'$ have the same color while $y$ and $y'$ have the same color.  Since $G_1$ is closed under its binary operation $*$, there exists $z\in G_1$ such that $z=x*y$.  There must exist a $z'\in G_2$ such that $z'$ has the same color as $z$.  What must be true of $x'\circ y'$?  Since the two tables exhibit the same color pattern, it must the case that $z'=x'\circ y'$.  This is what is means to for the product of corresponding elements to yield the corresponding result.  Below is a figure that depicts this for group tables.
+
+\begin{center}
+\includegraphics[width=5in]{isoGroupTables.png}
+\end{center}
+
+Cayley diagrams...
 
 \end{section}
