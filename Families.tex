@@ -155,7 +155,7 @@ Suppose $(G,*)$ is a finite cyclic group of order $n$ with generator $a$.  If we
 
 The upshot of Theorems~\ref{thm:infinite_cyclic_groups} and \ref{thm:finite_cyclic_groups} is that up to isomorphism, we know exactly what all of the cyclic groups are.
 
-More coming soon...
+See class notes written on board for the rest of this section.
 
 %Division algorithm
 %subgroups of cyclic groups are cyclic
@@ -165,10 +165,166 @@ More coming soon...
 \end{section}
 
 \begin{section}{Dihedral Groups}
-Coming soon...
+See class notes written on board for this section.
 \end{section}
 
 \begin{section}{Symmetric Groups}
-Coming soon...
+Recall the group $S_3$ from Exercise~\ref{exer:S_3}.  This group acts on three coins that are in a row by rearranging their positions (but not flipping them over). This group is an example of a \textbf{symmetric group}.  In general, the symmetric group on $n$ objects is the set of permutations that rearranges the $n$ objects.  The group operation is composition of permutations.  Let's be a little more formal.
+
+\begin{definition}
+A \textbf{permutation of a set $A$} is a function $\sigma:A\to A$ that is both one-to-one and onto.
+\end{definition}
+
+You should take a moment to convince yourself that the formal definition of a permutation agrees with the notin of rearranging the set of objects.  The do-nothing action is the identity permutation, i.e., $\sigma(a)=a$ for all $a\in A$.  There are many ways to represent a permutation.  One visual way is using \textbf{permutation diagrams}, which we will introduce via examples.
+
+Consider the following diagrams:
+\begin{multicols}{2}
+\[\alpha=\begin{pdiag}{5}{1}
+\put(0.2,2.3){{1}}\put(1.2,2.3){{2}}\put(2.2,2.3){{3}}\put(3.2,2.3){{4}}\put(4.2,2.3){{5}} 
+\pdmap{1}{2}\pdmap{2}{3}\pdmap{3}{4}\pdmap{4}{5}\pdmap{5}{1}\pdendmapfill 
+\end{pdiag}\]
+
+\bigskip
+
+\[\beta=\begin{pdiag}{5}{1}
+\put(0.2,2.3){{1}}\put(1.2,2.3){{2}}\put(2.2,2.3){{3}}\put(3.2,2.3){{4}}\put(4.2,2.3){{5}} 
+\pdmap{2}{4}\pdmap{4}{3}\pdmap{3}{2}\pdendmapfill 
+\end{pdiag}\]
+
+\[\sigma=\begin{pdiag}{5}{1}
+\put(0.2,2.3){{1}}\put(1.2,2.3){{2}}\put(2.2,2.3){{3}}\put(3.2,2.3){{4}}\put(4.2,2.3){{5}} 
+\pdtrans{1}{3}\pdmap{2}{5}\pdmap{5}{4}\pdmap{4}{2}\pdendmapfill 
+\end{pdiag}\]
+
+\bigskip
+
+\[\gamma=\begin{pdiag}{5}{1}
+\put(0.2,2.3){{1}}\put(1.2,2.3){{2}}\put(2.2,2.3){{3}}\put(3.2,2.3){{4}}\put(4.2,2.3){{5}}
+\pdtrans{1}{5}\pdendmapfill 
+\end{pdiag}\]
+\end{multicols}
+\noindent Each of these diagrams represents a permutation on five objects.  I've given the permutations the names $\alpha$, $\beta$, $\sigma$, and $\gamma$.  The intention is to read the diagrams from the top down.  The numbers labeling the nodes along the top are identifying position.  Following an edge from the top row of nodes to the bottom row of nodes tells us what position an object moves to.  It is important to remember that the numbers are referring to the position of an object, not the object itself.  For example, $\beta$ is the permutation that sends the object in the second position to the fourth position, the object in the third position to the second position, and the object in the fourth position to the third position.  Moreover, the permutation $\beta$ doesn't do anything to the objects in positions 1 and 5.
+
+\begin{exercise}
+Describe in words what the permutations $\sigma$ and $\gamma$ do.
+\end{exercise}
+
+\begin{exercise}
+Draw the permutation diagram for the do-nothing permutation on 5 objects.  This is called the \textbf{identity permutation}. What does the identity permutation diagram look like in general for arbitrary $n$?
+\end{exercise}
+
+\begin{definition}
+The set of all permutations on $n$ objects is denoted by $S_n$.
+\end{definition}
+
+\begin{exercise}
+Draw all the permutation diagrams for the permutations in $S_3$.
+\end{exercise}
+
+\begin{exercise}
+How many distinct permutations are there in $S_4$?  How about $S_n$ for any $n\in \mathbb{N}$?
+\end{exercise}
+
+If $S_n$ is going to be a group, we need to know how to compose permutations.  This is easy to do using the permutation diagrams.  Consider the permutations $\alpha$ and $\beta$ from earlier.  We can represent the composition $\alpha \circ \beta$ via
+
+\bigskip
+
+\[\alpha \circ \beta=\begin{pdiag}{5}{2}
+\put(0.2,4.3){{1}}\put(1.2,4.3){{2}}\put(2.2,4.3){{3}}\put(3.2,4.3){{4}}\put(4.2,4.3){{5}} 
+\pdname{\tiny \beta}\pdmap{2}{4}\pdmap{4}{3}\pdmap{3}{2}\pdendmapfill 
+\pdname{\tiny \alpha}\pdmap{1}{2}\pdmap{2}{3}\pdmap{3}{4}\pdmap{4}{5}\pdmap{5}{1}\pdendmapfill 
+\end{pdiag}=
+\begin{pdiag}{5}{1}
+\put(0.2,2.3){{1}}\put(1.2,2.3){{2}}\put(2.2,2.3){{3}}\put(3.2,2.3){{4}}\put(4.2,2.3){{5}} 
+\pdmap{1}{2}\pdmap{2}{5}\pdmap{5}{1}\pdendmapfill 
+\end{pdiag}.\]
+\noindent As you can see by looking at the figure, to compose two permutations, you stack the one that goes first in the composition (e.g., $\beta$ in the example above) on top of the other and just follow the edges from the top through the middle to the bottom.  If you think about how function composition works, this is very natural.  The resulting permutation is determined by where we begin and where we end in the composition.
+
+We already know that the order of composition matters for functions, and so it should matter for the composition of permutations. To make this crystal clear, let's compose $\alpha$ and $\beta$ in the opposite order.  We see that
+
+\bigskip
+
+\[\beta \circ \alpha=\begin{pdiag}{5}{2}
+\put(0.2,4.3){{1}}\put(1.2,4.3){{2}}\put(2.2,4.3){{3}}\put(3.2,4.3){{4}}\put(4.2,4.3){{5}} 
+\pdname{\tiny \alpha}\pdmap{1}{2}\pdmap{2}{3}\pdmap{3}{4}\pdmap{4}{5}\pdmap{5}{1}\pdendmapfill 
+\pdname{\tiny \beta}\pdmap{2}{4}\pdmap{4}{3}\pdmap{3}{2}\pdendmapfill 
+\end{pdiag}=
+\begin{pdiag}{5}{1}
+\put(0.2,2.3){{1}}\put(1.2,2.3){{2}}\put(2.2,2.3){{3}}\put(3.2,2.3){{4}}\put(4.2,2.3){{5}} 
+\pdmap{1}{4}\pdmap{4}{5}\pdmap{5}{1}\pdendmapfill 
+\end{pdiag}.\]
+
+\noindent The moral of the story is that composition of permutations does not necessarily commute.
+
+\begin{exercise}
+Consider $\alpha$, $\beta$, $\sigma$, and $\gamma$ from earlier.  Can you find a pair of permutations that do commute?  Can you identify any features about your diagrams that indicate why the commuted?
+\end{exercise}
+
+\begin{exercise}
+Fix $n\in\mathbb{N}$.  Convince yourself that any $\rho\in S_n$ composed with the identity permutation (in either order) equals $\rho$.
+\end{exercise}
+
+If $S_n$ is going to be a group, we need to know what the inverse of a permutation is.
+
+\begin{problem}
+Given a permutation $\rho\in S_n$, describe a method for constructing $\rho^{-1}$.  Briefly justify that $\rho \circ \rho^{-1}$ will yield the identity permutation.
+\end{problem}
+
+At this point, we have all the ingredients we need to prove that $S_n$ forms a group under composition of permutations.
+
+\begin{theorem}
+The set of permutations on $n$ objects forms a group under the operation of composition.  That is, $(S_n,\circ)$ is a group.  Moreover, $|S_n|=n!$.
+\end{theorem}
+
+Note that it is standard convention to omit the composition symbol when writing down compositions in $S_n$.  For example, we will simply write $\alpha\beta$ to denote $\alpha \circ \beta$.
+
+Permutation diagrams are fun to play with, but we need a more efficient way of encoding information.  One way to do this is using \textbf{cycle notation}.  Consider $\alpha, \beta, \sigma$, and $\gamma$ in $S_{5}$ from the previous examples.  Below I have indicated what each permutation is equal to using cycle notation.
+
+\begin{align*}\alpha=&\begin{pdiag}{5}{1} 
+\pdmap{1}{2}\pdmap{2}{3}\pdmap{3}{4}\pdmap{4}{5}\pdmap{5}{1}\pdendmapfill 
+\end{pdiag}=\ (1,2,3,4,5)\\
+\\
+\beta=&\begin{pdiag}{5}{1} 
+\pdmap{2}{4}\pdmap{4}{3}\pdmap{3}{2}\pdendmapfill 
+\end{pdiag}=\ (2,4,3)\\
+\\
+\sigma=&\begin{pdiag}{5}{1} 
+\pdtrans{1}{3}\pdmap{2}{5}\pdmap{5}{4}\pdmap{4}{2}\pdendmapfill 
+\end{pdiag}=\ (1,3)(2,5,4)\\
+\\
+\gamma=&\begin{pdiag}{5}{1} 
+\pdtrans{1}{5}\pdendmapfill 
+\end{pdiag}=\ (1,5)
+\end{align*}
+Each string of numbers enclosed by parentheses is called a \textbf{cycle} and if the string of numbers has length $k$, then we call it a $k$-cycle.  For example, $\alpha$ consists of a single 5-cycle, whereas $\sigma$ consists of one 2-cycle and one 3-cycle.  In the case of $\sigma$, we say that $\sigma$ is the product of two \textbf{disjoint cycles}.  
+
+One observation that you hopefully made is that if an object in position $i$ remains unchanged, then we don't bother listing that number in the cycle notation.  However, if we wanted to, we could use the 1-cycle $(i)$ to denote this.  For example, we could write $\beta=(1)(2,3,4)(5)$.  In particular, we could denote the identity permutation in $S_5$ using $(1)(2)(3)(4)(5)$.  However, it is common to simply use $(1)$ to denote the identity in $S_n$ for all $n$.
+
+Notice that the first number we choose to write down for a given cycle is arbitrary.  Typically, we would use the smallest possible number first, but this is not necessary.  For example, the cycle $(2,4,7)$ could also be written as $(4,7,2)$ or $(7,2,4)$.  
+
+\begin{exercise}
+Write down all 6 elements in $S_3$ using cycle notation.
+\end{exercise}
+
+\begin{exercise}
+Write down all 24 elements in $S_4$ using cycle notation.
+\end{exercise}
+
+Blah blah...more coming soon.
+
+In the previous exercise, one of the permutations you should have written down is $(1,2)(3,4)$.  This is a product of two disjoint 2-cycles.  It is worth pointing out that each cycle is a permutation in its own right.  That is, $(1,2)$ and $(3,4)$ are each permutations.  It just so happens that their composition does not ``simplify" any further.  Moreover, these two disjoint 2-cycles commute since $(1,2)(3,4)=(3,4)(1,2)$.  In fact, this phenomenon is always true.
+
+\begin{theorem}
+Suppose $\alpha$ and $\beta$ are two disjoint cycles.  Then $\alpha\beta=\beta\alpha$.
+\end{theorem}
+
+
+
 \end{section}
+
+\begin{section}{Alternating Groups}
+
+blah
+\end{section}
+
 

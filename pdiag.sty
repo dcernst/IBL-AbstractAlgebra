@@ -1,0 +1,344 @@
+% pdiag.sty		Style for drawing permutation diagrams
+%
+% coded by Jason B. Hill (Jason.B.Hill@Colorado.edu / http://www.jasonbhill.com)
+%
+%	This package attempts to provide an environment for drawing permutation diagrams,
+%	with no claim that it works well, or works at all. For usage, see pdiag.tex/pdf
+%
+\RequirePackage{ifthen,calc,fp} %
+\ProvidesPackage{pdiag} %
+%
+%
+\newcommand{\pdmap}[3][0]
+{	% Given two x-coordinates, draw a line, record vertices as mapped
+	% #1 (optional) = 0 (default) draws a line, #1 = 1 draws a bezier
+	% #2 = x-coordinate of domain
+	% #3 = x-coordinate of image
+	\if0#1 % In this case (0=#1), draw a line
+		\FPset{\pdiagxdot}{#2}\FPsub{\pdiagxdot}{\pdiagxdot}{\pdiaghalf}\FPclip{\pdiagxdot}{\pdiagxdot} % Calculate x-coordinate of domain
+		\FPset{\pdiagxim}{#3}\FPsub{\pdiagxim}{\pdiagxim}{\pdiaghalf}\FPclip{\pdiagxim}{\pdiagxim} % Calculate x-coordinate of image
+		\qbezier(\pdiagxdot,\thepdiagthisrow)(\pdiagxdot,\thepdiagthisrow)(\pdiagxim,\thepdiagnextrow) % Draw line between points
+		\put(\pdiagxdot,\thepdiagthisrow){{\circle*{0.2}}}\put(\pdiagxim,\thepdiagnextrow){{\circle*{0.2}}} % Make dot at vertices
+	\else %
+		% Define points along bezier curve a,b,c,d,e
+		\def\@pdiagax{}\def\@pdiagbx{}\def\@pdiagcx{}\def\@pdiagdx{}\def\@pdiagex{} % Define x-coordinate commands
+		\def\@pdiagay{}\def\@pdiagby{}\def\@pdiagcy{}\def\@pdiagdy{}\def\@pdiagey{} % Define y-coordinate commands
+		%
+		\FPset{\pdiagax}{#2}\FPsub{\pdiagax}{\pdiagax}{\pdiaghalf}\FPclip{\pdiagax}{\pdiagax} % Set x-coord for a
+		\FPset{\pdiagbx}{\pdiagax} % Set x-coord for b
+		\FPset{\pdiagex}{#3}\FPsub{\pdiagex}{\pdiagex}{\pdiaghalf}\FPclip{\pdiagex}{\pdiagex} % Set x-coord for e
+		\FPset{\pdiagdx}{\pdiagex} % Set x-coord for d
+		\FPeval{\pdiagcx}{(\pdiagax+\pdiagex)/2} % Set x-coord for c
+		%
+		\FPset{\pdiagay}{\thepdiagthisrow} % Set y-coord for a
+		\FPeval{\pdiagby}{\thepdiagthisrow-\pdiagbezbshift} % Set y-coord for b
+		\FPset{\pdiagey}{\thepdiagnextrow} % Set y-coord for e
+		\FPeval{\pdiagdy}{\thepdiagthisrow-\pdiagbezdshift} % Set y-coord for d
+		\FPeval{\pdiagcy}{(\pdiagby+\pdiagdy)/2} % Set y-coord for c
+		%
+		\qbezier(\pdiagax,\pdiagay)(\pdiagbx,\pdiagby)(\pdiagcx,\pdiagcy) % Draw first section of bezier curve
+		\qbezier(\pdiagcx,\pdiagcy)(\pdiagdx,\pdiagdy)(\pdiagex,\pdiagey) % Draw first section of bezier curve
+		%
+		\put(\pdiagax,\pdiagay){{\circle*{0.2}}}\put(\pdiagex,\pdiagey){{\circle*{0.2}}} % Make dot at vertices
+	\fi %
+	%
+	\pdcountvertex{#2} % Count the domain vertex so it is not automatically mapped down on \pdendmapfill
+	%
+	\@pdresetbez % Reset bezier coordinate parameters
+} %
+%
+%
+% ---------------------------- Command to draw a single transposition
+\newcommand{\pdtrans}[3][0] %
+{	% #1 is same as #1 in \pdmap definition
+	% #2 = x-coord of domain
+	% #3 = x-coord of range
+	% if \pdmbez has been called, the mappings in the transposition will be mirror copies of each other
+	\if0#1 % Draw lines
+		\pdmap[#1]{#2}{#3}\pdmap[#1]{#3}{#2} %
+	\else % Draw beziers
+		% Save bezier information since it will be used twice
+		\def\@pdiagbezbtemp{}\FPset{\pdiagbezbtemp}{\pdiagbezbshift}
+		\def\@pdiagbezdtemp{}\FPset{\pdiagbezdtemp}{\pdiagbezdshift}
+		\pdmap[#1]{#2}{#3} % Draw first bezier in permutation
+		\FPset{\pdiagbezbshift}{\pdiagbezbtemp}\FPset{\pdiagbezdshift}{\pdiagbezdtemp} % Reset bezier parameters
+		\pdmap[#1]{#3}{#2} % Draw second bezier in permutation
+	\fi %
+} %
+% ---------------------------- End command to draw a single transposition
+%
+%
+% ---------------------------- Command to draw a single braid permutation
+\newcommand{\pdbraid}[2][0] %
+{	% Draw a single brain permutation, i.e. something like (1 2) or (5 6)
+	% #1 is same as #1 in \pdmap definition
+	% #2 = first x-coordinate to be mapped (other is #1 + 1)
+	\ifthenelse{#2=\thepdiagcolnum}
+	{	%
+		\pdtrans[#1]{#2}{1} % Draw braid
+	}{	%
+		\def\@pdiagnextx{}\FPset{\pdiagnextx}{#2}\FPadd{\pdiagnextx}{\pdiagnextx}{1} % Calculate second braid vertex
+		\pdtrans[#1]{#2}{\pdiagnextx} % Draw braid
+	}	%
+} %
+% ---------------------------- End command to draw a single braid permutation
+%
+%
+% ---------------------------- Command to set bezier parameters
+\newcommand{\pdmbez}[2] %
+{	% set the amount that a bezier is shifted up/down on either side
+	% #1 will control the placement of point b vertically (-1 is at point a, 1 is at point e)
+	% #2 will control the placement of point d vertically (-1 is at point a, 1 is at point e)
+	\def\@pdiagbezbshift{}\FPset{\pdiagbezbshift}{#1}\FPadd{\pdiagbezbshift}{\pdiagbezbshift}{1} % Point b is 0.7 below point a and 1.3 above point e
+	\def\@pdiagbezdshift{}\FPset{\pdiagbezdshift}{#2}\FPadd{\pdiagbezdshift}{\pdiagbezdshift}{1} % Point d is 0.7 above point e and 1.3 below point a
+} %
+% ---------------------------- End command to set bezier parameters
+%
+%
+% ---------------------------- Command to reset bezier parameters
+\newcommand{\@pdresetbez} %
+{	% reset the amount that a bezier is shifted up/down on either side
+	\def\@pdiagbezbshift{}\FPset{\pdiagbezbshift}{0.7} % Point b is 0.7 below point a and 1.3 above point e
+	\def\@pdiagbezdshift{}\FPset{\pdiagbezdshift}{1.3} % Point d is 0.7 above point e and 1.3 below point a
+} %
+% ---------------------------- End command to reset bezier parameters
+%
+%
+% ---------------------------- Command to end a row and draw lines representing unmapped vertices
+\newcommand{\@pdemptymap}[1]
+{	% An input will be a roman numeral command representing a vertex in the current row
+	% if the command is set to zero, draw a line
+	\if#1\thepdiagj % check for zero
+	\FPset{\pdiagxdot}{\thepdiagi}\FPsub{\pdiagxdot}{\pdiagxdot}{\pdiaghalf}\FPclip{\pdiagxdot}{\pdiagxdot} % Calculate x-coordinate
+	\qbezier(\pdiagxdot,\thepdiagthisrow)(\pdiagxdot,\thepdiagthisrow)(\pdiagxdot,\thepdiagnextrow) % Draw line
+	\put(\pdiagxdot,\thepdiagthisrow){{\circle*{0.2}}}\put(\pdiagxdot,\thepdiagnextrow){{\circle*{0.2}}}\fi % Make dot at vertices
+} %
+% ---------------------------- Command to end a row and draw lines representing unmapped vertices
+%
+%
+% ---------------------------- Command to end a map and decide/map unmapped vertices
+\newcommand{\pdendmapfill}
+{ 	% Go from left to right across columns and see if each vertex has been used in this map
+	% If it has been used, go to next vertex
+	% If it has not been used, map a line down to next row
+	\setcounter{pdiagi}{\value{pdiagcolnum}} % Counter to iterate over columns
+	\setcounter{pdiagj}{0} % Something set to zero to check conditionals
+	\whiledo{\value{pdiagi}>0} { %
+		\ifcase\thepdiagi %
+			\or\@pdemptymap{\@pdiagverti} %
+			\or\@pdemptymap{\@pdiagvertii} %
+			\or\@pdemptymap{\@pdiagvertiii} %
+			\or\@pdemptymap{\@pdiagvertiv} %
+			\or\@pdemptymap{\@pdiagvertv} %
+			\or\@pdemptymap{\@pdiagvertvi} %
+			\or\@pdemptymap{\@pdiagvertvii} %
+			\or\@pdemptymap{\@pdiagvertviii} %
+			\or\@pdemptymap{\@pdiagvertix} %
+			\or\@pdemptymap{\@pdiagvertx} %
+			\or\@pdemptymap{\@pdiagvertxi} %
+			\or\@pdemptymap{\@pdiagvertxii} %
+			\or\@pdemptymap{\@pdiagvertxiii} %
+			\or\@pdemptymap{\@pdiagvertxiv} %
+			\or\@pdemptymap{\@pdiagvertxv} %
+			\or\@pdemptymap{\@pdiagvertxvi} %
+			\or\@pdemptymap{\@pdiagvertxvii} %
+			\or\@pdemptymap{\@pdiagvertxviii} %
+			\or\@pdemptymap{\@pdiagvertxix} %
+			\or\@pdemptymap{\@pdiagvertxx} %
+			\or\@pdemptymap{\@pdiagvertxxi} %
+			\or\@pdemptymap{\@pdiagvertxxii} %
+			\or\@pdemptymap{\@pdiagvertxxiii} %
+			\or\@pdemptymap{\@pdiagvertxxiv} %
+			\or\@pdemptymap{\@pdiagvertxxv} %
+			\or\@pdemptymap{\@pdiagvertxxvi} %
+			\or\@pdemptymap{\@pdiagvertxxvii} %
+			\or\@pdemptymap{\@pdiagvertxxviii} %
+			\or\@pdemptymap{\@pdiagvertxxix} %
+			\or\@pdemptymap{\@pdiagvertxxx} %
+			\or\@pdemptymap{\@pdiagvertxxxi} %
+			\or\@pdemptymap{\@pdiagvertxxxii} %
+			\or\@pdemptymap{\@pdiagvertxxxiii} %
+			\or\@pdemptymap{\@pdiagvertxxxiv} %
+			\or\@pdemptymap{\@pdiagvertxxxv} %
+			\or\@pdemptymap{\@pdiagvertxxxvi} %
+			\or\@pdemptymap{\@pdiagvertxxxvii} %
+			\or\@pdemptymap{\@pdiagvertxxxviii} %
+			\or\@pdemptymap{\@pdiagvertxxxix} %
+			\or\@pdemptymap{\@pdiagvertxl} %
+			\or\@pdemptymap{\@pdiagvertxli} %
+			\or\@pdemptymap{\@pdiagvertxlii} %
+			\or\@pdemptymap{\@pdiagvertxliii} %
+			\or\@pdemptymap{\@pdiagvertxliv} %
+			\or\@pdemptymap{\@pdiagvertxlv} %
+			\or\@pdemptymap{\@pdiagvertxlvi} %
+			\or\@pdemptymap{\@pdiagvertxlvii} %
+			\or\@pdemptymap{\@pdiagvertxlviii} %
+			\or\@pdemptymap{\@pdiagvertxlix} %
+			\or\@pdemptymap{\@pdiagvertl} %
+		\fi %
+		\setcounter{pdiagi}{\value{pdiagi}-1} %
+	} % endwhile
+	\setcounter{pdiagthisrow}{\value{pdiagthisrow}-2} % Move to next map in diagram
+	\setcounter{pdiagnextrow}{\value{pdiagnextrow}-2} % Move to next map in diagram
+	\pdresetrow %
+} %
+% ---------------------------- End command to end a map and decide/map unmapped vertices
+%
+%
+% ---------------------------- Command to end a map and not map unmapped vertices
+\newcommand{\pdendmap} %
+{ 	%
+	\setcounter{pdiagthisrow}{\value{pdiagthisrow}-2} % Move to next map in diagram
+	\setcounter{pdiagnextrow}{\value{pdiagnextrow}-2} % Move to next map in diagram
+	\pdresetrow %
+} %
+\newcommand{\pdblankmap}{\pdendmap} % Make an alias
+% ---------------------------- End command to end a map and not map unmapped vertices
+%
+%
+% ---------------------------- Command to label a permutation
+\newcommand{\pdname}[1] % If called (optional), puts the name #1 at the side of the row
+{	%
+	\put(-0.3,\value{pdiagnextrow}){\makebox(0.4,2){{\footnotesize $#1$}}} %
+} %
+% ---------------------------- End command to label a permutation
+%
+%
+% ---------------------------- Command to reset vertex information
+\newcommand{\pdresetrow} % variables to keep track of which vertices are used
+{ %
+	\def\@pdiagverti{0}\def\@pdiagvertii{0}\def\@pdiagvertiii{0}\def\@pdiagvertiv{0}\def\@pdiagvertv{0} %
+	\def\@pdiagvertvi{0}\def\@pdiagvertvii{0}\def\@pdiagvertviii{0}\def\@pdiagvertix{0}\def\@pdiagvertx{0} %
+	\def\@pdiagvertxi{0}\def\@pdiagvertxii{0}\def\@pdiagvertxiii{0}\def\@pdiagvertxiv{0}\def\@pdiagvertxv{0} %
+	\def\@pdiagvertxvi{0}\def\@pdiagvertxvii{0}\def\@pdiagvertxviii{0}\def\@pdiagvertxix{0}\def\@pdiagvertxx{0} %
+	\def\@pdiagvertxxi{0}\def\@pdiagvertxxii{0}\def\@pdiagvertxxiii{0}\def\@pdiagvertxxiv{0}\def\@pdiagvertxxv{0} %
+	\def\@pdiagvertxxvi{0}\def\@pdiagvertxxvii{0}\def\@pdiagvertxxviii{0}\def\@pdiagvertxxix{0}\def\@pdiagvertxxx{0} %
+	\def\@pdiagvertxxxi{0}\def\@pdiagvertxxxii{0}\def\@pdiagvertxxxiii{0}\def\@pdiagvertxxxiv{0}\def\@pdiagvertxxxv{0} %
+	\def\@pdiagvertxxxvi{0}\def\@pdiagvertxxxvii{0}\def\@pdiagvertxxxviii{0}\def\@pdiagvertxxxix{0}\def\@pdiagvertxl{0} %
+	\def\@pdiagvertxli{0}\def\@pdiagvertxlii{0}\def\@pdiagvertxliii{0}\def\@pdiagvertxliv{0}\def\@pdiagvertxlv{0} %
+	\def\@pdiagvertxlvi{0}\def\@pdiagvertxlvii{0}\def\@pdiagvertxlviii{0}\def\@pdiagvertxlix{0}\def\@pdiagvertl{0} %
+} %
+% ---------------------------- End command to reset vertex information
+%
+%
+% ---------------------------- Command to count a vertex
+\newcommand{\pdcountvertex}[1] %
+{	% given x-coordinate of vertex, add one to that vertex's count
+	% #1 = x-coordinate of vertex
+	\ifcase#1 %
+		\or\def\@pdiagverti{1} %
+		\or\def\@pdiagvertii{1} %
+		\or\def\@pdiagvertiii{1} %
+		\or\def\@pdiagvertiv{1} %
+		\or\def\@pdiagvertv{1} %
+		\or\def\@pdiagvertvi{1} %
+		\or\def\@pdiagvertvii{1} %
+		\or\def\@pdiagvertviii{1} %
+		\or\def\@pdiagvertix{1} %
+		\or\def\@pdiagvertx{1} %
+		\or\def\@pdiagvertxi{1} %
+		\or\def\@pdiagvertxii{1} %
+		\or\def\@pdiagvertxiii{1} %
+		\or\def\@pdiagvertxiv{1} %
+		\or\def\@pdiagvertxv{1} %
+		\or\def\@pdiagvertxvi{1} %
+		\or\def\@pdiagvertxvii{1} %
+		\or\def\@pdiagvertxviii{1} %
+		\or\def\@pdiagvertxix{1} %
+		\or\def\@pdiagvertxx{1} %
+		\or\def\@pdiagvertxxi{1} %
+		\or\def\@pdiagvertxxii{1} %
+		\or\def\@pdiagvertxxiii{1} %
+		\or\def\@pdiagvertxxiv{1} %
+		\or\def\@pdiagvertxxv{1} %
+		\or\def\@pdiagvertxxvi{1} %
+		\or\def\@pdiagvertxxvii{1} %
+		\or\def\@pdiagvertxxviii{1} %
+		\or\def\@pdiagvertxxix{1} %
+		\or\def\@pdiagvertxxx{1} %
+		\or\def\@pdiagvertxxxi{1} %
+		\or\def\@pdiagvertxxxii{1} %
+		\or\def\@pdiagvertxxxiii{1} %
+		\or\def\@pdiagvertxxxiv{1} %
+		\or\def\@pdiagvertxxxv{1} %
+		\or\def\@pdiagvertxxxvi{1} %
+		\or\def\@pdiagvertxxxvii{1} %
+		\or\def\@pdiagvertxxxviii{1} %
+		\or\def\@pdiagvertxxxix{1} %
+		\or\def\@pdiagvertxl{1} %
+		\or\def\@pdiagvertxli{1} %
+		\or\def\@pdiagvertxlii{1} %
+		\or\def\@pdiagvertxliii{1} %
+		\or\def\@pdiagvertxliv{1} %
+		\or\def\@pdiagvertxlv{1} %
+		\or\def\@pdiagvertxlvi{1} %
+		\or\def\@pdiagvertxlvii{1} %
+		\or\def\@pdiagvertxlviii{1} %
+		\or\def\@pdiagvertxlix{1} %
+		\or\def\@pdiagvertl{1} %
+	\fi %
+} %
+% ---------------------------- End command to count a vertex
+%
+%
+%
+% The pdiag environment will use either straight lines of bezier curves. A straight line will be defined
+% as a bezier with midpoint equal to one of the endpoints. For a bezier curve that is not straight, the
+% point c will be calculated as the midpoint of b and d. Points b and d will have the same x-coordinates
+% as points a and e respectively. So, modifying the bezier curve can be done by moving the y-coordinates
+% and points b and e. By default, there is 2 units of space vertically between point a and point e. By
+% default, b will be 0.6 below a and d will be 1.4 below a.
+%       a
+%       |
+%       b---c---d
+%               |
+%               e
+%
+\newenvironment{pdiag}[3][1] %
+{	% Creates a picture environment with scale #1*0.5cm
+	% #2 is number of vertices wide (add 1 and put 0.5 space on each side, vertex 1 is at x-coord 0.5)
+	% #3 is the height of the diagram (given in number of permutations, add empty rows between rows for readability)
+	%
+	% Add generic counters
+	\@ifundefined{c@pdiagi}{\newcounter{pdiagi}}{} % counter names pdiagi
+	\@ifundefined{c@pdiagj}{\newcounter{pdiagj}}{} % counter names pdiagj
+	\@ifundefined{c@pdiagk}{\newcounter{pdiagk}}{} % counter names pdiagk
+	%
+	% Add counters to record diagram dimensions
+	\@ifundefined{c@pdiagcolnum}{\newcounter{pdiagcolnum}}{} % counter to save column dimension
+	\@ifundefined{c@pdiagrownum}{\newcounter{pdiagrownum}}{} % counter to save row dimension
+	%
+	% Add counter to track current row (and next row)
+	\@ifundefined{c@pdiagthisrow}{\newcounter{pdiagthisrow}}{} %
+	\@ifundefined{c@pdiagnextrow}{\newcounter{pdiagnextrow}}{} %
+	%
+	% Set column and row dimensions for diagram
+	\setcounter{pdiagcolnum}{#2}\setcounter{pdiagrownum}{#3*\real{2}} %
+	%
+	% Set current row and nextrow counters (start at top of diagram)
+	\setcounter{pdiagthisrow}{#3*\real{2}} %
+	\setcounter{pdiagnextrow}{#3*\real{2}-2} %
+	%
+	% Set default y-coordinates (shifts) for 2nd (b) and 4th (d) bezier points
+	\def\@pdiagbyshift{}\FPset{\pdiagbyshift}{0.6} % Set to 0.6 below y-coord of a
+	\def\@pdiagdyshift{}\FPset{\pdiagdyshift}{1.4} % Set to 1.4 below y-coord of a
+	%
+	% Set default y-coordinate (shift) for 3rd (c) bezier point
+	\def\@pdiagcyshift{}\FPeval{\pdiagcyshift}{(\pdiagbyshift + \pdiagdyshift)/2}\FPclip{\pdiagcyshift}{\pdiagcyshift} %
+	%
+	% Create variables to hold x-coordinate information
+	\def\@pdiagxdot{}\def\@pdiagxim{} %
+	%
+	% Create variables to store default bezier coordinate information
+	\def\@pdiagbezbshift{}\FPset{\pdiagbezbshift}{0.7} % point b is 0.7 below point a and 1.3 above point e
+	\def\@pdiagbezdshift{}\FPset{\pdiagbezdshift}{1.3} % point d is 0.7 above point e and 1.3 below point a
+	%
+	% Create a variable to hold 1/2 value (all x-coordinates are 1/2 shifted in diagram to create space on sides of diagram)
+	\def\@pdiaghalf{}\FPeval{\pdiaghalf}{1/2} %
+	%
+	% Set unitlength for picture environment
+	\setlength{\unitlength}{0.5cm*\real{#1}} %
+	% Begin picture environment
+	\begin{array}{c}\begin{picture}(\thepdiagcolnum,\thepdiagrownum) %
+	\pdresetrow %
+}{\end{picture}\end{array}} %
