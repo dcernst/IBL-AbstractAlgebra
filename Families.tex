@@ -416,7 +416,24 @@ $1$ & $1$ & $2$ & $3$ & $4$ \\
 \end{tabu}
 \end{center}
 
-\noindent Comparing each of the four columns to the leftmost column, we can obtain the corresponding permutations.  In particular, $e\leftrightarrow (1)$, $v\leftrightarrow (1,2)(3,4)$, $h\leftrightarrow (1,3)(2,4)$, and $vh=(1,4)(2,3)$.  The claim is that the set of permutations $\{(1),(1,2)(3,4),(1,3)(2,4),(1,4)(2,3)\}$ is isomorphic to $V_4$.  In this particular case, it's fairly clear that this is true.  However, it takes some work to prove that this process will always result in an isomorphic permutation group.  In fact, verifying the algorithm is essentially the proof of Cayley's Theorem. 
+\noindent Comparing each of the four columns to the leftmost column, we can obtain the corresponding permutations.  In particular, we obtain
+\begin{align*}
+e&\leftrightarrow (1)\\
+v&\leftrightarrow (1,2)(3,4)\\
+h&\leftrightarrow (1,3)(2,4)\\
+vh&\leftrightarrow(1,4)(2,3). 
+\end{align*}
+Do you see where these permutations came from?  The claim is that the set of permutations $\{(1),(1,2)(3,4),(1,3)(2,4),(1,4)(2,3)\}$ is isomorphic to $V_4$.  In this particular case, it's fairly clear that this is true.  However, it takes some work to prove that this process will always result in an isomorphic permutation group.  In fact, verifying the algorithm is essentially the proof of Cayley's Theorem. 
+
+Since there are potentially many ways to rearrange the rows and columns of a given table, it should be clear that there are potentially many isomorphisms that could result from the algorithm described above.
+
+\begin{exercise}
+Find a permutation group that is isomorphic to $D_4$.
+\end{exercise}
+
+\begin{exercise}
+Find a permutation group that is isomorphic to $\mathbb{Z}_6$.
+\end{exercise}
 
 More coming soon...
 
