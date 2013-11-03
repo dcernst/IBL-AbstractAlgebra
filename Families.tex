@@ -298,33 +298,150 @@ Permutation diagrams are fun to play with, but we need a more efficient way of e
 \end{align*}
 Each string of numbers enclosed by parentheses is called a \textbf{cycle} and if the string of numbers has length $k$, then we call it a $k$-cycle.  For example, $\alpha$ consists of a single 5-cycle, whereas $\sigma$ consists of one 2-cycle and one 3-cycle.  In the case of $\sigma$, we say that $\sigma$ is the product of two \textbf{disjoint cycles}.  
 
-One observation that you hopefully made is that if an object in position $i$ remains unchanged, then we don't bother listing that number in the cycle notation.  However, if we wanted to, we could use the 1-cycle $(i)$ to denote this.  For example, we could write $\beta=(1)(2,3,4)(5)$.  In particular, we could denote the identity permutation in $S_5$ using $(1)(2)(3)(4)(5)$.  However, it is common to simply use $(1)$ to denote the identity in $S_n$ for all $n$.
+One observation that you hopefully made is that if an object in position $i$ remains unchanged, then we don't bother listing that number in the cycle notation.  However, if we wanted to, we could use the 1-cycle $(i)$ to denote this.  For example, we could write $\beta=(1)(2,3,4)(5)$.  In particular, we could denote the identity permutation in $S_5$ using $(1)(2)(3)(4)(5)$.  Yet, it is common to simply use $(1)$ to denote the identity in $S_n$ for all $n$.
 
-Notice that the first number we choose to write down for a given cycle is arbitrary.  Typically, we would use the smallest possible number first, but this is not necessary.  For example, the cycle $(2,4,7)$ could also be written as $(4,7,2)$ or $(7,2,4)$.  
+Notice that the first number we choose to write down for a given cycle is arbitrary.  However, the numbers that follow are not negotiable.  Typically, we would use the smallest possible number first, but this is not necessary.  For example, the cycle $(2,4,7)$ could also be written as $(4,7,2)$ or $(7,2,4)$.
 
-\begin{exercise}
+\begin{exercise}\label{exer:S3}
 Write down all 6 elements in $S_3$ using cycle notation.
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\label{exer:S4}
 Write down all 24 elements in $S_4$ using cycle notation.
 \end{exercise}
 
-Blah blah...more coming soon.
+Suppose $\sigma\in S_n$.  Since $\sigma$ is one-to-one and onto, it is clear that it is possible to write $\sigma$ as a product of disjoint cycles such that each $i\in\{1,2,\ldots, n\}$ appears exactly once.
 
-In the previous exercise, one of the permutations you should have written down is $(1,2)(3,4)$.  This is a product of two disjoint 2-cycles.  It is worth pointing out that each cycle is a permutation in its own right.  That is, $(1,2)$ and $(3,4)$ are each permutations.  It just so happens that their composition does not ``simplify" any further.  Moreover, these two disjoint 2-cycles commute since $(1,2)(3,4)=(3,4)(1,2)$.  In fact, this phenomenon is always true.
+Let's see if we can figure out how to multiply elements of $S_n$ using cycle notation.  Consider the permutations $\alpha=(1,3,2)$ and $\beta=(3,4)$ in $S_4$.  To compute the composition $\alpha\beta=(1,3,2)(3,4)$, let's explore what happens in each position.  Since we are doing function composition, we should work our way from right to left.  Since 1 does not appear in the cycle notation for $\beta$, we know that $\beta(1)=1$ (i.e., $\beta$ maps 1 to 1).  Now, we see what $\alpha(1)=3$.  Thus, the composition $\alpha\beta$ maps 1 to 3 (since $\alpha\beta(1)=\alpha(\beta(1))=\alpha(1)=3$).  Next, we should return to $\beta$ and see what happens to 3---which is where we ended a moment ago.  We see that $\beta$ maps 3 to 4 and then $\alpha$ maps 4 to 4 (since 4 does not appear in the cycle notation for $\alpha$).  So, $\alpha\beta(3)=4$.  Continuing this way, we see that $\beta$ maps 4 to 3 and $\alpha$ maps 3 to 2, and so $\alpha\beta$ maps 4 to 2.  Lastly, since $\beta(2)=2$ and $\alpha(2)=1$, we have $\alpha\beta(2)=1$.  Putting this altogether, we see that $\alpha\beta=(1,3,4,2)$.  Now, you should try a few.  Things get a little trickier if the composition of two permutations results in a permutation consisting of more than a single cycle.
+
+\begin{exercise}
+Consider $\alpha$, $\beta$, $\sigma$, and $\gamma$ for which we drew the permutation diagrams.  Using cycle notation, compute each of the following.
+\begin{multicols}{2}
+\begin{enumerate}
+\item[(a)] $\alpha\gamma$
+\item[(b)] $\alpha^2$
+\item[(c)] $\alpha^3$
+\item[(d)] $\alpha^4$
+\item[(e)] $\alpha^5$
+\item[(f)] $\sigma\alpha$
+\item[(g)] $\alpha^{-1}\sigma^{-1}$
+\item[(h)] $\beta^2$
+\item[(i)] $\beta^3$
+\item[(j)] $\beta\gamma\alpha$
+\item[(k)] $\sigma^3$
+\item[(l)] $\sigma^6$
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+
+\begin{exercise}
+Write down the group table for $S_3$ using cycle notation.
+\end{exercise}
+
+In Exercise~\ref{exer:S4}, one of the permutations you should have written down is $(1,2)(3,4)$.  This is a product of two disjoint 2-cycles.  It is worth pointing out that each cycle is a permutation in its own right.  That is, $(1,2)$ and $(3,4)$ are each permutations.  It just so happens that their composition does not ``simplify" any further.  Moreover, these two disjoint 2-cycles commute since $(1,2)(3,4)=(3,4)(1,2)$.  In fact, this phenomenon is always true.
 
 \begin{theorem}
-Suppose $\alpha$ and $\beta$ are two disjoint cycles.  Then $\alpha\beta=\beta\alpha$.
+Suppose $\alpha$ and $\beta$ are two disjoint cycles.  Then $\alpha\beta=\beta\alpha$.  That is, products of disjoint cycles commute.
 \end{theorem}
 
+Computing the order of a permutation is fairly easy using cycle notation once we figure out how to do it for a single cycle.  In fact, you've probably already guessed at the following theorem.
 
+\begin{theorem}
+Suppose $\alpha\in S_n$ such that $\alpha$ consists of a single $k$-cycle.  Then $|\alpha|=k$.
+\end{theorem}
+
+\begin{theorem}
+Suppose $\alpha\in S_n$ such that $\alpha$ consists of $m$ disjoint cycles of lengths $k_1,\ldots, k_m$.  Then $|\alpha|=\lcm(k_1,\ldots, k_m)$.\footnote{Recall that $\lcm(k_1,\ldots, k_m)$ is the \textbf{least common multiple} of $\{k_1,\ldots, k_m\}$.} 
+\end{theorem}
+
+\begin{problem}
+Is the previous theorem true if we do not require the cycles to be disjoint?  Justify your answer.
+\end{problem}
+
+\begin{exercise}
+Compute the orders of all the elements in $S_3$.  See Exercise~\ref{exer:S3}.
+\end{exercise}
+
+\begin{exercise}
+Compute the orders of all the elements in $S_4$.  See Exercise~\ref{exer:S4}.
+\end{exercise}
+
+\begin{exercise}
+What is the order of $(1,4,7)(2,5)(3,6,8,9)$?
+\end{exercise}
+
+\begin{exercise}
+Draw the subgroup lattice for $S_3$.
+\end{exercise}
+
+\begin{exercise}
+Now, using $(1,2)$ and $(1,2,3)$ as generators, draw the Cayley diagram for $S_3$.  Look familiar?
+\end{exercise}
+
+It turns out that the subgroups of symmetric groups play an important role in group theory.
+
+\begin{definition}
+Every subgroup of a symmetric group is called a \textbf{permutation group}.
+\end{definition}
+
+The proof of the following theorem isn't too bad, but for now we'll take it for granted.
+
+\begin{theorem}[Cayley's Theorem]
+Every finite group is isomorphic to some permutation group.  In particular, if $(G,*)$ is a group of order $n$, then $G$ is isomorphic to a subgroup of $S_n$.
+\end{theorem}
+
+Cayley's Theorem guarantees that every finite group is isomorphic to a permutation group and it turns out that there is a rather simple algorithm for constructing the corresponding permutation group.  I'll briefly explain an example and then let you try a couple.
+
+Consider the Klein four-group $V_4=\{e,v,h,vh\}$.  Recall that $V_4$ has the following group table.
+
+\begin{center}
+\begin{tabu}{c|[2pt]c|c|c|c}
+$*$ & $e$ & $v$ & $h$ & $vh$ \\ \tabucline[2pt]{-}
+$e$ & $e$ & $v$ & $h$ & $vh$ \\
+\hline $v$ & $v$ & $e$ & $vh$ & $h$  \\
+\hline $h$ & $h$ & $vh$ & $e$ & $v$\\
+\hline $vh$ & $vh$ & $h$ & $v$ & $e$
+\end{tabu}
+\end{center}
+
+If we number the elements $e,v,h,$ and $vh$ as $1,2,3,$ and $4$, respectively, then we obtain the following table.
+
+\begin{center}
+\begin{tabu}{c|[2pt]c|c|c|c}
+ & $1$ & $2$ & $3$ & $4$ \\ \tabucline[2pt]{-}
+$1$ & $1$ & $2$ & $3$ & $4$ \\
+\hline $2$ & $2$ & $1$ & $4$ & $3$  \\
+\hline $3$ & $3$ & $4$ & $1$ & $2$\\
+\hline $4$ & $4$ & $3$ & $2$ & $1$
+\end{tabu}
+\end{center}
+
+\noindent Comparing each of the four columns to the leftmost column, we can obtain the corresponding permutations.  In particular, $e\leftrightarrow (1)$, $v\leftrightarrow (1,2)(3,4)$, $h\leftrightarrow (1,3)(2,4)$, and $vh=(1,4)(2,3)$.  The claim is that the set of permutations $\{(1),(1,2)(3,4),(1,3)(2,4),(1,4)(2,3)\}$ is isomorphic to $V_4$.  In this particular case, it's fairly clear that this is true.  However, it takes some work to prove that this process will always result in an isomorphic permutation group.  In fact, verifying the algorithm is essentially the proof of Cayley's Theorem. 
+
+More coming soon...
+
+%\begin{exercise}
+%Using $(1,2)$ and $(2,3)$ as generators, draw the Cayley diagram for $S_3$.  Look familiar?
+%\end{exercise}
+%
+%\begin{exercise}
+%Draw the subgroup lattice for $S_4$.
+%\end{exercise}
+%
+%\begin{exercise}
+%Verify that $\{(1,2), (2,3), (3,4)\}$ is a generating set for $S_4$.
+%\end{exercise}
+%
+%The elements in the generating set in the previous exercise are called \textbf{adjacent transpositions}.  Every 2-cycle is also called a \textbf{transposition}.  A transposition is called adjacent if the entries are one unit apart.  For example, $(3,7)$ is a non-adjacent transposition while $(6,7)$ is an adjacent transposition.
+%
+%It turns out that the set of transpositions in $S_n$ is a generating set
+
+%even and odd permutations...in next section.
 
 \end{section}
 
 \begin{section}{Alternating Groups}
 
-blah
+Coming soon...
+
 \end{section}
-
-
