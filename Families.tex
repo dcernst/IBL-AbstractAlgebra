@@ -447,7 +447,7 @@ Random thoughts that I'll elaborate on next time I teach the course:
 
 \begin{section}{Alternating Groups}
 
-In this section, we describe a special permutation group.  To get started, let's play with a few exercises.
+In this section, we describe a special class permutation groups.  To get started, let's play with a few exercises.
 
 \begin{exercise}
 Consider $S_3$.
@@ -458,12 +458,12 @@ Consider $S_3$.
 \end{exercise}
 
 \begin{exercise}
-Consider $S_4$.
+Recall that there are $4!=24$ permutations $S_4$.    
 \begin{enumerate}
-\item[(a)] Draw the subgroup lattice for $S_4$.
-\item[(b)] Verify that $\{(1,2), (1,3), (1,4), (2,3), (2,4),(3,4)\}$ is a generating set for $S_4$.
-\item[(c)] Verify that $\{(1,2),(2,3),(3,4)\}$ is a generating set for $S_4$.
+\item[(a)] Pick any 12 permutations from $S_4$ and verify that you can write them as words in the 2-cycles $(1,2), (1,3), (1,4), (2,3), (2,4),(3,4)$.  In most circumstances, your words will not consist of products of disjoint 2-cycles.  For example, the permutation $(1,2,3)$ can be decomposed into $(1,2)(2,3)$, which is a word consisting of two 2-cycles that happen to not be disjoint.
+\item[(b)] Using your same 12 permutations, verify that you can write them as words only in the 2-cycles $(1,2),(2,3),(3,4)$.
 \end{enumerate}
+By the way, it might take some trial and error to come up with a way to do this.  Moreover, there is more than one way to do it.
 \end{exercise}
 
 As the previous exercises hinted at, the 2-cycles play a special role in the symmetric groups.  In fact, they have a special name.  A \textbf{transposition} is a single cycle of length 2.  In the special case that the transposition is of the form $(i,i+1)$, we call it an \textbf{adjacent transposition}.  For example, $(3,7)$ is a (non-adjacent) transposition while $(6,7)$ is an adjacent transposition.
@@ -537,5 +537,34 @@ Conjecture a statement about when a permutation will be even versus odd.  Briefl
 \end{problem}
 
 And finally, we are ready to introduce the alternating groups.
+
+\begin{definition}
+The set of all even permutations in $S_n$ is denoted by $A_n$ and is called the \textbf{alternating group}.
+\end{definition}
+
+Since we referred to $A_n$ as a group, it darn well better be a group!
+
+\begin{theorem}
+The set $A_n$ forms a group under composition of permutation of order $n!/2$.
+\end{theorem}
+
+\begin{exercise}
+Find $A_3$.  What group is $A_3$ isomorphic to?
+\end{exercise}
+
+\begin{exercise}
+Find $A_4$ and then draw the subgroup lattice for $A_4$.
+\end{exercise}
+
+\begin{exercise}
+What is the order of $A_5$?  Is $A_5$ abelian?
+\end{exercise}
+
+Random thoughts that I'll elaborate on next time I teach the course:
+\begin{enumerate}
+\item The rigid motion symmetry group for the tetrahedron is isomorphic to $A_4$.
+\item You can arrange the Cayley diagram for $A_4$ with generators $(1,2)(3,4)$ and $(2,3,4)$ on a truncated tetrahedron. 
+\item You can arrange the Cayley diagram for $A_5$ with generators $(1,2)(3,4)$ and $(1,2,3,4,5)$ on a truncated icosahedron.  You can also arrange the Cayley diagram for $A_5$ with generators $(1,2,3)$ and $(1,5)(2,4)$ on a truncated dodecahedron. 
+\end{enumerate}
 
 \end{section}
