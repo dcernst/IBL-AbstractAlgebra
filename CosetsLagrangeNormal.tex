@@ -1,0 +1,364 @@
+\chapter{Cosets, Lagrange's Theorem, and Normal Subgroups}
+\label{chapter:cosets_lagrange_normal}
+\thispagestyle{empty}
+
+\begin{section}{Cosets}
+
+Undoubtably, you've noticed numerous times that if $G$ is a group with $H\leq G$ and $g\in G$, then both $|H|$ and $|g|$ divide $|G|$.  The theorem that says this is always the case is called Lagrange's theorem and we'll prove it towards the end of this chapter.  We begin with a definition.
+
+\begin{definition}
+Let $G$ be a group and let $H\leq G$ and $g\in G$.  The subsets
+\[
+aH:=\{ah\mid h\in H\}
+\]
+and
+\[
+Ha:=\{ha\mid h\in H\}
+\]
+are called the \textbf{left} and \textbf{right cosets of $H$ containing $a$}, respectively.
+\end{definition}
+
+To gain some insight, let's tinker with an example.  Consider the dihedral group $D_3=\langle r,s\rangle$ and let $H=\langle s\rangle\leq D_3$.  To compute the right cosets of $H$, we need to multiply all of the elements of $H$ on the right by the elements of $G$.  We see that
+\begin{align*}
+& He =\{ee,se\}=\{e,s\}=H\\
+& Hr=\{er,sr\}=\{r,sr\}\\
+& Hr^2=\{er^2,sr^2\}=\{r^2,rs\}\\
+& Hs=\{es,ss\}=\{s,e\}=H\\
+& Hsr=\{esr,ssr\}=\{sr,r\}\\
+& Hrs=\{ers,srs\}=\{rs,ssr^2\}=\{rs,r^2\}.
+\end{align*}
+Despite the fact that we made six calculations (one for each element in $D_3$), if we scan the list, we see that there are only 3 distinct cosets, namely
+\begin{align*}
+& H=He=Hs=\{e,s\}\\
+& Hr=Hsr=\{r,sr\}\\
+& Hr^2=Hrs=\{r^2,rs\}.
+\end{align*}
+We can make a few more observations.  First, the resulting cosets formed a partition of $D_3$.  That is, every element of $D_3$ appears in exactly one coset.  Moreover, all the cosets are the same size---two elements in each coset in this case.  Lastly, each coset can be named in multiple ways.  In particular, the elements of the coset are exactly the elements of $D_3$ we multiplied $H$ by.  For example, $Hr=Hsr$ and the elements of this coset are $r$ and $sr$.  Shortly, we will see that these observations hold, in general.
+
+Here is another significant observation we can make.  Consider the Cayley diagram for $D_3$ with generators $r$ and $s$.
+
+\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=8mm]
+\tikzstyle{h} = [draw,very  thick, blue,stealth-stealth]
+\tikzstyle{r} = [draw, very thick, red,-stealth]
+
+\begin{center}
+\begin{tikzpicture}[scale=.75,auto]
+\node (e) at (90:2) [vert] {$e$};
+\node (r) at (-30:2) [vert] {$r$};
+\node (rr) at (210:2) [vert] {$r^2$};
+\node (h) at (90:4) [vert] {$s$};
+\node (hr) at (210:4) [vert] {$rs$};
+\node (hrr) at (-30:4) [vert] {$sr$};
+\draw [r] (e) to [bend left] (r);
+\draw [r] (r) to [bend left] (rr);
+\draw [r] (rr) to [bend left] (e);
+\draw [r] (h) to [bend right] (hr);
+\draw [r] (hr) to [bend right] (hrr);
+\draw [r] (hrr) to [bend right] (h);
+\draw [h] (e) to (h);
+\draw [h] (r) to (hrr);
+\draw [h] (rr) to (hr);
+\end{tikzpicture}
+\end{center}
+Given this Cayley diagram, we can visualize the subgroup $H$ and it's clones.  Moreover, $H$ and it's clones are exactly the 3 right cosets of $H$.  We'll see that, in general, the \emph{right} cosets of a given subgroup are always the subgroup and its clones.
+
+\begin{exercise}\label{exer:leftcosetsD3}
+Consider the group $D_3$.  Find all the left cosets for $H=\langle s\rangle$.  Are they the same as the right cosets?  Are they the same as the subgroup $H$ and its clones that we can see in the Cayley graph for $D_3$ with generators $r$ and $s$?
+\end{exercise}
+
+As the previous exercise indicates, the collections of left and right cosets may not be the same and when they are not the same, the subgroup and its clones do not coincide with the left cosets.
+
+You might be thinking that somehow right cosets are better than left cosets since we were able to visualize them in the Cayley graph.  However, this is not the case.  Our convention of composing actions from right to left is what is dictating the visualization.  If we had adopted a left to right convention, then we would be able to visualize the left cosets.  
+
+Computing left and right cosets using a group table is fairly easy.  Hopefully, you figured out in Exercise~\ref{exer:leftcosetsD3} that the left cosets of $H=\langle s\rangle$ in $D_3$ are $H=\{e,s\}$, $srH=\{r^2,sr\}$, and $rsH=\{r,rs\}$.  Now, consider the following group table for $D_3$ that has the rows and columns arranged according to the left cosets of $H$.
+
+\begin{center}
+\begin{tabu}{c|[2pt]c|c|c|c|c|c}
+$*$ & $e$ & $s$ & $sr$ & $r^2$ & $rs$ & $r$ \\ \tabucline[2pt]{-}
+$e$ & $e$ & $s$ & $sr$ & $r^2$ & $rs$ & $r$\\
+\hline $s$ & $s$ & $e$ & $r$ & $rs$ & $r^2$ & $sr$ \\
+\hline $sr$ & $sr$ & $r^2$ & $e$ & $s$ & $r$ & $rs$\\
+\hline $r^2$ & $r^2$ & $sr$ & $rs$ & $r$ & $s$ & $e$\\
+\hline $rs$ & $rs$ & $r$ & $r^2$ & $sr$ & $e$ & $s$\\
+\hline $r$ & $r$ & $rs$ & $s$ & $e$ & $sr$ & $r^2$\\
+\end{tabu}
+\end{center}
+The left coset $srH$ must appear in the row labeled by $sr$ and in the columns labeled by the elements of $H=\{e,s\}$.  We've depicted this below.
+
+\begin{center}
+\begin{tabu}{c|[2pt]c|c|c|c|c|c}
+$*$ & \cellcolor{lightgray}$e$ & \cellcolor{lightgray}$s$ & $sr$ & $r^2$ & $rs$ & $r$ \\ \tabucline[2pt]{-}
+$e$ & $e$ & $s$ & $sr$ & $r^2$ & $rs$ & $r$\\
+\hline $s$ & $s$ & $e$ & $r$ & $rs$ & $r^2$ & $sr$ \\
+\hline \cellcolor{lightgray}$sr$ & \cellcolor{blue}$sr$ & \cellcolor{blue}$r^2$ & $e$ & $s$ & $r$ & $rs$\\
+\hline $r^2$ & $r^2$ & $sr$ & $rs$ & $r$ & $s$ & $e$\\
+\hline $rs$ & $rs$ & $r$ & $r^2$ & $sr$ & $e$ & $s$\\
+\hline $r$ & $r$ & $rs$ & $s$ & $e$ & $sr$ & $r^2$\\
+\end{tabu}
+\end{center}
+On the other hand, the right coset $Hsr$ must appear in the column labeled by $sr$ and the rows labeled by the elements of $H=\{e,s\}$:
+\begin{center}
+\begin{tabu}{c|[2pt]c|c|c|c|c|c}
+$*$ & $e$ & $s$ & \cellcolor{lightgray}$sr$ & $r^2$ & $rs$ & $r$ \\ \tabucline[2pt]{-}
+\cellcolor{lightgray}$e$ & $e$ & $s$ & \cellcolor{blue}$sr$ & $r^2$ & $rs$ & $r$\\
+\hline \cellcolor{lightgray}$s$ & $s$ & $e$ & \cellcolor{blue}$r$ & $rs$ & $r^2$ & $sr$ \\
+\hline $sr$ & $sr$ & $r^2$ & $e$ & $s$ & $r$ & $rs$\\
+\hline $r^2$ & $r^2$ & $sr$ & $rs$ & $r$ & $s$ & $e$\\
+\hline $rs$ & $rs$ & $r$ & $r^2$ & $sr$ & $e$ & $s$\\
+\hline $r$ & $r$ & $rs$ & $s$ & $e$ & $sr$ & $r^2$\\
+\end{tabu}
+\end{center}
+As we can see from the tables, $srH\neq Hsr$ since $\{sr,r^2\}\neq \{sr,r\}$.  If we color the entire group table for $D_3$ according to which \emph{left} coset an element belongs to, we get the following.
+ 
+\begin{center}
+\begin{tabu}{c|[2pt]c|c|c|c|c|c}
+$*$ & $e$ & $s$ & $sr$ & $r^2$ & $rs$ & $r$ \\ \tabucline[2pt]{-}
+$e$ & \cellcolor{red}$e$ & \cellcolor{red}$s$ & \cellcolor{blue}$sr$ & \cellcolor{blue}$r^2$ & \cellcolor{green}$rs$ & \cellcolor{green}$r$\\
+\hline $s$ & \cellcolor{red}$s$ & \cellcolor{red}$e$ & \cellcolor{green}$r$ & \cellcolor{green}$rs$ & \cellcolor{blue}$r^2$ & \cellcolor{blue}$sr$ \\
+\hline $sr$ & \cellcolor{blue}$sr$ & \cellcolor{blue}$r^2$ & \cellcolor{red}$e$ & \cellcolor{red}$s$ & \cellcolor{green}$r$ & \cellcolor{green}$rs$\\
+\hline $r^2$ & \cellcolor{blue}$r^2$ & \cellcolor{blue}$sr$ & \cellcolor{green}$rs$ & \cellcolor{green}$r$ & \cellcolor{red}$s$ & \cellcolor{red}$e$\\
+\hline $rs$ & \cellcolor{green}$rs$ & \cellcolor{green}$r$ & \cellcolor{blue}$r^2$ & \cellcolor{blue}$sr$ & \cellcolor{red}$e$ & \cellcolor{red}$s$\\
+\hline $r$ & \cellcolor{green}$r$ & \cellcolor{green}$rs$ & \cellcolor{red}$s$ & \cellcolor{red}$e$ & \cellcolor{blue}$sr$ & \cellcolor{blue}$r^2$\\
+\end{tabu}
+\end{center}
+We would get a similar table if we colored the elements according to the right cosets.
+
+Let's tackle a few more examples.
+
+\begin{exercise}
+Consider $D_3$ and let $K=\langle r\rangle$.  
+\begin{enumerate}
+\item[(a)] Find all of the left cosets of $K$ and then find all of the right cosets of $K$ in $D_3$.  Any observations?
+\item[(b)] Write down the group table for $D_3$, but this time arrange the rows and columns according to the left cosets for $K$.  Color the entire table according to which \emph{left} coset an element belongs to.  Can you visualize the observations you make in part (a)?
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Consider $Q_8$.  Let $H=\langle i\rangle$ and $K=\langle -1\rangle$.
+\begin{enumerate}
+\item[(a)] Find all of the left cosets of $H$ and all of the right cosets of $H$ in $Q_8$.  
+\item[(b)] Write down the group table for $Q_8$ so that rows and columns are arranged according to the left cosets for $H$.  Color the entire table according to which \emph{left} coset an element belongs to.
+\item[(c)] Find all of the left cosets of $K$ and all of the right cosets of $K$ in $Q_8$.
+\item[(d)] Write down the group table for $Q_8$ so that rows and columns are arranged according to the left cosets for $H$.  Color the entire table according to which \emph{left} coset an element belongs to.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Consider $S_4$.  Find all of the left cosets and all of the right cosets of $A_4$ in $S_4$.
+\end{exercise}
+
+\begin{exercise}
+Consider $\mathbb{Z}_8$.  Find all of the left cosets and all of the right cosets of $\langle 4\rangle$ in $\mathbb{Z}_8$.
+\end{exercise}
+
+\begin{exercise}
+Consider $(\mathbb{Z},+)$.  Find all of the left cosets and all of the right cosets of $3\mathbb{Z}$ in $\mathbb{Z}$.
+\end{exercise}
+
+Now that we've played with a few examples, let's make a few general observations.
+
+\begin{theorem}
+Let $G$ be a group and let $H\leq G$.
+\begin{enumerate}
+\item[(a)] If $a\in G$, then $a\in aH$ (respectively, $Ha$).
+\item[(b)] \label{thm:coset_representative} If $b\in aH$ (respectively, $Ha$), then $aH=bH$ (respectively, $Ha=Hb$).
+\item[(c)] If $a\in H$, then $aH=H=Ha$.
+\item[(d)] If $a\notin H$, then for all $h\in H$, $ah\notin aH$ (respectively, $ha \notin Ha$).
+\end{enumerate}
+\end{theorem}
+
+The upshot of Theorem~\ref{thm:coset_representative}(b) is that cosets can have different names.  In particular, if $b$ is an element of the left coset $aH$, then we could have just as easily called the coset by the name $bH$.  In this case, both $a$ and $b$ are called \textbf{coset representatives}.
+
+In all of the examples we've seen so far, the left and right cosets partitioned $G$ into equal-sized chunks.  We need to prove that this is true in general.  To prove that the cosets form a partition, we'll define an appropriate equivalence relation.
+
+\begin{theorem}
+Let $G$ be a group and let $H\leq G$.  Define $\sim_L$ and $\sim_R$ via 
+\begin{center}
+$a\sim_L b$ iff $a^{-1}b\in H$ for all $a,b\in G$
+\end{center}
+and
+\begin{center}
+$a\sim_R b$ iff $ab^{-1}\in H$ for all $a,b\in G$.
+\end{center}
+Then both $\sim_L$ and $\sim_R$ are equivalence relations.\footnote{You only need to prove that either $\sim_L$ or $\sim_R$ is an equivalence relation as the proof for the other is similar.}
+\end{theorem}
+
+\begin{problem}
+If $[a]_{\sim_L}$ (respectively, $[a]_{\sim_R}$) denotes the equivalence class of $a$ under $\sim_L$ (respectively, $\sim_R$), what is $[a]_{\sim_L}$ (respectively, $[a]_{\sim_R}$)?  \emph{Hint:} It's got something to do with cosets.
+\end{problem}
+
+\begin{corollary}
+If $G$ is a group and $H\leq G$, then the left (respectively, right) cosets of $H$ form a partition of $G$.
+\end{corollary}
+
+Next, we argue that all of the cosets have the same size.
+
+\begin{theorem}
+Let $G$ be a group, $H\leq G$, and $a\in G$.  Define $\phi:H\to aH$ via $\phi(g)=ag$.  Then $\phi$ is one-to-one and onto.
+\end{theorem}
+
+\begin{corollary}\label{cor:cosets_same_size}
+Let $G$ be a group and let $H\leq G$.  Then all of the left and right cosets of $H$ are the same size as $H$.  In other words $|aH|=H=|Ha|$ for all $a\in G$.\footnote{As you probably expect, $|aH|$ denotes the size of $aH$. Note that everything works out just fine even if $H$ has infinite order.}
+\end{corollary}
+
+\end{section}
+
+\begin{section}{Lagrange's Theorem}
+
+We're finally ready to state Lagrange's Theorem, which is named after the Italian born mathematician Joseph Louis Lagrange.  It turns out that Lagrange did not actually prove the theorem that is named after him.  The theorem was actually proved by Carl Friedrich Gauss in 1801.
+
+\begin{theorem}[Lagrange's Theorem]
+Let $G$ be a finite group and let $H\leq G$.  Then $|H|$ divides $|G|$.
+\end{theorem}
+
+This simple sounding theorem is extremely powerful.  One consequence is that groups and subgroups have a fairly rigid structure.  Suppose $G$ is a finite group and let $H\leq G$.  Since $G$ is finite, there must be a finite number of distinct left cosets, say $H, a_2H, \ldots, a_{n}H$.  Corollary~\ref{cor:cosets_same_size} tells us that each of these cosets is the same size.  In particular, Lagrange's Theorem implies that for each $\i\in\{1,\ldots, n\}$, $|a_iH|=|G|/n$, or equivalently $n=|G|/|a_iH|$.  We can depict this using the following figure, where each rectangle represents a coset and we've labeled a single coset representative in each case.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.6]
+\draw (0,0) -- (5,0) -- (5,2) -- (0,2) -- (0,0);
+\draw (1,0) -- (1,2);
+\draw (2,0) -- (2,2);
+\draw (4,0) -- (4,2);
+\draw[fill=black] (.2,1.75) circle (1pt) node[below right] {$e$};
+\draw[fill=black] (1.2,1.75) circle (1pt) node[below right] {$a_2$};
+\draw[fill=black] (4.2,1.75) circle (1pt) node[below right] {$a_{n}$};
+\node at (.5,.5) {$H$};
+\node at (1.5,.5) {$a_2H$};
+\node at (4.5,.5) {$a_{n}H$};
+\node at (3,1) {$\cdots$};
+\end{tikzpicture}
+\end{center}
+
+One important consequence of Lagrange's Theorem is that it narrows down the possible sizes for subgroups.
+
+\begin{exercise}
+Suppose $G$ is a group of order 48.  What are the possible orders for subgroups of $G$?  
+\end{exercise}
+
+Lagrange's Theorem tells us what the possible orders of a subgroup are, but if $k$ is a divisor of the order of a group, it does not guarantee that there is a subgroup of order $k$.  As we shall see later, the converse of Lagrange's Theorem is true for abelian groups.  However, it's not true, in general.  It turns out that $A_4$ is the smallest example of a group where the converse of Lagrange's Theorem fails.
+
+\begin{problem}
+Consider the alternating group $A_4$.  Lagrange's Theorem tells us that the possible orders of subgroups for $A_4$ are 1, 2, 3, 4, 6, and 12.
+\begin{enumerate}
+\item[(a)] Find examples of subgroups of $A_4$ of orders 1, 2, 3, 4, and 12.
+\item[(b)] Write down all of the elements of order 2 in $A_4$.
+\item[(c)] Argue that any subgroup of $A_4$ that contains any two elements of order 2 must contain a subgroup isomorphic to $V_4$.
+\item[(d)] Argue that if $A_4$ has a subgroup of order 6, that it cannot be isomorphic to $R_6$.
+\item[(e)] It turns out that up to isomorphism, there are only two groups of order 6, namely $S_3$ and $R_6$.  Suppose that $H$ is a subgroup of $A_4$ of order 6.  Part (d) guarantees that $H\cong S_3$.   Argue that $H$ must contain all of the elements of order 2 from $A_4$.
+\item[(f)] Explain why $A_4$ cannot have a subgroup of order 6. 
+\end{enumerate}
+\end{problem}
+
+Using Lagrange's Theorem, we can quickly prove both of the following theorems.
+
+\begin{theorem}\label{thm:order_element_divides_group_order}
+Let $G$ be a finite group and let $a\in G$.  Then $|a|$ divides $|G|$.
+\end{theorem}
+
+\begin{theorem}
+Every group of prime order is cyclic.
+\end{theorem}
+
+Since the converse of Lagrange's Theorem is not true, the converse of Theorem~\ref{thm:order_element_divides_group_order} is not true either.  However, it is much easier to find a counterexample.
+
+\begin{problem}
+Argue that $A_4$ does not have any elements of order 8.
+\end{problem}
+
+Lagrange's Theorem motivates the following definition.
+
+\begin{definition}
+Let $G$ be a group and let $H\leq G$.  The \textbf{index} of $H$ in $G$ is the number of cosets (left or right) of $H$ in $G$. Equivalently, if $G$ is finite, then the index of $H$ in $G$ is equal to $|G|/|H|$.  We denote the index via $[G:H]$.
+\end{definition}
+
+\begin{exercise}
+Let $H=\langle (1,2)(3,4),(1,3)(2,4)\rangle$.
+\begin{enumerate}
+\item[(a)] Find $[A_4:H]$.
+\item[(b)] Find $[S_4:H]$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Find $[\mathbb{Z}:4\mathbb{Z}]$.
+\end{exercise}
+
+\end{section}
+
+\begin{section}{Normal Subgroups}
+
+We've seen an example where the left and right cosets of a subgroup were different and a few examples where they coincided.  In the latter case, the subgroup has a special name.
+
+\begin{definition}
+Let $G$ be a group and let $H\leq G$.  If $aH=Ha$ for all $a\in G$, then we say that $H$ is a \textbf{normal subgroup}.  If $H$ is a normal subgroup of $G$, then we write $H\trianglelefteq G$.
+\end{definition}
+
+\begin{exercise}
+Provide an example of group that has a subgroup that is not normal.
+\end{exercise}
+
+\begin{problem}
+Suppose $G$ is a finite group and let $H\leq G$.  If $H\trianglelefteq G$ and we arrange the rows and columns of the group table for $G$ according to the left cosets of $H$ and then color the corresponding cosets, what property will the table have?  Is the converse true?  That is, if the table has the property you discovered, will $H$ be normal in $G$?
+\end{problem}
+
+There are a few instances where we can guarantee that a subgroup will be normal.
+
+\begin{theorem}
+Suppose $G$ is a group.  Then $\{e\}\trianglelefteq G$ and $G\trianglelefteq G$.
+\end{theorem}
+
+\begin{theorem}
+If $G$ is an abelian group, then all subgroups of $G$ are normal.
+\end{theorem}
+
+A group does not have to be abelian in order for all the proper subgroups to be normal.
+
+\begin{problem}
+Argue that all of the proper subgroups of $Q_8$ are normal in $Q_8$. 
+\end{problem}
+
+\begin{theorem}
+Suppose $G$ is a group and let $H\leq G$ such that $[G:H]=2$.  Then $H\trianglelefteq G$.
+\end{theorem}
+
+It turns out that normality is not transitive.
+
+\begin{problem}
+Let $H=\langle (1,2)(3,4),(2,3)(1,4)\rangle$.  Show that $H\trianglelefteq A_4$ and $A_4\trianglelefteq S_4$, but $H\not\trianglelefteq S_4$.
+\end{problem}
+
+The previous problem illustrates that $H\trianglelefteq K \trianglelefteq G$ does not imply $H\trianglelefteq G$.
+
+\begin{theorem}
+Suppose $G$ is a group and let $H\leq G$.  Then $H\trianglelefteq G$ if and only if $aHa^{-1}=H$ for all $a\in G$, where
+\[
+aHa^{-1}=\{aha^{-1}\mid h\in H\}.
+\]
+\end{theorem}
+
+The previous theorem is often used as the definition of normal.  It also motivates the following definition.
+
+\begin{definition}
+Let $G$ be a group and let $H\leq G$.  The \textbf{normalizer of $H$ in $G$} is defined via
+\[
+N_G(H):=\{g\in G\mid gHg^{-1}=H\}.
+\]
+\end{definition}
+
+\begin{theorem}
+If $G$ is a group and $H\leq G$, then $N_G(H)$ is a subgroup of $G$.
+\end{theorem}
+
+\begin{theorem}
+If $G$ is a group and $H\leq G$, then $H\trianglelefteq N_G(H)$.  Moreover, $N_G(H)$ is the largest subgroup of $G$ in which $H$ is normal. 
+\end{theorem}
+
+\begin{exercise}
+Find $N_{V_4}(D_4)$.
+\end{exercise}
+
+\begin{exercise}
+Find $N_{\langle s\rangle}(S_3)$.
+\end{exercise}
+
+\end{section}
