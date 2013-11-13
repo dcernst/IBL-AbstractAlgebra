@@ -174,11 +174,11 @@ In all of the examples we've seen so far, the left and right cosets partitioned 
 \begin{theorem}
 Let $G$ be a group and let $H\leq G$.  Define $\sim_L$ and $\sim_R$ via 
 \begin{center}
-$a\sim_L b$ iff $a^{-1}b\in H$ for all $a,b\in G$
+$a\sim_L b$ iff $a^{-1}b\in H$
 \end{center}
 and
 \begin{center}
-$a\sim_R b$ iff $ab^{-1}\in H$ for all $a,b\in G$.
+$a\sim_R b$ iff $ab^{-1}\in H$.
 \end{center}
 Then both $\sim_L$ and $\sim_R$ are equivalence relations.\footnote{You only need to prove that either $\sim_L$ or $\sim_R$ is an equivalence relation as the proof for the other is similar.}
 \end{theorem}
@@ -198,7 +198,7 @@ Let $G$ be a group, $H\leq G$, and $a\in G$.  Define $\phi:H\to aH$ via $\phi(g)
 \end{theorem}
 
 \begin{corollary}\label{cor:cosets_same_size}
-Let $G$ be a group and let $H\leq G$.  Then all of the left and right cosets of $H$ are the same size as $H$.  In other words $|aH|=H=|Ha|$ for all $a\in G$.\footnote{As you probably expect, $|aH|$ denotes the size of $aH$. Note that everything works out just fine even if $H$ has infinite order.}
+Let $G$ be a group and let $H\leq G$.  Then all of the left and right cosets of $H$ are the same size as $H$.  In other words $|aH|=|H|=|Ha|$ for all $a\in G$.\footnote{As you probably expect, $|aH|$ denotes the size of $aH$. Note that everything works out just fine even if $H$ has infinite order.}
 \end{corollary}
 
 \end{section}
@@ -353,6 +353,8 @@ If $G$ is a group and $H\leq G$, then $N_G(H)$ is a subgroup of $G$.
 If $G$ is a group and $H\leq G$, then $H\trianglelefteq N_G(H)$.  Moreover, $N_G(H)$ is the largest subgroup of $G$ in which $H$ is normal. 
 \end{theorem}
 
+It is worth pointing out that the ``smallest" $N_G(H)$ can be is $H$ itself---certainly a subgroup is a normal subgroup of itself.  Also, the ``largest" that $N_G(H)$ can be is $G$, which happens precisely when $H$ is normal in $G$.
+
 \begin{exercise}
 Find $N_{V_4}(D_4)$.
 \end{exercise}
@@ -360,5 +362,26 @@ Find $N_{V_4}(D_4)$.
 \begin{exercise}
 Find $N_{\langle s\rangle}(S_3)$.
 \end{exercise}
+
+We conclude this chapter with a few remarks.  We've seen examples of groups that have subgroups that are normal and subgroups that are not normal.  In an abelian group, all the subgroups are normal.  It turns out that there are examples of groups that have no normal subgroups.  This groups are called \textbf{simple groups}.  The smallest simple group is $A_5$, which has 120 elements and lots of subgroups, none of which are normal.
+
+%borrowing from wikipedia:
+
+The classification of the finite simple groups is a theorem stating that every finite simple group belongs to one of four categories:
+\begin{enumerate}
+\item A cyclic group with prime order;
+\item An alternating group of degree at least 5;
+\item A simple group of Lie type, including both 
+\begin{enumerate}
+\item the classical Lie groups, namely the simple groups related to the projective special linear, unitary, symplectic, or orthogonal transformations over a finite field;
+\item the exceptional and twisted groups of Lie type (including the Tits group);
+\end{enumerate}
+\item The 26 sporadic simple groups.
+\end{enumerate}
+These groups can be seen as the basic building blocks of all finite groups, in a way reminiscent of the way the prime numbers are the basic building blocks of the natural numbers.
+
+The classification theorem has applications in many branches of mathematics, as questions about the structure of finite groups (and their action on other mathematical objects) can sometimes be reduced to questions about finite simple groups. Thanks to the classification theorem, such questions can sometimes be answered by checking each family of simple groups and each sporadic group.  The proof of the theorem consists of tens of thousands of pages in several hundred journal articles written by about 100 authors, published mostly between 1955 and 2004.
+
+The classification of the finite simple groups is a modern achievement in abstract algebra and I highly encourage you to go learn more about it.
 
 \end{section}
