@@ -1,0 +1,220 @@
+\chapter{Products and Quotients of Groups}
+\label{chapter:products_quotients}
+\thispagestyle{empty}
+
+\begin{section}{Products of Groups}
+
+In this section, we will discuss a method for using existing groups as building blocks to form new groups.
+
+Suppose $(G,*)$ and $(H,\circ)$ are two groups.  Recall that the Cartesian product of $G$ and $H$ is define to be
+\[
+G\times H=\{(g,h):g\in G,h\in H\}
+\]
+For more information on Cartesian products, see Definition~\ref{def:cartesian_product}.  Using the binary operations for the groups $G$ and $H$, we can define a binary operation on the set $G\times H$.  Define $\star$ on $G\times H$ via
+\[
+(g_1,h_1)\star(g_2,h_2)=(g_1*g_2,h_1\circ h_2).
+\]
+This looks fancier than it is.  We're just doing the operation of each group in the appropriate component.  It turns out that $(G\times H,\star)$ is a group.
+
+\begin{theorem}
+Suppose $(G,*)$ and $(H,\circ)$ are two groups, where $e$ and $e'$ are the identity elements of $G$ and $H$, respectively.   Then $(G\times H,\star)$ is a group, where $\star$ is defined as above.  Moreover, $(e,e')$ is the identity of $G\times H$ and the inverse of $(g,h)\in G\times H$ is given by $(g,h)^{-1}=(g^{-1},h^{-1})$.
+\end{theorem}
+
+We refer to $G\times H$ as the \textbf{direct product} of the groups $G$ and $H$.  Note that we abbreviate $(g_1,h_1)\star(g_2,h_2)=(g_1*g_2,h_1\circ h_2)$ by $(g_1,h_1)(g_2,h_2)=(g_1 g_2,h_1 h_2)$.
+
+There's no reason we can't do this for more than two groups.  If $A_1, A_2, \ldots, A_n$ is a collection of sets, we define
+\[
+\prod_{i=1}^nA_i:=A_1\times A_2\times \cdots \times A_n.
+\]
+Each element of $\prod_{i=1}^nA_i$ is of the form $(a_1,a_2,\ldots, a_n)$, where $a_i\in A_i$.
+
+\begin{theorem}
+Let $G_1, G_2,\ldots, G_n$ be groups.  For $(a_1,a_2, \ldots, a_n), (b_1,b_2,\ldots, b_n)\in \prod_{i=1}^nG_i$, define
+\[
+(a_1,a_2, \ldots, a_n)(b_1,b_2,\ldots, b_n)=(a_1b_1,a_2b_2,\ldots, a_nb_n).
+\]
+Then $\prod_{i=1}^nG_i$, the \textbf{direct product} of $G_i$, is a group under this binary operation.
+\end{theorem}
+
+Note that each $G_i$ above is called a \textbf{factor} of the direct product.  One way to think about direct products is that we can navigate the product by navigating each factor simultaneously but independently. 
+
+\begin{theorem}
+Let $G_1, G_2,\ldots, G_n$ be finite groups.  Then
+\[
+|G_1\times G_2\times \cdots \times G_n|=|G_1|\cdot|G_1|\cdots |G_n|.
+\]
+\end{theorem}
+
+\begin{theorem}
+Let $G_1, G_2,\ldots, G_n$ be groups.  Then $|G_1\times G_2\times \cdots \times G_n|$ is infinite if and only if at least one $|G_i|$ is infinite.
+\end{theorem}
+
+
+The following theorem should be clear.
+
+\begin{theorem}\label{thm:product_abelian_groups}
+Let $G_1, G_2,\ldots, G_n$ be groups.  Then $\prod_{i=1}^nG_i$ is abelian if and only if each $G_i$ is abelian.
+\end{theorem}
+
+If each $G_i$ is abelian, then we may use additive notation.  For example, consider $\mathbb{Z}_2\times \mathbb{Z}_3$ under the operation of addition mod 2 in  the first component and addition mod 3 in the second component.  Then
+\[
+\mathbb{Z}_2\times \mathbb{Z}_3=\{(0,0),(0,1),(0,2),(1,0),(1,1),(1,2)\}.
+\]
+Since $\mathbb{Z}_2$ and $\mathbb{Z}_3$ are cyclic, both groups are abelian, and hence $\mathbb{Z}_2\times \mathbb{Z}_3$ is abelian.  In this case, we will use addition notation in $\mathbb{Z}_2\times \mathbb{Z}_3$.  For example,
+\[
+(0,1)+(1,2)=(1,0)
+\]
+and
+\[
+(1,2)+(0,2)=(1,1).
+\]
+
+There is a very natural generating set for $\mathbb{Z}_2\times \mathbb{Z}_3$, namely, $\{(1,0),(0,1)\}$ since $1\in \mathbb{Z}_2$ and $1\in \mathbb{Z}_3$ generate $\mathbb{Z}_2$ and $\mathbb{Z}_3$, respectively.
+
+\begin{exercise}
+Draw the Cayley diagram for $\mathbb{Z}_2\times \mathbb{Z}_3$ using $\{(1,0),(0,1)\}$ as the generating set.  Do you see a subgroup of $\mathbb{Z}_2\times \mathbb{Z}_3$ isomorphic to $\mathbb{Z}_2$ in the Cayley diagram?  What is this subgroup?  How about a subgroup isomorphic to $\mathbb{Z}_3$?
+\end{exercise}
+
+\begin{exercise}
+Prove that $\mathbb{Z}_2\times \mathbb{Z}_3$ is a cyclic group of order 6 and hence isomorphic to $R_6$.  
+\end{exercise}
+
+Let's play with a few more examples.
+
+\begin{exercise}
+Consider $\mathbb{Z}_2\times \mathbb{Z}_2$ under the operation of addition mod 2 in each component.  Find a generating set for $\mathbb{Z}_2\times \mathbb{Z}_2$ and then create a Cayley diagram for this group.  What well-known group is $\mathbb{Z}_2\times \mathbb{Z}_2$ isomorphic to?
+\end{exercise}
+
+Consider the similarities and differences between $\mathbb{Z}_2\times \mathbb{Z}_3$ and $\mathbb{Z}_2\times \mathbb{Z}_2$.  Both groups are abelian by Theorem~\ref{thm:product_abelian_groups}, but only the former is cyclic.  Here's another exercise.
+
+\begin{problem}
+Consider $\mathbb{Z}_2\times \mathbb{Z}_4$ under the operation of addition mod 2 in the first component and addition mod 4 in the second component. 
+\begin{enumerate}
+\item[(a)] Using $\{(1,0),(0,1)\}$ as the generating set, draw the Cayley diagram for $\mathbb{Z}_2\times \mathbb{Z}_4$.
+\item[(b)] Draw the subgroup lattice for $\mathbb{Z}_2\times \mathbb{Z}_4$.
+\item[(c)] Show that $\mathbb{Z}_2\times \mathbb{Z}_4$ is abelian but not cyclic.
+\item[(d)] Argue that $\mathbb{Z}_2\times \mathbb{Z}_4$ cannot be isomorphic to any of $D_4$, $R_8$, and $Q_8$.
+\end{enumerate}
+\end{problem}
+
+The upshot of the previous problem is that there are at least 4 groups of order 8 up to isomorphism.  We'll show later that there are actually (at least) 5. The previous exercises have hinted at the following theorem.
+
+\begin{theorem}
+The group $\mathbb{Z}_m\times \mathbb{Z}_n$ is cyclic if and only if $m$ and $n$ are relatively prime.
+\end{theorem}
+
+\begin{corollary}
+The group $\mathbb{Z}_m\times \mathbb{Z}_n$ is isomorphic to $\mathbb{Z}_{mn}$ if and only if $m$ and $n$ are relatively prime.
+\end{corollary}
+
+The previous results can be extended to more than two factors.
+
+\begin{theorem}
+The group $\prod_{i=1}^n \mathbb{Z}_{m_i}$ is cyclic and isomorphic to $\mathbb{Z}_{m_1m_2\cdots m_n}$ if and only if any pair from the collection $\{m_1,m_2,\ldots, m_n\}$ is relatively prime.
+\end{theorem}
+
+\begin{exercise}
+Determine whether each of the following groups is cyclic.
+\begin{enumerate}
+\item[(a)] $\mathbb{Z}_7\times \mathbb{Z}_8$
+\item[(b)] $\mathbb{Z}_7\times \mathbb{Z}_7$
+\item[(c)] $\mathbb{Z}_2\times \mathbb{Z}_7\times \mathbb{Z}_8$
+\item[(d)] $\mathbb{Z}_5\times \mathbb{Z}_7\times \mathbb{Z}_8$
+\end{enumerate}
+\end{exercise}
+
+\begin{theorem}
+Suppose $n=p_1^{n_1}p_2^{n_2}\cdots p_r^{n_r}$, where each $p_i$ is a distinct prime number.  Then
+\[
+\mathbb{Z}_n\cong \mathbb{Z}_{p_1^{n_1}}\times \mathbb{Z}_{p_2^{n_2}}\times \cdots \times \mathbb{Z}_{p_r^{n_r}}.
+\]
+\end{theorem}
+
+\begin{theorem}
+Suppose $G$ and $H$ are two groups.  Then $G\times H\cong H\times G$.
+\end{theorem}
+
+The next theorem tells us how to compute the order of an element in a direct product of groups.
+
+\begin{theorem}
+Suppose $G_1, G_2,\ldots, G_n$ are groups and let $(g_1,g_2,\ldots, g_n)\in \prod_{i=1}^nG_i$.  If $|a_i|=r_i<\infty$, then $|(a_1,a_2,\ldots, a_n)|=\lcm(a_1,a_2,\ldots,a_n)$.
+\end{theorem}
+
+\begin{exercise}
+Find the order of each of the following elements.
+\begin{enumerate}
+\item[(a)] $(6,5)\in\mathbb{Z}_12\times \mathbb{Z}_7$.
+\item[(b)] $(r,i)\in D_3\times Q_8$.
+\item[(c)] $((1,2)(3,4),3)\in S_4\times \mathbb{Z}_{15}$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Find the largest possible order in each of the following groups.
+\begin{enumerate}
+\item[(a)] $\mathbb{Z}_6\times \mathbb{Z}_8$
+\item[(b)] $\mathbb{Z}_9\times \mathbb{Z}_{12}$
+\item[(c)] $\mathbb{Z}_4\times \mathbb{Z}_{18}\times \mathbb{Z}_{15}$
+\end{enumerate}
+\end{exercise}
+
+\begin{theorem}
+Suppose $G_1$ and $G_2$ are groups such that $H_1\leq G_1$ and $H_2\leq G_2$.  The $H_1\times H_2\leq G_1\times G_2$.
+\end{theorem}
+
+However, not every subgroup of a direct product has the form above. 
+
+\begin{problem}
+Find an example that illustrates that not every subgroup of a direct product is the direct product of subgroups of the factors.
+\end{problem}
+
+\begin{theorem}
+Suppose $G_1$ and $G_2$ are groups with identities $e_1$ and $e_2$, respectively.  Then $\{e_1\}\times G_2\trianglelefteq G_1\times G_2$ and $G_1\times \{e_2\}\trianglelefteq G_1\times G_2$.
+\end{theorem}
+
+\begin{theorem}
+Suppose $G_1$ and $G_2$ are groups with identities $e_1$ and $e_2$, respectively.  Then $\{e_1\}\times G_2\cong G_2$ and $G_1\times \{e_2\}\cong G_1$.
+\end{theorem}
+
+The next theorem describes precisely the structure of finite abelian groups.  We will omit its proof, but allow ourselves to utilize it as needed.
+
+\begin{theorem}[Fundamental Theorem of Finitely Generated Abelian Groups]
+Every finitely generated abelian group $G$ is isomorphic to a direct product of cyclic groups of the form
+\[
+\mathbb{Z}_{p_1^{n_1}}\times \mathbb{Z}_{p_2^{n_2}}\times \cdots \times \mathbb{Z}_{p_r^{n_r}}\times \mathbb{Z}^k,
+\]
+where each $p_i$ is a prime number (not necessarily distinct).  The product is unique up to rearrangement of the factors.
+\end{theorem}
+
+Note that the number $k$ is called the \textbf{Betti number}.  A  finitely generated abelian group is finite if and only if the Betti number is 0.
+
+\begin{exercise}
+Find all abelian groups up to isomorphism of order 8.  How many different groups up to isomorphism (both abelian and non-abelian) have we seen and what are they?
+\end{exercise}
+
+\begin{exercise}
+Find all abelian groups up to isomorphism for each of the following orders.
+\begin{enumerate}
+\item[(a)] 16
+\item[(b)] 12
+\item[(c)] 25
+\item[(d)] 30
+\item[(e)] 60
+\end{enumerate}
+\end{exercise}
+
+
+
+\end{section}
+
+%\begin{section}{Revisiting Abelian Groups}
+%
+%yada yada
+%
+%\end{section}
+%
+%\begin{section}{Quotients of Groups}
+%
+%yada yada
+%
+%\end{section}
