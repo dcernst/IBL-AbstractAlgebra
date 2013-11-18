@@ -62,7 +62,7 @@ Here is another significant observation we can make.  Consider the Cayley diagra
 \end{center}
 Given this Cayley diagram, we can visualize the subgroup $H$ and it's clones.  Moreover, $H$ and it's clones are exactly the 3 right cosets of $H$.  We'll see that, in general, the \emph{right} cosets of a given subgroup are always the subgroup and its clones.
 
-\begin{exercise}\label{exer:leftcosetsD3}
+\begin{exercise}\label{exer:left_cosets_D3}
 Consider the group $D_3$.  Find all the left cosets for $H=\langle s\rangle$.  Are they the same as the right cosets?  Are they the same as the subgroup $H$ and its clones that we can see in the Cayley graph for $D_3$ with generators $r$ and $s$?
 \end{exercise}
 
@@ -70,7 +70,7 @@ As the previous exercise indicates, the collections of left and right cosets may
 
 You might be thinking that somehow right cosets are better than left cosets since we were able to visualize them in the Cayley graph.  However, this is not the case.  Our convention of composing actions from right to left is what is dictating the visualization.  If we had adopted a left to right convention, then we would be able to visualize the left cosets.  
 
-Computing left and right cosets using a group table is fairly easy.  Hopefully, you figured out in Exercise~\ref{exer:leftcosetsD3} that the left cosets of $H=\langle s\rangle$ in $D_3$ are $H=\{e,s\}$, $srH=\{r^2,sr\}$, and $rsH=\{r,rs\}$.  Now, consider the following group table for $D_3$ that has the rows and columns arranged according to the left cosets of $H$.
+Computing left and right cosets using a group table is fairly easy.  Hopefully, you figured out in Exercise~\ref{exer:left_cosets_D3} that the left cosets of $H=\langle s\rangle$ in $D_3$ are $H=\{e,s\}$, $srH=\{r^2,sr\}$, and $rsH=\{r,rs\}$.  Now, consider the following group table for $D_3$ that has the rows and columns arranged according to the left cosets of $H$.
 
 \begin{center}
 \begin{tabu}{c|[2pt]c|c|c|c|c|c}
@@ -125,7 +125,7 @@ We would get a similar table if we colored the elements according to the right c
 
 Let's tackle a few more examples.
 
-\begin{exercise}
+\begin{exercise}\label{exer:normal_in_D3}
 Consider $D_3$ and let $K=\langle r\rangle$.  
 \begin{enumerate}
 \item[(a)] Find all of the left cosets of $K$ and then find all of the right cosets of $K$ in $D_3$.  Any observations?
@@ -133,7 +133,7 @@ Consider $D_3$ and let $K=\langle r\rangle$.
 \end{enumerate}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\label{exer:normal_in_Q8}
 Consider $Q_8$.  Let $H=\langle i\rangle$ and $K=\langle -1\rangle$.
 \begin{enumerate}
 \item[(a)] Find all of the left cosets of $H$ and all of the right cosets of $H$ in $Q_8$.  
@@ -297,7 +297,7 @@ Let $G$ be a group and let $H\leq G$.  If $aH=Ha$ for all $a\in G$, then we say 
 Provide an example of group that has a subgroup that is not normal.
 \end{exercise}
 
-\begin{problem}
+\begin{problem}\label{prob:checkerboard}
 Suppose $G$ is a finite group and let $H\leq G$.  If $H\trianglelefteq G$ and we arrange the rows and columns of the group table for $G$ according to the left cosets of $H$ and then color the corresponding cosets, what property will the table have?  Is the converse true?  That is, if the table has the property you discovered, will $H$ be normal in $G$?
 \end{problem}
 
@@ -317,7 +317,7 @@ A group does not have to be abelian in order for all the proper subgroups to be 
 Argue that all of the proper subgroups of $Q_8$ are normal in $Q_8$. 
 \end{problem}
 
-\begin{theorem}
+\begin{theorem}\label{thm:index2}
 Suppose $G$ is a group and let $H\leq G$ such that $[G:H]=2$.  Then $H\trianglelefteq G$.
 \end{theorem}
 

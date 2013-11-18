@@ -203,12 +203,113 @@ Find all abelian groups up to isomorphism for each of the following orders.
 \end{enumerate}
 \end{exercise}
 
-
-
 \end{section}
 
 \begin{section}{Quotients of Groups}
 
-Coming soon...
+In this previous section, we discussed a method for constructing ``larger" groups from ``smaller" groups using a direct product construction.  In this section, we will in some sense do the opposite.
+
+Problem~\ref{prob:checkerboard} hinted that if $H\leq G$ and we arrange the Cayley table according to the left cosets of $H$, then the group table will have checkerboard pattern if and only if $H$ is normal in G (i.e., the left and right cosets of $H$ are the same).  For example, see the colored table prior to Exercise~\ref{exer:normal_in_D3} versus the ones you created in Exercises~\ref{exer:normal_in_D3}, \ref{exer:normal_in_Q8}.  If we have the checkerboard pattern in the group table that arises from a normal subgroup, then by ``gluing together" the colored blocks, we obtain a group table for a smaller group that has the cosets as the elements. 
+
+For example, let's consider $K=\langle -1\rangle \leq Q_8$.  Exercise~\ref{exer:normal_in_Q8} showed us that $K$ is normal $Q_8$.  The left (and right) cosets of $K$ in $Q_8$ are
+\[
+K=\{1,-1\}, iK=\{i,-i\}, jK=\{j,-j\}, \text{ and } kK=\{k,-k\}.
+\]
+As you found in Exercise~\ref{exer:normal_in_Q8}, if we arrange the rows and columns of $Q_8$ according to these cosets, we obtain the following group table.
+
+\begin{center}
+\begin{tabu}{c|[2pt]c|c|c|c|c|c|c|c}
+$*$ & $1$ & $-1$ & $i$ & $-i$ & $j$ & $-j$ & $k$ & $-k$ \\ \tabucline[2pt]{-}
+$1$ & \cellcolor{green}$1$ & \cellcolor{green}$-1$ & \cellcolor{blue}$i$ & \cellcolor{blue}$-i$ & \cellcolor{red}$j$ & \cellcolor{red}$-j$ & \cellcolor{yellow}$k$ & \cellcolor{yellow}$-k$\\
+\hline $-1$ & \cellcolor{green}$-1$ & \cellcolor{green}$1$ & \cellcolor{blue}$-i$ & \cellcolor{blue}$i$ & \cellcolor{red}$-j$ & \cellcolor{red}$j$ & \cellcolor{yellow}$-k$ & \cellcolor{yellow}$k$ \\
+\hline $i$ & \cellcolor{blue}$i$ & \cellcolor{blue}$-i$ & \cellcolor{green}$-1$ & \cellcolor{green}$1$ & \cellcolor{yellow}$k$ & \cellcolor{yellow}$-k$ & \cellcolor{red}$-j$ & \cellcolor{red} $j$\\
+\hline $-i$ & \cellcolor{blue}$i$ & \cellcolor{blue}$-i$ & \cellcolor{green}$1$ & \cellcolor{green}$-1$ & \cellcolor{yellow}$-k$ & \cellcolor{yellow}$k$ & \cellcolor{red}$j$ & \cellcolor{red}$-j$\\
+\hline $j$ & \cellcolor{red}$j$ & \cellcolor{red}$-j$ & \cellcolor{yellow}$-k$ & \cellcolor{yellow}$k$ & \cellcolor{green}$-1$ & \cellcolor{green}$1$ & \cellcolor{blue}$i$ & \cellcolor{blue}$-i$\\
+\hline $-j$ & \cellcolor{red}$-j$ & \cellcolor{red}$j$ & \cellcolor{yellow}$k$ & \cellcolor{yellow}$-k$ & \cellcolor{green}$1$ & \cellcolor{green}$-1$ & \cellcolor{blue}$-i$ & \cellcolor{blue}$i$\\
+\hline $k$ & \cellcolor{yellow}$k$ & \cellcolor{yellow}$-k$ & \cellcolor{red}$j$ & \cellcolor{red}$-j$ & \cellcolor{blue}$-i$ & \cellcolor{blue}$i$ & \cellcolor{green}$-1$ & \cellcolor{green}$1$\\
+\hline $-k$ & \cellcolor{yellow}$-k$ & \cellcolor{yellow}$k$ & \cellcolor{red}$-j$ & \cellcolor{red}$j$ & \cellcolor{blue}$i$ & \cellcolor{blue}$-i$ & \cellcolor{green}$1$ & \cellcolor{green}$-1$
+\end{tabu}
+\end{center}
+If we consider the $2\times 2$ blocks as elements, it appears that we have a group table for a group with 4 elements.  Closer inspection reveals that this looks like the table for $V_4$.  If the table of $2\times 2$ blocks is going to represent a group, we need to understand the binary operation.  How do we ``multiply" cosets?  For example, the table suggest that the coset $jK$ (colored in green) times the coset $iK$ (colored in blue) is equal to $kK$ (colored in yellow) despite the fact that $ji=-k\neq k$.  Yet, it is true that the product $ij=-k$ is an element in the coset $kK$.  In fact, if we look closely at the table, we see that if we pick any two cosets, the product of any element of the first coset times any element of the second coset will always result in an element in the same coset regardless of which representatives we chose.
+
+In other words, it looks like we can multiply cosets by choosing any representative from each coset and then seeing what coset the product of the representatives lies in.  However, it is important to point out that this will only work if we have a checkerboard pattern of cosets, which we have seen evidence of only happening when the corresponding subgroup is normal.
+
+Before continuing, let's continue tinkering with the same example.  Consider the Cayley diagram for $Q_8$ with generators $-1$, $i$, and $j$.
+
+\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=6mm]
+\tikzstyle{b} = [draw,very thick,blue,-stealth]
+\tikzstyle{r} = [draw, very thick, red,-stealth]
+\tikzstyle{g} = [draw, very thick, green, stealth-stealth]
+
+\begin{center}
+\begin{tikzpicture}[scale=1.5,auto]
+\node (1) at (135:2) [vert] {{\scriptsize $1$}};
+\node (i) at (45:2) [vert] {\scriptsize {$i$}};
+\node (k) at (-45:2) [vert] {{\scriptsize $k$}};
+\node (j) at (-135:2) [vert] {{\scriptsize $j$}};
+\node (-1) at (135:1) [vert] {{\scriptsize $-1$}};
+\node (-i) at (45:1) [vert] {{\scriptsize $-i$}};
+\node (-k) at (-45:1) [vert] {{\scriptsize $-k$}};
+\node (-j) at (-135:1) [vert] {{\scriptsize $-j$}};
+
+\path[b] (1) to (i);
+\path[b] (i) to (-1);
+\path[b] (-1) to (-i);
+\path[b] (-i) to (1);
+
+\path[b] (-j) to (-k);
+\path[b] (-k) to (j);
+\path[b] (j) to (k);
+\path[b] (k) to (-j);
+
+\path[r] (-k) to (-i);
+\path[r] (-i) to (k);
+\path[r] (k) to (i);
+\path[r] (i) to (-k);
+
+\path[r] (1) to (j);
+\path[r] (j) to (-1);
+\path[r] (-1) to (-j);
+\path[r] (-j) to (1);
+
+\path[g] (1) to (-1);
+\path[g] (j) to (-j);
+\path[g] (i) to (-i);
+\path[g] (k) to (-k);
+
+\end{tikzpicture}
+\end{center}
+We can visualize the left cosets of $K$ as the clumps of vertices connected together with the two-way green arrows.  In this case, we are also seeing the right cosets since $K$ is normal in $Q_8$.  If we collapse the cosets onto each other and collapse the corresponding arrows, we obtain the following diagram.
+
+\tikzstyle{2b} = [draw,very thick,blue,stealth-stealth]
+\tikzstyle{2r} = [draw, very thick, red,stealth-stealth]
+
+\begin{center}
+\begin{tikzpicture}[scale=1.5,auto]
+\node (K) at (135:1.5) [vert] {{\scriptsize $K$}};
+\node (iK) at (45:1.5) [vert] {\scriptsize {$iK$}};
+\node (kK) at (-45:1.5) [vert] {{\scriptsize $kK$}};
+\node (jK) at (-135:1.5) [vert] {{\scriptsize $jK$}};
+\path[2b] (K) to (iK);
+\path[2r] (iK) to (kK);
+\path[2b] (kK) to (jK);
+\path[2r] (jK) to (K);
+\end{tikzpicture}
+\end{center}
+It is clear that this diagram is the Cayley diagram for a group that is isomorphic to $V_4$.  For reasons we will understand shortly, this processing of collapsing a Cayley diagram according to the cosets of a normal subgroup is called the ``quotient process."
+
+\begin{exercise}
+Let's see what happens if we attempt the quotient process for a subgroup that is not normal.  Consider $H=\langle s\rangle \leq D_3$.  In Exercise~\ref{exer:left_cosets_D3}, we discovered that the left cosets of $H$ are not the same as the right cosets of $H$.  This implies that $H$ is not normal in $D_3$.  Consider the standard Cayley diagram for $D_3$ that uses the generators $r$ and $s$.  Draw the diagram that results from attempting the quotient process on $D_3$ using the subgroup $H$.  Explain why this diagram cannot be the diagram for a group.
+\end{exercise}
+
+\begin{exercise}
+In Exercise~\ref{exer:normal_in_D3}, we learned that the subgroup $K=\langle r\rangle$ is normal in $D_3$ since the left cosets are equal to the right cosets.  Note that this follows immediately from Theorem~\ref{thm:index2} since $[D_3:H]=2$.  Draw the diagram that results from performing the quotient process to $D_3$ using the subgroup $H$.  Does the resulting diagram represent a group?  If so, what group is it isomorphic to?
+\end{exercise}
+
+Now, suppose $G$ is an arbitrary group and let $H\leq G$. Consider the set of left cosets of $H$.  We define
+\[
+(aH)(bH):=(ab)H.
+\]
+%Include a figure like the one on the top of page 139 of VGT.
 
 \end{section}
