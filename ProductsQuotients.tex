@@ -298,9 +298,15 @@ We can visualize the left cosets of $K$ as the clumps of vertices connected toge
 \end{center}
 It is clear that this diagram is the Cayley diagram for a group that is isomorphic to $V_4$.  For reasons we will understand shortly, this processing of collapsing a Cayley diagram according to the cosets of a normal subgroup is called the ``quotient process."
 
-\begin{exercise}
+\begin{exercise}\label{exer:bad_quotient}
 Let's see what happens if we attempt the quotient process for a subgroup that is not normal.  Consider $H=\langle s\rangle \leq D_3$.  In Exercise~\ref{exer:left_cosets_D3}, we discovered that the left cosets of $H$ are not the same as the right cosets of $H$.  This implies that $H$ is not normal in $D_3$.  Consider the standard Cayley diagram for $D_3$ that uses the generators $r$ and $s$.  Draw the diagram that results from attempting the quotient process on $D_3$ using the subgroup $H$.  Explain why this diagram cannot be the diagram for a group.
 \end{exercise}
+
+The problem that arises in Exercise~\ref{exer:bad_quotient} is that if the same arrow types (i.e., those representing the same generator) leaving a coset do not point at elements in the same coset, attempting the quotient process will result in a diagram that violates Rule 3 (every action is deterministic) of Definition~\ref{def:informal_group}.  In the first figure below, we illustrate what goes wrong if all the arrows out of a coset do not unanimously point to the same coset.  In the second figure, all the arrows point to the same coset, and in this case, it appears that everything works out just fine.
+
+\begin{center}
+\includegraphics[width=5in]{QuotientProcess.png}
+\end{center}
 
 \begin{exercise}
 In Exercise~\ref{exer:normal_in_D3}, we learned that the subgroup $K=\langle r\rangle$ is normal in $D_3$ since the left cosets are equal to the right cosets.  Note that this follows immediately from Theorem~\ref{thm:index2} since $[D_3:H]=2$.  Draw the diagram that results from performing the quotient process to $D_3$ using the subgroup $H$.  Does the resulting diagram represent a group?  If so, what group is it isomorphic to?
@@ -310,6 +316,107 @@ Now, suppose $G$ is an arbitrary group and let $H\leq G$. Consider the set of le
 \[
 (aH)(bH):=(ab)H.
 \]
-%Include a figure like the one on the top of page 139 of VGT.
+The natural question to ask is whether this operation is well-defined.  That is, does the result of multiplying two left cosets depend on our choice of representative?  More specifically, suppose $c\in aH$ and $d\in bH$.  Then $cH=aH$ and $dH=bH$.  According to the operation defined above, $(cH)(dH)=cdH$.  It better be the case that $cdH=abH$, otherwise the operation is not well-defined.
+
+\begin{exercise}
+Let $H=\langle s\rangle \leq D_3$.  Find specific examples of $a,b,c,d\in D_3$ such that $(aH)(bH)\neq (cH)(dH)$.
+\end{exercise}
+
+\begin{theorem}
+Let $G$ be a group and let $H\leq G$.  Then left coset multiplication (as defined above) is well-defined if and only if $H\trianglelefteq G$.
+\end{theorem}
+
+\begin{theorem}\label{thm:quotient_grp}
+Let $G$ be a group and let $H\trianglelefteq G$.  Then the set of left cosets of $H$ in $G$ forms a group under left coset multiplication.
+\end{theorem}
+
+The group from Theorem~\ref{thm:quotient_grp} is denoted by $G/H$, read ``$G$ mod $H$", and is referred to the \textbf{quotient group} (or \textbf{factor group}) of $G$ by $H$.  If $G$ is a finite group, then $G/H$ is exactly the group that arises from ``gluing together" the colored blocks in a checkerboard-patterned group table.  It's also the group that we get after applying the quotient process to the Cayley diagram.  It's important to point out once more that this only works properly if $H$ is a normal subgroup.
+
+\begin{theorem}
+Let $G$ be a group and let $H\trianglelefteq G$.  Then $|G/H|=[G:H]$.  In particular, if $G$ is finite, then $|G/H|=|G|/|H|$.
+\end{theorem}
+
+\begin{exercise}%Borrowing from Fraleigh Exercises 9--15 in Section 14.
+Find the order of the given element in the quotient group. You may assume that we are taking the quotient by a normal subgroup. 
+\begin{enumerate}
+\item[(a)] $s\langle r\rangle \in D_4/\langle r\rangle$
+\item[(b)] $j\langle -1\rangle \in Q_8/\langle -1\rangle$
+\item[(c)] $5+\langle 4\rangle \in \mathbb{Z}_{12}/\langle 4\rangle$
+\item[(d)] $(2,1)+\langle (1,1)\rangle \in (\mathbb{Z}_3\times \mathbb{Z}_6)/\langle (1,1)\rangle$ 
+\end{enumerate}
+ 
+\end{exercise}
+
+
+\begin{exercise}
+For each quotient group below, describe the group.  If possible, state what group each is isomorphic to.  You may assume that we are taking the quotient by a normal subgroup. 
+\begin{enumerate}
+\item[(a)] $Q_8/\langle -1\rangle$
+\item[(b)] $Q_8/\langle i\rangle$
+\item[(c)] $\mathbb{Z}_4/\langle 2\rangle$
+\item[(d)] $V_4/\langle h\rangle$
+\item[(e)] $A_4/\langle (1,2)(3,4),(1,3)(2,4)\rangle$
+\item[(f)] $(\mathbb{Z}_2\times \mathbb{Z}_2)/\langle (1,1)\rangle$
+\item[(f)] $\mathbb{Z}/4\mathbb{Z}$
+\item[(h)] $S_4/A_4$
+\item[(i)] $(\mathbb{Z}_4\times \mathbb{Z}_2)/(\{0\}\times \mathbb{Z}_2)$
+\end{enumerate}
+\end{exercise}
+
+\begin{theorem}
+Let $G$ be a group.  Then
+\begin{enumerate}
+\item $G/\{e\}\cong G$
+\item $G/G\cong \{e\}$
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+For all $n\in \mathbb{N}$, we have the following.
+\begin{enumerate}
+\item $S_n/A_n\cong \mathbb{Z}_2$ (for $n\geq 3$)
+\item $\mathbb{Z}/n\mathbb{Z}\cong \mathbb{Z}_n$
+\item $\mathbb{R}/n\mathbb{R}\cong \{e\}$
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+Let $G$ be a group and let $H\trianglelefteq G$.  If $G$ is abelian, then so is $G/H$.
+\end{theorem}
+
+\begin{problem}
+Show that the converse of the previous theorem is not true by providing a specific counterexample.
+\end{problem}
+
+\begin{exercise}
+Consider the quotient group $(\mathbb{Z}_4\times \mathbb{Z}_6)/\langle (0,1)\rangle$.
+\begin{enumerate}
+\item[(a)] What is the order of $(\mathbb{Z}_4\times \mathbb{Z}_6)/\langle (0,1)\rangle$?
+\item[(b)] Is the group abelian?  Why?
+\item[(c)] Write down all the elements of $(\mathbb{Z}_4\times \mathbb{Z}_6)/\langle (0,1)\rangle$.
+\item[(d)] Does one of the elements generate the group?
+\item[(e)] What well-known group is $(\mathbb{Z}_4\times \mathbb{Z}_6)/\langle (0,1)\rangle$ isomorphic to?
+\end{enumerate}
+\end{exercise}
+
+\begin{theorem}
+Let $G$ be a group and let $H\trianglelefteq G$.  If $G$ is cyclic, then so is $G/H$.
+\end{theorem}
+
+\begin{problem}
+Show that the converse of the previous theorem is not true by providing a specific counterexample.
+\end{problem}
+
+Here are few additional exercises.  These ones are a bit tougher.
+
+\begin{exercise}
+For each quotient group below, describe the group.  If possible, state what group each is isomorphic to.  You may assume that we are taking the quotient by a normal subgroup. 
+\begin{enumerate}
+\item[(h)] $(\mathbb{Z}_4\times \mathbb{Z}_6)/\langle (0,2)\rangle$
+\item[(k)] $(\mathbb{Z}\times \mathbb{Z})/\langle (1,1)\rangle$
+\item[(j)] $S_4/\langle (1,2)(3,4),(1,3)(2,4)\rangle$
+\item[(i)] $\mathbb{Q}/\langle 1\rangle$ (the operation on $\mathbb{Q}$ is addition)
+\end{enumerate}
+\end{exercise}
 
 \end{section}
