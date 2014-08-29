@@ -21,7 +21,7 @@ In most cases, there will be many spins that take us closer to the solved board.
 
 Note that even if we make a wrong turn (i.e., follow a page that takes us farther away from the solution), we can still get back on track by following page numbers that take us closer to the solved board.  In fact, we can always flip back to the page we were on before taking a wrong turn.  This page will be listed on our ``wrong turn page" since doing the same spin twice has the net effect of doing nothing.  If you were to actually do this, the number of pages we would need to visit would be longer than an optimal solution, but we'd get to the solved board nonetheless.
 
-Let's get a little more concrete.  Consider the game Spinpossible, except let's simplify it a little.  Instead of playing on the $3\times 3$ board, let's play on a $1\times 2$ board consisting of a single row with tiles labeled 1 and 2.  We'll refer to this simplified game as $\Spin_{1\times 2}$.  The rules of the game are what you would expect we are restricted to spins involving just the tiles in positions 1 and 2 of the original board.  A scrambling of $\Spin_{1\times 2}$ consists of any rearrangement of the tiles 1 and 2, where any of the tiles can be right-side-up or up-side-down.
+Let's get a little more concrete.  Consider the game Spinpossible, except let's simplify it a little.  Instead of playing on the $3\times 3$ board, let's play on a $1\times 2$ board consisting of a single row with tiles labeled 1 and 2.  We'll refer to this simplified game as $\Spin_{1\times 2}$.  The rules of the game are what you would expect; we are restricted to spins involving just the tiles in positions 1 and 2 of the original board.  A scrambling of $\Spin_{1\times 2}$ consists of any rearrangement of the tiles 1 and 2, where either of the tiles can be right-side-up or up-side-down.
 
 \begin{exercise}
 First, convince yourself that $\Spin_{1\times 2}$ satisfies our four rules of a group.
@@ -44,46 +44,166 @@ To make sure you are keeping up to speed, consider the following scrambled board
 \end{tikzpicture}
 \end{center}
 
-This board is one of our 8 possible scrambled boards in $\Spin_{1\times 2}$.  We have three possible spins we can do to this board: toggle position 1, toggle position 2, or spin the whole board.  Each of these spins has a corresponding two-way arrow that takes us to three different scrambled boards.  The figure below depicts the chunk of the Cayley Diagram involved the board above.  (I'll replace my hand drawn version later.)
+\noindent This board is one of our 8 possible scrambled boards in $\Spin_{1\times 2}$.  We have three possible spins we can do to this board: toggle position 1, toggle position 2, or spin the whole board.  Each of these spins has a corresponding two-way arrow that takes us to three different scrambled boards.  Figure~\ref{fig:partial_Cayley} provides a visual of what we just discussed.
 
-\begin{center}
-\includegraphics[width=2in]{chunk_cayley_spin1by2.png}
-\end{center}
+\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=6mm]
+\tikzstyle{b} = [draw,very thick,blue,stealth-stealth]
+\tikzstyle{r} = [draw, very thick, red,stealth-stealth]
+\tikzstyle{g} = [draw, very thick, green, stealth-stealth]
 
-\noindent Notice we have three different colored arrows.  Can you see what each of the colors corresponds to?  If we include the rest of the scrambled boards and all possible spins, we obtain the complete Cayley diagram for $\Spin_{1\times 3}$.  (I'll replace my hand drawn version later.)
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}[scale=1.5,auto]
+\node (B) at (1,2) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {$\underline{1}$};
+\node [draw, right=0cm of 1] (2) {\rotatebox{180}{$\underline{2}$}};
+\end{tikzpicture}
+};
+\node (D) at (2,-.75) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {$\underline{2}$};
+\node [draw, right=0cm of 1] (2) {$\underline{1}$};
+\end{tikzpicture}
+};
+\node (E) at (1,-2) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {\rotatebox{180}{$\underline{1}$}};
+\node [draw, right=0cm of 1] (2) {\rotatebox{180}{$\underline{2}$}};
+\end{tikzpicture}
+};
+\node (F) at (-1,-2) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {\rotatebox{180}{$\underline{1}$}};
+\node [draw, right=0cm of 1] (2) {$\underline{2}$};
+\end{tikzpicture}
+};
+\node (H) at (-2,.75) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node (1) {};
+\node [right=0cm of 1] (2) {};
+\end{tikzpicture}
+};
+\path[b] (E) to (F);
+\path[r] (D) to (E);
+\path[g] (B) to (E);
+\end{tikzpicture}
+\caption{}
+\label{fig:partial_Cayley}
+\end{figure}
 
-\begin{center}
-\includegraphics[width=4in]{cayley_spin1by2.png}
-\end{center}
+\noindent Note that I could have drawn the four scrambled boards in the figure above anywhere I wanted to, but I have a particular layout in mind.  Also, notice we have three different colored arrows.  Can you see what each of the colors corresponds to?  In this case, a green arrow corresponds to toggling the tile in position 1, a blue arrow corresponds to toggling position 2, and a red arrow corresponds to spinning the whole board. 
 
-\noindent In this case, the spins that correspond to the three arrow colors are the \textbf{generators} of $\Spin_{1\times 2}$.  What this means is that we can obtain all possible scramblings/unscramblings by using just these 3 spins.  In other words, each of the scramblings corresponds to a word in these three spins.  The question remains as to whether we want each board to correspond to a word that unscrambles to the solve board or scrambles the solved board.  This might seem counter to how you want it to be, but we'll adopt the convention that each board corresponds to words that scramble the solved board into the desired scrambled board.
+If we include the rest of the scrambled boards and all possible spins, we obtain the picture in Figure~\ref{fig:Cayley_Spin_1x2}.
 
-Let $t_1$ be the spin that toggles position 1, $t_2$ be the spin that toggles position 2, and $s_1$ be the spin that rotates the full board.  Recall that when we write down words, we should apply the actions from right to left (like function composition).  
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}[scale=1.5,auto]
+\node (A) at (-1,2) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {$\underline{1}$};
+\node [draw, right=0cm of 1] (2) {$\underline{2}$};
+\end{tikzpicture}
+};
+\node (B) at (1,2) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {$\underline{1}$};
+\node [draw, right=0cm of 1] (2) {\rotatebox{180}{$\underline{2}$}};
+\end{tikzpicture}
+};
+\node (C) at (2,.75) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {$\underline{2}$};
+\node [draw, right=0cm of 1] (2) {\rotatebox{180}{$\underline{1}$}};
+\end{tikzpicture}
+};
+\node (D) at (2,-.75) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {$\underline{2}$};
+\node [draw, right=0cm of 1] (2) {$\underline{1}$};
+\end{tikzpicture}
+};
+\node (E) at (1,-2) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {\rotatebox{180}{$\underline{1}$}};
+\node [draw, right=0cm of 1] (2) {\rotatebox{180}{$\underline{2}$}};
+\end{tikzpicture}
+};
+\node (F) at (-1,-2) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {\rotatebox{180}{$\underline{1}$}};
+\node [draw, right=0cm of 1] (2) {$\underline{2}$};
+\end{tikzpicture}
+};
+\node (G) at (-2,-.75) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {\rotatebox{180}{$\underline{2}$}};
+\node [draw, right=0cm of 1] (2) {$\underline{1}$};
+\end{tikzpicture}
+};
+\node (H) at (-2,.75) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {\rotatebox{180}{$\underline{2}$}};
+\node [draw, right=0cm of 1] (2) {\rotatebox{180}{$\underline{1}$}};
+\end{tikzpicture}
+};
+\path[b] (A) to (B);
+\path[b] (C) to (D);
+\path[b] (E) to (F);
+\path[b] (G) to (H);
+\path[r] (B) to (C);
+\path[r] (D) to (E);
+\path[r] (F) to (G);
+\path[r] (H) to (A);
+\path[g] (B) to (E);
+\path[g] (C) to (H);
+\path[g] (D) to (G);
+\path[g] (F) to (A);
+\end{tikzpicture}
+\caption{}
+\label{fig:Cayley_Spin_1x2}
+\end{figure}
 
-Consider the following scrambled board.
+\noindent In this case, the spins that correspond to the three arrow colors are the \textbf{generators} of $\Spin_{1\times 2}$.  What this means is that we can obtain all possible scramblings/unscramblings by using just these 3 spins.  Let $t_1$ be the spin that toggles position 1, $t_2$ be the spin that toggles position 2, and $s_1$ be the spin that rotates the full board.  
 
+In order to obtain the Cayley diagram for $\Spin_{1\times 2}$, we need to identify each scrambled board in Figure~\ref{fig:Cayley_Spin_1x2} with an action from the group.  The most natural choice is to identify the solved board with the do-nothing action, which we will denote by $e$.  As soon as we make this choice, we can just follow the arrows around the diagram to determine which actions correspond to which scrambled boards.  
+
+For example, consider the following scrambled board.
 \begin{center}
 \begin{tikzpicture}[every node/.style={minimum size=.65cm}]
   \node [draw] (1) {{$\underline{2}$}};
   \node [draw, right=0cm of 1] (2) {\rotatebox{180}{$\underline{1}$}};
 \end{tikzpicture}
 \end{center}
+Looking at our current diagram for $\Spin_{1\times 2}$, we see that one way to get to this board from the solved board is to follow a blue arrow and then a red arrow.  This corresponds to the word $s_1t_2$.  (Recall that when we write down words, we should apply the actions from right to left, just like function composition.) However, it also corresponds to the word $t_2s_1t_2t_1$ even though this is not an optimal solution.  So, we can label the board in question with either $s_1t_2$ or $t_2s_1t_2t_1$ (there are other choices, as well).
 
-\noindent Looking at our Cayley diagram for $\Spin_{1\times 2}$, we see that one way to get to this board from the solved board is to follow a blue arrow followed by a red arrow.  This corresponds to the word $s_1t_2$.  However, it also corresponds to the word $t_2s_1t_2t_1$ even though this is not an optimal solution.
+As another example, consider the following scrambled board.
+\begin{center}
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+  \node [draw] (1) {\rotatebox{180}{$\underline{1}$}};
+  \node [draw, right=0cm of 1] (2) {$\underline{2}$};
+\end{tikzpicture}
+\end{center}
+To get here from the scrambled board, we can simply follow a green arrow. So, this scrambled board corresponds to $t_1$.  However, we could also follow a red arrow, then a blue arrow, and then a red arrow. Thus, we could also label the scrambled board by $s_1 t_2 s_1$.
 
 \begin{exercise}
-Given a word that corresponds to a scrambled board in the Cayley diagram for $\Spin_{1\times 2}$, how could we obtain a solution to the scrambled board?
-\end{exercise}
-
-\begin{exercise}
-Using the Cayley diagram for $\Spin_{1\times 2}$, find three distinct words that correspond to the following scrambled board.  Don't worry about whether your word is of optimal length or not.
-
+Using Figure~\ref{fig:Cayley_Spin_1x2}, find three distinct words in $t_1, t_2$, and $s_1$ that correspond to the following scrambled board.  Don't worry about whether your word is of optimal length or not.
 \begin{center}
 \begin{tikzpicture}[every node/.style={minimum size=.65cm}]
   \node [draw] (1) {\rotatebox{180}{$\underline{1}$}};
   \node [draw, right=0cm of 1] (2) {\rotatebox{180}{$\underline{2}$}};
 \end{tikzpicture}
 \end{center}
+\end{exercise}
+
+\begin{exercise}
+Label each of the remaining boards from Figure~\ref{fig:Cayley_Spin_1x2} with an appropriate word using $t_1, t_2$, and $s_1$.  The diagram in Figure~\ref{fig:Cayley_Spin_1x2} together with your labels is the Cayley diagram for $\Spin_{1\times 2}$.
+\end{exercise}
+
+It is important to point out that each word that corresponds to a given scrambled board tells you how to reach that scrambled board from the solved board (which is labeled by $e$, the do-nothing action).
+
+\begin{exercise}
+Given a word that corresponds to a scrambled board in Figure~\ref{fig:Cayley_Spin_1x2}, how could we obtain a solution to the scrambled board?  That is, how can we return to the solved board?
 \end{exercise}
 
 \begin{exercise}
