@@ -15,23 +15,23 @@ It is important to point out that this is an intuitive starting point and does n
 
 To get started, let's continue thinking about the game Spinpossible (see Chapter~\ref{chapter:intuitive_approach_groups}).  In Exercise~\ref{exer:number_spinpossible_boards}, we discovered that there are a total of $2^9\cdot 9! = 185,794,560$ possible scrambled Spinpossible boards.  Now, imagine we wanted to write a solution manual that would describe how to solve all these boards.  There are likely many possible ways to construct such a solution manual, but here is one way.  
 
-The manual will consist of $185,794,560$ pages such that each page lists a unique scrambling of the $3\times 3$ board.  Don't forget that one of these scramblings is the solved board.  Let's make this page 1.  Also, imagine that the book is arranged in such a way that it isn't too difficult to look up a given scrambled board.  On each page below the scrambled board is a table that lists all possible spins.  Next to each spin, the table indicates whether doing that particular spin will result in a board that is either closer to being solved or farther.  In addition, the page number that corresponds to the resulting board is listed next to each spin.
+The manual will consist of $185,794,560$ pages such that each page lists a unique scrambling of the $3\times 3$ board.  Don't forget that one of these scramblings is the solved board, which we will make page 1.  Also, imagine that the book is arranged in such a way that it isn't too difficult to look up a given scrambled board.  On each page below the scrambled board is a table that lists all possible spins.  Next to each spin, the table indicates whether doing that particular spin will result in a board that is either closer to being solved or farther.  In addition, the page number that corresponds to the resulting board is listed next to each spin.
 
-In most cases, there will be many spins that take us closer to the solved board.  Given a scrambled board, a solution would consist of following one possible sequence of pages through the book that takes us from the scrambled board to the solved board.  There could be many such sequences.  If we could construct such a solution manual, we would have an atlas or map for the game Spinpossible.  We could always say, ``We are here," and ``The solution is down one of these paths."
+In most cases, there will be many spins that take us closer to the solved board.  Given a scrambled board, a solution would consist of following one possible sequence of pages through the book that takes us from the scrambled board to the solved board.  There could be many such sequences.  If we could construct such a solution manual, we would have an atlas or map for the game Spinpossible.
 
 Note that even if we make a wrong turn (i.e., follow a page that takes us farther away from the solution), we can still get back on track by following page numbers that take us closer to the solved board.  In fact, we can always flip back to the page we were on before taking a wrong turn.  This page will be listed on our ``wrong turn page" since doing the same spin twice has the net effect of doing nothing.  If you were to actually do this, the number of pages we would need to visit would be longer than an optimal solution, but we'd get to the solved board nonetheless.
 
-Let's get a little more concrete.  Consider the game Spinpossible, except let's simplify it a little.  Instead of playing on the $3\times 3$ board, let's play on a $1\times 2$ board consisting of a single row with tiles labeled 1 and 2.  We'll refer to this simplified game as $\Spin_{1\times 2}$.  The rules of the game are what you would expect; we are restricted to spins involving just the tiles in positions 1 and 2 of the original board.  A scrambling of $\Spin_{1\times 2}$ consists of any rearrangement of the tiles 1 and 2, where either of the tiles can be right-side-up or up-side-down.
+Let's get a little more concrete.  Consider the game Spinpossible, except let's simplify it a little.  Instead of playing on the $3\times 3$ board, let's play on a $1\times 2$ board consisting of a single row with tiles labeled 1 and 2.  The rules of the game are what you would expect; we are restricted to spins involving just the tiles in positions 1 and 2 of the original board.  A scrambling of the $1\times 2$ Spinpossible board consists of any rearrangement of the tiles 1 and 2, where either of the tiles can be right-side-up or up-side-down.
 
 \begin{exercise}
-First, convince yourself that $\Spin_{1\times 2}$ satisfies our four rules of a group.
+First, convince yourself that the set of actions corresponding to the $1\times 2$ Spinpossible board satisfies our four rules of a group. We'll refer to this group as $\Spin_{1\times 2}$.  
 \begin{enumerate}
-\item[(a)] How many scrambled boards are there for $\Spin_{1\times 2}$?  Don't forget to include the solved board.
-\item[(b)] How many possible spins are there for $\Spin_{1\times 2}$?
+\item[(a)] How many scrambled boards are there for the $1\times 2$ Spinpossible game?  Don't forget to include the solved board.
+\item[(b)] How many actions are there in $\Spin_{1\times 2}$? Which of these actions are spins? \emph{Hint:} There are actions that are not spins.
 \end{enumerate}
 \end{exercise}
 
-Let's try to make a map for $\Spin_{1\times 2}$, but instead of writing a solution manual, we will draw a picture of the group called a \textbf{Cayley diagram}.  The first thing we'll do is draw each of the scramblings that we found in the previous exercise.  It doesn't matter how we arrange all of these drawings, as long as there is some space between them.  These little drawings will form the vertices of our Cayley diagram.  Now, for each scrambling, figure out what happens when we do each of our allowable spins.  For each of these spins, we'll draw an arrow from the initial scrambled board to the resulting board.  Don't worry about whether doing each of these spins is a good idea or not.  In fact, figure out what happens when we do our allowable spins to the solved board, as well.  In this case, each of our scrambled boards will have 3 arrows heading out towards 3 distinct boards.  Do you see why?  
+Let's try to make a map for $\Spin_{1\times 2}$, but instead of writing a solution manual, we will draw a picture of the group called a \textbf{Cayley diagram}.  The first thing we'll do is draw each of the scramblings that we found in the previous exercise.  It doesn't matter how we arrange all of these drawings, as long as there is some space between them.  Now, for each scrambling, figure out what happens when we do each of our allowable spins.  For each of these spins, we'll draw an arrow from the initial scrambled board to the resulting board.  Don't worry about whether doing each of these spins is a good idea or not.  In fact, figure out what happens when we do our allowable spins to the solved board, as well.  In this case, each of our scrambled boards will have 3 arrows heading out towards 3 distinct boards.  Do you see why?  
 
 In order for us to keep straight what each arrow represents, let's color our arrows, so that doing a particular type of spin is always the same color.  For example, we could color the arrows that toggle the tile in the first position as green.  Recall that doing the same spin twice has the net effect of doing nothing, so we should just make all of our arrows point in both directions.
 
@@ -44,7 +44,7 @@ To make sure you are keeping up to speed, consider the following scrambled board
 \end{tikzpicture}
 \end{center}
 
-\noindent This board is one of our 8 possible scrambled boards in $\Spin_{1\times 2}$.  We have three possible spins we can do to this board: toggle position 1, toggle position 2, or spin the whole board.  Each of these spins has a corresponding two-way arrow that takes us to three different scrambled boards.  Figure~\ref{fig:partial_Cayley} provides a visual of what we just discussed.
+\noindent This board is one of our 8 possible scrambled $1\times 2$ boards.  We have three possible spins we can do to this board: toggle position 1, toggle position 2, or spin the whole board.  Each of these spins has a corresponding two-way arrow that takes us to three different scrambled boards.  Figure~\ref{fig:partial_Cayley} provides a visual representation of what we just discussed.
 
 \tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=6mm]
 \tikzstyle{b} = [draw,very thick,blue,stealth-stealth]
@@ -92,9 +92,9 @@ To make sure you are keeping up to speed, consider the following scrambled board
 \label{fig:partial_Cayley}
 \end{figure}
 
-\noindent Note that I could have drawn the four scrambled boards in the figure above anywhere I wanted to, but I have a particular layout in mind.  Also, notice we have three different colored arrows.  Can you see what each of the colors corresponds to?  In this case, a green arrow corresponds to toggling the tile in position 1, a blue arrow corresponds to toggling position 2, and a red arrow corresponds to spinning the whole board. 
+\noindent Note that I could have drawn the four scrambled boards in Figure~\ref{fig:partial_Cayley} anywhere I wanted to, but I have a particular layout in mind.  Also, notice we have three different colored arrows.  Can you see what each of the colors corresponds to?  In this case, a green arrow corresponds to toggling the tile in position 1, a blue arrow corresponds to toggling position 2, and a red arrow corresponds to spinning the whole board. 
 
-If we include the rest of the scrambled boards and all possible spins, we obtain the picture in Figure~\ref{fig:Cayley_Spin_1x2}.
+If we include the rest of the scrambled boards and all possible spins, we obtain Figure~\ref{fig:Cayley_Spin_1x2}. Note that I've chosen a nice layout for the figure, but it's really the connections between the various boards that is important.
 
 \begin{figure}[!ht]
 \centering
@@ -164,7 +164,7 @@ If we include the rest of the scrambled boards and all possible spins, we obtain
 \label{fig:Cayley_Spin_1x2}
 \end{figure}
 
-\noindent In this case, the spins that correspond to the three arrow colors are the \textbf{generators} of $\Spin_{1\times 2}$.  What this means is that we can obtain all possible scramblings/unscramblings by using just these 3 spins.  Let $t_1$ be the spin that toggles position 1, $t_2$ be the spin that toggles position 2, and $s_1$ be the spin that rotates the full board.  
+\noindent In this case, the spins that correspond to the three arrow colors are the \textbf{generators} of $\Spin_{1\times 2}$.  What this means is that we can obtain all possible scramblings/unscramblings by using just these 3 spins.  Let $t_1$ be the spin that toggles position 1, $t_2$ be the spin that toggles position 2, and $s$ be the spin that rotates the full board.  
 
 In order to obtain the Cayley diagram for $\Spin_{1\times 2}$, we need to identify each scrambled board in Figure~\ref{fig:Cayley_Spin_1x2} with an action from the group.  The most natural choice is to identify the solved board with the do-nothing action, which we will denote by $e$.  As soon as we make this choice, we can just follow the arrows around the diagram to determine which actions correspond to which scrambled boards.  
 
@@ -175,7 +175,7 @@ For example, consider the following scrambled board.
   \node [draw, right=0cm of 1] (2) {\rotatebox{180}{$\underline{1}$}};
 \end{tikzpicture}
 \end{center}
-Looking at our current diagram for $\Spin_{1\times 2}$, we see that one way to get to this board from the solved board is to follow a blue arrow and then a red arrow.  This corresponds to the word $s_1t_2$.  (Recall that when we write down words, we should apply the actions from right to left, just like function composition.) However, it also corresponds to the word $t_2s_1t_2t_1$ even though this is not an optimal solution.  So, we can label the board in question with either $s_1t_2$ or $t_2s_1t_2t_1$ (there are other choices, as well).
+Looking at Figure~\ref{fig:partial_Cayley}, we see that one way to get to this board from the solved board is to follow a blue arrow and then a red arrow.  This corresponds to the word $st_2$.  (Recall that when we write down words, we should apply the actions from right to left, just like function composition.) However, it also corresponds to the word $t_2st_2t_1$ even though this is not an optimal solution.  So, we can label the board in question with either $st_2$ or $t_2st_2t_1$ (there are other choices, as well).
 
 As another example, consider the following scrambled board.
 \begin{center}
@@ -184,10 +184,10 @@ As another example, consider the following scrambled board.
   \node [draw, right=0cm of 1] (2) {$\underline{2}$};
 \end{tikzpicture}
 \end{center}
-To get here from the scrambled board, we can simply follow a green arrow. So, this scrambled board corresponds to $t_1$.  However, we could also follow a red arrow, then a blue arrow, and then a red arrow. Thus, we could also label the scrambled board by $s_1 t_2 s_1$.
+To get here from the scrambled board, we can simply follow a green arrow. So, this scrambled board corresponds to $t_1$.  However, we could also follow a red arrow, then a blue arrow, and then a red arrow. Thus, we could also label the scrambled board by $s t_2 s$.
 
 \begin{exercise}
-Using Figure~\ref{fig:Cayley_Spin_1x2}, find three distinct words in $t_1, t_2$, and $s_1$ that correspond to the following scrambled board.  Don't worry about whether your word is of optimal length or not.
+Using Figure~\ref{fig:Cayley_Spin_1x2}, find three distinct words in $t_1, t_2$, and $s$ that correspond to the following scrambled board.  Don't worry about whether your word is of optimal length or not.
 \begin{center}
 \begin{tikzpicture}[every node/.style={minimum size=.65cm}]
   \node [draw] (1) {\rotatebox{180}{$\underline{1}$}};
@@ -196,8 +196,8 @@ Using Figure~\ref{fig:Cayley_Spin_1x2}, find three distinct words in $t_1, t_2$,
 \end{center}
 \end{exercise}
 
-\begin{exercise}
-Label each of the remaining boards from Figure~\ref{fig:Cayley_Spin_1x2} with an appropriate word using $t_1, t_2$, and $s_1$.  The diagram in Figure~\ref{fig:Cayley_Spin_1x2} together with your labels is the Cayley diagram for $\Spin_{1\times 2}$.
+\begin{exercise}\label{exer:Cayley_Spin_1x2}
+Label each of the remaining boards from Figure~\ref{fig:Cayley_Spin_1x2} with at least one appropriate word using $t_1, t_2$, and $s$.  The diagram in Figure~\ref{fig:Cayley_Spin_1x2} together with your labels is the Cayley diagram for $\Spin_{1\times 2}$.
 \end{exercise}
 
 It is important to point out that each word that corresponds to a given scrambled board tells you how to reach that scrambled board from the solved board (which is labeled by $e$, the do-nothing action).
@@ -214,13 +214,13 @@ Consider the Cayley diagram for $\Spin_{1\times 2}$, but remove all the red arro
 Repeat the previous exercise, but this time remove only the green arrows.  What about the blue arrows?
 \end{exercise}
 
-In general, a \textbf{Cayley diagram} for a group $G$ is a digraph having the set of actions of $G$ as its vertices and the directed edges (i.e., arrows) correspond to the generators of the group.  Recall that the generators are a potentially smaller set of actions from which you can derive all the actions of the group.  The way you can derive new actions is by forming words in the generators.  Rule 2 guarantees that every action is reversible, so we also allow the use of a generator's reversal in our words.  
+In general, a \textbf{Cayley diagram} for a group $G$ is a digraph having the set of actions of $G$ as its vertices and the directed edges (i.e., arrows) correspond to the generators of the group.  Recall that the generators are a potentially smaller set of actions from which you can derive all the actions of the group.  The way you can derive new actions is by forming words in the generators.  Rule 2 guarantees that every action is reversible, so we also allow the use of a generator's reversal in our words. 
 
-The arrows follow the direction of the action that it corresponds to. If a generator is its own reversal, then the arrows corresponding to that generator are two-way arrows.  It is always true that following an arrow backwards corresponds to a generator's reversal.  We need a way to tell our arrow types apart.  One way to do this is to color them.  Another way would be to label the arrows by their corresponding generator.
+The arrows follow the direction of the action that it corresponds to. If a generator is its own reversal, then the arrows corresponding to that generator are two-way arrows.  It is always true that following an arrow backwards corresponds to a generator's reversal.  That is, if an arrow corresponds to the action $a$, then the inverse of $a$, namely $a^{-1}$, corresponds to the reverse arrow. We need a way to tell our arrow types apart.  One way to do this is to color them.  Another way would be to label the arrows by their corresponding generator.
 
-Remember that in any group there is always a do-nothing action.  One of the vertices should be labeled as the do-nothing action.  From this point forward, unless someone says otherwise, let's use $e$ to denote our do-nothing action for a group.  Each vertex is labeled with a word that corresponds to the sequence of arrows that we can follow from the do-nothing action to the particular vertex.  Since there are possibly many sequences of arrows that could take us from the do-nothing vertex to another, each vertex could be labeled with many different words.
+Remember that in any group there is always a do-nothing action and one of the vertices should be labeled by this action.  From this point forward, unless someone says otherwise, let's use $e$ to denote our do-nothing action for a group.  Each vertex is labeled with a word that corresponds to the sequence of arrows that we can follow from the do-nothing action to the particular vertex.  Since there are possibly many sequences of arrows that could take us from the do-nothing vertex to another, each vertex could be labeled with many different words.
 
-In the Cayley diagram for $\Spin_{1\times 2}$, our vertices were fancy pictures of scrambled $1\times 2$ Spinpossible boards.  This wasn't necessary, but is convenient and appealing for aesthetic reasons.  Also, we never actually labeled the vertices with the corresponding words.  However, these are easy to obtain by following the sequence of arrows.  Of course, in order to do this, we need to know that the vertex that is the solved board corresponds to the do-nothing action.
+In the Cayley diagram for $\Spin_{1\times 2}$, our vertices were fancy pictures of scrambled $1\times 2$ Spinpossible boards.  This wasn't necessary, but is convenient and appealing for aesthetic reasons.  After labeling the solved board with the do-nothing action, $e$, in Exercise~\ref{exer:Cayley_Spin_1x2} you labeled each remaining vertex of the diagram with a word that corresponds to a sequence of arrows from the solved board to the vertex in question.
 
 The next two exercises may be too abstract for you at the moment.  Give them a shot and if you can't do them now, come back to them after you've constructed a few Cayley diagrams.
 
@@ -249,7 +249,7 @@ Consider a square puzzle piece that fits perfectly into a square hole.  Let $R_4
 \begin{enumerate}
 \item[(a)] Write down all possible actions using verbal descriptions.  Are there lots of ways to describe each of your actions?
 \item[(b)] Let $r$ be the action that rotates the puzzle piece by $90^\circ$ clockwise.  Does $r$ generate $R_4$?  If so, write down all of the actions of $R_4$ as words in $r$.
-\item[(c)] Which of your words above is the reversal of $r$?
+\item[(c)] Which of your words above is the reversal of $r$?  That is, can we describe $r^{-1}$ using $r$?
 \item[(d)] Draw the Cayley diagram for $R_4$ using $r$ as the generator.  Be sure to label the vertices and arrows.  Are your arrows one-way or two-way arrows?
 \end{enumerate}
 \end{exercise}
