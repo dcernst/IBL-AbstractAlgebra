@@ -235,7 +235,7 @@ Assume $G$ is a group.  Suppose that $S$ and $S'$ are two different sets that ge
 Let's build a few more Cayley diagrams to further our intuition.
 
 \begin{exercise}\label{exer:introducing_S2}
-Consider the group consisting of the actions that rearranges two coins, say a penny and a nickel.  Let's assume we start with the penny on the left and the nickel on the right.  Let's call this group $S_2$.
+Consider the group consisting of the actions that rearranges two coins (but we won't flip them over), say a penny and a nickel.  Let's assume we start with the penny on the left and the nickel on the right.  Let's call this group $S_2$.
 
 \begin{enumerate}
 \item[(a)] Write down all possible actions using verbal descriptions.  \emph{Hint:} There aren't that many of them.
@@ -258,12 +258,12 @@ Consider a square puzzle piece that fits perfectly into a square hole.  Let $R_4
 Consider a puzzle piece like the one in the previous exercise, except this time, let's assume that the piece and the hole are an equilateral triangle.  Let $D_3$ be the group of actions that allow the triangle to fit back in the hole.  In addition to rotations, we will also allow the triangle to be flipped over.  To give us a common starting point, let's assume the triangle and hole are positioned so that a base of the triangle is down.  Also, let's label both the points of the hole and the points of the triangle with the numbers 1, 2, and 3.  Assume the labeling on the hole starts with 1 on top and then continues around in the obvious way going clockwise.  Label the puzzle piece in the same way and let's assume that the triangle starts in the position that has the labels matching (i.e., the point of the triangle labeled 1 is in the corner of the hole labeled 1, etc.).
 \begin{enumerate}
 \item[(a)] How many actions are there?  Can you describe them?  One way to do this would be to indicate where the labels of the triangle are in the hole.
-\item[(b)] Let $r$ be rotation by $120^\circ$ in the clockwise direction.  Does $r$ generate $D_3$?
-\item[(c)] What is the reversal of $r$?  Can you write it as a word in $r$?
+\item[(b)] Let $r$ be rotation by $120^\circ$ in the clockwise direction.  Does $r$ generate $D_3$? That is, can you write each of your actions from part (a) as words in $r$?
+\item[(c)] What is the reversal of $r$?  That is, what is $r^{-1}$? Can you write it as a word in $r$?
 \item[(d)] Let $s$ be the flip (or we could call it a reflection) that swaps the corners of the puzzle piece that are in the positions of the hole labeled by 2 and 3 (this leaves the corner in position 1 of the hole in the same spot).  Does $s$ generate $D_3$?
-\item[(e)] What is the reversal of $s$?  Can you write it as a word?
-\item[(f)] Can we generate all of $D_3$ using both $r$ and $s$?  If so, write all the actions of $D_3$ as words in $r$ and $s$ (or their reversals).
-\item[(g)] Draw the Cayley diagram for $D_3$ using $r$ and $s$ as your arrows.  \emph{Hints:} One of your arrow types is one-way and the other is two-way.  I suggest putting half the vertices in a circle and then the other half in a concentric circle outside your first half.  Label one of the vertices on the inner circle as $e$ and first think about applying consecutive actions of $r$.  Try to stay on the inner circle of vertices as you do this.  Now, starting at $e$, apply $s$ and go to one of the vertices in the outer circle.  Try to label the remaining vertices using both $r$ and $s$.  There are multiple ways to do it.
+\item[(e)] What is the reversal of $s$?  That is, what is $s^{-1}$? Can you write it as a word?
+\item[(f)] Can we generate all of $D_3$ using both $r$ and $s$?  If so, write all the actions of $D_3$ as words in $r$ and $s$ (or their reversals/inverses).
+\item[(g)] Draw the Cayley diagram for $D_3$ using $r$ and $s$ as your arrows.  \emph{Hints:} One of your arrow types is one-way and the other is two-way.  I suggest putting half the vertices in a circle and then the other half in a concentric circle outside your first half.  Label one of the vertices on the inner circle as $e$ and first think about applying consecutive actions of $r$.  Try to stay on the inner circle of vertices as you do this.  Now, starting at $e$, apply $s$ and go to one of the vertices in the outer circle.  Try to label the remaining vertices using both $r$ and $s$.  There are multiple ways to label each of the vertices.
 \end{enumerate}
 \end{exercise}
 
@@ -279,7 +279,7 @@ Now that you've constructed a few examples for yourself, you should have a prett
 
 By the way, Cayley diagrams are named after their inventor Arthur Cayley, a nineteenth century British mathematician.  We'll see his name pop up a couple more times in the course.  
 
-Not only are Cayley diagrams visually pleasing, but they provide a map for the group in question.  That is, they provide a method for navigating the group.  Following sequences of arrows tells us how to do or undo an action.  However, each Cayley diagram very much depends on the set of generators that are chosen to generate the group.  If we change the generating set, we may end up with a very different looking Cayley diagram.  This was the point of Exercise~\ref{exer:changing_generators_for_Cayley_diagram}.  It's important to drive this point home, so let's construct an explicit example.
+Not only are Cayley diagrams visually appealing, but they provide a map for the group in question.  That is, they provide a method for navigating the group.  Following sequences of arrows tells us how to do an action.  However, each Cayley diagram very much depends on the set of generators that are chosen to generate the group.  If we change the generating set, we may end up with a very different looking Cayley diagram.  This was the point of Exercise~\ref{exer:changing_generators_for_Cayley_diagram}.  It's important to drive this point home, so let's construct an explicit example.
 
 \begin{exercise}\label{exer:alternate_D3}
 In Exercise~\ref{exer:introducing_D3}, you constructed the Cayley diagram for the group called $D_3$.  In this case, you used the generators $r$ and $s$.  Now, let $s'$ be the reflection that swaps the corners of the triangle that are in the corners of the hole labeled by 1 and 2.  
@@ -292,25 +292,76 @@ In Exercise~\ref{exer:introducing_D3}, you constructed the Cayley diagram for th
 Let's do a few more exercises involving Cayley diagrams.
 
 \begin{exercise}\label{exer:intro_R6}
-Consider the Cayley diagram give below.
-\begin{center}
-\includegraphics[width=4in]{rotation6.png}
-\end{center}
-Describe a group of actions and a set of generators that would yield this Cayley diagram.
+Consider the Cayley diagram for the group that we will call $R_6$ given in Figure~\ref{fig:rotation6}. 
+\begin{enumerate}
+\item Assuming $e$ is the do-nothing action, which action is the generator of the group?
+\item Describe the inverse of each of the 6 actions as a word in $r$.
+\item Can you find a shorter word to describe $r^8$?
+\item Does $r^2$ generate the group? How about $r^5$?  Explain your answers.
+\item Describe a concrete collection of actions that would yield this Cayley diagram.
+\end{enumerate}
 \end{exercise}
+
+\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=6mm]
+\tikzstyle{b} = [draw,very thick,blue,-stealth]
+\tikzstyle{r} = [draw, very thick, red,-stealth]
+\tikzstyle{g} = [draw, very thick, green, stealth-stealth]
+
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}[scale=1.5,auto]
+\node (r2) at (0:1.5) [vert] {{\scriptsize $r^2$}};
+\node (r) at (60:1.5) [vert] {\scriptsize {$r$}};
+\node (e) at (120:1.5) [vert] {{\scriptsize $e$}};
+\node (r5) at (180:1.5) [vert] {{\scriptsize $r^5$}};
+\node (r4) at (240:1.5) [vert] {{\scriptsize $r^4$}};
+\node (r3) at (-60:1.5) [vert] {{\scriptsize $r^3$}};
+
+\path[r] (e) to (r);
+\path[r] (r) to (r2);
+\path[r] (r2) to (r3);
+\path[r] (r3) to (r4);
+\path[r] (r4) to (r5);
+\path[r] (r5) to (e);
+\end{tikzpicture}
+\caption{}
+\label{fig:rotation6}
+\end{figure}
+
 
 We haven't explicitly defined what a Cayley diagram actually is yet.  So, it's not completely obvious that the diagram in the previous exercise is actually a diagram for a group.  But rest assured; this Cayley diagram truly does correspond to a group.  It's important to point out that we can't just throw together a digraph willy nilly and expect it to be a Cayley diagram.
 
 \begin{exercise}
-Consider the following diagram.
-\begin{center}
-\includegraphics[width=5in]{nonCayley.png}
-\end{center}
-Explain why the diagram cannot possibly be a Cayley diagram for a group.  How many reasons can you come up with?
+Consider the diagram given in Figure~\ref{fig:nonCayley}. Explain why the diagram cannot possibly be a Cayley diagram for a group.  How many reasons can you come up with?
 \end{exercise}
 
+\tikzstyle{b} = [draw,very thick,blue,-stealth]
+\tikzstyle{b2} = [draw,very thick,blue,stealth-stealth]
+\tikzstyle{r} = [draw, very thick, red,-stealth]
+
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}[scale=1.5,auto]
+\node (a) at (0,0) [vert] {{\scriptsize $a$}};
+\node (b) at (2,0) [vert] {{\scriptsize $b$}};
+\node (c) at (3,1) [vert] {{\scriptsize $c$}};
+\node (d) at (3,-1) [vert] {{\scriptsize $d$}};
+\node (e) at (4,0) [vert] {{\scriptsize $e$}};
+\node (f) at (6,0) [vert] {{\scriptsize $f$}};
+
+\path[b2] (a) to (b);
+\path[b] (e) to (b);
+\path[r] (b) to (c);
+\path[r] (b) to (d);
+\path[b] (e) to (b);
+\path[b] (d) to (e);
+\end{tikzpicture}
+\caption{}
+\label{fig:nonCayley}
+\end{figure}
+
 \begin{exercise}\label{exer:properties_Cayley}
-Let $G$ be a group of actions and $S$ is a set of generators for $G$. Suppose we draw the Cayley diagram for $G$ using the actions of $S$ as our arrows and we color the arrows according to which generator they correspond to.  
+Let $G$ be a group of actions and suppose $S$ is a set of generators for $G$. Suppose we draw the Cayley diagram for $G$ using the actions of $S$ as our arrows and we color the arrows according to which generator they correspond to.  
 \begin{enumerate}
 \item[(a)] Explain why there must be a sequence of arrows (forwards or backwards) from the vertex labeled $e$ to every other vertex.  Do you think this is true for every pair of vertices?
 \item[(b)] Recall that $G$ must satisfy Rule 1.  What restriction does this put on our Cayley diagram?
@@ -320,10 +371,37 @@ Let $G$ be a group of actions and $S$ is a set of generators for $G$. Suppose we
 \end{enumerate}
 \end{exercise}
 
-In the previous exercise, you discovered several properties embodied by all Cayley diagrams. Unfortunately, not every diagram having these properties will yield a Cayley diagram.  For example, the diagram below satisfies the properties you discovered in Exercise~\ref{exer:properties_Cayley}, but it turns out that this cannot be a diagram for any group (regardless of how we label the vertices).
+In the previous exercise, you discovered several properties embodied by all Cayley diagrams. Unfortunately, not every diagram having these properties will yield a Cayley diagram.  For example, the diagram in Figure~\ref{fig:nonRegular} satisfies the properties you discovered in Exercise~\ref{exer:properties_Cayley}, but it turns out that this cannot be a diagram for any group (regardless of how we label the vertices).
 
-\begin{center}
-\includegraphics[width=5in]{nonregular.png}
-\end{center}
+\tikzstyle{r2} = [draw, very thick, red,stealth-stealth]
+
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}[scale=1.5,auto]
+\node (a) at (0,0) [vert] {{\scriptsize $a$}};
+\node (b) at (2,0) [vert] {{\scriptsize $b$}};
+\node (c) at (4,0) [vert] {{\scriptsize $c$}};
+\node (d) at (6,0) [vert] {{\scriptsize $d$}};
+\node (e) at (6,2) [vert] {{\scriptsize $e$}};
+\node (f) at (4,2) [vert] {{\scriptsize $f$}};
+\node (g) at (2,2) [vert] {{\scriptsize $g$}};
+\node (h) at (0,2) [vert] {{\scriptsize $h$}};
+
+\path[b2] (a) to (b);
+\path[b2] (c) to (d);
+\path[b2] (h) to (g);
+\path[b2] (f) to (e);
+
+\path[r] (b) to (c);
+\path[r] (c) to (f);
+\path[r] (f) to (g);
+\path[r] (g) to (b);
+
+\path[r2] (a) to (h);
+\path[r2] (d) to (e);
+\end{tikzpicture}
+\caption{}
+\label{fig:nonRegular}
+\end{figure}
 
 This fact exposes one of the weaknesses of our intuitive definition of a group and is one of the many reasons we will soon require a more rigorous definition.
