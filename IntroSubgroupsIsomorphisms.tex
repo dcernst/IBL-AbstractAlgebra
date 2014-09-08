@@ -164,13 +164,13 @@ Let's introduce a group we haven't seen yet.  We define the \textbf{quaternion g
 \path[g] (k) to (-k);
 
 \end{tikzpicture}
-\caption{Cayley diagram for $Q_8$.}\label{fig:Q8}
+\caption{Cayley diagram for $Q_8$ with generating set $\{-1, i, j\}$.}\label{fig:Q8}
 \end{figure}
 
 Notice that I didn't mention what the actions actually do.  For now, let's not worry about that.  The relationship between the arrows and vertices tells us everything we need to know.  Also, let's take it for granted that $Q_8$ actually is a group.
 
 \begin{exercise}
-Consider $Q_8$.
+Consider the Cayley diagram for $Q_8$ given in Figure~\ref{fig:Q8}.
 \begin{enumerate}[label=\rm{(\alph*)}]
 \item Which arrows correspond to which generators in our Cayley diagram for $Q_8$?
 \item What is $i^2$ equal to?  That is, what element of $\{1,-1,i,-i,j,-j,k,-k\}$ is $i^2$ equal to?  How about $i^3$, $i^4$, and $i^5$?
@@ -188,32 +188,33 @@ Consider $Q_8$.
 
 \begin{section}{Isomorphisms}
 
-By now you've probably seen enough examples of Cayley diagrams to witness some patterns appearing over and over again.  For example, you've seen chunks of Cayley diagrams that resemble the Cayley diagram for $S_2$ with generator $s$.
+By now you've probably seen enough examples of Cayley diagrams to witness some patterns appearing over and over again.    One of the things you've probably noticed is that parts of some Cayley diagrams look just like parts of other Cayley diagrams.
+
+Recall from Exercise~\ref{exer:introducing_S2} that $S_2$ is the group that acts on two coins by swapping their positions (but not flipping them over).  We defined $s$ to be the action that swaps the left and right coins and as usual $e$ is the do-nothing action.  The Cayley diagram for $S_2$ with generator $s$ is given in Figure~\ref{fig:S2}. 
 
 \tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=6mm]
 \tikzstyle{twoway} = [draw, very thick, blue, stealth-stealth]
 
-\begin{center}
+\begin{figure}
+\centering
 \begin{tikzpicture}[scale=1.5,auto]
 \node (e) at (0,0) [vert] {{\scriptsize $e$}};
 \node (s) at (2,0) [vert] {\scriptsize {$s$}};
 \path[twoway] (e) to (s);
 \end{tikzpicture}
-\end{center}
+\caption{Cayley diagram for $S_2$ with generator $s$.}\label{fig:S2}
+\end{figure}
 
-\noindent Recall that $S_2$ is the group that acts on two coins by swapping their positions.  In this case, $s$ is the action that swaps the left and right coins and $e$ is the do-nothing action.  
-
-If you look at any of the versions of the Cayley diagrams for $\Spin_{1\times 2}$, $D_3$, $D_4$, and $Q_8$ that we've seen, it is easy to identify the portions that ``look like" $S_2$.  For example, if you isolate the Cayley diagram for the subgroup $\langle -1\rangle=\{1,-1\}$ in $Q_8$, we see that it looks just like the Cayley diagram for $S_2$, except the labels are not identical.  The clones of the subgroup $\langle -1\rangle=\{1,-1\}$ in $Q_8$ look like $S_2$, as well, but they do not contain the do-nothing action.  
+If you look back at all the Cayley diagrams you've encountered, you'll notice that many of them contained chunks that resemble the Cayley diagram for $S_2$ with generator $s$.  In particular, in the Cayley diagrams for $\Spin_{1\times 2}$, $D_3$, $D_4$, and $Q_8$ that we've seen, it is easy to identify the portions that ``look like" $S_2$.  For example, if you isolate the Cayley diagram for the subgroup $\langle -1\rangle=\{1,-1\}$ in $Q_8$, we see that it looks just like the Cayley diagram for $S_2$, except the labels are not identical.  The clones of the subgroup $\langle -1\rangle=\{1,-1\}$ in $Q_8$ look like $S_2$, as well, but they do not contain the do-nothing action.  
 
 The one thing that is different about the Cayley diagram for $S_2$ and the Cayley diagram for $\langle -1\rangle$ is that the labels are different.  If we set the Cayley diagram for $S_2$ on top of the Cayley diagram for $\langle -1\rangle$ such that the do-nothing actions match up, then $s$ and $-1$ would correspond to each other.  In other words, the two Cayley diagrams are identical up to relabeling the vertices.
 
 In this case, we say that $S_2$ and the subgroup $\langle -1\rangle$ of $Q_8$ are \textbf{isomorphic} under the correspondence $e\leftrightarrow 1$ and $s\leftrightarrow -1$.  This one-to-one correspondence between the two groups is called an \textbf{isomorphism}, which is depicted in Figure~\ref{fig:isoS2}.
   
-\begin{figure}\label{fig:isoS2}
-\begin{center}
+\begin{figure}
+\centering
 \includegraphics[width=5in]{isoS2.png}
-\end{center}
-\caption{Isomorphism between $\langle -1\rangle\leq Q_8$ and $S_2$.}
+\caption{Isomorphism between $\langle -1\rangle\leq Q_8$ and $S_2$.}\label{fig:isoS2}
 \end{figure}
 
 What this means is that these two groups have the same structure and characteristics.  Or, in other words, these two groups essentially do the ``same kind" of thing.  Clearly, the two do-nothing actions behave the same way.  Also, $s$ and $-1$ both have the property that doing the action twice results in having done nothing (i.e., each element is its own reverse).  Since there are only two elements, there isn't anything else to check.  In groups with more elements, things can get much more complicated.  
