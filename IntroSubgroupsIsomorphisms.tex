@@ -115,7 +115,7 @@ Consider $D_4$.  Let $h$ be the action that reflects (i.e., flips over) the squa
 
 The subgroup in Exercise~\ref{exer:subgroups_D4}\ref{V4} is often referred to as the \textbf{Klein four-group} and is denoted by $V_4$.
 
-\begin{exercise}
+\begin{exercise}\label{exer:V4}
 Draw the Cayley diagram for $V_4$ using $\{v,h\}$ as our set of generators.
 \end{exercise}
 
@@ -209,11 +209,58 @@ If you look back at all the Cayley diagrams you've encountered, you'll notice th
 
 The one thing that is different about the Cayley diagram for $S_2$ and the Cayley diagram for $\langle -1\rangle$ is that the labels are different.  If we set the Cayley diagram for $S_2$ on top of the Cayley diagram for $\langle -1\rangle$ such that the do-nothing actions match up, then $s$ and $-1$ would correspond to each other.  In other words, the two Cayley diagrams are identical up to relabeling the vertices.
 
-In this case, we say that $S_2$ and the subgroup $\langle -1\rangle$ of $Q_8$ are \textbf{isomorphic} under the correspondence $e\leftrightarrow 1$ and $s\leftrightarrow -1$.  This one-to-one correspondence between the two groups is called an \textbf{isomorphism}, which is depicted in Figure~\ref{fig:isoS2}.
-  
-\begin{figure}
+In this case, we say that $S_2$ and the subgroup $\langle -1\rangle$ of $Q_8$ are \textbf{isomorphic} under the correspondence $e\leftrightarrow 1$ and $s\leftrightarrow -1$.  This one-to-one correspondence between the two groups is called an \textbf{isomorphism}, which is depicted in Figure~\ref{fig:isoS2}. Note that I've recolored the arrow in $S_2$ so that it matches the corresponding arrow color of $\langle -1\rangle$.  This isn't necessary, but it makes the correspondence more obvious.
+
+\tikzstyle{correspondence} = [draw, very thick, black, dashed, stealth-stealth]
+
+\begin{figure}[!ht]
 \centering
-\includegraphics[width=5in]{isoS2.png}
+\begin{tikzpicture}[scale=1.5,auto]
+\node (1) at (135:2) [vert] {{\scriptsize $1$}};
+\node (i) at (45:2) [vert] {\scriptsize {$i$}};
+\node (k) at (-45:2) [vert] {{\scriptsize $k$}};
+\node (j) at (-135:2) [vert] {{\scriptsize $j$}};
+\node (-1) at (135:1) [vert] {{\scriptsize $-1$}};
+\node (-i) at (45:1) [vert] {{\scriptsize $-i$}};
+\node (-k) at (-45:1) [vert] {{\scriptsize $-k$}};
+\node (-j) at (-135:1) [vert] {{\scriptsize $-j$}};
+
+\path[b] (1) to (i);
+\path[b] (i) to (-1);
+\path[b] (-1) to (-i);
+\path[b] (-i) to (1);
+
+\path[b] (-j) to (-k);
+\path[b] (-k) to (j);
+\path[b] (j) to (k);
+\path[b] (k) to (-j);
+
+\path[r] (-k) to (-i);
+\path[r] (-i) to (k);
+\path[r] (k) to (i);
+\path[r] (i) to (-k);
+
+\path[r] (1) to (j);
+\path[r] (j) to (-1);
+\path[r] (-1) to (-j);
+\path[r] (-j) to (1);
+
+\path[g] (1) to (-1);
+\path[g] (j) to (-j);
+\path[g] (i) to (-i);
+\path[g] (k) to (-k);
+
+\node (e) at (3,0) [vert] {{\scriptsize $e$}};
+\node (s) at (5,0) [vert] {\scriptsize {$s$}};
+\path[g] (e) to (s);
+
+\node (Q8) at (0,0) {$Q_8$};
+\node (S2) at (4,-.5) {$S_2$};
+
+\path[correspondence] (1) to [bend left=60] (e);
+\path[correspondence] (-1) to [bend left=60] (s);
+
+\end{tikzpicture}
 \caption{Isomorphism between $\langle -1\rangle\leq Q_8$ and $S_2$.}\label{fig:isoS2}
 \end{figure}
 
@@ -239,16 +286,48 @@ The last sentence in the definition above might be a bit much to handle at the m
 
 Consider the group $R_4$ with generator $r$ (rotation by $90^\circ$ clockwise).  Now, take a look at the Cayley diagram for $Q_8$ with generators $i, j, -1$.  It should be easy to convince yourself that $R_4$ is isomorphic to both $\langle i\rangle=\{1,i,-i,-1\}$ and $\langle j\rangle=\{1,j,-j,-1\}$.  However, you have to do some rearranging of one of the diagrams to set one on top of the other.  Let's just focus on $\langle i\rangle$.  
 
-How do $R_4$ and $\langle i\rangle$ match up?  We want to pair elements in each group with an element in the other group that has the same behavior.  Clearly, $e$ and $1$ match up since these are the two do-nothing actions.  Also, the reason why we noticed these two groups were isomorphic is because their Cayley diagrams looked the same.  Since each Cayley diagram only had one arrow type determined by $r$ and $i$, we should pair these two elements.  Now, following the arrows around the diagram, we see that $r^2$ must pair with $i^2=-1$ and $r^3$ corresponds to $i^3=-i$.  In summary, the isomorphism between $R_4$ and $\langle i\rangle$ (in $Q_8$) is given by $e\leftrightarrow 1$, $r\leftrightarrow i$, $r^2\leftrightarrow -1$, and $r^3\leftrightarrow -i$ (See Figure~\ref{fig:isoR4}).  You should take a moment to convince yourself that the elements that correspond to each other really do behave in similar ways.
+How do $R_4$ and $\langle i\rangle$ match up?  We want to pair elements in each group with an element in the other group that has the same behavior.  Clearly, $e$ and $1$ match up since these are the two do-nothing actions.  Also, the reason why we noticed these two groups were isomorphic is because their Cayley diagrams looked the same.  Since each Cayley diagram only had one arrow type determined by $r$ and $i$, we should pair these two elements.  Now, following the arrows around the diagram, we see that $r^2$ must pair with $i^2=-1$ and $r^3$ corresponds to $i^3=-i$.  In summary, the isomorphism between $R_4$ and $\langle i\rangle$ (in $Q_8$) is given by $e\leftrightarrow 1$, $r\leftrightarrow i$, $r^2\leftrightarrow -1$, and $r^3\leftrightarrow -i$, which is depicted in Figure~\ref{fig:isoR4}. Note that this time we have not recolored the edges so that they match.  Nonetheless, the correspondence should be clear.
 
-\begin{figure}\label{fig:isoR4}
-\begin{center}
-\includegraphics[width=4in]{isoR4.png}
-\end{center}
-\caption{Isomorphism between $\langle i\rangle\leq Q_8$ and $R_4$.}
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}[scale=1.5,auto]
+\node (r) at (1,1) [vert] {{\scriptsize $r$}};
+\node (e) at (-1,1) [vert] {\scriptsize {$e$}};
+\node (r3) at (-1,-1) [vert] {{\scriptsize $r^3$}};
+\node (r2) at (1,-1) [vert] {{\scriptsize $r^2$}};
+
+\path[r] (e) to (r);
+\path[r] (r) to (r2);
+\path[r] (r2) to (r3);
+\path[r] (r3) to (e);
+
+\node (R4) at (0,0) {$R_4$};
+
+\node (i) at (5,1) [vert] {{\scriptsize $i$}};
+\node (1) at (3,1) [vert] {\scriptsize $1$};
+\node (-i) at (3,-1) [vert] {{\scriptsize $-i$}};
+\node (-1) at (5,-1) [vert] {{\scriptsize $-1$}};
+
+\path[b] (1) to (i);
+\path[b] (i) to (-1);
+\path[b] (-1) to (-i);
+\path[b] (-i) to (1);
+
+\node (subgroupQ8) at (4,0) {$\langle i\rangle\leq Q_8$};
+
+\path[correspondence] (e) to [bend left=30] (1);
+\path[correspondence] (r) to [bend left=30] (i);
+\path[correspondence] (r2) to [bend right=30] (-1);
+\path[correspondence] (r3) to [bend right=30] (-i);
+
+\end{tikzpicture}
+\caption{Isomorphism between $\langle i\rangle\leq Q_8$ and $R_4$.}\label{fig:isoR4}
+\label{fig:rotation6}
 \end{figure}
 
-Now, take a look at the Cayley diagram for $D_4$ with generators $r$ and $s$.  As we noticed in Exercise~\ref{exer:R4_in_D4}, $R_4$ is a subgroup of $D_4$.  We could say that this subgroup is isomorphic to $R_4$, but in this case, we can say something even stronger: they are equal!
+Now, take a look at the Cayley diagram for $D_4$ with generating set $\{r,s\}$.  As we noticed in Exercise~\ref{exer:R4_in_D4}, $R_4$ is a subgroup of $D_4$.  We could say that this subgroup is isomorphic to $R_4$, but in this case, we can say something even stronger: they are equal!
+
+Before continuing, we need to emphasize an important point.  If the Cayley diagram for one group does not look like the Cayley diagram for another group, then that does \emph{not} immediately imply that the groups are not isomorphic.  The issue is that perhaps we could choose appropriate generating sets for each group so that the Cayley diagrams do look alike.  For example, notice that our standard Cayley diagram for $R_4$ does not look like the Cayley diagram that you constructed for $V_4$ in Exercise~\ref{exer:V4}.  This does \emph{not} imply that these two groups are not isomorphic.  We would need to do some more work in order to determine whether the two groups are isomorphic or not.  You will get a chance to do this in Exercise~\ref{exer:R4vsV4}.
 
 It turns out that there is a fancy word for the size of a group.
 
@@ -257,33 +336,25 @@ If $G$ is a group with $n$ distinct actions, then we say that $G$ has \textbf{or
 \end{definition}
 
 \begin{exercise}
-Find the orders of the following groups: $S_2$, $\Spin_{1\times 2}$, $\Spin_{3\times 3}$, $R_4$, $D_3$, $D_4$, $V_4$ (see the comment following Exercise~\ref{exer:subgroups_D4}), and $Q_8$.
+Find the orders of the following groups: $S_2$, $\Spin_{1\times 2}$, $\Spin_{3\times 3}$, $R_4$, $D_3$, $D_4$, $V_4$, and $Q_8$.
 \end{exercise}
 
 \begin{theorem}\label{thm:iso_same_order}
 Suppose $G$ and $G'$ are two groups of actions such that $G\cong G'$.  Then $|G|=|G'|$.
 \end{theorem}
 
-Unfortunately, the converse of the previous theorem is not true in general.  That is, two groups that have the same order may or may not be isomorphic.  
+Unfortunately, the converse of the previous theorem is not true in general.  That is, two groups that have the same order may or may not be isomorphic.
 
 Loosely speaking, if one group has a property that the other does not have, then the two groups cannot be isomorphic.  For example, if one group has the property that every pair of actions commutes (i.e., the order\footnote{Don't confuse the word ``order" in this sentence with the order of a group.} of the actions does not matter), but another group has a pair of actions that do not commute, then the two groups cannot be isomorphic.  Moreover, if one group contains an action that requires a minimum of $k$ applications to get back to the do-nothing action, but a second group does not have such an element, then the two groups cannot be isomorphic.  
 
 Justifying these two claims takes a bit of work and for now, we'll put that on hold.  For the time being, if you don't see why these claims about when two groups are not isomorphic are true, just take them on faith and we will return to the issue in a later chapter.  Feel free to use these ideas in the exercises that follow.
 
-Let's do a bit more exploring.
-
-\begin{exercise}
-Using $h$ and $v$ as generators, draw the Cayley diagram for $V_4$.
-\end{exercise}
-
-Notice that our standard Cayley diagram for $R_4$ does not look like the Cayley diagram that you just constructed for $V_4$.  This does \emph{not} imply that these two groups are not isomorphic.
-
-\begin{problem}
-Determine whether $R_4$ and $V_4$ are isomorphic.  Justify your answer.  If they are isomorphic, specify the isomorphism by listing the correspondence of elements.
+\begin{problem}\label{exer:R4vsV4}
+Determine whether $R_4$ and $V_4$ are isomorphic.  Justify your answer.  If they are isomorphic, specify the isomorphism by listing the correspondence of elements.  If they are not isomorphic, explain why.
 \end{problem}
 
 \begin{problem}\label{prob:R6_not_iso_D3}
-Consider the group given by the Cayley diagram in Exercise~\ref{exer:intro_R6}.  Let's assume that this is the rotation group for a regular hexagon---called $R_6$.  Determine whether $R_6$ and $D_3$ are isomorphic.  Justify your answer.  If they are isomorphic, specify the isomorphism by listing the correspondence of elements.
+Consider the group given by the Cayley diagram for $R_6$ that was given in Exercise~\ref{exer:intro_R6}.  We can think of $R_6$ as the rotation group for a regular hexagon.  Determine whether $R_6$ and $D_3$ are isomorphic.  Justify your answer.  If they are isomorphic, specify the isomorphism by listing the correspondence of elements.  If they are not isomorphic, explain why.
 \end{problem}
 
 \begin{exercise}
@@ -296,19 +367,19 @@ Consider two light switches on a wall side by side.  Consider the group of actio
 \end{exercise}
 
 \begin{problem}
-Determine whether $L_2$ and $V_4$ are isomorphic.  Justify your answer.  If they are isomorphic, specify the isomorphism by listing the correspondence of elements.
+Determine whether $L_2$ and $V_4$ are isomorphic.  Justify your answer.  If they are isomorphic, specify the isomorphism by listing the correspondence of elements. If they are not isomorphic, explain why.
 \end{problem}
 
 \begin{problem}
-Determine whether $Q_8$ and $D_4$ are isomorphic.  Justify your answer.  If they are isomorphic, specify the isomorphism by listing the correspondence of elements.
+Determine whether $Q_8$ and $D_4$ are isomorphic.  Justify your answer.  If they are isomorphic, specify the isomorphism by listing the correspondence of elements. If they are not isomorphic, explain why.
 \end{problem}
 
 \begin{problem}
-Determine whether $\Spin_{1\times 2}$ and $D_4$ are isomorphic.  Justify your answer.  If they are isomorphic, specify the isomorphism by listing the correspondence of elements.
+Determine whether $\Spin_{1\times 2}$ and $D_4$ are isomorphic.  Justify your answer.  If they are isomorphic, specify the isomorphism by listing the correspondence of elements. If they are not isomorphic, explain why.
 \end{problem}
 
 \begin{exercise}\label{exer:S_3}
-Consider the group that acts on three coins that are in a row by rearranging their positions (but not flipping them over).  This group is called $S_3$.  Numbering the positions of the coins (not the coins themselves) 1, 2, 3 from left to right.  Let $s_1$ be the action that swaps the coins in positions 1 and 2.  Similarly, let $s_2$ be the action that swaps coins in positions 2 and 3.
+Consider the group that acts on three coins that are in a row by rearranging their positions (but not flipping them over).  This group is called $S_3$.  Number the positions of the coins (not the coins themselves) 1, 2, 3 from left to right.  Let $s_1$ be the action that swaps the coins in positions 1 and 2 and let $s_2$ be the action that swaps the coins in positions 2 and 3.
 \begin{enumerate}[label=\rm{(\alph*)}]
 \item The group $S_3$ consists of 6 actions, which we can generate with $s_1$ and $s_2$.  Write all 6 actions as words in $s_1$ and $s_2$.
 \item Using $s_1$ and $s_2$ as generators, draw a Cayley diagram for $S_3$.
@@ -316,7 +387,7 @@ Consider the group that acts on three coins that are in a row by rearranging the
 \end{exercise}
 
 \begin{problem}\label{prob:D3_iso_S3}
-Determine whether $S_3$ and $D_3$ are isomorphic.  Justify your answer.  If they are isomorphic, specify the isomorphism by listing the correspondence of elements.  Don't forget that we've drawn two different Cayley diagrams for $D_3$.
+Determine whether $S_3$ and $D_3$ are isomorphic.  Justify your answer.  If they are isomorphic, specify the isomorphism by listing the correspondence of elements.  If they are not isomorphic, explain why. Don't forget that we've drawn two different Cayley diagrams for $D_3$.
 \end{problem}
 
 \end{section}
