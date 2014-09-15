@@ -139,22 +139,22 @@ Compare and contrast our two definitions of a group.  How do the rules and axiom
 \end{exercise}
 
 \begin{exercise}
-Quickly verify that $\Spin_{1\times 3}$, $S_2$, $R_4$, $D_3$, $D_4$, $V_4$, and $Q_8$ are groups under composition of actions.
+Quickly verify that $\Spin_{1\times 2}$, $S_2$, $R_4$, $D_3$, $D_4$, $V_4$, and $Q_8$ are groups under composition of actions.
 \end{exercise}
 
 \begin{exercise}
 Determine whether each of the following are groups.  If the pair is a group, determine whether it is abelian and identify the identity.  Explain your answers.
-\begin{enumerate}
-\item[(a)] $(\mathbb{Z},+)$
-\item[(b)] $(\mathbb{N},+)$
-\item[(c)] $(\mathbb{Z},\cdot)$
-\item[(d)] $(\mathbb{R},+)$
-\item[(e)] $(\mathbb{R},\cdot)$
-\item[(f)] $(\mathbb{R}\setminus \{0\},\cdot)$
-\item[(g)] $(M_{2\times 2}(\mathbb{R}),+)$
-\item[(h)] $(M_{2\times 2}(\mathbb{R}),*)$, where $*$ is matrix multiplication.
-\item[(i)] $(\{a,b,c\},*)$, where $*$ is the operation determined by the table in Example~\ref{example:table}.
-\item[(j)] $(\{a,b,c,d\},*)$, where $*$ is the operation determined by the table in Exercise~\ref{exer:table_missing_entries}.
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item $(\mathbb{Z},+)$
+\item $(\mathbb{N},+)$
+\item $(\mathbb{Z},\cdot)$
+\item $(\mathbb{R},+)$
+\item $(\mathbb{R},\cdot)$
+\item $(\mathbb{R}\setminus \{0\},\cdot)$
+\item $(M_{2\times 2}(\mathbb{R}),+)$
+\item $(M_{2\times 2}(\mathbb{R}),*)$, where $*$ is matrix multiplication.
+\item $(\{a,b,c\},*)$, where $*$ is the operation determined by the table in Example~\ref{example:table}.
+\item $(\{a,b,c,d\},*)$, where $*$ is the operation determined by the table in Exercise~\ref{exer:table_missing_entries}.
 \end{enumerate}
 \end{exercise}
 
@@ -223,7 +223,7 @@ Let $(G,*)$ be a group and let $g\in G$.  If $n\in\mathbb{Z}$, then:
 \end{section}
 
 \begin{section}{Group Tables}
-Recall that we could represent a binary operation on a finite set using a table.  Since groups have binary operations at their core, we can represent a finite group (i.e., a group with finitely many elements) using a table, called a \textbf{group table}. For example, the following is a group table for $V_4$.
+Recall that we could represent a binary operation on a finite set using a table.  Since groups have binary operations at their core, we can represent a finite group (i.e., a group with finitely many elements) using a table, called a \textbf{group table} (or \textbf{Cayley table}). For example, the following is a group table for $V_4$.
 
 \begin{center}
 \begin{tabu}{c|[2pt]c|c|c|c}
@@ -386,26 +386,54 @@ We've encountered four groups of order 8, namely $D_4$, $\Spin_{1\times 2}$, $Q_
 
 Let's begin with a couple exercises.
 
-\begin{exercise}\label{exer:nonregular1}%Exercise 4.16 in VGT
-Consider the following diagram that we saw at the end of Chapter~\ref{chapter:cayley_diagrams}.
-\begin{center}
-\includegraphics[width=5in]{nonregular.png}
-\end{center}
-\begin{enumerate}
-\item[(a)] Consider Rules 1--4 of our original definition of a group (see Definition~\ref{def:informal_group}).  Does the above diagram satisfy Rules 1--4?
-\item[(b)] Try to convert this diagram into a group table.  Does the table represent a group? What goes wrong?
+\begin{exercise}\label{exer:nonRegular1}%Exercise 4.16 in VGT
+Consider the diagram given in Figure~\ref{fig:nonRegularRepeat}.  This is identical to the diagram that appeared in Figure~\ref{fig:nonRegular} that we saw at the end of Chapter~\ref{chapter:cayley_diagrams}.
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item Consider Rules 1--4 of our original definition of a group (see Definition~\ref{def:informal_group}).  Does the diagram in Figure~\ref{fig:nonRegularRepeat} satisfy Rules 1--4?
+\item Try to convert this diagram into a group table.  Does the table represent a group? What goes wrong?
 \end{enumerate}
 \end{exercise}
 
-\begin{exercise}\label{exer:nonregular2}%Exercise 4.16 in VGT
-Consider the following diagram.
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}[scale=1.5,auto]
+\node (a) at (0,0) [vert] {{\scriptsize $a$}};
+\node (b) at (2,0) [vert] {{\scriptsize $b$}};
+\node (c) at (4,0) [vert] {{\scriptsize $c$}};
+\node (d) at (6,0) [vert] {{\scriptsize $d$}};
+\node (e) at (6,2) [vert] {{\scriptsize $e$}};
+\node (f) at (4,2) [vert] {{\scriptsize $f$}};
+\node (g) at (2,2) [vert] {{\scriptsize $g$}};
+\node (h) at (0,2) [vert] {{\scriptsize $h$}};
 
-\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=4mm]
-\tikzstyle{b} = [draw,very thick,blue,stealth-stealth]
-\tikzstyle{r} = [draw, very thick, red,-stealth]
+\path[b2] (a) to (b);
+\path[b2] (c) to (d);
+\path[b2] (h) to (g);
+\path[b2] (f) to (e);
 
-\begin{center}
-\begin{tikzpicture}[auto]
+\path[r] (b) to (c);
+\path[r] (c) to (f);
+\path[r] (f) to (g);
+\path[r] (g) to (b);
+
+\path[r2] (a) to (h);
+\path[r2] (d) to (e);
+\end{tikzpicture}
+\caption{Diagram for Exercise~\ref{exer:nonRegular1}.}
+\label{fig:nonRegularRepeat}
+\end{figure}
+
+\begin{exercise}\label{exer:nonRegular2}%Exercise 4.16 in VGT
+Consider the diagram given
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item Does the diagram in Figure~\ref{fig:nonRegular2} satisfy Rules 1--4 of Definition~\ref{def:informal_group}?
+\item Try to convert this diagram into a group table.  Does the table represent a group? What goes wrong?
+\end{enumerate}
+\end{exercise}
+
+\begin{figure}
+\centering
+\begin{tikzpicture}[scale=1.5,auto]
 \node (1) at (0,0) [vert] {};
 \node (2) at (2,0) [vert] {};
 \node (3) at (4,0) [vert] {};
@@ -429,29 +457,25 @@ Consider the following diagram.
 \path[r] (7) to (8);
 \path[r] (8) to [bend right] (5);
 \end{tikzpicture}
-\end{center}
-\begin{enumerate}
-\item[(a)] Does the above diagram satisfy Rules 1--4 of Definition~\ref{def:informal_group}?
-\item[(b)] Try to convert this diagram into a group table.  Does the table represent a group? What goes wrong?
-\end{enumerate}
-\end{exercise}
+\caption{Diagram for Exercise~\ref{exer:nonRegular2}.}\label{fig:nonRegular2}
+\end{figure}
 
 As the previous two exercises indicate, the moral of the story is that our original intuitive definition of a group has a weakness.  It does not agree with our formal definition of a group given in Definition~\ref{def:group}.  Let's see if we can figure out what goes wrong.
 
-Consider the Cayley diagram for $D_3$ with generators $r$ and $s$.
+Consider the Cayley diagram for $D_3$ with generating set $\{r,s\}$ that is given in Figure~\ref{fig:D3}. Notice that we labeled the lower right corner of the Cayley diagram with the word $r^2s$.  This means that we first followed a blue arrow out of $e$ and then two red arrows.  However, we could also get to this vertex by first doing a red arrow out of $e$ followed by a blue arrow.  So, we could also have labeled this vertex with the word $sr$.  The upshot is that $r^2s=sr$.  These types of group equations are called \textbf{relations}.
 
-\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=8mm]
+\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=7mm]
 \tikzstyle{h} = [draw,very  thick, blue,stealth-stealth]
-\tikzstyle{r} = [draw, very thick, red,-stealth]
 
-\begin{center}
+\begin{figure}
+\centering
 \begin{tikzpicture}[scale=.75,auto]
 \node (e) at (90:2) [vert] {$e$};
 \node (r) at (-30:2) [vert] {$r$};
 \node (rr) at (210:2) [vert] {$r^2$};
 \node (h) at (90:4) [vert] {$s$};
 \node (hr) at (210:4) [vert] {$rs$};
-\node (hrr) at (-30:4) [vert] {$r^2s$};
+\node (hrr) at (-30:4) [vert] {$sr$};
 \draw [r] (e) to [bend left] (r);
 \draw [r] (r) to [bend left] (rr);
 \draw [r] (rr) to [bend left] (e);
@@ -462,9 +486,8 @@ Consider the Cayley diagram for $D_3$ with generators $r$ and $s$.
 \draw [h] (r) to (hrr);
 \draw [h] (rr) to (hr);
 \end{tikzpicture}
-\end{center}
-
-\noindent Notice that we labeled the lower right corner of the Cayley diagram with the word $r^2s$.  This means that we first followed a blue arrow out of $e$ and then two red arrows.  However, we could also get to this vertex by first doing a red arrow out of $e$ followed by a blue arrow.  So, we could also have labeled this vertex with the word $sr$.  The upshot is that $r^2s=sr$.  These types of group equations are called \textbf{relations}.
+\caption{Cayley diagram for $D_3$ with generating set $\{r,s\}$.}\label{fig:D3}
+\end{figure}
 
 We discovered this relation by starting at $e$ and then traveling a sequence of arrows to get to the vertex in the lower right corner.  However, notice that following a blue and then two red arrows is \emph{always} the same as following a red arrow and then a blue arrow regardless of which vertex we start at.  That is, the relation $r^2s=sr$ holds universally across the entire Cayley diagram.
 
@@ -475,7 +498,7 @@ Identify two other relations that the above Cayley diagram for $D_3$ exhibits.  
 \end{exercise}
 
 \begin{exercise}
-Verify that the diagrams in Exercise~\ref{exer:nonregular1} and \ref{exer:nonregular2} are not regular.
+Verify that the diagrams in Exercise~\ref{exer:nonRegular1} and \ref{exer:nonRegular2} are not regular.
 \end{exercise}
 
 \begin{problem}
@@ -506,20 +529,20 @@ Suppose $(G,*)$ is a group and $H$ is a nonempty subset of $G$.  Then $H\leq G$ 
 
 \begin{exercise}
 Consider $(\mathbb{R}^3,+)$, where $\mathbb{R}^3$ is the set of all 3-entry row vectors with real number entries (e.g., $(a,b,c)$ where $a,b,c\in\mathbb{R}$) and $+$ is ordinary vector addition.  It turns out that $(\mathbb{R}^3,+)$ is an abelian group with identity $(0,0,0)$.  
-\begin{enumerate}
-\item[(a)] Let $H$ be the subset of $\mathbb{R}^3$ consisting of vectors with first coordinate 0.  Is $H$ is a subgroup of $\mathbb{R}^3$?  Prove your answer.
-\item[(b)] Let $K$ be the subset of $\mathbb{R}^3$ consisting of vectors whose entries sum to 0.  Is $K$ is a subgroup of $\mathbb{R}^3$?  Prove your answer.
-\item[(c)] Construct a subset of $\mathbb{R}^3$ (different from $H$ and $K$) that is \emph{not} a subgroup of $\mathbb{R}^3$.
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item Let $H$ be the subset of $\mathbb{R}^3$ consisting of vectors with first coordinate 0.  Is $H$ a subgroup of $\mathbb{R}^3$?  Prove your answer.
+\item Let $K$ be the subset of $\mathbb{R}^3$ consisting of vectors whose entries sum to 0.  Is $K$ a subgroup of $\mathbb{R}^3$?  Prove your answer.
+\item Construct a subset of $\mathbb{R}^3$ (different from $H$ and $K$) that is \emph{not} a subgroup of $\mathbb{R}^3$.
 \end{enumerate}
 \end{exercise}
 
 \begin{exercise}\label{exer:nZ}
 Consider the group $(\mathbb{Z},+)$ (under ordinary addition).
-\begin{enumerate}
-\item[(a)] Show that the even integers, written $2\mathbb{Z}:=\{2k:k\in\mathbb{Z}\}$, form a subgroup of $\mathbb{Z}$.
-\item[(b)] Show that the odd integers are not a subgroup of $\mathbb{Z}$.
-\item[(c)] Show that all subsets of the form $n\mathbb{Z}:=\{nk:k\in\mathbb{Z}\}$ for $n\in\mathbb{Z}$ are subgroups of $\mathbb{Z}$.
-\item[(d)] Are there any other subgroups besides the ones listed in part (c)?  Explain your answer.
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item Show that the even integers, written $2\mathbb{Z}:=\{2k:k\in\mathbb{Z}\}$, form a subgroup of $\mathbb{Z}$.
+\item Show that the odd integers are not a subgroup of $\mathbb{Z}$.
+\item Show that all subsets of the form $n\mathbb{Z}:=\{nk:k\in\mathbb{Z}\}$ for $n\in\mathbb{Z}$ are subgroups of $\mathbb{Z}$.
+\item Are there any other subgroups besides the ones listed in part (c)?  Explain your answer.
 \end{enumerate}
 \end{exercise}
 
@@ -573,7 +596,7 @@ In Exercise~\ref{exer:nZ} we introduced the notation $n\mathbb{Z}$.  Write these
 
 Every subgroup can be written in the ``generated by" form.  That is, if $H$ is a subgroup of a group $G$, then there always exists a subset $S$ of $G$ such that $\langle S\rangle=H$.  In particular, $\langle H\rangle=H$.
 
-Let's explore a couple of examples.  First, consider the group $R_4$ (where the operation is composition of actions).  What are the subgroups of $R_4$?  Theorems~\ref{thm:trivial_subgroup1} and \ref{thm:trivial_subgroup2} tell use that $\{e\}$ and $R_4$ itself are subgroups of $R_4$.  Are there any others?  Theorem~\ref{thm:subgroup_criterion} tells us that if we want to find other subgroups of $R_4$, we need to find nonempty subsets of $R_4$ that are closed and contain all the necessary inverses.  However, the previous paragraph indicates that we can find all of the subgroups of $R_4$ by forming the subgroups generated by various combinations of elements from $R_4$.  We can certainly be more efficient, but below we list all of the possible subgroups we can generate using subsets of $R_4$.  We are assuming that $r$ is rotation by $90^{\circ}$ clockwise.  As you scan the list, you should take a moment to convince yourself that the list is accurate.
+Let's explore a couple of examples.  First, consider the group $R_4$ (where the operation is composition of actions).  What are the subgroups of $R_4$?  Theorems~\ref{thm:trivial_subgroup1} and \ref{thm:trivial_subgroup2} tell us that $\{e\}$ and $R_4$ itself are subgroups of $R_4$.  Are there any others?  Theorem~\ref{thm:subgroup_criterion} tells us that if we want to find other subgroups of $R_4$, we need to find nonempty subsets of $R_4$ that are closed and contain all the necessary inverses.  However, the previous paragraph indicates that we can find all of the subgroups of $R_4$ by forming the subgroups generated by various combinations of elements from $R_4$.  We can certainly be more efficient, but below we list all of the possible subgroups we can generate using subsets of $R_4$.  We are assuming that $r$ is rotation by $90^{\circ}$ clockwise.  As you scan the list, you should take a moment to convince yourself that the list is accurate.
 \begin{multicols}{2}
 \begin{itemize}
 \item[] $\langle e \rangle = \{e\}$
@@ -712,19 +735,19 @@ We've seen several instances of two groups being isomorphic, but now that we hav
 
 \begin{problem}
 Consider the groups $(\mathbb{R},+)$ and $(\mathbb{R}^+,\cdot)$, where $\mathbb{R}^+$ is the set of positive real numbers.  It turns out that these two groups are isomorphic, but this would be difficult to discover using our previous techniques because the groups are infinite.  Define $\phi:\mathbb{R}\to \mathbb{R}^+$ via $\phi(r)=e^r$ (where $e$ is the natural base).
-\begin{enumerate}
-\item[(a)] Briefly justify why $\phi$ is one-to-one and onto.
-\item[(b)] Prove that $\phi$ satisfies the homomorphic property.
-\item[(c)] Explain why parts (a) and (b) show that the two groups are isomorphic.
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item Briefly justify why $\phi$ is one-to-one and onto.
+\item Prove that $\phi$ satisfies the homomorphic property.
+\item Explain why parts (a) and (b) show that the two groups are isomorphic.
 \end{enumerate}
 \end{problem}
 
 \begin{exercise}
 For each of the following pairs of groups, determine whether the given function is an isomorphism from the first group to the second group.
-\begin{enumerate}
-\item[(a)] $(\mathbb{Z},+)$ and $(\mathbb{Z},+)$, $\phi(n)=n+1$.
-\item[(b)] $(\mathbb{Z},+)$ and $(\mathbb{Z},+)$, $\phi(n)=-n$.
-\item[(c)] $(\mathbb{Q},+)$ and $(\mathbb{Q},+)$, $\phi(x)=x/2$.
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item $(\mathbb{Z},+)$ and $(\mathbb{Z},+)$, $\phi(n)=n+1$.
+\item $(\mathbb{Z},+)$ and $(\mathbb{Z},+)$, $\phi(n)=-n$.
+\item $(\mathbb{Q},+)$ and $(\mathbb{Q},+)$, $\phi(x)=x/2$.
 \end{enumerate}
 
 \end{exercise}
