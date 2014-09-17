@@ -110,12 +110,12 @@ Without further ado, here is our official definition of a group.
 
 \begin{definition}\label{def:group}
 A group $(G,*)$ is a set $G$ together with a binary operation $*$ such that the following axioms hold.
-\begin{description}
-\item[Axiom 0.] The set $G$ is closed under $*$.
-\item[Axiom 1.] The operation $*$ is associative.
-\item[Axiom 2.] There is an element $e\in G$ such that for all $g\in G$, $e*g=g*e=g$.  We call $e$ the \textbf{identity}.
-\item[Axiom 3.] Corresponding to each $g\in G$, there is an element $g'\in G$ such that $g*g'=g'*g=e$.  In this case, $g'$ is called the \textbf{inverse} of $g$, which we shall denote as $g^{-1}$.
-\end{description}
+\begin{enumerate}
+\item[0.] The set $G$ is closed under $*$.
+\item[1.] The operation $*$ is associative.
+\item[2.] There is an element $e\in G$ such that for all $g\in G$, $e*g=g*e=g$.  We call $e$ the \textbf{identity}.
+\item[3.] Corresponding to each $g\in G$, there is an element $g'\in G$ such that $g*g'=g'*g=e$.  In this case, $g'$ is called the \textbf{inverse} of $g$, which we shall denote as $g^{-1}$.
+\end{enumerate}
 \end{definition}
 
 \begin{remark}
@@ -123,7 +123,7 @@ A few comments are in order.
 \begin{enumerate}
 \item Notice that a group has two parts to it, namely, a set and a binary operation.  For simplicity, if $(G,*)$ is a group, we will often refer to $G$ as being the group.  However, you must remember that the binary operation is part of the structure.
 \item Axiom 2 forces $G$ to be nonempty.
-\item In the generic case, even if $*$ is not actually multiplication, we will refer to $a*b$ as the product of $a$ and $b$.
+\item In the generic case, even if $*$ is not actually multiplication, we will refer to $a*b$ as the \textbf{product} of $a$ and $b$.
 \item We are not requiring $*$ to be commutative.  If $*$ is commutative, then we say that $G$ is \textbf{abelian}\footnote{Commutative groups are called abelian in honor of the Norwegian mathematician Niels Abel (1802--1829).} (or \textbf{commutative}).
 \end{enumerate}
 \end{remark}
