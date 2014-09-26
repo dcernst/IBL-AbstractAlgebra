@@ -58,7 +58,7 @@ Let $G$ be a group of actions and let $H\subseteq G$. If we wanted to determine 
 
 There are a couple subgroups that every group has.
 
-\begin{theorem}\label{thm:trivial_subgroup1}
+\begin{theorem}\label{thm:trivial_subgroup}
 Let $G$ be a group of actions and suppose that $e$ is the do-nothing action.  Then $\{e\}\leq G$.
 \end{theorem}
 
@@ -68,7 +68,7 @@ Let $G$ be a group and suppose that $e$ is the do-nothing action.  What does the
 
 Earlier, we referred to subgroups as being ``smaller."  However, our definition does not imply that this has to be the case.
 
-\begin{theorem}\label{thm:trivial_subgroup2}
+\begin{theorem}\label{thm:improper_subgroup}
 Let $G$ be a group of actions.  Then $G\leq G$.
 \end{theorem}
 
@@ -121,7 +121,7 @@ Draw the Cayley diagram for $V_4$ using $\{v,h\}$ as our set of generators.
 
 Let's introduce a group we haven't seen yet.  We define the \textbf{quaternion group} to be the group $Q_8=\{1,-1,i,-i,j,-j,k,-k\}$ having the Cayley diagram with generators $i, j, -1$ given in Figure~\ref{fig:Q8}.  In this case, 1 is the do-nothing action.
 
-\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=6mm]
+\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=6.5mm]
 \tikzstyle{b} = [draw,very thick,blue,-stealth]
 \tikzstyle{r} = [draw, very thick, red,-stealth]
 \tikzstyle{g} = [draw, very thick, green, stealth-stealth]
@@ -129,14 +129,14 @@ Let's introduce a group we haven't seen yet.  We define the \textbf{quaternion g
 \begin{figure}[!ht]
 \centering
 \begin{tikzpicture}[scale=1.5,auto]
-\node (1) at (135:2) [vert] {{\scriptsize $1$}};
-\node (i) at (45:2) [vert] {\scriptsize {$i$}};
-\node (k) at (-45:2) [vert] {{\scriptsize $k$}};
-\node (j) at (-135:2) [vert] {{\scriptsize $j$}};
-\node (-1) at (135:1) [vert] {{\scriptsize $-1$}};
-\node (-i) at (45:1) [vert] {{\scriptsize $-i$}};
-\node (-k) at (-45:1) [vert] {{\scriptsize $-k$}};
-\node (-j) at (-135:1) [vert] {{\scriptsize $-j$}};
+\node (1) at (135:2) [vert] {\scriptsize $1$};
+\node (i) at (45:2) [vert] {\scriptsize $i$};
+\node (k) at (-45:2) [vert] {\scriptsize $k$};
+\node (j) at (-135:2) [vert] {\scriptsize $j$};
+\node (-1) at (135:1) [vert] {\scriptsize $-1$};
+\node (-i) at (45:1) [vert] {\scriptsize $-i$};
+\node (-k) at (-45:1) [vert] {\scriptsize $-k$};
+\node (-j) at (-135:1) [vert] {\scriptsize $-j$};
 
 \path[b] (1) to (i);
 \path[b] (i) to (-1);
@@ -192,14 +192,14 @@ By now you've probably seen enough examples of Cayley diagrams to witness some p
 
 Recall from Exercise~\ref{exer:introducing_S2} that $S_2$ is the group that acts on two coins by swapping their positions (but not flipping them over).  We defined $s$ to be the action that swaps the left and right coins and as usual $e$ is the do-nothing action.  The Cayley diagram for $S_2$ with generator $s$ is given in Figure~\ref{fig:S2}. 
 
-\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=6mm]
+\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=6.5mm]
 \tikzstyle{twoway} = [draw, very thick, blue, stealth-stealth]
 
 \begin{figure}
 \centering
 \begin{tikzpicture}[scale=1.5,auto]
-\node (e) at (0,0) [vert] {{\scriptsize $e$}};
-\node (s) at (2,0) [vert] {\scriptsize {$s$}};
+\node (e) at (0,0) [vert] {\scriptsize $e$};
+\node (s) at (2,0) [vert] {\scriptsize $s$};
 \path[twoway] (e) to (s);
 \end{tikzpicture}
 \caption{Cayley diagram for $S_2$ with generator $s$.}\label{fig:S2}
@@ -212,18 +212,19 @@ The one thing that is different about the Cayley diagram for $S_2$ and the Cayle
 In this case, we say that $S_2$ and the subgroup $\langle -1\rangle$ of $Q_8$ are \textbf{isomorphic} under the correspondence $e\leftrightarrow 1$ and $s\leftrightarrow -1$.  This one-to-one correspondence between the two groups is called an \textbf{isomorphism}, which is depicted in Figure~\ref{fig:isoS2}. Note that I've recolored the arrow in $S_2$ so that it matches the corresponding arrow color of $\langle -1\rangle$.  This isn't necessary, but it makes the correspondence more obvious.
 
 \tikzstyle{correspondence} = [draw, very thick, black, dashed, stealth-stealth]
+\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=6.5mm]
 
 \begin{figure}[!ht]
 \centering
 \begin{tikzpicture}[scale=1.5,auto]
-\node (1) at (135:2) [vert] {{\scriptsize $1$}};
-\node (i) at (45:2) [vert] {\scriptsize {$i$}};
-\node (k) at (-45:2) [vert] {{\scriptsize $k$}};
-\node (j) at (-135:2) [vert] {{\scriptsize $j$}};
-\node (-1) at (135:1) [vert] {{\scriptsize $-1$}};
-\node (-i) at (45:1) [vert] {{\scriptsize $-i$}};
-\node (-k) at (-45:1) [vert] {{\scriptsize $-k$}};
-\node (-j) at (-135:1) [vert] {{\scriptsize $-j$}};
+\node (1) at (135:2) [vert] {\scriptsize $1$};
+\node (i) at (45:2) [vert] {\scriptsize $i$};
+\node (k) at (-45:2) [vert] {\scriptsize $k$};
+\node (j) at (-135:2) [vert] {\scriptsize $j$};
+\node (-1) at (135:1) [vert] {\scriptsize $-1$};
+\node (-i) at (45:1) [vert] {\scriptsize $-i$};
+\node (-k) at (-45:1) [vert] {\scriptsize $-k$};
+\node (-j) at (-135:1) [vert] {\scriptsize $-j$};
 
 \path[b] (1) to (i);
 \path[b] (i) to (-1);
@@ -250,8 +251,8 @@ In this case, we say that $S_2$ and the subgroup $\langle -1\rangle$ of $Q_8$ ar
 \path[g] (i) to (-i);
 \path[g] (k) to (-k);
 
-\node (e) at (3,0) [vert] {{\scriptsize $e$}};
-\node (s) at (5,0) [vert] {\scriptsize {$s$}};
+\node (e) at (3,0) [vert] {\scriptsize $e$};
+\node (s) at (5,0) [vert] {\scriptsize $s$};
 \path[g] (e) to (s);
 
 \node (Q8) at (0,0) {$Q_8$};
@@ -288,13 +289,15 @@ Consider the group $R_4$ with generator $r$ (rotation by $90^\circ$ clockwise). 
 
 How do $R_4$ and $\langle i\rangle$ match up?  We want to pair elements in each group with an element in the other group that has the same behavior.  Clearly, $e$ and $1$ match up since these are the two do-nothing actions.  Also, the reason why we noticed these two groups were isomorphic is because their Cayley diagrams looked the same.  Since each Cayley diagram only had one arrow type determined by $r$ and $i$, we should pair these two elements.  Now, following the arrows around the diagram, we see that $r^2$ must pair with $i^2=-1$ and $r^3$ corresponds to $i^3=-i$.  In summary, the isomorphism between $R_4$ and $\langle i\rangle$ (in $Q_8$) is given by $e\leftrightarrow 1$, $r\leftrightarrow i$, $r^2\leftrightarrow -1$, and $r^3\leftrightarrow -i$, which is depicted in Figure~\ref{fig:isoR4}. Note that this time we have not recolored the edges so that they match.  Nonetheless, the correspondence should be clear.
 
+\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=6.5mm]
+
 \begin{figure}[!ht]
 \centering
 \begin{tikzpicture}[scale=1.5,auto]
-\node (r) at (1,1) [vert] {{\scriptsize $r$}};
-\node (e) at (-1,1) [vert] {\scriptsize {$e$}};
-\node (r3) at (-1,-1) [vert] {{\scriptsize $r^3$}};
-\node (r2) at (1,-1) [vert] {{\scriptsize $r^2$}};
+\node (r) at (1,1) [vert] {\scriptsize $r$};
+\node (e) at (-1,1) [vert] {\scriptsize $e$};
+\node (r3) at (-1,-1) [vert] {\scriptsize $r^3$};
+\node (r2) at (1,-1) [vert] {\scriptsize $r^2$};
 
 \path[r] (e) to (r);
 \path[r] (r) to (r2);
@@ -303,10 +306,10 @@ How do $R_4$ and $\langle i\rangle$ match up?  We want to pair elements in each 
 
 \node (R4) at (0,0) {$R_4$};
 
-\node (i) at (5,1) [vert] {{\scriptsize $i$}};
+\node (i) at (5,1) [vert] {\scriptsize $i$};
 \node (1) at (3,1) [vert] {\scriptsize $1$};
-\node (-i) at (3,-1) [vert] {{\scriptsize $-i$}};
-\node (-1) at (5,-1) [vert] {{\scriptsize $-1$}};
+\node (-i) at (3,-1) [vert] {\scriptsize $-i$};
+\node (-1) at (5,-1) [vert] {\scriptsize $-1$};
 
 \path[b] (1) to (i);
 \path[b] (i) to (-1);

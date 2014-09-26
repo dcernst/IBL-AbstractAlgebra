@@ -384,7 +384,7 @@ We've encountered four groups of order 8, namely $D_4$, $\Spin_{1\times 2}$, $Q_
 
 \begin{section}{Revisiting Cayley Diagrams and Our Original Definition of a Group}%This section closely mimics Section 6.1 in VGT
 
-Let's begin with a couple exercises.
+Let's begin with a couple of exercises.
 
 \begin{exercise}\label{exer:nonRegular1}%Exercise 4.16 in VGT
 Consider the diagram given in Figure~\ref{fig:nonRegularRepeat}.  This is identical to the diagram that appeared in Figure~\ref{fig:nonRegular} that we saw at the end of Chapter~\ref{chapter:cayley_diagrams}.
@@ -394,17 +394,19 @@ Consider the diagram given in Figure~\ref{fig:nonRegularRepeat}.  This is identi
 \end{enumerate}
 \end{exercise}
 
+\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=6.5mm]
+
 \begin{figure}[!ht]
 \centering
 \begin{tikzpicture}[scale=1.5,auto]
-\node (a) at (0,0) [vert] {{\scriptsize $a$}};
-\node (b) at (2,0) [vert] {{\scriptsize $b$}};
-\node (c) at (4,0) [vert] {{\scriptsize $c$}};
-\node (d) at (6,0) [vert] {{\scriptsize $d$}};
-\node (e) at (6,2) [vert] {{\scriptsize $e$}};
-\node (f) at (4,2) [vert] {{\scriptsize $f$}};
-\node (g) at (2,2) [vert] {{\scriptsize $g$}};
-\node (h) at (0,2) [vert] {{\scriptsize $h$}};
+\node (a) at (0,0) [vert] {\scriptsize $a$};
+\node (b) at (2,0) [vert] {\scriptsize $b$};
+\node (c) at (4,0) [vert] {\scriptsize $c$};
+\node (d) at (6,0) [vert] {\scriptsize $d$};
+\node (e) at (6,2) [vert] {\scriptsize $e$};
+\node (f) at (4,2) [vert] {\scriptsize $f$};
+\node (g) at (2,2) [vert] {\scriptsize $g$};
+\node (h) at (0,2) [vert] {\scriptsize $h$};
 
 \path[b2] (a) to (b);
 \path[b2] (c) to (d);
@@ -431,17 +433,19 @@ Consider the diagram given in Figure~\ref{fig:nonRegular2}
 \end{enumerate}
 \end{exercise}
 
+\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=6.5mm]
+
 \begin{figure}
 \centering
 \begin{tikzpicture}[scale=1.5,auto]
-\node (1) at (0,0) [vert] {};
-\node (2) at (2,0) [vert] {};
-\node (3) at (4,0) [vert] {};
-\node (4) at (6,0) [vert] {};
-\node (5) at (0,2) [vert] {};
-\node (6) at (2,2) [vert] {};
-\node (7) at (4,2) [vert] {};
-\node (8) at (6,2) [vert] {};
+\node (1) at (0,0) [vert] {\scriptsize $a$};
+\node (2) at (2,0) [vert] {\scriptsize $b$};
+\node (3) at (4,0) [vert] {\scriptsize $c$};
+\node (4) at (6,0) [vert] {\scriptsize $d$};
+\node (5) at (0,2) [vert] {\scriptsize $e$};
+\node (6) at (2,2) [vert] {\scriptsize $f$};
+\node (7) at (4,2) [vert] {\scriptsize $g$};
+\node (8) at (6,2) [vert] {\scriptsize $h$};
 
 \path[b] (1) to (5);
 \path[b] (2) to (6);
@@ -464,18 +468,18 @@ As the previous two exercises indicate, the moral of the story is that our origi
 
 Consider the Cayley diagram for $D_3$ with generating set $\{r,s\}$ that is given in Figure~\ref{fig:D3}. Notice that we labeled the lower right corner of the Cayley diagram with the word $r^2s$.  This means that we first followed a blue arrow out of $e$ and then two red arrows.  However, we could also get to this vertex by first doing a red arrow out of $e$ followed by a blue arrow.  So, we could also have labeled this vertex with the word $sr$.  The upshot is that $r^2s=sr$.  These types of group equations are called \textbf{relations}.
 
-\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=7mm]
 \tikzstyle{h} = [draw,very  thick, blue,stealth-stealth]
+\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=6.5mm]
 
 \begin{figure}
 \centering
 \begin{tikzpicture}[scale=.75,auto]
-\node (e) at (90:2) [vert] {$e$};
-\node (r) at (-30:2) [vert] {$r$};
-\node (rr) at (210:2) [vert] {$r^2$};
-\node (h) at (90:4) [vert] {$s$};
-\node (hr) at (210:4) [vert] {$rs$};
-\node (hrr) at (-30:4) [vert] {$sr$};
+\node (e) at (90:2) [vert] {\scriptsize $e$};
+\node (r) at (-30:2) [vert] {\scriptsize $r$};
+\node (rr) at (210:2) [vert] {\scriptsize $r^2$};
+\node (h) at (90:4) [vert] {\scriptsize $s$};
+\node (hr) at (210:4) [vert] {\scriptsize $rs$};
+\node (hrr) at (-30:4) [vert] {\scriptsize $sr$};
 \draw [r] (e) to [bend left] (r);
 \draw [r] (r) to [bend left] (rr);
 \draw [r] (rr) to [bend left] (e);
@@ -494,7 +498,7 @@ We discovered this relation by starting at $e$ and then traveling a sequence of 
 Cayley diagrams for groups will always have this uniform symmetry.  The fancy way of saying this is that Cayley diagrams are \textbf{regular}.  In other words, a diagram is regular if every internal pattern repeats itself throughout the diagram.
 
 \begin{exercise}
-Identify two other relations that the above Cayley diagram for $D_3$ exhibits.  Find one that involves both $r^{-1}$ (i.e., following a red arrow backwards) and $s$.  Convince yourself that your relations appear throughout the diagram.
+Identify two other relations that the Cayley diagram for $D_3$ given in Figure~\ref{fig:D3} exhibits.  Find one that involves both $r^{-1}$ (i.e., following a red arrow backwards) and $s$.  Convince yourself that your relations appear throughout the diagram.
 \end{exercise}
 
 \begin{exercise}
@@ -519,7 +523,7 @@ Let $(G,*)$ be a group and let $H$ be a subset of $G$.  Then $H$ is a \textbf{su
 
 The phrase ``under the binary operation inherited from $G$" means that to combine two elements in $H$, we should treat the elements as if they were in $G$ and perform $G$'s binary operation.
 
-Recall that Theorems~\ref{thm:trivial_subgroup1} and \ref{thm:trivial_subgroup2} tell us that $\langle e\rangle=\{e\}$ and $G$ are always subgroups of $G$. This is still true even using our official definition of a group.  These two subgroups are referred to as the \textbf{trivial subgroups}\footnote{Some textbooks will refer to $\{e\}$ as being the trivial subgroup and $G$ as the improper subgroup.}.  All other subgroups are called \textbf{nontrivial}.  If $H$ is a nontrivial subgroup of a group $G$, then we may write $H<G$.
+Recall that Theorems~\ref{thm:trivial_subgroup} and \ref{thm:improper_subgroup} tell us that $\langle e\rangle=\{e\}$ and $G$ are always subgroups of $G$. This is still true even using our official definition of a group.  The subgroup $\{e\}$ is referred to as the \textbf{trivial subgroup}.  All other subgroups are called \textbf{nontrivial}.  If $H$ is a subgroup of a group $G$ with $H\neq G$, then we may write $H<G$ and refer to $H$ as a \textbf{proper subgroup} of $G$.
 
 The next theorem tells us that we don't need to verify all the axioms of a group to determine whether a nonempty subset is a subgroup.
 
@@ -527,6 +531,10 @@ The next theorem tells us that we don't need to verify all the axioms of a group
 Suppose $(G,*)$ is a group and $H$ is a nonempty subset of $G$.  Then $H\leq G$ if and only if (i) for all $h\in H$, $h^{-1} \in H$, as well, and (ii) $H$ is closed under the binary operation of $G$.
 \end{theorem}
 
+\begin{remark}
+Notice that one of the hypotheses of Theorem~\ref{thm:subgroup_criterion} is that $H$ be nonempty.  This means that if we want to prove that a certain subset $H$ is a subgroup of a group $G$, then one of the things we must do is verify that $H$ is in fact nonempty.
+
+\end{remark}
 \begin{exercise}
 Consider $(\mathbb{R}^3,+)$, where $\mathbb{R}^3$ is the set of all 3-entry row vectors with real number entries (e.g., $(a,b,c)$ where $a,b,c\in\mathbb{R}$) and $+$ is ordinary vector addition.  It turns out that $(\mathbb{R}^3,+)$ is an abelian group with identity $(0,0,0)$.  
 \begin{enumerate}[label=\rm{(\alph*)}]
@@ -551,7 +559,7 @@ Consider the group of symmetries of a regular octagon.  This group is denoted by
 \end{exercise}
 
 \begin{exercise}
-Consider the groups $(\mathbb{R},+)$ and $(\mathbb{R}\setminus\{0\},\cdot)$.  Explain why $\mathbb{R}\setminus\{0\}$ is not a subgroup of $\mathbb{R}$ despite the fact that $\mathbb{R}\setminus\{0\}\subseteq\mathbb{R}$ and both are groups.
+Consider the groups $(\mathbb{R},+)$ and $(\mathbb{R}\setminus\{0\},\cdot)$.  Explain why $\mathbb{R}\setminus\{0\}$ is not a subgroup of $\mathbb{R}$ despite the fact that $\mathbb{R}\setminus\{0\}\subseteq\mathbb{R}$ and both are groups (under the proper binary operations).
 \end{exercise}
 
 \begin{theorem}
@@ -596,7 +604,7 @@ In Exercise~\ref{exer:nZ} we introduced the notation $n\mathbb{Z}$.  Write these
 
 Every subgroup can be written in the ``generated by" form.  That is, if $H$ is a subgroup of a group $G$, then there always exists a subset $S$ of $G$ such that $\langle S\rangle=H$.  In particular, $\langle H\rangle=H$.
 
-Let's explore a couple of examples.  First, consider the group $R_4$ (where the operation is composition of actions).  What are the subgroups of $R_4$?  Theorems~\ref{thm:trivial_subgroup1} and \ref{thm:trivial_subgroup2} tell us that $\{e\}$ and $R_4$ itself are subgroups of $R_4$.  Are there any others?  Theorem~\ref{thm:subgroup_criterion} tells us that if we want to find other subgroups of $R_4$, we need to find nonempty subsets of $R_4$ that are closed and contain all the necessary inverses.  However, the previous paragraph indicates that we can find all of the subgroups of $R_4$ by forming the subgroups generated by various combinations of elements from $R_4$.  We can certainly be more efficient, but below we list all of the possible subgroups we can generate using subsets of $R_4$.  We are assuming that $r$ is rotation by $90^{\circ}$ clockwise.  As you scan the list, you should take a moment to convince yourself that the list is accurate.
+Let's explore a couple of examples.  First, consider the group $R_4$ (where the operation is composition of actions).  What are the subgroups of $R_4$?  Theorems~\ref{thm:trivial_subgroup} and \ref{thm:improper_subgroup} tell us that $\{e\}$ and $R_4$ itself are subgroups of $R_4$.  Are there any others?  Theorem~\ref{thm:subgroup_criterion} tells us that if we want to find other subgroups of $R_4$, we need to find nonempty subsets of $R_4$ that are closed and contain all the necessary inverses.  However, the previous paragraph indicates that we can find all of the subgroups of $R_4$ by forming the subgroups generated by various combinations of elements from $R_4$.  We can certainly be more efficient, but below we list all of the possible subgroups we can generate using subsets of $R_4$.  We are assuming that $r$ is rotation by $90^{\circ}$ clockwise.  As you scan the list, you should take a moment to convince yourself that the list is accurate.
 \begin{multicols}{2}
 \begin{itemize}
 \item[] $\langle e \rangle = \{e\}$
