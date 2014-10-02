@@ -280,6 +280,8 @@ $e$ & $e$ & \cellcolor{red}$v$ & \cellcolor{blue}$h$ & \cellcolor{green}$vh$ \\
 \hline \cellcolor{green}$vh$ & \cellcolor{green}$vh$ & \cellcolor{blue}$h$ & \cellcolor{red}$v$ & $e$
 \end{tabu}
 \hspace{1cm}
+$\longleftrightarrow$
+\hspace{1cm}
 \begin{tabu}{c|[2pt]c|c|c|c}
 $*$ & $e$ & \cellcolor{red}$a$ & \cellcolor{blue}$b$ & \cellcolor{green}$c$ \\ \tabucline[2pt]{-}
 $e$ & $e$ & \cellcolor{red}$a$ & \cellcolor{blue}$b$ & \cellcolor{green}$c$ \\
@@ -747,9 +749,28 @@ This is the essence of what it means for two groups to have the same structure.
 
 Let's try to make a little more sense of this.  Suppose that $G_1\cong G_2$ and imagine we have arranged the rows and columns of their respective group tables and colored the elements in such a way that the colorings for the two group tables agree.  Now, let $x,y\in G_1$.  Then these two elements have corresponding elements in the group table for $G_2$, say $x'$ and $y'$, respectively.  In other words, $x$ and $x'$ have the same color while $y$ and $y'$ have the same color.  Since $G_1$ is closed under its binary operation $*$, there exists $z\in G_1$ such that $z=x*y$.  There must exist a $z'\in G_2$ such that $z'$ has the same color as $z$.  What must be true of $x'\circ y'$?  Since the two tables exhibit the same color pattern, it must the case that $z'=x'\circ y'$.  This is what is means for the product of corresponding elements to yield the corresponding result.  Below is a figure that depicts this phenomenon for group tables.
 
+\begin{figure}
 \begin{center}
-\includegraphics[width=5in]{isoGroupTables.png}
+\begin{tabu}{c|[2pt]ccc|c|c}
+$*$                & & & & \cellcolor{green}$y$  & \\ \tabucline[2pt]{-}
+                   & & & &                       & \\ \hline
+\cellcolor{red}$x$ & & & & \cellcolor{orange}$z$ & \\ \hline
+                   & & & &                      & \\
+                   & & & &                      &
+\end{tabu}
+\hspace{1cm}
+$\longleftrightarrow$
+\hspace{1cm}
+\begin{tabu}{c|[2pt]ccc|c|c}
+$\circ$                & & & & \cellcolor{green}$y'$  & \\ \tabucline[2pt]{-}
+                   & & & &                       & \\ \hline
+\cellcolor{red}$x'$ & & & & \cellcolor{orange}$z'$ & \\ \hline
+                   & & & &                      & \\
+                   & & & &                      &
+\end{tabu}
 \end{center}
+\caption{}\label{fig:isoGroupTables}
+\end{figure}
 
 We can describe the isomorphism between $G_1$ and $G_2$ using a function.  Let $\phi:G_1\to G_2$ be the one-to-one and onto function that maps elements of $G_1$ to their corresponding elements in $G_2$.  Then $\phi(x)=x'$, $\phi(y)=y'$, and $\phi(z)=z'$.  Since $z'=x'\circ y'$, we can obtain
 \[
