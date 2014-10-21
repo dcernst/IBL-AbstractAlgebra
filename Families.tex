@@ -123,8 +123,8 @@ Provide an example of a finite group that is abelian but not cyclic.
 Provide an example of an infinite group that is abelian but not cyclic.
 \end{exercise}
 
-\begin{theorem}
-Suppose $(G,*)$ is a cyclic group with generator $a$.  Then $a^{-1}$ is also a generator for $G$.
+\begin{theorem}%move this to earlier in notes
+Suppose $(G,*)$ and let $a\in G$. Then $\langle a\rangle=\langle a^{-1}\rangle$.
 \end{theorem}
 
 \begin{theorem}
@@ -149,13 +149,39 @@ For all $n\geq 3$, $R_n$ is cyclic.
 Suppose $(G,*)$ is a finite cyclic group of order $n\geq 2$.  Then $G$ is isomorphic to $R_n$ if $n\geq 3$ and $S_2$ if $n=2$.
 \end{theorem}
 
+The upshot of Theorems~\ref{thm:infinite_cyclic_groups} and \ref{thm:finite_cyclic_groups} is that up to isomorphism, we know exactly what all of the cyclic groups are.
+
 \begin{exercise}
 Suppose $(G,*)$ is a finite cyclic group of order $n$ with generator $a$.  If we write down the group table for $G$ using $e, a, a^2, \ldots, a^{n-1}$ as the labels for the rows and columns.  Are there any interesting patterns in the table?
 \end{exercise}
 
-The upshot of Theorems~\ref{thm:infinite_cyclic_groups} and \ref{thm:finite_cyclic_groups} is that up to isomorphism, we know exactly what all of the cyclic groups are.
+\begin{theorem}
+Suppose $(G,*)$ is a group and let $a\in G$ such that $|a|=n$.  Then $a^i=a^j$ iff $n$ divides $i-j$.
+\end{theorem}
 
-MORE COMING SOON...
+\begin{corollary}
+Suppose $(G,*)$ is a group and let $a\in G$ such that $|a|=n$.  If $a^k=e$, then $|a|$ divides $k$.
+\end{corollary}
+
+The next result is useful to prove Theorem~\ref{thm:subgroups_of_cyclic_groups}.  We'll take the result for granted and not worry about proving it right now.
+
+\begin{theorem}[Division Algorithm for $\mathbb{Z}$]
+If $m$ is a positive integer and $n$ is any integer, then there exist unique integers $q$ (called the \textbf{quotient}) and $r$ (called the \textbf{remainder}) such that
+\[
+n=mq+r,
+\]
+where $0\leq r<m$.
+\end{theorem}
+
+\begin{theorem}\label{thm:subgroups_of_cyclic_groups}
+Suppose $(G,*)$ is a cyclic group. If $H\leq G$, then $H$ is also cyclic.
+\end{theorem}
+
+The next result officially settles ???
+
+\begin{corollary}
+The subgroups of $\mathbb{Z}$ are precisely the groups $n\mathbb{Z}$ under addition for $n\in \mathbb{Z}$.
+\end{corollary}
 
 %See class notes written on board for the rest of this section.
 
@@ -165,8 +191,6 @@ MORE COMING SOON...
 % Finite cyclic groups describe the symmetry of objects that only exhibit rotational symmetry.
 
 \end{section}
-
-\newpage
 
 \begin{section}{Dihedral Groups}
 See class notes written on board for this section.
