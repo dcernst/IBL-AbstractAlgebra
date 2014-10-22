@@ -177,16 +177,57 @@ where $0\leq r<m$.
 Suppose $(G,*)$ is a cyclic group. If $H\leq G$, then $H$ is also cyclic.
 \end{theorem}
 
-The next result officially settles ???
+It turns out that for proper subgroups, the converse of Theorem~\ref{thm:subgroups_of_cyclic_groups} is not true.
+
+\begin{exercise}
+Provide an example of a group $(G,*)$ such that $G$ is not cyclic, but all proper subgroups of $G$ are cyclic.
+\end{exercise}
+
+The next result officially settles Exercise~\ref{exer:nZ}\ref{exer:nZothers}.
 
 \begin{corollary}
 The subgroups of $\mathbb{Z}$ are precisely the groups $n\mathbb{Z}$ under addition for $n\in \mathbb{Z}$.
 \end{corollary}
 
-%See class notes written on board for the rest of this section.
+Recall that two integers are \textbf{relatively prime} if they have no factors other than 1 in common.  That is, integers $n$ and $k$ are relatively prime iff $\gcd(n,k)=1$.
 
-%Division algorithm
-%subgroups of cyclic groups are cyclic
+\begin{definition}
+Let $n\in\mathbb{N}$ and define the following sets.
+\begin{enumerate}
+\item $\mathbb{Z}_n:=\{0,1,\ldots,n-1\}$
+\item $U(n):=\{k\in\mathbb{Z}_n\mid \gcd(n,k)=1\}$
+\end{enumerate}
+\end{definition}
+
+For each set above, the immediate goal is to find a binary operation that will yield a group.  The key is to use modular arithmetic.  To calculate the sum (respectively, product) of two integers mod $n$, add (respectively, multiply) the two numbers and then find the remainder after dividing the sum (respectively, product) by $n$. For example, $4+9$ is $3$ mod $5$ since $13$ has remainder 3 when being divided by 5.  Similarly, $4\cdot 9$ is 1 mod $5$ since 36 has remainder 1 when being divided by 5.
+
+\begin{theorem}
+The set $(\mathbb{Z}_n,+\text{ mod }n)$ is a group.  
+\end{theorem}
+
+\begin{theorem}
+The set $(U(n),\cdot\text{ mod }n)$ is a group.  
+\end{theorem}
+
+%\item Let $n\in\mathbb{N}$ and define $\mathbb{Z}_n=\{0,1,\ldots,n-1\}$.  It turns out that $\mathbb{Z}_n$ is a group under addition mod $n$ (you do \emph{not} need to prove this)\footnote{To calculate the sum of two integers mod $n$, add the two numbers and then find the remainder after dividing the sum by $n$.}.  
+%\begin{enumerate}
+%\item (3 points) Draw the subgroup lattice for $\mathbb{Z}_{12}$.
+%\item (3 points) Draw the subgroup lattice for $\mathbb{Z}_{18}$.
+%\item (4 points) Prove that for $n\geq 3$, $\mathbb{Z}_n\cong R_n$.\footnote{The upshot of this theorem is that $\mathbb{Z}_n$ is cyclic (and hence abelian) since $R_n$ is certainly cyclic.  The case with $n=2$ is obvious.}
+%\end{enumerate}
+%
+%\item Let $n\in \mathbb{N}$ and define $U(n)$ to be the set of all natural numbers less than or equal to $n$ that are relatively prime to $n$.  It turns out that $U(n)$ forms a group under multiplication mod $n$ (you do \emph{not} need to prove this).
+%
+%\begin{enumerate}
+%
+%\item (2 points) Create a group multiplication table for $U(8)$.
+%
+%\item (2 points) What group is $U(8)$ isomorphic to?  Be sure to justify your answer.
+%
+%\item (2 points) Draw the subgroup lattice for $U(12)$.
+%
+%\end{enumerate}
+
 %Z_n (motivation: structure of R_n is really just addition of exponents
 % Finite cyclic groups describe the symmetry of objects that only exhibit rotational symmetry.
 
