@@ -35,13 +35,14 @@ Despite the fact that we made six calculations (one for each element in $D_3$), 
 \end{align*}
 We can make a few more observations.  First, the resulting cosets formed a partition of $D_3$.  That is, every element of $D_3$ appears in exactly one coset.  Moreover, all the cosets are the same size---two elements in each coset in this case.  Lastly, each coset can be named in multiple ways.  In particular, the elements of the coset are exactly the elements of $D_3$ we multiplied $H$ by.  For example, $Hr=Hsr$ and the elements of this coset are $r$ and $sr$.  Shortly, we will see that these observations hold, in general.
 
-Here is another significant observation we can make.  Consider the Cayley diagram for $D_3$ with generators $r$ and $s$.
+Here is another significant observation we can make.  Consider the Cayley diagram for $D_3$ with generating set $\{r,s\}$ that is given in Figure~\ref{fig:D3_repeat}. Given this Cayley diagram, we can visualize the subgroup $H$ and it's clones.  Moreover, $H$ and it's clones are exactly the 3 right cosets of $H$.  We'll see that, in general, the \emph{right} cosets of a given subgroup are always the subgroup and its clones.
 
 \tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=8mm]
 \tikzstyle{h} = [draw,very  thick, blue,stealth-stealth]
 \tikzstyle{r} = [draw, very thick, red,-stealth]
 
-\begin{center}
+\begin{figure}[!ht]
+\centering
 \begin{tikzpicture}[scale=.75,auto]
 \node (e) at (90:2) [vert] {$e$};
 \node (r) at (-30:2) [vert] {$r$};
@@ -59,8 +60,9 @@ Here is another significant observation we can make.  Consider the Cayley diagra
 \draw [h] (r) to (hrr);
 \draw [h] (rr) to (hr);
 \end{tikzpicture}
-\end{center}
-Given this Cayley diagram, we can visualize the subgroup $H$ and it's clones.  Moreover, $H$ and it's clones are exactly the 3 right cosets of $H$.  We'll see that, in general, the \emph{right} cosets of a given subgroup are always the subgroup and its clones.
+\caption{Cayley diagram for $D_3$ with generating set $\{r,s\}$.}
+\label{fig:D3_repeat}
+\end{figure}
 
 \begin{exercise}\label{exer:left_cosets_D3}
 Consider the group $D_3$.  Find all the left cosets for $H=\langle s\rangle$.  Are they the same as the right cosets?  Are they the same as the subgroup $H$ and its clones that we can see in the Cayley graph for $D_3$ with generators $r$ and $s$?
@@ -157,17 +159,17 @@ Consider $(\mathbb{Z},+)$.  Find all of the left cosets and all of the right cos
 
 Now that we've played with a few examples, let's make a few general observations.
 
-\begin{theorem}
+\begin{theorem}\label{thm:coset_representative}
 Let $G$ be a group and let $H\leq G$.
 \begin{enumerate}
-\item[(a)] If $a\in G$, then $a\in aH$ (respectively, $Ha$).
-\item[(b)] \label{thm:coset_representative} If $b\in aH$ (respectively, $Ha$), then $aH=bH$ (respectively, $Ha=Hb$).
-\item[(c)] If $a\in H$, then $aH=H=Ha$.
-\item[(d)] If $a\notin H$, then for all $h\in H$, $ah\notin aH$ (respectively, $ha \notin Ha$).
+\item If $a\in G$, then $a\in aH$ (respectively, $Ha$).
+\item If $b\in aH$ (respectively, $Ha$), then $aH=bH$ (respectively, $Ha=Hb$).
+\item If $a\in H$, then $aH=H=Ha$.
+\item If $a\notin H$, then for all $h\in H$, $ah\notin aH$ (respectively, $ha \notin Ha$).
 \end{enumerate}
 \end{theorem}
 
-The upshot of Theorem~\ref{thm:coset_representative}(b) is that cosets can have different names.  In particular, if $b$ is an element of the left coset $aH$, then we could have just as easily called the coset by the name $bH$.  In this case, both $a$ and $b$ are called \textbf{coset representatives}.
+The upshot of part 2 of Theorem~\ref{thm:coset_representative} is that cosets can have different names.  In particular, if $b$ is an element of the left coset $aH$, then we could have just as easily called the coset by the name $bH$.  In this case, both $a$ and $b$ are called \textbf{coset representatives}.
 
 In all of the examples we've seen so far, the left and right cosets partitioned $G$ into equal-sized chunks.  We need to prove that this is true in general.  To prove that the cosets form a partition, we'll define an appropriate equivalence relation.
 
@@ -211,9 +213,10 @@ We're finally ready to state Lagrange's Theorem, which is named after the Italia
 Let $G$ be a finite group and let $H\leq G$.  Then $|H|$ divides $|G|$.
 \end{theorem}
 
-This simple sounding theorem is extremely powerful.  One consequence is that groups and subgroups have a fairly rigid structure.  Suppose $G$ is a finite group and let $H\leq G$.  Since $G$ is finite, there must be a finite number of distinct left cosets, say $H, a_2H, \ldots, a_{n}H$.  Corollary~\ref{cor:cosets_same_size} tells us that each of these cosets is the same size.  In particular, Lagrange's Theorem implies that for each $\i\in\{1,\ldots, n\}$, $|a_iH|=|G|/n$, or equivalently $n=|G|/|a_iH|$.  We can depict this using the following figure, where each rectangle represents a coset and we've labeled a single coset representative in each case.
+This simple sounding theorem is extremely powerful.  One consequence is that groups and subgroups have a fairly rigid structure.  Suppose $G$ is a finite group and let $H\leq G$.  Since $G$ is finite, there must be a finite number of distinct left cosets, say $H, a_2H, \ldots, a_{n}H$.  Corollary~\ref{cor:cosets_same_size} tells us that each of these cosets is the same size.  In particular, Lagrange's Theorem implies that for each $\i\in\{1,\ldots, n\}$, $|a_iH|=|G|/n$, or equivalently $n=|G|/|a_iH|$.  This is depicted in Figure~\ref{fig:Lagrange}, where each rectangle represents a coset and we've labeled a single coset representative in each case.
 
-\begin{center}
+\begin{figure}[!ht]
+\centering
 \begin{tikzpicture}[scale=1.6]
 \draw (0,0) -- (5,0) -- (5,2) -- (0,2) -- (0,0);
 \draw (1,0) -- (1,2);
@@ -227,7 +230,9 @@ This simple sounding theorem is extremely powerful.  One consequence is that gro
 \node at (4.5,.5) {$a_{n}H$};
 \node at (3,1) {$\cdots$};
 \end{tikzpicture}
-\end{center}
+\caption{}
+\label{fig:Lagrange}
+\end{figure}
 
 One important consequence of Lagrange's Theorem is that it narrows down the possible sizes for subgroups.
 
@@ -239,13 +244,13 @@ Lagrange's Theorem tells us what the possible orders of a subgroup are, but if $
 
 \begin{problem}
 Consider the alternating group $A_4$.  Lagrange's Theorem tells us that the possible orders of subgroups for $A_4$ are 1, 2, 3, 4, 6, and 12.
-\begin{enumerate}
-\item[(a)] Find examples of subgroups of $A_4$ of orders 1, 2, 3, 4, and 12.
-\item[(b)] Write down all of the elements of order 2 in $A_4$.
-\item[(c)] Argue that any subgroup of $A_4$ that contains any two elements of order 2 must contain a subgroup isomorphic to $V_4$.
-\item[(d)] Argue that if $A_4$ has a subgroup of order 6, that it cannot be isomorphic to $R_6$.
-\item[(e)] It turns out that up to isomorphism, there are only two groups of order 6, namely $S_3$ and $R_6$.  Suppose that $H$ is a subgroup of $A_4$ of order 6.  Part (d) guarantees that $H\cong S_3$.   Argue that $H$ must contain all of the elements of order 2 from $A_4$.
-\item[(f)] Explain why $A_4$ cannot have a subgroup of order 6. 
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item Find examples of subgroups of $A_4$ of orders 1, 2, 3, 4, and 12.
+\item Write down all of the elements of order 2 in $A_4$.
+\item Argue that any subgroup of $A_4$ that contains any two elements of order 2 must contain a subgroup isomorphic to $V_4$.
+\item Argue that if $A_4$ has a subgroup of order 6, that it cannot be isomorphic to $R_6$.
+\item It turns out that up to isomorphism, there are only two groups of order 6, namely $S_3$ and $R_6$.  Suppose that $H$ is a subgroup of $A_4$ of order 6.  Part (d) guarantees that $H\cong S_3$.   Argue that $H$ must contain all of the elements of order 2 from $A_4$.
+\item Explain why $A_4$ cannot have a subgroup of order 6. 
 \end{enumerate}
 \end{problem}
 
