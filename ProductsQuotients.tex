@@ -245,14 +245,10 @@ If we consider the $2\times 2$ blocks as elements, it appears that we have a gro
 
 In other words, it looks like we can multiply cosets by choosing any representative from each coset and then seeing what coset the product of the representatives lies in.  However, it is important to point out that this will only work if we have a checkerboard pattern of cosets, which we have seen evidence of only happening when the corresponding subgroup is normal.
 
-Before continuing, let's continue tinkering with the same example.  Consider the Cayley diagram for $Q_8$ with generators $-1$, $i$, and $j$.
+Before continuing, let's continue tinkering with the same example.  Consider the Cayley diagram for $Q_8$ with generators $\{i,j,-1\}$ that is given in Figure~\ref{fig:Q8_repeat}.
 
-\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=6mm]
-\tikzstyle{b} = [draw,very thick,blue,-stealth]
-\tikzstyle{r} = [draw, very thick, red,-stealth]
-\tikzstyle{g} = [draw, very thick, green, stealth-stealth]
-
-\begin{center}
+\begin{figure}[!ht]
+\centering
 \begin{tikzpicture}[scale=1.5,auto]
 \node (1) at (135:2) [vert] {{\scriptsize $1$}};
 \node (i) at (45:2) [vert] {\scriptsize {$i$}};
@@ -289,13 +285,16 @@ Before continuing, let's continue tinkering with the same example.  Consider the
 \path[g] (k) to (-k);
 
 \end{tikzpicture}
-\end{center}
-We can visualize the left cosets of $K$ as the clumps of vertices connected together with the two-way green arrows.  In this case, we are also seeing the right cosets since $K$ is normal in $Q_8$.  If we collapse the cosets onto each other and collapse the corresponding arrows, we obtain the following diagram.
+\caption{Cayley diagram for $Q_8$ with generating set $\{i,j,-1\}$.}
+\label{fig:Q8_repeat}
+\end{figure}
+We can visualize the left cosets of $K$ as the clumps of vertices connected together with the two-way green arrows.  In this case, we are also seeing the right cosets since $K$ is normal in $Q_8$.  If we collapse the cosets onto each other and collapse the corresponding arrows, we obtain the diagram given in Figure~\ref{fig:Q8_quotient}. It is clear that this diagram is the Cayley diagram for a group that is isomorphic to $V_4$.  For reasons we will understand shortly, this processing of collapsing a Cayley diagram according to the cosets of a normal subgroup is called the ``quotient process."
 
 \tikzstyle{2b} = [draw,very thick,blue,stealth-stealth]
 \tikzstyle{2r} = [draw, very thick, red,stealth-stealth]
 
-\begin{center}
+\begin{figure}[!ht]
+\centering
 \begin{tikzpicture}[scale=1.5,auto]
 \node (K) at (135:1.5) [vert] {{\scriptsize $K$}};
 \node (iK) at (45:1.5) [vert] {\scriptsize {$iK$}};
@@ -306,18 +305,22 @@ We can visualize the left cosets of $K$ as the clumps of vertices connected toge
 \path[2b] (kK) to (jK);
 \path[2r] (jK) to (K);
 \end{tikzpicture}
-\end{center}
-It is clear that this diagram is the Cayley diagram for a group that is isomorphic to $V_4$.  For reasons we will understand shortly, this processing of collapsing a Cayley diagram according to the cosets of a normal subgroup is called the ``quotient process."
+\caption{The collapsed Cayley diagram for $Q_8$ according to the cosets of $K=\langle -1\rangle$.}
+\label{fig:Q8_quotient}
+\end{figure}
 
 \begin{exercise}\label{exer:bad_quotient}
 Let's see what happens if we attempt the quotient process for a subgroup that is not normal.  Consider $H=\langle s\rangle \leq D_3$.  In Exercise~\ref{exer:left_cosets_D3}, we discovered that the left cosets of $H$ are not the same as the right cosets of $H$.  This implies that $H$ is not normal in $D_3$.  Consider the standard Cayley diagram for $D_3$ that uses the generators $r$ and $s$.  Draw the diagram that results from attempting the quotient process on $D_3$ using the subgroup $H$.  Explain why this diagram cannot be the diagram for a group.
 \end{exercise}
 
-The problem that arises in Exercise~\ref{exer:bad_quotient} is that if the same arrow types (i.e., those representing the same generator) leaving a coset do not point at elements in the same coset, attempting the quotient process will result in a diagram that violates Rule 3 (every action is deterministic) of Definition~\ref{def:informal_group}.  In the first figure below, we illustrate what goes wrong if all the arrows out of a coset do not unanimously point to the same coset.  In the second figure, all the arrows point to the same coset, and in this case, it appears that everything works out just fine.
+The problem that arises in Exercise~\ref{exer:bad_quotient} is that if the same arrow types (i.e., those representing the same generator) leaving a coset do not point at elements in the same coset, attempting the quotient process will result in a diagram that violates Rule 3 (every action is deterministic) of Definition~\ref{def:informal_group}.  In Figure~\ref{fig:quotient_process}, we illustrate what goes wrong if all the arrows out of a coset do not unanimously point to the same coset.  In the second subfigure, all the arrows point to the same coset, and in this case, it appears that everything works out just fine.
 
-\begin{center}
+\begin{figure}[!ht]
+\centering
 \includegraphics[width=5in]{QuotientProcess.png}
-\end{center}
+\caption{The quotient process.}
+\label{fig:quotient_process}
+\end{figure}
 
 \begin{exercise}
 In Exercise~\ref{exer:normal_in_D3}, we learned that the subgroup $K=\langle r\rangle$ is normal in $D_3$ since the left cosets are equal to the right cosets.  Note that this follows immediately from Theorem~\ref{thm:index2} since $[D_3:K]=2$.  Draw the diagram that results from performing the quotient process to $D_3$ using the subgroup $K$.  Does the resulting diagram represent a group?  If so, what group is it isomorphic to?
