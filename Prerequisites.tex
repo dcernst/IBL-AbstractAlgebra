@@ -21,10 +21,10 @@ If we think of a set as a box containing some stuff, then the empty set is a box
 \begin{definition}[Interval Notation]
 For $a,b\in\mathbb{R}$ with $a<b$, we define the following.
 \begin{enumerate}
-\item $(a,b)=\{x\in\mathbb{R}:a<x<b\}$
-\item $(a,\infty)=\{x\in\mathbb{R}:a<x\}$
-\item $(-\infty,b)=\{x\in\mathbb{R}:x<b\}$
-\item $[a,b]=\{x\in\mathbb{R}:a\leq x\leq b\}$
+\item $(a,b)=\{x\in\mathbb{R}\mid a<x<b\}$
+\item $(a,\infty)=\{x\in\mathbb{R}\mid a<x\}$
+\item $(-\infty,b)=\{x\in\mathbb{R}\mid x<b\}$
+\item $[a,b]=\{x\in\mathbb{R}\mid a\leq x\leq b\}$
 \end{enumerate}
 We analogously define $[a,b)$, $(a,b]$, $[a,\infty)$, and $(-\infty,b]$.
 \end{definition}
@@ -35,14 +35,14 @@ There are a few sets with common names that we should be familiar with.
 \item \textbf{Natural Numbers:} $\mathbb{N}=\{1,2,3,\ldots\}$
 \item \textbf{Integers:} $\mathbb{Z}=\{\ldots,-3,-2,-1,0,1,2,3,\ldots\}$
 \item \textbf{Real Numbers:} $\mathbb{R}=(-\infty,\infty)$\footnote{This is really a cop out.  If you look at the definition of the interval $(-\infty,\infty)$, we are being circular.}
-\item \textbf{Complex Numbers:} $\mathbb{C}=\{a+bi:a,b\in\mathbb{R}\}$, where $i=\sqrt{-1}$ is the imaginary unit.
+\item \textbf{Complex Numbers:} $\mathbb{C}=\{a+bi\mid a,b\in\mathbb{R}\}$, where $i=\sqrt{-1}$ is the imaginary unit.
 \end{enumerate}
 \end{remark}
 
 \begin{definition} 
 The language associated to sets is specific.  We will often define sets using the following notation, called \textbf{set builder notation}.
 \[
-S=\{x \in A: x \mbox{ satisfies some condition}\}
+S=\{x \in A\mid  x \mbox{ satisfies some condition}\}
 \]
 The first part ``$x \in A$" denotes what type of $x$ is being considered.  The statements to the right of the colon are the conditions that $x$ must satisfy in order to be members of the set.  This notation is read as ``The set of all $x$ in $A$ such that $x$ satisfies some condition,'' where ``some condition" is something specific about the restrictions on $x$ relative to $A$.
 \end{definition}
@@ -66,13 +66,13 @@ If $A\subseteq B$, then $A$ is called a \textbf{proper subset} provided that $A\
 \begin{definition}
 Let $A$ and $B$ be sets.
 \begin{enumerate}
-\item The \textbf{union} of the sets $A$ and $B$ is $A \cup B =\{x\in U : x\in A \mbox{ or } x\in B \}$.
+\item The \textbf{union} of the sets $A$ and $B$ is $A \cup B =\{x\in U \mid  x\in A \mbox{ or } x\in B \}$.
 
-\item The \textbf{intersection} of the sets $A$ and $B$ is $A \cap B =\{x\in U : x\in A \mbox{ and } x\in B \}$.
+\item The \textbf{intersection} of the sets $A$ and $B$ is $A \cap B =\{x\in U \mid  x\in A \mbox{ and } x\in B \}$.
 
-\item The \textbf{set difference} of the sets $A$ and $B$ is $A \setminus B =\{x\in U : x\in A \mbox{ and } x\notin B \}$.
+\item The \textbf{set difference} of the sets $A$ and $B$ is $A \setminus B =\{x\in U \mid  x\in A \mbox{ and } x\notin B \}$.
 
-\item The \textbf{complement of $A$} (relative to $U$) is the set $A^c=U \setminus A =\{x \in U : x \notin A\}$.
+\item The \textbf{complement of $A$} (relative to $U$) is the set $A^c=U \setminus A =\{x \in U \mid  x \notin A\}$.
 \end{enumerate}
 \end{definition}
 
@@ -118,12 +118,12 @@ Suppose we have a collection $\{A_{\alpha}\}_{\alpha\in\Delta}$.
 \begin{enumerate}
 \item The \textbf{union of the entire collection} is defined via
 \[
-\bigcup_{\alpha\in\Delta} A_{\alpha}=\{x:x\in A_{\alpha} \mbox{ for some }\alpha\in \Delta\}.
+\bigcup_{\alpha\in\Delta} A_{\alpha}=\{x\mid x\in A_{\alpha} \mbox{ for some }\alpha\in \Delta\}.
 \]
 
 \item The \textbf{intersection of the entire collection} is defined via
 \[
-\bigcap_{\alpha\in\Delta} A_{\alpha}=\{x:x\in A_{\alpha} \mbox{ for all }\alpha\in \Delta\}.
+\bigcap_{\alpha\in\Delta} A_{\alpha}=\{x\mid x\in A_{\alpha} \mbox{ for all }\alpha\in \Delta\}.
 \]
 \end{enumerate}
 \end{definition}
@@ -131,11 +131,11 @@ Suppose we have a collection $\{A_{\alpha}\}_{\alpha\in\Delta}$.
 \begin{example} 
 In the special case that $\Delta=\mathbb{N}$, we write
 \[
-\bigcup_{n=1}^{\infty}A_n= \{ x : x \in A_n \mbox{ for some } n \in \mathbb{N}\}= A_1\cup A_2 \cup A_3 \cup \cdots
+\bigcup_{n=1}^{\infty}A_n= \{ x \mid  x \in A_n \mbox{ for some } n \in \mathbb{N}\}= A_1\cup A_2 \cup A_3 \cup \cdots
 \] 
 and
 \[
-\bigcap_{n=1}^{\infty}A_n= \{ x : x \in A_n \mbox{ for all } n \in \mathbb{N}\} = A_1\cap A_2 \cap A_3 \cap \cdots
+\bigcap_{n=1}^{\infty}A_n= \{ x \mid  x \in A_n \mbox{ for all } n \in \mathbb{N}\} = A_1\cap A_2 \cap A_3 \cap \cdots
 \] 
 Similarly, if $\Delta=\{1,2,3,4\}$, then
 \[
@@ -179,11 +179,11 @@ Note that an ordered pair is just a 2-tuple.
 \begin{definition}\label{def:cartesian_product}
 If $X$ and $Y$ are sets, the \textbf{Cartesian product} of $X$ and $Y$ is defined by
 \[
-X\times Y=\{(x,y): x\in X, y\in Y\}.
+X\times Y=\{(x,y)\mid  x\in X, y\in Y\}.
 \]
 That is, $X\times Y$ is the set of all ordered pairs where the first element is from $X$ and the second element is from $Y$.  The set $X\times X$ is sometimes denoted by $X^2$.  We similarly define the Cartesian product of $n$ sets, say $X_1, \ldots, X_n$, by
 \[
-\prod_{i=1}^{n} X_i=X_1\times \cdots \times X_n=\{(x_1,\ldots,x_n): \mbox{each } x_i\in X_i\}.
+\prod_{i=1}^{n} X_i=X_1\times \cdots \times X_n=\{(x_1,\ldots,x_n)\mid  \mbox{each } x_i\in X_i\}.
 \]
 \end{definition}
 
@@ -299,11 +299,11 @@ Determine which of the following are equivalence relations.
 \begin{definition}
 Let $\sim$ be a relation on a set $A$ (not necessarily an equivalence relation) and let $x\in A$.  Then we define the \textbf{set of relatives of $x$} via
 \[
-[x]=\{y\in A: x\sim y\}.
+[x]=\{y\in A\mid  x\sim y\}.
 \]
 Also, define
 \[
-\Omega_{\sim}=\{[x]:x\in A\}.
+\Omega_{\sim}=\{[x]\mid x\in A\}.
 \]
 Notice that $\Omega_{\sim}$ is a set of sets.  In particular, an element in $\Omega_{\sim}$ is a subset of $A$ (equivalently, an element of $\mathcal{P}(A)$).  Other common notations for $[x]$ include $\overline{x}$ and $R_x$.
 \end{definition}
@@ -410,7 +410,7 @@ Item 1 of Definition \ref{def:function} says that every element of $X$ appears i
 \begin{definition}
 The set $X$ from Definition \ref{def:function} is called the \textbf{domain} of $f$ and is denoted by $\dom(f)$.  The set $Y$ is called the \textbf{codomain} of $f$ and is denoted by $\codom(f)$.  The set
 \[
-\range(f)=\{y\in Y: \mbox{there exists }x\mbox{ such that } y=f(x)\}
+\range(f)=\{y\in Y\mid  \mbox{there exists }x\mbox{ such that } y=f(x)\}
 \]
 is called the \textbf{range} of $f$ or the \textbf{image of $X$} under $f$.
 \end{definition}
@@ -530,7 +530,7 @@ If $f:X\to Y$ and $g:Y\to Z$ are both one-to-one correspondences, then $g\circ f
 \begin{definition}
 Let $f:X\to Y$ be a function.  The relation $f^{-1}$, called \textbf{$f$ inverse}, is defined via
 \[
-f^{-1}=\{(f(x),x):x\in X\}.
+f^{-1}=\{(f(x),x)\mid x\in X\}.
 \]
 \end{definition}
 
@@ -598,7 +598,7 @@ Let $P(1), P(2), P(3), \ldots$ be a sequence of statements, one for each natural
 \item $P(1)$ is true, and
 \item If $P(k)$ is true, then $P(k+1)$ is true.
 \end{enumerate}
-Then $P(n)$ is true for all $n\in\mathbb{N}$.\footnote{\emph{Hint:} Let $S=\{k\in \mathbb{N}: P_k \text{ is true}\}$ and use the Axiom of Induction.  The set $S$ is sometimes called the \emph{truth set}.  Your job is to show that the truth set is all of $\mathbb{N}$.}
+Then $P(n)$ is true for all $n\in\mathbb{N}$.\footnote{\emph{Hint:} Let $S=\{k\in \mathbb{N}\mid  P_k \text{ is true}\}$ and use the Axiom of Induction.  The set $S$ is sometimes called the \emph{truth set}.  Your job is to show that the truth set is all of $\mathbb{N}$.}
 \end{theorem}
 
 \begin{remark}
