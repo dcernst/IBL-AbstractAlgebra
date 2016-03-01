@@ -57,7 +57,7 @@ Some binary operations have additional properties.
 
 \begin{definition}
 Let $A$ be a set and let $*$ be a binary operation on $A$.
-\begin{enumerate}
+\begin{enumerate}[label=\rm{(\alph*)}]
 \item We say that $*$ is \textbf{associative} if and only if $(a*b)*c=a*(b*c)$ for all $a,b,c\in A$.
 \item We say that $*$ is \textbf{commutative} if and only if $a*b=b*a$ for all $a,b\in A$.
 \end{enumerate}
@@ -111,16 +111,16 @@ Without further ado, here is our official definition of a group.
 \begin{definition}\label{def:group}
 A group $(G,*)$ is a set $G$ together with a binary operation $*$ such that the following axioms hold.
 \begin{enumerate}
-\item[0.] The set $G$ is closed under $*$.
-\item[1.] The operation $*$ is associative.
-\item[2.] There is an element $e\in G$ such that for all $g\in G$, $e*g=g*e=g$.  We call $e$ the \textbf{identity}.
-\item[3.] Corresponding to each $g\in G$, there is an element $g'\in G$ such that $g*g'=g'*g=e$.  In this case, $g'$ is called the \textbf{inverse} of $g$, which we shall denote as $g^{-1}$.
+\item[(0)] The set $G$ is closed under $*$.
+\item[(1)] The operation $*$ is associative.
+\item[(2)] There is an element $e\in G$ such that for all $g\in G$, $e*g=g*e=g$.  We call $e$ the \textbf{identity}.
+\item[(3)] Corresponding to each $g\in G$, there is an element $g'\in G$ such that $g*g'=g'*g=e$.  In this case, $g'$ is called the \textbf{inverse} of $g$, which we shall denote as $g^{-1}$.
 \end{enumerate}
 \end{definition}
 
 \begin{remark}
 A few comments are in order.
-\begin{enumerate}
+\begin{enumerate}[label=\rm{(\alph*)}]
 \item Notice that a group has two parts to it, namely, a set and a binary operation.  For simplicity, if $(G,*)$ is a group, we will often refer to $G$ as being the group.  However, you must remember that the binary operation is part of the structure.
 \item Axiom 2 forces $G$ to be nonempty.
 \item In the generic case, even if $*$ is not actually multiplication, we will refer to $a*b$ as the \textbf{product} of $a$ and $b$.
@@ -214,7 +214,7 @@ The good news is that the rules of exponents you are familiar with still hold fo
 
 \begin{theorem}
 Let $(G,*)$ be a group and let $g\in G$.  For $n,m\in\mathbb{Z}$, we have the following:
-\begin{enumerate}
+\begin{enumerate}[label=\rm{(\alph*)}]
 \item $g^n*g^m=g^{n+m}$,
 \item $(g^n)^{-1}=g^{-n}$.
 \end{enumerate}

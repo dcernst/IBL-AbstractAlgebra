@@ -76,11 +76,19 @@ Suppose $(G,*)$ is a finite group and let $a\in G$.  Then there exists a positiv
 In fact, we can say something even stronger.  You likely noticed the following fact while exploring Exercise~\ref{exer:computing_orders}.
 
 \begin{theorem}
-Suppose $(G,*)$ is a finite group and let $a\in G$.  Then the order of $a$ is the smallest positive integer $n$ such that $a^n=e$.
+Suppose $(G,*)$ is a group and let $a\in G$.
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item If $|a|=n<\infty$, then $a^n=e$ and $1,a,a^2,\ldots, a^{n-1}$ are all distinct elements of $\langle a\rangle$.
+\item If $|a|=\infty$, then $a^n\neq e$ for all $n\neq 0$ and $a^n\neq a^m$ whenever $n\neq m$ in $\mathbb{Z}$.
+\end{enumerate}
 \end{theorem}
 
+\begin{corollary}
+Suppose $(G,*)$ is a finite group and let $a\in G$.  Then the order of $a$ is the smallest positive integer $n$ such that $a^n=e$.
+\end{corollary}
+
 \begin{problem}
-Suppose $(G,*)$ is a group $a\in G$ with $|a|=n$.  For what other exponents $k$ will it be true that $a^k=e$?
+Suppose $(G,*)$ is a group $a\in G$ with $|a|=n$.  For what other exponents $k$ will it be true that $a^k=e$? Prove your claim.
 \end{problem}
 
 We are finally ready to introduce our family of interest for this section.
@@ -106,8 +114,8 @@ Determine whether each of the following groups are cyclic.  If the group is cycl
 \end{enumerate}
 \end{multicols}
 \begin{enumerate}
-\item $\textrm{GL}_2(\mathbb{R})$ under matrix multiplication
-\item $\{(\cos(\pi/4) +i\sin(\pi/4))^n\mid n\in \mathbb{Z}\}$ under multiplication of complex numbers
+\item[(e)] $\textrm{GL}_2(\mathbb{R})$ under matrix multiplication
+\item[(f)] $\{(\cos(\pi/4) +i\sin(\pi/4))^n\mid n\in \mathbb{Z}\}$ under multiplication of complex numbers
 \end{enumerate}
 \end{exercise}
 
@@ -123,8 +131,8 @@ Provide an example of a finite group that is abelian but not cyclic.
 Provide an example of an infinite group that is abelian but not cyclic.
 \end{exercise}
 
-\begin{theorem}%move this to earlier in notes
-Suppose $(G,*)$ and let $a\in G$. Then $\langle a\rangle=\langle a^{-1}\rangle$.
+\begin{theorem}
+Suppose $(G,*)$ and let $a\in G$. Then $\langle a\rangle=\langle a^{-1}\rangle$. In particular, $|a|=|a^{-1}|$.
 \end{theorem}
 
 \begin{theorem}
@@ -159,7 +167,7 @@ Recall that two integers are \textbf{relatively prime} if they have no factors o
 
 \begin{definition}
 Let $n\in\mathbb{N}$ and define the following sets.
-\begin{enumerate}
+\begin{enumerate}[label=\rm{(\alph*)}]
 \item $\mathbb{Z}_n:=\{0,1,\ldots,n-1\}$
 \item $U(n):=\{k\in\mathbb{Z}_n\mid \gcd(n,k)=1\}$
 \end{enumerate}
@@ -258,7 +266,7 @@ What about finite cyclic groups?
 
 \begin{theorem}
 Suppose $(G,*)$ is a finite cyclic group with generator $a$ such that $|G|=n$.  
-\begin{enumerate}
+\begin{enumerate}[label=\rm{(\alph*)}]
 \item Then $\displaystyle |a^s|=\frac{n}{\gcd(n,s)}$.
 \item Moreover, $\langle a^s\rangle=\langle a^t\rangle$ iff $\gcd(s,n)=\gcd(t,n)$.
 \end{enumerate}
@@ -326,7 +334,7 @@ For $n\geq 3$, $R_n\leq D_n$.
 
 \begin{theorem}\label{thm:generators_Dn}
 Fix $n\geq 3$ and consider $D_n$. Let $r$ be rotation clockwise by $360^{\circ}/n$  and let $s$ and $s'$ be any two adjacent reflections of a regular $n$-gon.  Then
-\begin{enumerate}
+\begin{enumerate}[label=\rm{(\alph*)}]
 \item $D_n=\langle r,s\rangle =\{\underbrace{e,r,r^2,\ldots, r^{n-1}}_{\text{rotations}},\underbrace{s,sr,sr^2,\ldots,sr^{n-1}}_{\text{reflections}}\}$ and
 \item $D_n=\langle s,s'\rangle = \text{all possible products of }s\text{ and }s'$.
 \end{enumerate}
@@ -334,7 +342,7 @@ Fix $n\geq 3$ and consider $D_n$. Let $r$ be rotation clockwise by $360^{\circ}/
 
 \begin{theorem}
 Fix $n\geq 3$ and consider $D_n$. Let $r$ be rotation clockwise by $360^{\circ}/n$  and let $s$ and $s'$ be any two adjacent reflections of a regular $n$-gon.  Then the following relations hold.
-\begin{enumerate}
+\begin{enumerate}[label=\rm{(\alph*)}]
 \item $r^n = s^2 = (s')^2 =e$,
 \item $r^{-k} = r^{n-k}$ (special case: $r^{-1}=r^{n-1}$),
 \item $sr^k=r^{n-k}s$ (special case: $sr=r^{n-1}s$),
