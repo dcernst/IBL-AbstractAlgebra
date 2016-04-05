@@ -643,7 +643,7 @@ By the way, it might take some trial and error to come up with a way to do this.
 
 As the previous exercises hinted at, the 2-cycles play a special role in the symmetric groups.  In fact, they have a special name.  A \textbf{transposition} is a single cycle of length 2.  In the special case that the transposition is of the form $(i,i+1)$, we call it an \textbf{adjacent transposition}.  For example, $(3,7)$ is a (non-adjacent) transposition while $(6,7)$ is an adjacent transposition.
 
-It turns out that the set of transpositions in $S_n$ is a generating set for $S_n$.  In fact, the adjacent transpositions form an even smaller generating set $S_n$.  To get some intuition for these facts, let's play with a few examples.
+It turns out that the set of transpositions in $S_n$ is a generating set for $S_n$.  In fact, the adjacent transpositions form an even smaller generating set $S_n$.  To get some intuition, let's play with a few examples.
 
 \begin{exercise}
 Try to write each of the following permutations as a product of transpositions.  You do not necessarily need to use adjacent transpositions.
@@ -681,17 +681,34 @@ The set of transpositions (respectively, the set of adjacent transpositions) fro
 
 It is important to point out that the transposition representation of a permutation is not unique.  That is, there are many words in the transpositions that will equal the same permutation.  However, as we shall see in the next section, given two transposition representations for the same permutation, the number of transpositions will have the same parity (i.e., even versus odd).
 
-Random thoughts that I'll elaborate on next time I teach the course:
-\begin{enumerate}
-\item The rigid motion symmetry group for the cube is isomorphic to $S_4$.
-\item You can arrange the Cayley diagram for $S_4$ with generators $(1,2)$ and $(1,2,3,4)$ on a truncated cube. 
+\begin{remark}
+Here are two interesting facts that I will let you ponder on your own time.
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item The group of rigid motion symmetries for a cube is isomorphic to $S_4$.  To convince yourself of this fact, first prove that this group has 24 actions and then ponder the action of $S_4$ on the four long diagonals of a cube.
+\item It turns out that you can generate $S_4$ with $(1,2)$ and $(1,2,3,4)$.  Moreover, you can arrange the Cayley diagram for $S_4$ with these generators on a truncated cube, which is depicted in Figure~\ref{fig:TruncatedCube}.  Try it. 
 \end{enumerate}
+\end{remark}
+
+\begin{figure}[ht!]
+\begin{center}
+\includegraphics[width=2in]{TruncatedCube.jpg}
+\end{center}
+\caption{Truncated cube. [Image source: \href{https://en.wikipedia.org/wiki/Truncated_cube}{Wikipedia}]}\label{fig:TruncatedCube}
+\end{figure}
 
 \end{section}
 
 \begin{section}{Alternating Groups}
 
 In this section, we describe a special class of permutation groups.  To get started, let's play with a few exercises.
+
+\begin{exercise}
+Write down every permutation in $S_3$ as a product of 2-cycles in the most efficient way you can find (i.e., use the fewest possible transpositions).  Now, write every permutation in $S_3$ as a product of adjacent 2-cycles, but don't worry about whether your decompositions are efficient.  Any observations about the number of transpositions you used in each case?  Think about even versus odd.
+\end{exercise}
+
+\begin{lemma}
+Suppose $\alpha_1,\alpha_2,\ldots,\alpha_k$ is a collection of 2-cycles in $S_n$ such that $\alpha_1\alpha_2\cdots\alpha_k=(1)$.  Then $k$ must be even.  \emph{Hint:} Use strong induction on $k$. Start by showing that $k\neq 1$ but that the statement is true when $k=2$. Then assume that $k>2$ and proceed by induction.
+\end{lemma}
 
 \begin{theorem}
 Let $\sigma\in S_n$.  Then every transposition representation of $\sigma$ has the same parity.
@@ -740,18 +757,41 @@ Find $A_3$.  What group is $A_3$ isomorphic to?
 \end{exercise}
 
 \begin{exercise}
-Find $A_4$ and then draw the subgroup lattice for $A_4$.
+Find $A_4$ and then draw its subgroup lattice. Is $A_4$ abelian?
 \end{exercise}
 
 \begin{exercise}
 What is the order of $A_5$?  Is $A_5$ abelian?
 \end{exercise}
 
-Random thoughts that I'll elaborate on next time I teach the course:
-\begin{enumerate}
-\item The rigid motion symmetry group for the tetrahedron is isomorphic to $A_4$.
-\item You can arrange the Cayley diagram for $A_4$ with generators $(1,2)(3,4)$ and $(2,3,4)$ on a truncated tetrahedron. 
-\item You can arrange the Cayley diagram for $A_5$ with generators $(1,2)(3,4)$ and $(1,2,3,4,5)$ on a truncated icosahedron.  You can also arrange the Cayley diagram for $A_5$ with generators $(1,2,3)$ and $(1,5)(2,4)$ on a truncated dodecahedron. 
+\begin{exercise}
+What are the possible orders for elements in $S_6$ and $A_6$?  What about $S_7$ and $A_7$?
+\end{exercise}
+
+\begin{exercise}
+Does $A_8$ contain an element of order 15?  If so, find one.  If not, explain why no such element exists.
+\end{exercise}
+
+\begin{remark}
+Below are a few interesting facts about $A_4$ and $A_5$, which we will state without proof.
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item The group of rigid motion symmetries for a regular tetrahedron is isomorphic to $A_4$.
+\item You can arrange the Cayley diagram for $A_4$ with generators $(1,2)(3,4)$ and $(2,3,4)$ on a truncated tetrahedron, which is depicted in Figure~\ref{fig:TruncatedTetrahedron}.
+\item You can arrange the Cayley diagram for $A_5$ with generators $(1,2)(3,4)$ and $(1,2,3,4,5)$ on a truncated icosahedron, which is given in Figure~\ref{fig:TruncatedIcosahedron}.  You can also arrange the Cayley diagram for $A_5$ with generators $(1,2,3)$ and $(1,5)(2,4)$ on a truncated dodecahedron seen in Figure~\ref{fig:TruncatedDodecahedron}. 
 \end{enumerate}
+\end{remark}
+
+\begin{figure}[!ht]
+\begin{center}
+\subcaptionbox{\label{fig:TruncatedTetrahedron}}[.3\textwidth]{
+\includegraphics[width=1.5in]{TruncatedTetrahedron}
+}
+\subcaptionbox{\label{fig:TruncatedIcosahedron}}[.3\textwidth]{
+\includegraphics[width=1.5in]{TruncatedIcosahedron}}
+\subcaptionbox{\label{fig:TruncatedDodecahedron}}[.3\textwidth]{
+\includegraphics[width=1.5in]{TruncatedDodecahedron}}
+\caption{Truncated tetrahedron, truncated icosahedron, and truncated dodecahedron. [Image source: \href{https://en.wikipedia.org/wiki/Truncated_tetrahedron}{Wikipedia}]}
+\end{center}
+\end{figure}
 
 \end{section}

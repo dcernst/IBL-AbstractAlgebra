@@ -4,6 +4,8 @@
 \usepackage{enumitem}
 \usepackage{multicol}
 \usepackage[labelsep=period]{caption}
+\usepackage[labelformat=simple,labelfont={}]{subcaption}
+%\usepackage{subcaption}
 \usepackage{tabu}
 \usepackage{pdiag}
 \usepackage[table]{xcolor}
@@ -80,6 +82,8 @@
 \newcommand{\range}{\operatorname{Rng}}
 \newcommand{\Spin}{\operatorname{Spin}}
 \newcommand{\lcm}{\operatorname{lcm}}
+
+\renewcommand\thesubfigure{(\alph{subfigure})}
 
 \begin{document}
 
