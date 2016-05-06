@@ -353,11 +353,11 @@ Consider the ideal $(2,x)$ in $\mathbb{Z}[x]$. Note that $(2,x)=\{2p(x)+xq(x)\mi
 \end{problem}
 
 \begin{theorem}
-Let $I$ be an ideal of $R$. Then $I=R$ iff $I$ contains a unit.
+Assume $R$ is a commutative ring with 1. Let $I$ be an ideal of $R$. Then $I=R$ iff $I$ contains a unit.
 \end{theorem}
 
 \begin{theorem}
-Assume $R$ is commutative.  Then $R$ is a field iff its only ideals are $0$ and $R$.
+Assume $R$ is a commutative ring with 1.  Then $R$ is a field iff its only ideals are $0$ and $R$.
 \end{theorem}
 
 Loosely speaking, the previous results say that fields are ``like simple groups" (i.e, groups with no non-trivial normal subgroups).
@@ -375,7 +375,7 @@ Throughout this entire section, we assume that all rings have a multiplicative i
 In this section of notes, we will study two important classes of ideals, namely \textbf{maximal} and \textbf{prime} ideals, and study the relationship between them. 
 
 \begin{definition}
-An ideal $M$ in a ring $R$ is called a \textbf{maximal ideal} if $M\neq R$ and the only ideals containing $M$ are $M$ and $R$.
+Assume $R$ is a commutative ring with 1. An ideal $M$ in a ring $R$ is called a \textbf{maximal ideal} if $M\neq R$ and the only ideals containing $M$ are $M$ and $R$.
 \end{definition}
 
 \begin{example}
@@ -397,7 +397,7 @@ In a ring with $1$, every proper ideal is contained in a maximal ideal.
 For commutative rings, there is a very nice characterization about maximal ideals in terms of the structure of their quotient rings.
 
 \begin{theorem}
-Assume $R$ is commutative.  The ideal $M$ is maximal iff $R/M$ is a field.
+Assume $R$ is a commutative ring with 1.  Then $M$ is a maximal ideal iff the quotient ring $R/M$ is a field.
 \end{theorem}
 
 \begin{example}
@@ -409,7 +409,7 @@ We can use the previous theorem to verify whether an ideal is maximal.
 \end{example}
 
 \begin{definition}
-Assume $R$ is commutative.  An ideal $P$ is called a \textbf{prime ideal} if $P\neq R$ and whenever the product $ab\in P$ for $a,b\in R$, then at least one of $a$ or $b$ is in $P$.
+Assume $R$ is a commutative ring with 1.  An ideal $P$ is called a \textbf{prime ideal} if $P\neq R$ and whenever the product $ab\in P$ for $a,b\in R$, then at least one of $a$ or $b$ is in $P$.
 \end{definition}
 
 \begin{example}
@@ -421,11 +421,11 @@ The notion of a prime ideal is a generalization of ``prime" in $\mathbb{Z}$. Sup
 \end{remark}
 
 \begin{theorem}
-Assume $R$ is a commutative ring.  Then the ideal $P$ is a prime ideal in $R$ iff the quotient ring $R/P$ is an integral domain.
+Assume $R$ is a commutative ring with 1.  Then $P$ is a prime ideal in $R$ iff the quotient ring $R/P$ is an integral domain.
 \end{theorem}
 
 \begin{corollary}
-Assume $R$ is a commutative ring.  Every maximal ideal of $R$ is a prime ideal.
+Assume $R$ is a commutative ring with 1.  Every maximal ideal of $R$ is a prime ideal.
 \end{corollary}
 
 \begin{example}
