@@ -223,9 +223,21 @@ Let $(G,*)$ be a group and let $g\in G$.  For $n,m\in\mathbb{Z}$, we have the fo
 \end{section}
 
 \begin{section}{Group Tables}
-Recall that we could represent a binary operation on a finite set using a table.  Since groups have binary operations at their core, we can represent a finite group (i.e., a group with finitely many elements) using a table, called a \textbf{group table} (or \textbf{Cayley table}). For example, the following is a group table for $V_4$.
+Recall that we could represent a binary operation on a finite set using a table.  Since groups have binary operations at their core, we can represent a finite group (i.e., a group with finitely many elements) using a table, called a \textbf{group table} (or \textbf{Cayley table}). For example, below are group tables for $D_3$ and $V_4$, respectively.
 
+%table for D_3
 \begin{center}
+\begin{tabu}{c|[2pt]c|c|c|c|c|c}
+$*$ & $e$ & $r$ & $r^2$ & $s$ & $sr$ & $sr^2$\\ \tabucline[2pt]{-}
+$e$ & $e$ & $r$ & $r^2$ & $s$ & $sr$ & $sr^2$\\
+\hline $r$ & $r$ & $r^2$ & $e$ & $sr^2$ & $s$ & $sr$ \\
+\hline $r^2$ & $r^2$ & $e$ & $r$ & $sr$ & $sr^2$ & $s$\\
+\hline $s$ & $s$ & $sr$ & $sr^2$ & $e$ & $r$ & $r^2$\\
+\hline $sr$ & $sr$ & $sr^2$ & $s$ & $r^2$ & $e$ & $r$\\
+\hline $sr^2$ & $sr^2$ & $s$ & $sr$ & $r$ & $r^2$ & $e$ 
+\end{tabu}
+%table for V_4
+\hspace{1cm}
 \begin{tabu}{c|[2pt]c|c|c|c}
 $*$ & $e$ & $v$ & $h$ & $vh$ \\ \tabucline[2pt]{-}
 $e$ & $e$ & $v$ & $h$ & $vh$ \\
@@ -235,11 +247,13 @@ $e$ & $e$ & $v$ & $h$ & $vh$ \\
 \end{tabu}
 \end{center}
 
+Our convention will be that if $x$ appears in row $i$ and $y$ appears in column $j$, then row $i$ ``times" column $j$ will result in the element determined by $xy$, where as usual we follow our right to left convention.  That is, $xy$ means we apply $y$ first and then $x$ (as in function composition).
+
 \begin{exercise}
-Verify that $V_4$ is an abelian group.  What feature of the group table makes this clear?
+Verify that $V_4$ is an abelian group.  What feature of the table makes this clear?
 \end{exercise}
 
-Notice that above I said, ``a group table for $V_4$" and not ``the group table."  The reason for this is that if we chose a different order of the elements (e.g., swap rows 1 and 4---which swaps columns 1 and 4, as well), then the table would look slightly different.  Also, if we had chosen a different generating set, then the names of the elements would look different.  Regardless, the table still captures the same information about the binary operation.
+Given an arbitrary group $G$, we should probably say, ``a group table for $G$" and not ``the group table for $G$."  The reason for this is that if we chose a different order of the elements (e.g., swap rows 1 and 4---which swaps columns 1 and 4, as well), then the table would look slightly different.  Also, if we had chosen a different generating set, then the names of the elements would look different.  Regardless, the table still captures the same information about the binary operation. Because every possible table for a given group conveys the same information about the architecture of the group, people may refer to any table for the group as ``the" table.
 
 \begin{exercise}
 Create group tables for the following groups: $S_2$, $R_3$, $R_4$, $D_3$, $S_3$, $D_4$, and $Q_8$.  Which groups are abelian?
