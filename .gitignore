@@ -26,3 +26,4 @@
 *.mtc
 *.mtc0
 *.pdf
+!IBL-AbstractAlgebra.pdf
