@@ -166,7 +166,7 @@ If we include the rest of the scrambled boards and all possible spins, we obtain
 
 \noindent In this case, the spins that correspond to the three arrow colors are the \textbf{generators} of $\Spin_{1\times 2}$.  What this means is that we can obtain all possible scramblings/unscramblings by using just these 3 spins.  Let $t_1$ be the spin that toggles position 1, $t_2$ be the spin that toggles position 2, and $s$ be the spin that rotates the full board.  
 
-In order to obtain the Cayley diagram for $\Spin_{1\times 2}$, we need to identify each scrambled board in Figure~\ref{fig:Cayley_Spin_1x2} with an action from the group.  The most natural choice is to identify the solved board with the do-nothing action, which we will denote by $e$.  As soon as we make this choice, we can just follow the arrows around the diagram to determine which actions correspond to which scrambled boards.  
+In order to obtain the Cayley diagram for $\Spin_{1\times 2}$ (with the generators we have in mind), we need to identify each scrambled board in Figure~\ref{fig:Cayley_Spin_1x2} with an action from the group.  The most natural choice is to identify the solved board with the do-nothing action, which we will denote by $e$.  As soon as we make this choice, we can just follow the arrows around the diagram to determine which actions correspond to which scrambled boards.  
 
 For example, consider the following scrambled board.
 \begin{center}
@@ -197,7 +197,7 @@ Using Figure~\ref{fig:Cayley_Spin_1x2}, find three distinct words in $t_1, t_2$,
 \end{exercise}
 
 \begin{exercise}\label{exer:Cayley_Spin_1x2}
-Label each of the remaining boards from Figure~\ref{fig:Cayley_Spin_1x2} with at least one appropriate word using $t_1, t_2$, and $s$.  The diagram in Figure~\ref{fig:Cayley_Spin_1x2} together with your labels is the Cayley diagram for $\Spin_{1\times 2}$.
+Label each of the remaining boards from Figure~\ref{fig:Cayley_Spin_1x2} with at least one appropriate word using $t_1, t_2$, and $s$.  The diagram in Figure~\ref{fig:Cayley_Spin_1x2} together with your labels is the Cayley diagram for $\Spin_{1\times 2}$ with generating set $\{t_1,t_2,s\}$.
 \end{exercise}
 
 It is important to point out that each word that corresponds to a given scrambled board tells you how to reach that scrambled board from the solved board (which is labeled by $e$, the do-nothing action).
@@ -207,7 +207,7 @@ Given a word that corresponds to a scrambled board in Figure~\ref{fig:Cayley_Spi
 \end{exercise}
 
 \begin{exercise}
-Consider the Cayley diagram for $\Spin_{1\times 2}$, but remove all the red arrows.  This corresponds to forbidding the spin that rotates the full $1\times 2$ board.  Can we obtain all of the scrambled boards from the solved board using only blue and green arrows?
+Consider the Cayley diagram for $\Spin_{1\times 2}$ in Figure~\ref{fig:Cayley_Spin_1x2}, but remove all the red arrows.  This corresponds to forbidding the spin that rotates the full $1\times 2$ board.  Can we obtain all of the scrambled boards from the solved board using only blue and green arrows?
 \end{exercise}
 
 \begin{exercise}\label{exer:minimal_Cayley_Spin1by2}
@@ -224,7 +224,7 @@ We need a way to tell our arrow types apart.  One way to do this is to color the
 
 Remember that in any group there is always a do-nothing action and one of the vertices should be labeled by this action.  From this point forward, unless someone says otherwise, let's use $e$ to denote our do-nothing action for a group.  Each vertex is labeled with a word that corresponds to the sequence of arrows that we can follow from the do-nothing action to the particular vertex.  Since there are possibly many sequences of arrows that could take us from the do-nothing vertex to another, each vertex could be labeled with many different words.
 
-In the Cayley diagram for $\Spin_{1\times 2}$, our vertices were fancy pictures of scrambled $1\times 2$ Spinpossible boards.  This wasn't necessary, but is convenient and appealing for aesthetic reasons.  After labeling the solved board with the do-nothing action, $e$, in Exercise~\ref{exer:Cayley_Spin_1x2} you labeled each remaining vertex of the diagram with a word that corresponds to a sequence of arrows from the solved board to the vertex in question.
+In our Cayley diagram for $\Spin_{1\times 2}$, our vertices were fancy pictures of scrambled $1\times 2$ Spinpossible boards.  This wasn't necessary, but is convenient and appealing for aesthetic reasons.  After labeling the solved board with the do-nothing action, $e$, in Exercise~\ref{exer:Cayley_Spin_1x2} you labeled each remaining vertex of the diagram with a word that corresponds to a sequence of arrows from the solved board to the vertex in question.
 
 The next two exercises may be too abstract for you at the moment.  Give them a shot and if you can't do them now, come back to them after you've constructed a few Cayley diagrams.
 
@@ -249,7 +249,7 @@ Consider the group consisting of the actions that rearranges two coins (but we w
 \end{exercise}
 
 \begin{exercise}\label{exer:introducing_R4}
-Consider a square puzzle piece that fits perfectly into a square hole.  Let $R_4$ be the group of actions consisting of rotating the square by an appropriate amount so that it fits back into the hole.
+Consider a square puzzle piece that fits perfectly into a square hole.  Let $R_4$ be the group of actions consisting of rotating the square by an appropriate amount so that it fits back into the hole. 
 \begin{enumerate}[label=\rm{(\alph*)}]
 \item Write down all possible actions using verbal descriptions.  Are there lots of ways to describe each of your actions?
 \item Let $r$ be the action that rotates the puzzle piece by $90^\circ$ clockwise.  Does $r$ generate $R_4$?  If so, write down all of the actions of $R_4$ as words in $r$.
@@ -257,6 +257,8 @@ Consider a square puzzle piece that fits perfectly into a square hole.  Let $R_4
 \item Draw the Cayley diagram for $R_4$ using $r$ as the generator.  Be sure to label the vertices and arrows.  Are your arrows one-way or two-way arrows?
 \end{enumerate}
 \end{exercise}
+
+We will refer to $R_4$ as the group of rotational symmetries of a square.  In general, $R_n$ is the group of rotational symmetries of a regular $n$-gon.
 
 \begin{exercise}\label{exer:introducing_D3}
 Consider a puzzle piece like the one in the previous exercise, except this time, let's assume that the piece and the hole are an equilateral triangle.  Let $D_3$ be the group of actions that allow the triangle to fit back in the hole.  In addition to rotations, we will also allow the triangle to be flipped over.  To give us a common starting point, let's assume the triangle and hole are positioned so that one of the tips of the triangle is pointed up.  Also, let's label both the points of the hole and the points of the triangle with the numbers 1, 2, and 3.  Assume the labeling on the hole starts with 1 on top and then continues around in the obvious way going clockwise.  Label the puzzle piece in the same way and let's assume that the triangle starts in the position that has the labels matching (i.e., the point of the triangle labeled 1 is in the corner of the hole labeled 1, etc.).
@@ -274,6 +276,8 @@ Consider a puzzle piece like the one in the previous exercise, except this time,
 \begin{exercise}\label{exer:introducing_D4}
 Repeat the above exercise, but do it for a square instead of a triangle.  You'll need to make some modifications to $r$ and $s$.  The resulting group is called $D_4$.
 \end{exercise}
+
+The groups $D_3$ and $D_4$ are the group of symmetries (rotations and reflections) of an equilateral triangle and a square, respectively.  In general, $D_n$ is the group of symmetries of a regular $n$-gon and is referred to as the \textbf{dihedral group} of order $2n$. In this case, the word ``order" simply means the number of actions in the group.  We will encounter a formal definition of order in Chapter~\ref{chapter:intro_subgroups_isomorphisms}. Why does $D_n$ consist of $2n$ actions?
 
 \begin{exercise}
 Consider the group from Exercise~\ref{exer:introducing_Z}.  Using ``add 1" (or simply 1) as the generator\footnote{Recall that Rule 2 guarantees that every action is reversible.  So, if we have ``add 1", we also have ``add $-1$."}, describe what the Cayley diagram for this group would look like.  Draw a chunk of the Cayley diagram.  Can you think of another generating set?  What will the Cayley diagram look like in this case?
