@@ -26,4 +26,5 @@
 *.mtc
 *.mtc0
 *.pdf
+.DS_Store
 !IBL-AbstractAlgebra.pdf
