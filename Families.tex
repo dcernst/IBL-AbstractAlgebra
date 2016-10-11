@@ -50,6 +50,10 @@ Find the orders of each of the elements in each of the following groups.
 Consider the group $(\mathbb{Z},+)$.  What is the order of 1?  Are there any elements in $\mathbb{Z}$ with finite order?
 \end{exercise}
 
+\begin{theorem}
+Suppose $(G,*)$ is a group and let $a\in G$. Then $\langle a\rangle=\langle a^{-1}\rangle$. In particular, $|a|=|a^{-1}|$.
+\end{theorem}
+
 \begin{exercise}
 Consider the group of invertible $2\times 2$ matrices with real number entries under the operation of matrix multiplication.  This group is denoted $\mathrm{GL}_2(\mathbb{R})$.  Find the order of each of the following elements in this group.
 \begin{multicols}{3}
@@ -128,10 +132,6 @@ Provide an example of an infinite group that is abelian but not cyclic.
 \end{exercise}
 
 \begin{theorem}
-Suppose $(G,*)$ is a group and let $a\in G$. Then $\langle a\rangle=\langle a^{-1}\rangle$. In particular, $|a|=|a^{-1}|$.
-\end{theorem}
-
-\begin{theorem}
 Suppose $(G,*)$ is a cyclic group such that $G$ has exactly one element that generates all of $G$.  Then the order of $G$ is at most order 2.   
 \end{theorem}
 
@@ -150,7 +150,7 @@ For all $n\geq 3$, $R_n$ is cyclic.
 \end{theorem}
 
 \begin{theorem}\label{thm:finite_cyclic_groups}
-Suppose $(G,*)$ is a finite cyclic group of order $n\geq 2$.  Then $G$ is isomorphic to $R_n$ if $n\geq 3$ and $S_2$ if $n=2$.
+Suppose $(G,*)$ is a finite cyclic group of order $n\geq 1$.  Then $G$ is isomorphic to $R_n$ if $n\geq 3$, $S_2$ if $n=2$, and the trivial group if $n=1$.
 \end{theorem}
 
 The upshot of Theorems~\ref{thm:infinite_cyclic_groups} and \ref{thm:finite_cyclic_groups} is that up to isomorphism, we know exactly what all of the cyclic groups are.
@@ -219,7 +219,7 @@ For all $n$, $U(n)$ is abelian.
 The upshot of the next theorem is that $\mathbb{Z}_n$ is just the set of (smallest nonnegative) exponents on $r$ in $R_n$.
 
 \begin{theorem}\label{thm:Zn_iso_to_Rn}
-For $n\geq 3$, $\mathbb{Z}_n\cong R_n$. Moreover, $\mathbb{Z}_2\cong S_2$.
+For $n\geq 3$, $\mathbb{Z}_n\cong R_n$. Moreover, $\mathbb{Z}_2\cong S_2$ and $\mathbb{Z}_1$ is isomorphic to the trivial group.
 \end{theorem}
 
 One consequence of the previous theorem is that $\mathbb{Z}_n$ is always cyclic. Combining the results of Theorems~\ref{thm:finite_cyclic_groups} and \ref{thm:infinite_cyclic_groups} together with Theorem~\ref{thm:Zn_iso_to_Rn}, we immediately obtain the following.
