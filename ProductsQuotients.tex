@@ -231,24 +231,19 @@ $1$ & \cellcolor{green}$1$ & \cellcolor{green}$-1$ & \cellcolor{blue}$i$ & \cell
 \end{tabu}
 \end{center}
 
-%$1$ & \cellcolor{green}$1$ & \cellcolor{green}$-1$ & \cellcolor{blue}$i$ & \cellcolor{blue}$-i$ & \cellcolor{red}$j$ & \cellcolor{red}$-j$ & \cellcolor{purple}$k$ & \cellcolor{purple}$-k$\\
-%\hline $-1$ & \cellcolor{green}$-1$ & \cellcolor{green}$1$ & \cellcolor{blue}$-i$ & \cellcolor{blue}$i$ & \cellcolor{red}$-j$ & \cellcolor{red}$j$ & \cellcolor{purple}$-k$ & \cellcolor{purple}$k$ \\
-%\hline $i$ & \cellcolor{blue}$i$ & \cellcolor{blue}$-i$ & \cellcolor{green}$-1$ & \cellcolor{green}$1$ & \cellcolor{purple}$k$ & \cellcolor{purple}$-k$ & \cellcolor{red}$-j$ & \cellcolor{red} $j$\\
-%\hline $-i$ & \cellcolor{blue}$i$ & \cellcolor{blue}$-i$ & \cellcolor{green}$1$ & \cellcolor{green}$-1$ & \cellcolor{purple}$-k$ & \cellcolor{purple}$k$ & \cellcolor{red}$j$ & \cellcolor{red}$-j$\\
-%\hline $j$ & \cellcolor{red}$j$ & \cellcolor{red}$-j$ & \cellcolor{purple}$-k$ & \cellcolor{purple}$k$ & \cellcolor{green}$-1$ & \cellcolor{green}$1$ & \cellcolor{blue}$i$ & \cellcolor{blue}$-i$\\
-%\hline $-j$ & \cellcolor{red}$-j$ & \cellcolor{red}$j$ & \cellcolor{purple}$k$ & \cellcolor{purple}$-k$ & \cellcolor{green}$1$ & \cellcolor{green}$-1$ & \cellcolor{blue}$-i$ & \cellcolor{blue}$i$\\
-%\hline $k$ & \cellcolor{purple}$k$ & \cellcolor{purple}$-k$ & \cellcolor{red}$j$ & \cellcolor{red}$-j$ & \cellcolor{blue}$-i$ & \cellcolor{blue}$i$ & \cellcolor{green}$-1$ & \cellcolor{green}$1$\\
-%\hline $-k$ & \cellcolor{purple}$-k$ & \cellcolor{purple}$k$ & \cellcolor{red}$-j$ & \cellcolor{red}$j$ & \cellcolor{blue}$i$ & \cellcolor{blue}$-i$ & \cellcolor{green}$1$ & \cellcolor{green}$-1$
-%\end{tabu}
-%\end{center}
 If we consider the $2\times 2$ blocks as elements, it appears that we have a group table for a group with 4 elements.  Closer inspection reveals that this looks like the table for $V_4$.  If the table of $2\times 2$ blocks is going to represent a group, we need to understand the binary operation.  How do we ``multiply" cosets?  For example, the table suggest that the coset $jK$ (colored in \textcolor{red}{red}) times the coset $iK$ (colored in \textcolor{blue}{blue}) is equal to $kK$ (colored in \textcolor{purple}{purple}) despite the fact that $ji=-k\neq k$.  Yet, it is true that the product $ji=-k$ is an element in the coset $kK$.  In fact, if we look closely at the table, we see that if we pick any two cosets, the product of any element of the first coset times any element of the second coset will always result in an element in the same coset regardless of which representatives we chose.
 
 In other words, it looks like we can multiply cosets by choosing any representative from each coset and then seeing what coset the product of the representatives lies in.  However, it is important to point out that this will only work if we have a checkerboard pattern of cosets, which we have seen evidence of only happening when the corresponding subgroup is normal.
 
-Before continuing, let's continue tinkering with the same example.  Consider the Cayley diagram for $Q_8$ with generators $\{i,j,-1\}$ that is given in Figure~\ref{fig:Q8_repeat}.
+Before continuing, let's continue tinkering with the same example.  Consider the Cayley diagram for $Q_8$ with generators $\{i,j,-1\}$ that is given in Figure~\ref{fig:Q8QuotientA}.
+
+\tikzstyle{2b} = [draw,very thick,blue,stealth-stealth]
+\tikzstyle{2r} = [draw, very thick, red,stealth-stealth]
+\tikzstyle{greenvert} = [circle, draw, fill=green,inner sep=0pt, minimum size=6.5mm]
 
 \begin{figure}[!ht]
 \centering
+\subcaptionbox{\label{fig:Q8QuotientA}}[.45\textwidth]{
 \begin{tikzpicture}[scale=1.5,auto]
 \node (1) at (135:2) [vert] {{\scriptsize $1$}};
 \node (i) at (45:2) [vert] {\scriptsize {$i$}};
@@ -258,68 +253,115 @@ Before continuing, let's continue tinkering with the same example.  Consider the
 \node (-i) at (45:1) [vert] {{\scriptsize $-i$}};
 \node (-k) at (-45:1) [vert] {{\scriptsize $-k$}};
 \node (-j) at (-135:1) [vert] {{\scriptsize $-j$}};
-
 \path[b] (1) to (i);
 \path[b] (i) to (-1);
 \path[b] (-1) to (-i);
 \path[b] (-i) to (1);
-
 \path[b] (-j) to (-k);
 \path[b] (-k) to (j);
 \path[b] (j) to (k);
 \path[b] (k) to (-j);
-
 \path[r] (-k) to (-i);
 \path[r] (-i) to (k);
 \path[r] (k) to (i);
 \path[r] (i) to (-k);
-
 \path[r] (1) to (j);
 \path[r] (j) to (-1);
 \path[r] (-1) to (-j);
 \path[r] (-j) to (1);
-
 \path[g] (1) to (-1);
 \path[g] (j) to (-j);
 \path[g] (i) to (-i);
 \path[g] (k) to (-k);
-
-\end{tikzpicture}
-\caption{Cayley diagram for $Q_8$ with generating set $\{i,j,-1\}$.}
-\label{fig:Q8_repeat}
-\end{figure}
-We can visualize the left cosets of $K$ as the clumps of vertices connected together with the two-way green arrows.  In this case, we are also seeing the right cosets since $K$ is normal in $Q_8$.  If we collapse the cosets onto each other and collapse the corresponding arrows, we obtain the diagram given in Figure~\ref{fig:Q8_quotient}. It is clear that this diagram is the Cayley diagram for a group that is isomorphic to $V_4$.  For reasons we will understand shortly, this processing of collapsing a Cayley diagram according to the cosets of a normal subgroup is called the ``quotient process."
-
-\tikzstyle{2b} = [draw,very thick,blue,stealth-stealth]
-\tikzstyle{2r} = [draw, very thick, red,stealth-stealth]
-
-\begin{figure}[!ht]
-\centering
+\end{tikzpicture}}
+\subcaptionbox{\label{fig:Q8QuotientB}}[.45\textwidth]{
 \begin{tikzpicture}[scale=1.5,auto]
-\node (K) at (135:1.5) [vert] {{\scriptsize $K$}};
-\node (iK) at (45:1.5) [vert] {\scriptsize {$iK$}};
-\node (kK) at (-45:1.5) [vert] {{\scriptsize $kK$}};
-\node (jK) at (-135:1.5) [vert] {{\scriptsize $jK$}};
+\node (K) at (135:1.5) [greenvert] {{\scriptsize $K$}};
+\node (iK) at (45:1.5) [greenvert] {\scriptsize {$iK$}};
+\node (kK) at (-45:1.5) [greenvert] {{\scriptsize $kK$}};
+\node (jK) at (-135:1.5) [greenvert] {{\scriptsize $jK$}};
 \path[2b] (K) to (iK);
 \path[2r] (iK) to (kK);
 \path[2b] (kK) to (jK);
 \path[2r] (jK) to (K);
-\end{tikzpicture}
-\caption{The collapsed Cayley diagram for $Q_8$ according to the cosets of $K=\langle -1\rangle$.}
-\label{fig:Q8_quotient}
+\end{tikzpicture}}
+\caption{The left subfigure shows the Cayley diagram for $Q_8$ with generating set $\{i,j,-1\}$. The right subfigure shows the collapsed Cayley diagram for $Q_8$ according to the left cosets of $K=\langle -1\rangle$.}
+\label{fig:Q8Repeat}
 \end{figure}
+
+We can visualize the right cosets of $K$ as the clumps of vertices connected together with the two-way green arrows.  In this case, we are also seeing the left cosets since $K$ is normal in $Q_8$.  If we collapse the cosets onto each other and collapse the corresponding arrows, we obtain the diagram given in Figure~\ref{fig:Q8QuotientB}. It is clear that this diagram is the Cayley diagram for a group that is isomorphic to $V_4$.  For reasons we will understand shortly, this processing of collapsing a Cayley diagram according to the cosets of a normal subgroup is called the ``quotient process."
 
 \begin{exercise}\label{exer:bad_quotient}
 Let's see what happens if we attempt the quotient process for a subgroup that is not normal.  Consider $H=\langle s\rangle \leq D_3$.  In Exercise~\ref{exer:left_cosets_D3}, we discovered that the left cosets of $H$ are not the same as the right cosets of $H$.  This implies that $H$ is not normal in $D_3$.  Consider the standard Cayley diagram for $D_3$ that uses the generators $r$ and $s$.  Draw the diagram that results from attempting the quotient process on $D_3$ using the subgroup $H$.  Explain why this diagram cannot be the diagram for a group.
 \end{exercise}
 
-The problem that arises in Exercise~\ref{exer:bad_quotient} is that if the same arrow types (i.e., those representing the same generator) leaving a coset do not point at elements in the same coset, attempting the quotient process will result in a diagram that violates Rule 3 (every action is deterministic) of Definition~\ref{def:informal_group}.  In Figure~\ref{fig:quotient_process}, we illustrate what goes wrong if all the arrows out of a coset do not unanimously point to the same coset.  In the second subfigure, all the arrows point to the same coset, and in this case, it appears that everything works out just fine.
+The problem that arises in Exercise~\ref{exer:bad_quotient} is that if the same arrow types (i.e., those representing the same generator) leaving a coset do not point at elements in the same coset, attempting the quotient process will result in a diagram that violates Rule 3 (every action is deterministic) of Definition~\ref{def:informal_group}.  In Figure~\ref{fig:QuotientProcessBad}, we illustrate what goes wrong if all the arrows for a generator pointing out of a coset do not unanimously point to elements in the same coset.  In Figure~\ref{fig:QuotientProcessGood}, all the arrows point to elements in the same coset, and in this case, it appears that everything works out just fine.
 
+%figure adapted from Matt Macauley.
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=5in]{QuotientProcess.png}
-\caption{The quotient process.}
-\label{fig:quotient_process}
+\subcaptionbox{\label{fig:QuotientProcessBad}}[.45\textwidth]{
+\begin{tabular}{ccc}
+\makecell{\begin{tikzpicture}[scale=1,shorten >= -3pt, shorten <= -3pt]
+\draw (0,0) circle (.65); 
+\draw (2,0) circle (.65);
+\draw (1,1.8) circle (.65);
+\node at (0,-.15) {\scriptsize $g_2H$};
+\node at (2,-.15) {\scriptsize $g_3H$};
+\node at (1,1.9) {\scriptsize $g_1H$};
+\node (a1) at (.75,1.6) {\tiny $\bullet$};
+\node (b1) at (.9,1.5) {\tiny $\bullet$};
+\node (c1) at (1.1,1.5) {\tiny $\bullet$};
+\node (d1) at (1.25,1.6) {\tiny $\bullet$};
+\node (a2) at (-.1,.2) {\tiny $\bullet$};
+\node (b2) at (.2,.1) {\tiny $\bullet$};
+\node (c3) at (1.8,.1) {\tiny $\bullet$};
+\node (d3) at (2.1,.2) {\tiny $\bullet$};
+\draw[b] (a1) to [bend right=10] (a2);
+\draw[b] (b1) to [bend right=5] (b2);
+\draw[b] (c1) to [bend left=5] (c3);
+\draw[b] (d1) to [bend left=10] (d3);
+\end{tikzpicture}} & \makecell{$\longrightarrow$} &
+\makecell{
+\begin{tikzpicture}[scale=1]
+\node (g1H) at (.8,1.5) [vert] {\scriptsize $g_1H$};
+\node (g2H) at (0,0) [vert] {\scriptsize $g_2H$};
+\node (g3H) at (1.6,0) [vert] {\scriptsize $g_3H$};
+\draw[b] (g1H) to [bend right=5] (g2H);
+\draw[b] (g1H) to [bend left=5] (g3H);
+\end{tikzpicture}}
+\end{tabular}
+}
+\subcaptionbox{\label{fig:QuotientProcessGood}}[.45\textwidth]{
+\begin{tabular}{ccc}
+\makecell{\begin{tikzpicture}[scale=1,,shorten >= -2pt, shorten <= -2pt]
+\draw (1,0) circle (.65);
+\draw (1,1.8) circle (.65);
+\node at (1,-.2) {\scriptsize $g_2H$};
+\node at (1,1.9) {\scriptsize $g_1H$};
+\node (a1) at (.65,1.6) {\tiny $\bullet$};
+\node (b1) at (.9,1.5) {\tiny $\bullet$};
+\node (c1) at (1.1,1.5) {\tiny $\bullet$};
+\node (d1) at (1.35,1.6) {\tiny $\bullet$};
+\node (a2) at (.65,0) {\tiny $\bullet$};
+\node (b2) at (.9,.2) {\tiny $\bullet$};
+\node (c2) at (1.1,.2) {\tiny $\bullet$};
+\node (d2) at (1.35,0) {\tiny $\bullet$};
+\draw[b] (a1) to [bend right=5] (a2);
+\draw[b] (b1) to [bend right=5] (b2);
+\draw[b] (c1) to [bend left=5] (c2);
+\draw[b] (d1) to [bend left=5] (d2);
+\end{tikzpicture}} & \makecell{$\longrightarrow$} &
+\makecell{
+\begin{tikzpicture}[scale=1]
+\node (g1H) at (0,1.5) [vert] {\scriptsize $g_1H$};
+\node (g2H) at (0,0) [vert] {\scriptsize $g_2H$};
+\draw[b] (g1H) to (g2H);
+\end{tikzpicture}}
+\end{tabular}
+}
+\caption{In the left subfigure, blue arrows go from elements of the left coset $g_1H$ to elements of \emph{multiple} left cosets, which results in ambiguous blue arrows in the collapsed diagram. This violates Rule 3 (every action is deterministic). In the right subfigure, blue arrows go from elements of the left coset $g_1H$ to elements inside a \emph{unique} left coset, which does not result in any ambiguity.}
+\label{fig:QuotientProcess}
 \end{figure}
 
 \begin{exercise}
