@@ -28,7 +28,7 @@ Before continuing, gather up the following Cayley diagrams:
 \item $\Spin_{1\times 2}$. There are 3 of these.  I drew one for you in Chapter~\ref{chapter:cayley_diagrams} and you discovered two more in Exercise~\ref{exer:minimal_Cayley_Spin1by2}.
 \item $S_2$.  See Exercise~\ref{exer:introducing_S2}.
 \item $R_4$.  See Exercise~\ref{exer:introducing_R4}.
-\item $D_3$.  There are two of these.  See exercises \ref{exer:introducing_D3} and \ref{exer:alternate_D3}.
+\item $D_3$.  There are two of these.  See Exercises \ref{exer:introducing_D3} and \ref{exer:alternate_D3}.
 \item $D_4$.  See Exercise~\ref{exer:introducing_D4}.
 \end{itemize}
 
@@ -36,7 +36,7 @@ Before continuing, gather up the following Cayley diagrams:
 Examine your Cayley diagrams for $D_4$ and $R_4$ and make some observations.  How are they similar and how are they different?  Can you reconcile the similarities and differences by thinking about the actions of each group?
 \end{exercise}
 
-Hopefully, one of the things you noticed in the previous exercise is that we can ``see" $R_4$ inside of $D_4$ (and hopefully you didn't just read that before completing the exercise).  You may have used different colors in each case and maybe even labeled the vertices with different words, but the overall structure of $R_4$ is there nonetheless.
+Hopefully, one of the things you noticed in the previous exercise is that we can ``see" $R_4$ inside of $D_4$.  You may have used different colors in each case and maybe even labeled the vertices with different words, but the overall structure of $R_4$ is there nonetheless.
 
 \begin{exercise}\label{exer:R4_subgroup_D_4}
 If you just pay attention to the configuration of arrows, it appears that there are two copies of the Cayley diagram for $R_4$ in the Cayley diagram for $D_4$.  Isolate these two copies by ignoring the edges that correspond to the generator $s$.  Paying close attention to the words that label the vertices from the original Cayley diagram for $D_4$, are either of these groups in their own right?
@@ -48,9 +48,9 @@ Recall that the do-nothing action must always be one of the actions included in 
 Let $G$ be a group of actions and let $H\subseteq G$.  We say that $H$ is a \textbf{subgroup} if and only if $H$ is a group in its own right.  In this case, we write $H\leq G$.
 \end{intuitivedef}
 
-In light of Exercise~\ref{exer:R4_subgroup_D_4}, we would write $R_4\leq D_4$.  The second sub-diagram of $D_4$ that resembles $R_4$ cannot be a subgroup because it does not contain the do-nothing action.  However, since it looks a lot like $R_4$, we call it a \textbf{clone} of $R_4$. For convenience, we may also say that a subgroup is a clone of itself.
+In light of Exercise~\ref{exer:R4_subgroup_D_4}, we would write $R_4\leq D_4$.  The second sub-diagram of the Cayley diagram for $D_4$ (using $\{r,s\}$ as the generating set) that resembles $R_4$ cannot be a subgroup because it does not contain the do-nothing action.  However, since it looks a lot like $R_4$, we call it a \textbf{clone} of $R_4$. For convenience, we also say that a subgroup is a clone of itself.
 
-The next theorem\footnote{Perhaps we should call this an ``Intuitive Theorem" since we are using an intuitive definition of a group.} tells us that if we already have a subset of a group, we only need to check two of our rules instead of four.
+In the next exercise, you'll discover that if we already have a subset of a group, we only need to check two of our rules instead of four.
 
 \begin{exercise}\label{exer:informal_subgroup_criterion}
 Let $G$ be a group of actions and let $H\subseteq G$. If we wanted to determine whether $H$ is a subgroup of $G$ or not, can we skip checking any of the four rules? Which rules must we verify?
@@ -59,7 +59,7 @@ Let $G$ be a group of actions and let $H\subseteq G$. If we wanted to determine 
 There are a couple subgroups that every group has.
 
 \begin{theorem}\label{thm:trivial_subgroup}
-Let $G$ be a group of actions and suppose that $e$ is the do-nothing action.  Then $\{e\}\leq G$.
+If $G$ is a group of actions such that $e$ is the do-nothing action, then $\{e\}\leq G$.
 \end{theorem}
 
 \begin{exercise}
@@ -69,10 +69,10 @@ Let $G$ be a group and suppose that $e$ is the do-nothing action.  What does the
 Earlier, we referred to subgroups as being ``smaller."  However, our definition does not imply that this has to be the case.
 
 \begin{theorem}\label{thm:improper_subgroup}
-Let $G$ be a group of actions.  Then $G\leq G$.
+If $G$ is a group of actions, then $G\leq G$.
 \end{theorem}
 
-We refer to subgroups that are strictly smaller than the whole group as \textbf{proper subgroups}.
+We refer to subgroups that are not equal to the whole group as \textbf{proper subgroups}.
 
 Lots of groups have been given formal names (e.g., $D_4$, $R_4$, etc.).  However, not every group or subgroup has a name.  In this case, it's useful to have notation to refer to specific subgroups.
 
@@ -80,7 +80,7 @@ Lots of groups have been given formal names (e.g., $D_4$, $R_4$, etc.).  However
 Let $G$ be a group of actions and let $g_1,\ldots, g_n$ be distinct actions from $G$.  We define $\langle g_1,\ldots, g_n\rangle$ to be the smallest subgroup containing $g_1,\ldots, g_n$.  In this case, we call $\langle g_1,\ldots, g_n\rangle$ the \textbf{subgroup generated by} $g_1,\ldots, g_n$.
 \end{definition}
 
-For example, consider $r, s, s'\in D_3$ (as defined in exercises~\ref{exer:introducing_D3} and \ref{exer:alternate_D3}).  Then $\langle r,s\rangle=\langle s, s'\rangle=D_3$.  Recall that $R_4$ is the subgroup of $D_4$ consisting of rotations of the square.  Similarly, the group of rotations of an equilateral triangle is called $R_3$.  Then using the $r$ from $D_3$, we have $\langle r\rangle = R_3$, which is a subgroup of $D_3$.
+For example, consider $r, s, s'\in D_3$ as defined in Exercises~\ref{exer:introducing_D3} and \ref{exer:alternate_D3}.  Then $D_3\langle r,s\rangle=\langle s, s'\rangle$.  Recall that $R_4$ is the subgroup of $D_4$ consisting of rotational symmetries of the square. In this case, $R_4=\langle r\rangle$.  Similarly, the group of rotations of an equilateral triangle is called $R_3$.  Then using the $r$ from $D_3$, we have $R_3=\langle r\rangle$, which is a subgroup of $D_3$.
 
 Note that in Definition~\ref{def:subgroup_gen_by}, we used a finite number of generators.  There's no reason we have to do this.  That is, we can consider groups/subgroups generated by infinitely many elements.
 
@@ -95,12 +95,12 @@ Suppose $\{g_1,\ldots,g_n\}$ is a generating set for a group $G$.
 \begin{exercise}
 Consider $\Spin_{1\times 2}$.  
 \begin{enumerate}[label=\rm{(\alph*)}]
-\item Can you find the Cayley diagram for $\langle t_1\rangle$ as a subgroup of $\Spin_{1\times 2}$?
-\item Write down all the actions of the subgroup $\langle t_1, t_2\rangle$. Write them as words in $t_1$ and $t_2$.  Can you find the Cayley diagram for $\langle t_1, t_2\rangle$ as a subgroup of $\Spin_{1\times 2}$?  Can you find a clone for $\langle t_1, t_2\rangle$?
+\item Can you find the Cayley diagram for $\langle t_1\rangle$ inside the Cayley diagram for $\Spin_{1\times 2}$ that we previously constructed?
+\item Write down all the actions of the subgroup $\langle t_1, t_2\rangle$ by writing them as words in $t_1$ and $t_2$.  Can you find the Cayley diagram for $\langle t_1, t_2\rangle$ as a subgroup of $\Spin_{1\times 2}$?  Can you find a clone for $\langle t_1, t_2\rangle$ that is not the subgroup itself?
 \end{enumerate}
 \end{exercise}
 
-One of the benefits of Cayley diagrams is that they are useful for visualizing subgroups.  However, recall that if we change our set of generators, we might get a very different looking Cayley diagram.  The upshot of this is that we may be able to see a subgroup in one Cayley diagram for a given group, but not be able to see it in a Cayley diagram with a different set of arrows.
+One of the benefits of Cayley diagrams is that they are useful for visualizing subgroups.  However, recall that if we change our set of generators, we might get a very different looking Cayley diagram.  The upshot of this is that we may be able to see a subgroup in one Cayley diagram for a given group, but not be able to see it in the Cayley diagram arising from a different generating set.
 
 \begin{exercise}
 We currently have two different Cayley diagrams for $D_3$ (see Exercises \ref{exer:introducing_D3} and \ref{exer:alternate_D3}).  
@@ -124,10 +124,10 @@ Consider $D_4$.  Let $h$ be the action that reflects (i.e., flips over) the squa
 The subgroup in Exercise~\ref{exer:subgroups_D4}\ref{V4} is often referred to as the \textbf{Klein four-group} and is denoted by $V_4$.
 
 \begin{exercise}\label{exer:V4}
-Draw the Cayley diagram for $V_4$ using $\{v,h\}$ as our set of generators.
+Draw the Cayley diagram for $V_4$ using $\{v,h\}$ as the generating set.
 \end{exercise}
 
-Let's introduce a group we haven't seen yet.  We define the \textbf{quaternion group} to be the group $Q_8=\{1,-1,i,-i,j,-j,k,-k\}$ having the Cayley diagram with generators $i, j, -1$ given in Figure~\ref{fig:Q8}.  In this case, 1 is the do-nothing action.
+Let's introduce a group we haven't seen yet.  Define the \textbf{quaternion group} to be the group $Q_8=\{1,-1,i,-i,j,-j,k,-k\}$ having the Cayley diagram with generating set $\{i, j, -1\}$ given in Figure~\ref{fig:Q8}.  In this case, 1 is the do-nothing action.
 
 \tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=6.5mm]
 \tikzstyle{b} = [draw,very thick,blue,-stealth]
