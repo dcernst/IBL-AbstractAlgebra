@@ -6,21 +6,21 @@
 
 In this section, we will discuss a method for using existing groups as building blocks to form new groups.
 
-Suppose $(G,*)$ and $(H,\circ)$ are two groups.  Recall that the Cartesian product of $G$ and $H$ is defined to be
+Suppose $(G,*)$ and $(H,\odot)$ are two groups.  Recall that the Cartesian product of $G$ and $H$ is defined to be
 \[
 G\times H=\{(g,h):g\in G,h\in H\}
 \]
 For more information on Cartesian products, see Definition~\ref{def:cartesian_product}.  Using the binary operations for the groups $G$ and $H$, we can define a binary operation on the set $G\times H$.  Define $\star$ on $G\times H$ via
 \[
-(g_1,h_1)\star(g_2,h_2)=(g_1*g_2,h_1\circ h_2).
+(g_1,h_1)\star(g_2,h_2)=(g_1*g_2,h_1\odot h_2).
 \]
 This looks fancier than it is.  We're just doing the operation of each group in the appropriate component.  It turns out that $(G\times H,\star)$ is a group.
 
 \begin{theorem}
-Suppose $(G,*)$ and $(H,\circ)$ are two groups, where $e$ and $e'$ are the identity elements of $G$ and $H$, respectively.   Then $(G\times H,\star)$ is a group, where $\star$ is defined as above.  Moreover, $(e,e')$ is the identity of $G\times H$ and the inverse of $(g,h)\in G\times H$ is given by $(g,h)^{-1}=(g^{-1},h^{-1})$.
+Suppose $(G,*)$ and $(H,\odot)$ are two groups, where $e$ and $e'$ are the identity elements of $G$ and $H$, respectively.   Then $(G\times H,\star)$ is a group, where $\star$ is defined as above.  Moreover, $(e,e')$ is the identity of $G\times H$ and the inverse of $(g,h)\in G\times H$ is given by $(g,h)^{-1}=(g^{-1},h^{-1})$.
 \end{theorem}
 
-We refer to $G\times H$ as the \textbf{direct product} of the groups $G$ and $H$.  Note that we abbreviate $(g_1,h_1)\star(g_2,h_2)=(g_1*g_2,h_1\circ h_2)$ by $(g_1,h_1)(g_2,h_2)=(g_1 g_2,h_1 h_2)$.
+We refer to $G\times H$ as the \textbf{direct product} of the groups $G$ and $H$.  Note that we abbreviate $(g_1,h_1)\star(g_2,h_2)=(g_1*g_2,h_1\odot h_2)$ by $(g_1,h_1)(g_2,h_2)=(g_1 g_2,h_1 h_2)$.
 
 There's no reason we can't do this for more than two groups.  If $A_1, A_2, \ldots, A_n$ is a collection of sets, we define
 \[

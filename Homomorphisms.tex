@@ -12,9 +12,9 @@ Let $G_1$ and $G_2$ be groups. Recall that $\phi:G_1\to G_2$ is an isomorphism i
 We say that $G_1$ is isomorphic to $G_2$ and write $G_1\cong G_2$ if such a $\phi$ exists. Loosely speaking, two groups are isomorphic if they have the ``same structure."  What if we drop the one-to-one and onto requirement?
 
 \begin{definition}
-Let $(G_1,*)$ and $(G_2,\circ)$ be groups. A function $\phi:G_1\to G_2$ is a \textbf{homomorphism} iff $\phi$ satisfies the homomorphic property:
+Let $(G_1,*)$ and $(G_2,\odot)$ be groups. A function $\phi:G_1\to G_2$ is a \textbf{homomorphism} iff $\phi$ satisfies the homomorphic property:
 \[
-\phi(x*y)=\phi(x)\circ\phi(y)
+\phi(x*y)=\phi(x)\odot\phi(y)
 \]
 for all $x,y\in G_1$. At the risk of introducing ambiguity, we will usually omit making explicit reference to the binary operations and write the homomorphic property as
 \[
@@ -24,9 +24,9 @@ for all $x,y\in G_1$. At the risk of introducing ambiguity, we will usually omit
 
 Group homomorphisms are analogous to linear transformations on vector spaces that one encounters in linear algebra.
 
-Figure~\ref{fig:isoGroupTables2} captures a visual representation of the homomorphic property.  We encountered this same representation in Figure~\ref{fig:isoGroupTables}. If $\phi(x)=x'$, $\phi(y)=y'$, and $\phi(z)=z'$ while $z'=x'\circ y'$, then the only way $G_2$ may respect the structure of $G_1$ is for
+Figure~\ref{fig:isoGroupTables2} captures a visual representation of the homomorphic property.  We encountered this same representation in Figure~\ref{fig:isoGroupTables}. If $\phi(x)=x'$, $\phi(y)=y'$, and $\phi(z)=z'$ while $z'=x'\odot y'$, then the only way $G_2$ may respect the structure of $G_1$ is for
 \[
-\phi(x*y)=\phi(z)=z'=x'\circ y'=\phi(x)\circ \phi(y).
+\phi(x*y)=\phi(z)=z'=x'\odot y'=\phi(x)\odot \phi(y).
 \]
 
 \begin{figure}
@@ -42,7 +42,7 @@ $*$                & & & & \cellcolor{green}$y$  & \\ \tabucline[2pt]{-}
 $\longrightarrow$
 \hspace{1cm}
 \begin{tabu}{c|[2pt]ccc|c|c}
-$\circ$                & & & & \cellcolor{green}$y'$  & \\ \tabucline[2pt]{-}
+$\odot$                & & & & \cellcolor{green}$y'$  & \\ \tabucline[2pt]{-}
                    & & & &                       & \\ \hline
 \cellcolor{red}$x'$ & & & & \cellcolor{orange}$z'$ & \\ \hline
                    & & & &                      & \\

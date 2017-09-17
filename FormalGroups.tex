@@ -322,7 +322,7 @@ Is it possible to color the group table for $R_4$ so that it matches the colorin
 \end{exercise}
 
 \begin{problem}\label{prob:iso_same_group_table}
-Let $(G,*)$ and $(G',\circ)$ be two finite groups.  Suppose we can arrange the rows and columns and color elements in such a way that the colorings for the two group tables agree.  Explain why this implies that the two groups are isomorphic.
+Let $(G,*)$ and $(G',\odot)$ be two finite groups.  Suppose we can arrange the rows and columns and color elements in such a way that the colorings for the two group tables agree.  Explain why this implies that the two groups are isomorphic.
 \end{problem}
 
 \begin{problem}
@@ -779,7 +779,7 @@ Suppose $(G,*)$ is a finite group and let $H\leq G$.  Can you describe a process
 
 \begin{section}{Revisiting Isomorphisms}
 
-Suppose $(G_1,*)$ and $(G_2,\circ)$ are two groups.  Recall that $G_1$ and $G_2$ are isomorphic, written $G_1\cong G_2$, provided that we can choose generating sets for $G_1$ and $G_2$, respectively, so that the Cayley diagrams for both groups are identical (ignoring the labels on the vertices).  When two groups are isomorphic, it means that they have identical structure up to relabeling the names of the elements of the group.
+Suppose $(G_1,*)$ and $(G_2,\odot)$ are two groups.  Recall that $G_1$ and $G_2$ are isomorphic, written $G_1\cong G_2$, provided that we can choose generating sets for $G_1$ and $G_2$, respectively, so that the Cayley diagrams for both groups are identical (ignoring the labels on the vertices).  When two groups are isomorphic, it means that they have identical structure up to relabeling the names of the elements of the group.
 
 One consequence of two groups being isomorphic is that there is a one-to-one correspondence between the elements of the group.  This correspondence is referred to as an isomorphism.  In other words, an isomorphism is a one-to-one and onto function that preserves the structure of the two groups.  
 
@@ -795,7 +795,7 @@ After we introduced groups tables, we also discussed the fact that $G_1\cong G_2
 \end{quotation}
 This is the essence of what it means for two groups to have the same structure.  
 
-Let's try to make a little more sense of this.  Suppose that $G_1\cong G_2$ and imagine we have arranged the rows and columns of their respective group tables and colored the elements in such a way that the colorings for the two group tables agree.  Now, let $x,y\in G_1$.  Then these two elements have corresponding elements in the group table for $G_2$, say $x'$ and $y'$, respectively.  In other words, $x$ and $x'$ have the same color while $y$ and $y'$ have the same color.  Since $G_1$ is closed under its binary operation $*$, there exists $z\in G_1$ such that $z=x*y$.  There must exist a $z'\in G_2$ such that $z'$ has the same color as $z$.  What must be true of $x'\circ y'$?  Since the two tables exhibit the same color pattern, it must be the case that $z'=x'\circ y'$.  This is what is means for the product of corresponding elements to yield the corresponding result.  Figure~\ref{fig:isoGroupTables} depicts this phenomenon for group tables.
+Let's try to make a little more sense of this.  Suppose that $G_1\cong G_2$ and imagine we have arranged the rows and columns of their respective group tables and colored the elements in such a way that the colorings for the two group tables agree.  Now, let $x,y\in G_1$.  Then these two elements have corresponding elements in the group table for $G_2$, say $x'$ and $y'$, respectively.  In other words, $x$ and $x'$ have the same color while $y$ and $y'$ have the same color.  Since $G_1$ is closed under its binary operation $*$, there exists $z\in G_1$ such that $z=x*y$.  There must exist a $z'\in G_2$ such that $z'$ has the same color as $z$.  What must be true of $x'\odot y'$?  Since the two tables exhibit the same color pattern, it must be the case that $z'=x'\odot y'$.  This is what is means for the product of corresponding elements to yield the corresponding result.  Figure~\ref{fig:isoGroupTables} depicts this phenomenon for group tables.
 
 \begin{figure}
 \begin{center}
@@ -810,7 +810,7 @@ $*$                & & & & \cellcolor{green}$y$  & \\ \tabucline[2pt]{-}
 $\longleftrightarrow$
 \hspace{1cm}
 \begin{tabu}{c|[2pt]ccc|c|c}
-$\circ$                & & & & \cellcolor{green}$y'$  & \\ \tabucline[2pt]{-}
+$\odot$                & & & & \cellcolor{green}$y'$  & \\ \tabucline[2pt]{-}
                    & & & &                       & \\ \hline
 \cellcolor{red}$x'$ & & & & \cellcolor{orange}$z'$ & \\ \hline
                    & & & &                      & \\
@@ -820,20 +820,20 @@ $\circ$                & & & & \cellcolor{green}$y'$  & \\ \tabucline[2pt]{-}
 \caption{}\label{fig:isoGroupTables}
 \end{figure}
 
-We can describe the isomorphism between $G_1$ and $G_2$ using a function.  Let $\phi:G_1\to G_2$ be the one-to-one and onto function that maps elements of $G_1$ to their corresponding elements in $G_2$.  Then $\phi(x)=x'$, $\phi(y)=y'$, and $\phi(z)=z'$.  Since $z'=x'\circ y'$, we can obtain
+We can describe the isomorphism between $G_1$ and $G_2$ using a function.  Let $\phi:G_1\to G_2$ be the one-to-one and onto function that maps elements of $G_1$ to their corresponding elements in $G_2$.  Then $\phi(x)=x'$, $\phi(y)=y'$, and $\phi(z)=z'$.  Since $z'=x'\odot y'$, we can obtain
 \[
-\phi(x*y)=\phi(z)=z'=x'\circ y'=\phi(x)\circ \phi(y).
+\phi(x*y)=\phi(z)=z'=x'\odot y'=\phi(x)\odot \phi(y).
 \]
 In summary, it must be the case that 
 \[
-\phi(x*y)=\phi(x)\circ \phi(y).
+\phi(x*y)=\phi(x)\odot \phi(y).
 \]
 We are now prepared to state a formal definition of what it means for two groups to be isomorphic.
 
 \begin{definition}\label{def:iso}
-Let $(G_1,*)$ and $(G_2,\circ)$ be two groups.  Then $G_1$ is \textbf{isomorphic} to $G_2$, written $G_1\cong G_2$, if and only if there exists a one-to-one and onto function $\phi:G_1\to G_2$ such that
+Let $(G_1,*)$ and $(G_2,\odot)$ be two groups.  Then $G_1$ is \textbf{isomorphic} to $G_2$, written $G_1\cong G_2$, if and only if there exists a one-to-one and onto function $\phi:G_1\to G_2$ such that
 \begin{equation}\label{hom_property}
-\phi(x*y)=\phi(x)\circ \phi(y).
+\phi(x*y)=\phi(x)\odot \phi(y).
 \end{equation}
 The function $\phi$ is referred to as an \textbf{isomorphism}.  Equation \ref{hom_property} is often referred to as the \textbf{homomorphic property}.
 \end{definition}
@@ -865,19 +865,19 @@ Perhaps one surprising consequence of the previous problem is that when dealing 
 Once we know that two groups are isomorphic, there are lots of interesting things we can say.  The next theorem tells us that isomorphisms map the identity element of one group to the identity of the second group.  It was already clear that this was the case using our informal definition of isomorphic.  Prove the next theorem using Definition~\ref{def:iso}
 
 \begin{theorem}\label{thm:hom_id}
-Suppose $\phi:G_1\to G_2$ is an isomorphism from the group $(G_1,*)$ to the group $(G_2,\circ)$.  If $e$ and $e'$ are the identity elements of $G_1$ and $G_2$, respectively, then $\phi(e)=e'$.
+Suppose $\phi:G_1\to G_2$ is an isomorphism from the group $(G_1,*)$ to the group $(G_2,\odot)$.  If $e$ and $e'$ are the identity elements of $G_1$ and $G_2$, respectively, then $\phi(e)=e'$.
 \end{theorem}
 
 \begin{theorem}\label{thm:hom_inverse}
-Suppose $\phi:G_1\to G_2$ is an isomorphism from the group $(G_1,*)$ to the group $(G_2,\circ)$.   Then $\phi(g^{-1})=[\phi(g)]^{-1}$.
+Suppose $\phi:G_1\to G_2$ is an isomorphism from the group $(G_1,*)$ to the group $(G_2,\odot)$.   Then $\phi(g^{-1})=[\phi(g)]^{-1}$.
 \end{theorem}
 
 \begin{theorem}
-Suppose $\phi:G_1\to G_2$ is an isomorphism from the group $(G_1,*)$ to the group $(G_2,\circ)$. If $G_1$ is abelian, then $G_2$ is abelian.
+Suppose $\phi:G_1\to G_2$ is an isomorphism from the group $(G_1,*)$ to the group $(G_2,\odot)$. If $G_1$ is abelian, then $G_2$ is abelian.
 \end{theorem}
 
 \begin{theorem}
-Suppose $\phi:G_1\to G_2$ is an isomorphism from the group $(G_1,*)$ to the group $(G_2,\circ)$. Then the function $\phi^{-1}:G_2\to G_1$ is an isomorphism.
+Suppose $\phi:G_1\to G_2$ is an isomorphism from the group $(G_1,*)$ to the group $(G_2,\odot)$. Then the function $\phi^{-1}:G_2\to G_1$ is an isomorphism.
 \end{theorem}
 
 \begin{theorem}
@@ -889,7 +889,7 @@ Let $\mathcal{G}$ be any nonempty collection of groups.  Then the relation $\con
 \end{theorem}
 
 \begin{theorem}
-Suppose $\phi:G_1\to G_2$ is an isomorphism from the group $(G_1,*)$ to the group $(G_2,\circ)$.  If $H\leq G_1$, then $\phi(H)\leq G_2$, where
+Suppose $\phi:G_1\to G_2$ is an isomorphism from the group $(G_1,*)$ to the group $(G_2,\odot)$.  If $H\leq G_1$, then $\phi(H)\leq G_2$, where
 \[
 \phi(H):=\{y\in G_2\mid \text{there exists } h\in H\text{ such that }\phi(h)=y\}. 
 \]
