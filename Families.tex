@@ -73,12 +73,6 @@ Find the orders of each of the elements in each of the following groups.
 \end{multicols}
 \end{exercise}
 
-The next result follows immediately from Theorem~\ref{thm:subgroup_generated_by_inverse}.
-
-\begin{theorem}
-If $(G,*)$ is a group and $g\in G$, then $|g|=|g^{-1}|$.
-\end{theorem}
-
 \begin{exercise}
 Consider the group $(\mathbb{Z},+)$.  What is the order of 1?  Are there any elements in $\mathbb{Z}$ with finite order?
 \end{exercise}
@@ -86,6 +80,12 @@ Consider the group $(\mathbb{Z},+)$.  What is the order of 1?  Are there any ele
 \begin{exercise}
 Find the order of each of the matrices in Exercise~\ref{exer:subgroup_generated_by_matrix}.
 \end{exercise}
+
+The next result follows immediately from Theorem~\ref{thm:subgroup_generated_by_inverse}.
+
+\begin{theorem}
+If $(G,*)$ is a group and $g\in G$, then $|g|=|g^{-1}|$.
+\end{theorem}
 
 If $G$ is a group and $g\in G$, then there are two possibilities for $\langle g\rangle$. If all the powers $g^k$ are distinct, then it must be the case that $\langle g\rangle$ is an infinite group. The other possibility is that there exists two powers of $g$ that coincide. Suppose there exists $k<m$ such that $g^m=g^k$. Multiplying both sides of this equation by the inverse of $g^k$ yields $g^{m-k}=e$. Notice that since $k<m$, the exponent $m-k$ is positive regardless of whether $k$ and $m$ are positive or negative. We have shown that if there exists two different powers of $g$ that are equal, then there exists a positive power of $g$ that equals the identity. 
 
