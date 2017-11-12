@@ -3,7 +3,7 @@
 \thispagestyle{empty}
 
 \begin{section}{Homomorphisms}
-Let $G_1$ and $G_2$ be groups. Recall that $\phi:G_1\to G_2$ is an isomorphism iff $\phi$
+Let $G_1$ and $G_2$ be groups. Recall that $\phi:G_1\to G_2$ is an isomorphism if and only if $\phi$
 \begin{enumerate}[label=\rm{(\alph*)}]
 \item is one-to-one, 
 \item is onto, and
@@ -12,7 +12,7 @@ Let $G_1$ and $G_2$ be groups. Recall that $\phi:G_1\to G_2$ is an isomorphism i
 We say that $G_1$ is isomorphic to $G_2$ and write $G_1\cong G_2$ if such a $\phi$ exists. Loosely speaking, two groups are isomorphic if they have the ``same structure."  What if we drop the one-to-one and onto requirement?
 
 \begin{definition}
-Let $(G_1,*)$ and $(G_2,\odot)$ be groups. A function $\phi:G_1\to G_2$ is a \textbf{homomorphism} iff $\phi$ satisfies the homomorphic property:
+Let $(G_1,*)$ and $(G_2,\odot)$ be groups. A function $\phi:G_1\to G_2$ is a \textbf{homomorphism} if and only if $\phi$ satisfies the homomorphic property:
 \[
 \phi(x*y)=\phi(x)\odot\phi(y)
 \]
@@ -70,7 +70,7 @@ Back in Section~\ref{sec:revisiting_isomorphisms}, we encountered several theore
 
 \begin{theorem}
 Let $G_1$ and $G_2$ be groups and suppose $\phi:G_1\to G_2$ is a homomorphism.
-\begin{enumerate}
+\begin{enumerate}[label=\rm{(\alph*)}]
 \item If $e_1$ and $e_2$ are the identity elements of $G_1$ and $G_2$, respectively, then $\phi(e_1)=e_2$.
 \item For all $g\in G_1$, we have $\phi(g^{-1})=[\phi(g)]^{-1}$.
 \item If $H\leq G_1$, then $\phi(H)\leq G_2$, where
@@ -117,7 +117,7 @@ Let $G_1$ and $G_2$ be groups and suppose $\phi:G_1\to G_2$ is a homomorphism. T
 It turns out that the kernel can tell us something about whether $\phi$ is one-to-one.
 
 \begin{theorem}
-Let $G_1$ and $G_2$ be groups and suppose $\phi:G_1\to G_2$ is a homomorphism. Then $\phi$ is one-to-one iff $\ker(\phi)=\{e_1\}$.
+Let $G_1$ and $G_2$ be groups and suppose $\phi:G_1\to G_2$ is a homomorphism. Then $\phi$ is one-to-one if and only if $\ker(\phi)=\{e_1\}$.
 \end{theorem}
 
 \begin{remark}
@@ -197,11 +197,11 @@ Use the First Isomorphism Theorem to prove that $\mathbb{Z}/6\mathbb{Z}\cong \ma
 Use the First Isomorphism Theorem to prove that $(\mathbb{Z}_4\times \mathbb{Z}_2)/(\{0\}\times \mathbb{Z}_2)\cong \mathbb{Z}_4$.
 \end{exercise}
 
-We finish the chapter by listing a few of the remaining isomorphism theorems, but we won't prove these in this course.
+We finish the chapter by listing a few of the remaining isomorphism theorems, but we will not prove these in this course.
 
 \begin{theorem}[The Second Isomorphism Theorem]
 Let $G$ be a group with $H\leq G$ and $N\trianglelefteq G$.  Then
-\begin{enumerate}
+\begin{enumerate}[label=\rm{(\alph*)}]
 \item $HN:=\{hn\mid h\in H, n\in N\}\leq G$;
 \item $H\cap N\trianglelefteq H$;
 \item $\displaystyle H/H\cap N\cong HN/N$.
