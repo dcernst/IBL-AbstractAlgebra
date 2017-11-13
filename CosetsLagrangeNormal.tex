@@ -35,7 +35,7 @@ Despite the fact that we made six calculations (one for each element in $D_3$), 
 \end{align*}
 We can make a few more observations.  First, the resulting cosets formed a partition of $D_3$.  That is, every element of $D_3$ appears in exactly one coset.  Moreover, all the cosets are the same size---two elements in each coset in this case.  Lastly, each coset can be named in multiple ways.  In particular, the elements of the coset are exactly the elements of $D_3$ we multiplied $H$ by.  For example, $Hr=Hsr$ and the elements of this coset are $r$ and $sr$.  Shortly, we will see that these observations hold, in general.
 
-Here is another significant observation we can make.  Consider the Cayley diagram for $D_3$ with generating set $\{r,s\}$ that is given in Figure~\ref{fig:D3_repeat}. Given this Cayley diagram, we can visualize the subgroup $H$ and it's clones.  Moreover, $H$ and it's clones are exactly the 3 right cosets of $H$.  We'll see that, in general, the \emph{right} cosets of a given subgroup are always the subgroup and its clones.
+Here is another significant observation we can make.  Consider the Cayley diagram for $D_3$ with generating set $\{r,s\}$ that is given in Figure~\ref{fig:D3_repeat}. Given this Cayley diagram, we can visualize the subgroup $H$ and its clones.  Moreover, $H$ and its clones are exactly the 3 right cosets of $H$.  We'll see that, in general, the \emph{right} cosets of a given subgroup are always the subgroup and its clones (see Problem~\ref{prob:RightCosetsClones}).
 
 \tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=8mm]
 \tikzstyle{h} = [draw,very  thick, blue,stealth-stealth]
@@ -70,7 +70,7 @@ Consider the group $D_3$.  Find all the left cosets for $H=\langle s\rangle$.  A
 
 As the previous exercise indicates, the collections of left and right cosets may not be the same and when they are not the same, the subgroup and its clones do not coincide with the left cosets.
 
-You might be thinking that somehow right cosets are better than left cosets since we were able to visualize them in the Cayley graph.  However, this is not the case.  Our convention of composing actions from right to left is what is dictating the visualization.  If we had adopted a left to right convention, then we would be able to visualize the left cosets.  
+You might be thinking that somehow right cosets are ``better" than left cosets since we were able to visualize them in the Cayley graph.  However, this is just a consequence of our convention of composing actions from right to left.  If we had adopted a left to right convention, then we would be able to visualize the left cosets in Cayley diagrams.  
 
 Computing left and right cosets using a group table is fairly easy.  Hopefully, you figured out in Exercise~\ref{exer:left_cosets_D3} that the left cosets of $H=\langle s\rangle$ in $D_3$ are $H=\{e,s\}$, $srH=\{r^2,sr\}$, and $rsH=\{r,rs\}$.  Now, consider the following group table for $D_3$ that has the rows and columns arranged according to the left cosets of $H$.
 
@@ -129,19 +129,19 @@ Let's tackle a few more examples.
 
 \begin{exercise}\label{exer:normal_in_D3}
 Consider $D_3$ and let $K=\langle r\rangle$.  
-\begin{enumerate}
-\item[(a)] Find all of the left cosets of $K$ and then find all of the right cosets of $K$ in $D_3$.  Any observations?
-\item[(b)] Write down the group table for $D_3$, but this time arrange the rows and columns according to the left cosets for $K$.  Color the entire table according to which \emph{left} coset an element belongs to.  Can you visualize the observations you made in part (a)?
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item Find all of the left cosets of $K$ and then find all of the right cosets of $K$ in $D_3$.  Any observations?
+\item Write down the group table for $D_3$, but this time arrange the rows and columns according to the left cosets for $K$.  Color the entire table according to which \emph{left} coset an element belongs to.  Can you visualize the observations you made in part (a)?
 \end{enumerate}
 \end{exercise}
 
 \begin{exercise}\label{exer:normal_in_Q8}
 Consider $Q_8$.  Let $H=\langle i\rangle$ and $K=\langle -1\rangle$.
-\begin{enumerate}
-\item[(a)] Find all of the left cosets of $H$ and all of the right cosets of $H$ in $Q_8$.  
-\item[(b)] Write down the group table for $Q_8$ so that rows and columns are arranged according to the left cosets for $H$.  Color the entire table according to which \emph{left} coset an element belongs to.
-\item[(c)] Find all of the left cosets of $K$ and all of the right cosets of $K$ in $Q_8$.
-\item[(d)] Write down the group table for $Q_8$ so that rows and columns are arranged according to the left cosets for $K$.  Color the entire table according to which \emph{left} coset an element belongs to.
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item Find all of the left cosets of $H$ and all of the right cosets of $H$ in $Q_8$.  
+\item Write down the group table for $Q_8$ so that rows and columns are arranged according to the left cosets for $H$.  Color the entire table according to which \emph{left} coset an element belongs to.
+\item Find all of the left cosets of $K$ and all of the right cosets of $K$ in $Q_8$.
+\item Write down the group table for $Q_8$ so that rows and columns are arranged according to the left cosets for $K$.  Color the entire table according to which \emph{left} coset an element belongs to.
 \end{enumerate}
 \end{exercise}
 
@@ -157,11 +157,17 @@ Consider $\mathbb{Z}_8$.  Find all of the left cosets and all of the right coset
 Consider $(\mathbb{Z},+)$.  Find all of the left cosets and all of the right cosets of $3\mathbb{Z}$ in $\mathbb{Z}$. Why do you know the left and right cosets are the same without actually verifying?
 \end{exercise}
 
+\begin{theorem}
+Let $G$ be a group and let $H\leq G$. If $G$ is abelian, then for all $a\in G$, $aH=Ha$.  That is, if $G$ is abelian, then the left cosets of $H$ are the same as the right cosets of $H$.
+\end{theorem}
+
+Exercises~\ref{exer:left_cosets_D3} and \ref{exer:normal_in_D3} illustrate that if a group is non-abelian, then the cosets of a subgroup may or may not coincide.  That is, knowing that the group is non-abelian is not enough to determine whether the left and right cosets are different.
+
 Now that we've played with a few examples, let's make a few general observations.
 
 \begin{theorem}\label{thm:coset_representative}
 Let $G$ be a group and let $H\leq G$.
-\begin{enumerate}
+\begin{enumerate}[label=\rm{(\alph*)}]
 \item If $a\in G$, then $a\in aH$ (respectively, $Ha$).
 \item If $b\in aH$ (respectively, $Ha$), then $aH=bH$ (respectively, $Ha=Hb$).
 \item If $a\in H$, then $aH=H=Ha$.
@@ -169,18 +175,18 @@ Let $G$ be a group and let $H\leq G$.
 \end{enumerate}
 \end{theorem}
 
-The upshot of part 2 of Theorem~\ref{thm:coset_representative} is that cosets can have different names.  In particular, if $b$ is an element of the left coset $aH$, then we could have just as easily called the coset by the name $bH$.  In this case, both $a$ and $b$ are called \textbf{coset representatives}.
+The upshot of part (b) of Theorem~\ref{thm:coset_representative} is that cosets can have different names.  In particular, if $b$ is an element of the left coset $aH$, then we could have just as easily called the coset by the name $bH$.  In this case, both $a$ and $b$ are called \textbf{coset representatives}.
 
 In all of the examples we've seen so far, the left and right cosets partitioned $G$ into equal-sized chunks.  We need to prove that this is true in general.  To prove that the cosets form a partition, we'll define an appropriate equivalence relation.
 
 \begin{theorem}
 Let $G$ be a group and let $H\leq G$.  Define $\sim_L$ and $\sim_R$ via 
 \begin{center}
-$a\sim_L b$ iff $a^{-1}b\in H$
+$a\sim_L b$ if and only if $a^{-1}b\in H$
 \end{center}
 and
 \begin{center}
-$a\sim_R b$ iff $ab^{-1}\in H$.
+$a\sim_R b$ if and only if $ab^{-1}\in H$.
 \end{center}
 Then both $\sim_L$ and $\sim_R$ are equivalence relations.\footnote{You only need to prove that either $\sim_L$ or $\sim_R$ is an equivalence relation as the proof for the other is similar.}
 \end{theorem}
@@ -202,6 +208,16 @@ Let $G$ be a group, $H\leq G$, and $a\in G$.  Define $\phi:H\to aH$ via $\phi(h)
 \begin{corollary}\label{cor:cosets_same_size}
 Let $G$ be a group and let $H\leq G$.  Then all of the left and right cosets of $H$ are the same size as $H$.  In other words $\#(aH)=|H|=\#(Ha)$ for all $a\in G$.\footnote{As you probably expect, $\#(aH)$ denotes the size of $aH$. Note that everything works out just fine even if $H$ has infinite order.}
 \end{corollary}
+
+The final result of this chapter verifies that the clones of a subgroup in a Cayley diagram coincide with the right cosets of the subgroup.
+
+\begin{problem}\label{prob:RightCosetsClones}
+Let $G$ be a finite group with generating set $S$ and let $H$ be a proper subgroup of $G$ and suppose we can visualize the subgroup for $H$ in the Cayley diagram for $G$ using $S$ as the generating set. 
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item If $g\in G$, verify that the right coset $Hg$ is a clone of $G$. \emph{Hint:} Suppose $s\in S$ and $h_1, h_2\in H$ such that there is an arrow labeled by $s$ that points from $h_1$ to $h_2$.  Argue that there is an arrow labeled by $s$ pointing from $h_1g$ to $h_2g$.
+\item If $C$ is a clone of $H$, prove that $C$ is a right coset of $H$.
+\end{enumerate}
+\end{problem}
 
 \end{section}
 
@@ -278,9 +294,9 @@ Let $G$ be a group and let $H\leq G$.  The \textbf{index} of $H$ in $G$ is the n
 
 \begin{exercise}
 Let $H=\langle (1,2)(3,4),(1,3)(2,4)\rangle$.
-\begin{enumerate}
-\item[(a)] Find $[A_4:H]$.
-\item[(b)] Find $[S_4:H]$.
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item Find $[A_4:H]$.
+\item Find $[S_4:H]$.
 \end{enumerate}
 \end{exercise}
 
