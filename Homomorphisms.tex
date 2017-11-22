@@ -114,10 +114,14 @@ What is the kernel of a trivial homomorphism (see Theorem~\ref{thm:trivial_homom
 Let $G_1$ and $G_2$ be groups and suppose $\phi:G_1\to G_2$ is a homomorphism. Then $\ker(\phi)\trianglelefteq G_1$.
 \end{theorem}
 
-It turns out that the kernel can tell us something about whether $\phi$ is one-to-one.
+\begin{theorem}\label{thm:canonical_projection}
+Let $G$ be a group and let $H\trianglelefteq G$.  Then the map $\gamma:G\to G/H$ given by $\gamma(g)=gH$ is a homomorphism with $\ker(\gamma)=H$. This map is called the \textbf{canonical projection map}.
+\end{theorem}
+
+The upshot of Theorems~\ref{thm:kernel_normal} and \ref{thm:canonical_projection} is that kernels of homomorphisms are always normal and every normal subgroup is the kernel of some homomorphism. It turns out that the kernel can tell us whether $\phi$ is one-to-one.
 
 \begin{theorem}
-Let $G_1$ and $G_2$ be groups and suppose $\phi:G_1\to G_2$ is a homomorphism. Then $\phi$ is one-to-one if and only if $\ker(\phi)=\{e_1\}$.
+Let $G_1$ and $G_2$ be groups and suppose $\phi:G_1\to G_2$ is a homomorphism. Then $\phi$ is one-to-one if and only if $\ker(\phi)=\{e_1\}$, where $e_1$ is the identity in $G_1$.
 \end{theorem}
 
 \begin{remark}
@@ -152,14 +156,6 @@ Let $F$ be the set of all functions from $\mathbb{R}$ to $\mathbb{R}$ and let $D
 \end{section}
 
 \begin{section}{The Isomorphism Theorems}
-
-We begin with a theorem.
-
-\begin{theorem}\label{thm:canonical_projection}
-Let $G$ be a group and let $H\trianglelefteq G$.  Then the map $\gamma:G\to G/H$ given by $\gamma(g)=gH$ is a homomorphism with $\ker(\gamma)=H$. This map is called the \textbf{canonical projection map}.
-\end{theorem}
-
-The upshot of Theorems~\ref{thm:kernel_normal} and \ref{thm:canonical_projection} is that kernels of homomorphisms are always normal and every normal subgroup is the kernel of some homomorphism.
 
 The next theorem is arguably the crowning achievement of the course.
 
@@ -197,22 +193,36 @@ Use the First Isomorphism Theorem to prove that $\mathbb{Z}/6\mathbb{Z}\cong \ma
 Use the First Isomorphism Theorem to prove that $(\mathbb{Z}_4\times \mathbb{Z}_2)/(\{0\}\times \mathbb{Z}_2)\cong \mathbb{Z}_4$.
 \end{exercise}
 
-We finish the chapter by listing a few of the remaining isomorphism theorems, but we will not prove these in this course.
+We finish the chapter by listing a few of the remaining isomorphism theorems.%, but we will not prove these in this course.
 
 \begin{theorem}[The Second Isomorphism Theorem]
 Let $G$ be a group with $H\leq G$ and $N\trianglelefteq G$.  Then
 \begin{enumerate}[label=\rm{(\alph*)}]
 \item $HN:=\{hn\mid h\in H, n\in N\}\leq G$;
 \item $H\cap N\trianglelefteq H$;
-\item $\displaystyle H/H\cap N\cong HN/N$.
+\item $\displaystyle H/(H\cap N)\cong HN/N$.
 \end{enumerate}
 \end{theorem}
 
 \begin{theorem}[The Third Isomorphism Theorem]
-Let $G$ be a group with $H,K\trianglelefteq G$ and $K\leq H$.  Then
+Let $G$ be a group with $H,K\trianglelefteq G$ and $K\leq H$.  Then $H/K\trianglelefteq G/K$ and
 \[
 G/H\cong (G/K)/(H/K).
 \]
+\end{theorem}
+
+The last isomorphism theorem is sometimes called the \emph{Lattice Isomorphism Theorem} or the \emph{Correspondence Theorem}.
+
+\begin{theorem}[The Fourth Isomorphism Theorem]
+
+Let $G$ be a group with $N\trianglelefteq G$. Then there is a bijection from the set of subgroups of $G$ that contain $N$ onto the set of subgroups of $G/N$. In particular, every subgroup $G$ is of the form $H/N$ for some subgroup $H$ of $G$ containing $N$ (namely, its pre-image in $G$ under the canonical projection homomorphism from $G$ to $G/N$.) This bijection has the following properties: for all $H,K \subseteq G$ with  $N\subseteq H$ and $N\subseteq K$, we have
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item $H\subset K$ if and only if $H/N \subset K/N$
+\item If $H\subset K$, then $|K:H|=|K/N:H/N|$
+\item $\langle H,K\rangle/N=\langle H/N,K/N\rangle$
+\item $(H\cap K)/N=H/N \cap K/N$
+\item $H\trianglelefteq G$ if and only if $H/N\trianglelefteq G/N$.
+\end{enumerate}
 \end{theorem}
 
 \end{section}
