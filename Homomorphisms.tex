@@ -81,13 +81,15 @@ Note that $\phi(H)$ is called the \textbf{image} of $H$. A special case is when 
 \end{enumerate}
 \end{theorem}
 
-The next two theorems tell us that under a homomorphism, the order of the image must divide the order of the preimage.
+The following theorem is a consequence of Lagrange's Theorem.
 
 \begin{theorem}
-Let $G_1$ and $G_2$ be groups and suppose $\phi:G_1\to G_2$ is a homomorphism. If $G_1$ is finite, then $|\phi(G_1)|$ divides $|G_1|$.
+Let $G_1$ and $G_2$ be groups such that $G_2$ is finite and let $H\leq G_1$. If $\phi:G_1\to G_2$ is a homomorphism, then $|\phi(G_1)|$ divides $|G_2|$.
 \end{theorem}
 
-\begin{theorem}
+The next theorem tells us that under a homomorphism, the order of the image of an element must divide the order of the pre-image of that element.
+
+\begin{theorem}\label{thm:orderImage}
 Let $G_1$ and $G_2$ be groups and suppose $\phi:G_1\to G_2$ is a homomorphism. If $g\in G_1$ such that $|g|$ is finite, then $|\phi(g)|$ divides $|g|$.
 \end{theorem}
 
@@ -192,6 +194,12 @@ Use the First Isomorphism Theorem to prove that $\mathbb{Z}/6\mathbb{Z}\cong \ma
 \begin{exercise}
 Use the First Isomorphism Theorem to prove that $(\mathbb{Z}_4\times \mathbb{Z}_2)/(\{0\}\times \mathbb{Z}_2)\cong \mathbb{Z}_4$.
 \end{exercise}
+
+The next theorem is a generalization of Theorem~\ref{thm:orderImage} and follows from the First Isomorphism Theorem together with Lagrange's Theorem.
+
+\begin{theorem}
+Let $G_1$ and $G_2$ be groups and suppose $\phi:G_1\to G_2$ is a homomorphism. If $G_1$ is finite, then $|\phi(G_1)|$ divides $|G_1|$.
+\end{theorem}
 
 We finish the chapter by listing a few of the remaining isomorphism theorems.%, but we will not prove these in this course.
 
