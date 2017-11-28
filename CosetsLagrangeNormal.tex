@@ -354,14 +354,18 @@ Show that $\langle s\rangle\trianglelefteq \langle r^2,sr^2\rangle$ and $\langle
 
 The previous problem illustrates that $H\trianglelefteq K \trianglelefteq G$ does not imply $H\trianglelefteq G$.
 
-\begin{theorem}
-Suppose $G$ is a group and let $H\leq G$.  Then $H\trianglelefteq G$ if and only if $aHa^{-1}=H$ for all $a\in G$, where
+\begin{definition}
+Suppose $G$ is a group and let $H\leq G$. For $g\in G$, we define the \textbf{conjugate of $H$ by $g$} to be the set
 \[
-aHa^{-1}=\{aha^{-1}\mid h\in H\}.
+gHg^{-1}:=\{ghg^{-1}\mid h\in H\}.
 \]
+\end{definition}
+
+\begin{theorem}\label{thm:ClosedUnderConjugationNormal}
+Suppose $G$ is a group and let $H\leq G$.  Then $H\trianglelefteq G$ if and only if $gHg^{-1}\subseteq H$ for all $g\in G$.
 \end{theorem}
 
-Note that the expression $gHg^{-1}$ is called the \textbf{conjugate} of $H$ by $g$.  Another way of thinking about normal subgroups is that they are ``closed under conjugation." The previous theorem is often used as the definition of normal.  It also motivates the following definition.
+Another way of thinking about normal subgroups is that they are ``closed under conjugation." It's not too hard to show that if $gHg^{-1}\subseteq H$ for all $g\in G$, then we actually have $gHg^{-1}=H$ for all $g\in G$.  This implies that $H\trianglelefteq G$ if and only if $gHg^{-1}=H$ for all $g\in G$. This seemingly stronger version of Theorem~\ref{thm:ClosedUnderConjugationNormal} is sometimes used as the definition of normal subgroup. This discussion motivates the following definition.
 
 \begin{definition}
 Let $G$ be a group and let $H\leq G$.  The \textbf{normalizer of $H$ in $G$} is defined via
