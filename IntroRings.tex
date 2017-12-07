@@ -357,7 +357,7 @@ Assume $R$ is a commutative ring with $1\neq 0$. Let $I$ be an ideal of $R$. The
 \end{theorem}
 
 \begin{theorem}
-Assume $R$ is a commutative ring with $1\neq 0$.  Then $R$ is a field if and only if its only ideals are $0$ and $R$.
+Assume $R$ is a commutative ring with $1\neq 0$.  Then $R$ is a field if and only if its only ideals are $(0)$ and $R$.
 \end{theorem}
 
 Loosely speaking, the previous results say that fields are ``like simple groups" (i.e, groups with no non-trivial normal subgroups).
@@ -380,7 +380,7 @@ Assume $R$ is a commutative ring with 1. An ideal $M$ in a ring $R$ is called a 
 
 \begin{example}
 Here are a few examples.  Checking the details is left as an exercise.
-\begin{enumerate}[label=\rm{(\arabic*)}]
+\begin{enumerate}[label=\rm{(\alph*)}]
 \item In $\mathbb{Z}$, all the ideals are of the form $n\mathbb{Z}$ for $n\in\mathbb{Z}^+$.  The maximal ideals correspond to the ideals $p\mathbb{Z}$, where $p$ is prime.
 \item Consider the integral domain $\mathbb{Z}[x]$.  The ideals $(x)$ (i.e., the subring containing polynomials with 0 constant term) and $(2)$ (i.e, the set of polynomials with even coefficients) are not maximal since both are contained in the proper ideal $(2,x)$.  However, as we shall see soon, $(2,x)$ is maximal in $\mathbb{Z}[x]$.
 \item The zero ring has no maximal ideals.
@@ -402,7 +402,7 @@ Assume $R$ is a commutative ring with 1.  Then $M$ is a maximal ideal if and onl
 
 \begin{example}
 We can use the previous theorem to verify whether an ideal is maximal.
-\begin{enumerate}[label=\rm{(\arabic*)}]
+\begin{enumerate}[label=\rm{(\alph*)}]
 \item Recall that $\mathbb{Z}/n\mathbb{Z}\cong \mathbb{Z}_n$ and that $\mathbb{Z}_n$ is a field if and only if $n$ is prime.  We can conclude that $n\mathbb{Z}$ is a maximal ideal precisely when $n$ is prime.
 \item Define $\phi:\mathbb{Z}[x]\to\mathbb{Z}$ via $\phi(p(x))=p(0)$.  Then $\phi$ is surjective and $\ker(\phi)=(x)$.  By the First Isomorphism Theorem for Rings, we see that $\mathbb{Z}[x]/(x)\cong \mathbb{Z}$.  However, $\mathbb{Z}$ is not a field.  Hence $(x)$ is not maximal in $\mathbb{Z}[x]$.  Now, define $\psi:\mathbb{Z}\to\mathbb{Z}_2$ via $\psi(x)=x\mod 2$ and consider the composite homomorphism $\psi\circ\phi:\mathbb{Z}\to\mathbb{Z}_2$.    It is clear that $\psi\circ\phi$ is onto and the kernel of $\psi\circ\phi$ is given by $\{p(x)\in\mathbb{Z}[x]\mid p(0)\in 2\mathbb{Z}\}=(2,x)$. Again by the First Isomorphism Theorem for Rings, $\mathbb{Z}[x]/(2,x)\cong \mathbb{Z}_2$.  Since $\mathbb{Z}_2$ is a field, $(2,x)$ is a maximal ideal.
 \end{enumerate}
