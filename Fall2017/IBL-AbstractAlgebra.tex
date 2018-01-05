@@ -1,0 +1,150 @@
+\documentclass[12pt,oneside]{book}
+
+\usepackage[scale=2]{ccicons}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage[labelsep=period]{caption}
+\usepackage[labelformat=simple,labelfont={}]{subcaption}
+\usepackage{makecell}
+%\usepackage{subcaption}
+\usepackage{tabu}
+\usepackage{pdiag}
+\usepackage[table]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata,positioning}
+\usepackage{rotating}
+\usepackage[notextcomp]{kpfonts} 
+\usepackage{graphicx}
+\usepackage{eurosym}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{stmaryrd}
+\usepackage{wasysym}
+\usepackage{amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage[hang,flushmargin,symbol*]{footmisc}
+\usepackage{color}
+\definecolor{darkblue}{rgb}{0, 0, .6}
+\definecolor{grey}{rgb}{.7, .7, .7}
+\usepackage[breaklinks]{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=darkblue,
+	anchorcolor=darkblue,
+	citecolor=darkblue,
+	pagecolor=darkblue,
+	urlcolor=darkblue,
+	pdftitle={},
+	pdfauthor={}
+}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{\leftmark}
+\chead{}
+\rhead{}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{journal}[theorem]{Journal}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newtheorem{skeleton}[theorem]{Skeleton Proof}
+\newtheorem{activity}[theorem]{Activity}
+\newtheorem{intuitivedef}[theorem]{Intuitive Definition}
+
+\newsavebox{\savepar}
+\newenvironment{textbox}{\noindent\begin{lrbox}{\savepar}\begin{minipage}[c]{.98\textwidth}}{\end{minipage}\end{lrbox}\fcolorbox{black}{white}{\usebox{\savepar}}}
+
+\newcommand{\dom}{\operatorname{Dom}}
+\newcommand{\codom}{\operatorname{Codom}}
+\newcommand{\range}{\operatorname{Rng}}
+\newcommand{\Spin}{\operatorname{Spin}}
+\newcommand{\lcm}{\operatorname{lcm}}
+
+\renewcommand\thesubfigure{(\alph{subfigure})}
+
+\begin{document}
+
+\title{An Inquiry-Based Approach to Abstract Algebra}
+\author{Dana C.~Ernst, PhD\\
+Northern Arizona University}
+\date{Fall 2017}
+
+\maketitle
+\thispagestyle{empty}
+
+\noindent\copyright{ \the\year\ Dana C.~Ernst.  Some Rights Reserved.\\
+
+\bigskip
+
+\noindent This book is intended to be a task sequence for an undergraduate abstract algebra course that utilizes an inquiry-based learning (IBL) approach.  You can find the most up-to-date version of these notes on GitHub:
+\begin{center}
+\url{http://dcernst.github.io/IBL-AbstractAlgebra/}
+\end{center}
+I would be thrilled if you used these notes and improved them. If you make any modifications, you can either make a pull request on GitHub or submit the improvements via email.  You are also welcome to fork the source and modify the notes for your purposes as long as you maintain the license below.
+
+\bigskip
+
+\noindent This work is licensed under the Creative Commons Attribution-Share Alike 4.0 United States License.  You may copy, distribute, display, and perform this copyrighted work, but only if you give credit to Dana C.~Ernst, and all derivative works based upon it must be published under the Creative Commons Attribution-Share Alike 4.0 International License. Please attribute this work to Dana C.~Ernst, Mathematics Faculty at Northern Arizona University, \url{dana.ernst@nau.edu}. To view a copy of this license, visit
+\begin{center}
+\url{https://creativecommons.org/licenses/by-sa/4.0/}
+\end{center}
+or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.}
+
+\medskip
+
+\begin{center}
+\ccbysa
+\end{center}
+
+\noindent Here is a partial list of people (in alphabetical order by last name) that I need to thank for supplying content, advice, and feedback.
+\begin{itemize}
+\item \href{https://faculty.bentley.edu/details.asp?uname=ncarter}{Nathan Carter} (Bentley University). Nathan's excellent book \emph{Visual Group Theory} has had a huge impact on my approach to teaching abstract algebra.
+\item \href{http://home.snc.edu/andershendrickson/}{Anders Hendrickson} (St.~Norbert College). Anders is the original author of the content in Appendix~\ref{appendix:elements_of_style}: Elements of Style for Proofs. The current version in Appendix~\ref{appendix:elements_of_style} is a result of modifications made by myself with some suggestions from Dave Richeson.
+\item \href{http://users.dickinson.edu/~richesod/}{Dave Richeson} (Dickinson College). Dave is responsible for much of the content in Appendix~\ref{appendix:fancy_math_terms}: Fancy Mathematical Terms and Appendix~\ref{appendix:definitions}: Definitions in Mathematics. 
+\item \href{http://webpages.csus.edu/wiscons/}{Josh Wiscons} (CSU Sacremento) and \href{http://emp.byui.edu/woodruffb/}{Ben Woodruff} (BYU Idaho). Josh and Ben were instrumental the development of these notes in their early stages of development.
+\end{itemize}
+
+\tableofcontents
+\thispagestyle{empty}
+
+\include{Introduction}
+\include{IntuitiveDefinitionGroups}
+\include{CayleyDiagrams}
+\include{IntroSubgroupsIsomorphisms}
+\include{FormalGroups}
+\include{Families}
+\include{CosetsLagrangeNormal}
+\include{ProductsQuotients}
+\include{Homomorphisms}
+\include{IntroRings}
+%Appendices
+\include{Prerequisites}
+\include{ElementsOfStyle}
+\include{FancyMathematicalTerms}
+\include{Definitions}
+
+\end{document}
