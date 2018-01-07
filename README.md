@@ -1,5 +1,9 @@
 # An Inquiry-Based Approach to Abstract Algebra #
 
+## Warning
+
+During the Spring 2018 semester, I will be making substantial changes to the version of the notes in the ConstructionZone directory. For more details, see the README file in the ConstructionZone directory.  The version of the notes in the Fall2017 directory are battled-tested and good to go.
+
 [![DOI](https://zenodo.org/badge/5110/dcernst/IBL-AbstractAlgebra.svg)](https://zenodo.org/badge/latestdoi/5110/dcernst/IBL-AbstractAlgebra)
 
 ## Overview
