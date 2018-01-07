@@ -21,4 +21,4 @@ Under the following conditions:
 * Share Alike: If you alter, transform, or build upon this work, you may distribute the resulting work only under the same or similar license to this one.
 
 ## Comments
-You can find the most up-to-date version of these notes on [Github](http://dcernst.github.io/IBL-AbstractAlgebra/).  I would be thrilled if you used these notes and improved them.  If you make any modifications, you can either make a pull request on Github or submit the improvements to me at [dana.ernst@nau.edu](dana.ernst@nau.edu).
+You can find the most up-to-date version of these notes on [Github](http://dcernst.github.io/IBL-AbstractAlgebra/).  I would be thrilled if you used these notes and improved them.  If you make any modifications, you can either make a pull request on GitHub or submit the improvements to me at [dana.ernst@nau.edu](dana.ernst@nau.edu).
