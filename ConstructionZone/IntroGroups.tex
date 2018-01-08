@@ -221,7 +221,7 @@ s_{29}\to s_{28} \to s_{12}.
 \]
 It may not have occurred to you, but we can also rotate a single tile. Every spin of the form $s_{ii}$ is called a \emph{toggle}. For example, $s_{44}$ toggles the tile in position 4.
 
-We can think of each spin as a function and since we are doing spins on top of spins, every sequence of spins corresponds to a composition of functions. We will follow the standard convention of function composition that says the function on the right goes first.  In this case, our previous sequence of spins becomes $s_{12} \circ s_{28}  \circ s_{29}$, which we abbreviate as $s_{12} s_{28} s_{29}$. This might take some getting used to, but just remember that it is just like function notation---stuff on the right goes first. We will refer to expressions like $s_{12} \circ s_{28}  \circ s_{29}$ as \textbf{words} in the alphabet $\{s_{ij}\mid i\leq j\}$.  Our words will always consist of a finite number of spins.
+We can think of each spin as a function and since we are doing spins on top of spins, every sequence of spins corresponds to a composition of functions. We will follow the standard convention of function composition that says the function on the right goes first.  In this case, our previous sequence of spins becomes $s_{12} \circ s_{28}  \circ s_{29}$, which we abbreviate as $s_{12} s_{28} s_{29}$. This might take some getting used to, but just remember that it is just like function notation---stuff on the right goes first. We will refer to expressions like $s_{12} s_{28} s_{29}$ as \textbf{words} in the alphabet $\{s_{ij}\mid i\leq j\}$.  Our words will always consist of a finite number of spins.
 
 Every word consisting of spins corresponds to a function that takes as input some scrambled board and returns a scrambled board. We say that the words ``act on" the scrambled boards. For each word, there is an associated net action. For example, the word $s_{12} s_{23} s_{12}$ corresponds to swapping the positions but not orientation of the tiles in positions 1 and 3.  You should take the time to verify this for yourself. Sometimes it is difficult to describe what the net action associated to a word is, but there is always some corresponding net action nonetheless.
 
@@ -372,7 +372,7 @@ Notice that since the codomain of a binary operation on a set $A$ is $A$, binary
 Here are some examples of binary operations.
 \begin{enumerate}[label=\rm{(\alph*)}]
 \item The operations of $+$ (addition), $-$ (subtraction), and $\cdot$ (multiplication) are binary operations on the real numbers.  All three are also binary operations on the integers.  However, while $+$ and $\cdot$ are both binary operations on the set of natural numbers, $-$ is not a binary operation on the natural numbers since $1-2=-1$, which is not a natural number.
-\item The operation $\div$ (division) is not a binary operation on the set of real numbers because all elements of the form $(a,0)$ are not in the domain $\mathbb{R}\times \mathbb{R}$ since we cannot divide by 0.  Yet, $\div$ is a suitable binary operation on $\mathbb{R}\setminus \{0\}$.
+\item The operation of $\div$ (division) is not a binary operation on the set of real numbers because all elements of the form $(a,0)$ are not in the domain $\mathbb{R}\times \mathbb{R}$ since we cannot divide by 0.  Yet, $\div$ is a suitable binary operation on $\mathbb{R}\setminus \{0\}$.
 \item Let $A$ be a nonempty set and let $F$ be the set of functions from $A$ to $A$.  Then $\circ$ (function composition) is a binary operation on $F$. We utilized this fact when exploring the game Spinpossible.
 \item Let $M_{2\times 2}(\mathbb{R})$ be the set of $2\times 2$ matrices with real number entries.  Then matrix multiplication is a binary operation on $M_{2\times 2}(\mathbb{R})$.
 \end{enumerate}
@@ -393,7 +393,7 @@ Consider the closed interval $[0,1]$ and define $*$ on $[0,1]$ via $a*b=\mathrm{
 \begin{problem}\label{prob:introducing_R4}
 Consider a square puzzle piece that fits perfectly into a square hole.  Let $R_4$ be the set of net actions consisting of the rotations of the square by an appropriate amount so that it fits back into the hole. Assume we can tell the corners of the square apart from each other so that if the square has been rotated and put back in the hole we can notice the difference. Each net action is called a \textbf{symmetry} of the square. 
 \begin{enumerate}[label=\rm{(\alph*)}]
-\item Write down all distinct symmetries in $R_4$ using verbal descriptions. How many distinct symmetries are in $R_4$?
+\item Describe all of the distinct symmetries in $R_4$. How many distinct symmetries are in $R_4$?
 \item Is composition of symmetries a binary operation on $R_4$?
 \end{enumerate}
 \end{problem}
@@ -401,9 +401,9 @@ Consider a square puzzle piece that fits perfectly into a square hole.  Let $R_4
 The set $R_4$ is called the rotation group for the square. For $n\geq 3$, $R_n$ is the \textbf{rotation group} for the regular $n$-gon and consists of the rotational symmetries for a regular $n$-gon. As we shall see later, every $R_n$ really is a group under composition of symmetries.
 
 \begin{problem}\label{prob:introducing_D3}
-Consider a puzzle piece like the one in the previous problem, except this time, let's assume that the piece and the hole are an equilateral triangle.  Let $D_3$ be the full set of symmetries that allow the triangle to fit back in the hole.  In addition to rotations, we will also allow the triangle to be flipped over---called a reflection.  Each action is called a \textbf{symmetry} of the square. 
+Consider a puzzle piece like the one in the previous problem, except this time, let's assume that the piece and the hole are an equilateral triangle.  Let $D_3$ be the full set of symmetries that allow the triangle to fit back in the hole.  In addition to rotations, we will also allow the triangle to be flipped over---called a reflection. 
 \begin{enumerate}[label=\rm{(\alph*)}]
-\item Write down all distinct symmetries in $D_3$ using verbal descriptions. How many distinct symmetries are in $D_3$?
+\item Describe all of the distinct symmetries in $D_3$. How many distinct symmetries are in $D_3$?
 \item Is composition of symmetries a binary operation on $D_3$?
 \end{enumerate}
 \end{problem}
@@ -458,7 +458,7 @@ Define the binary operation $*$ on $\mathbb{R}$ via $a*b=1+ab$. In this case, $a
 Let $A$ be a nonempty set and let $F$ be the set of functions from $A$ to $A$.  Then function composition is an associative binary operation on $F$.
 \end{theorem}
 
-When the set $A$ is finite, we can represent a binary operation on $A$ using a table in which the elements of the set are listed across the top and the left side (in the same order).  The entry in the $i$th row and $j$th column of the table represents the output of combining the element that labels the $i$th row with the element that labels the $j$th column (order matters).
+When the set $A$ is finite, we can represent a binary operation on $A$ using a table in which the elements of the set are listed across the top and down the left side (in the same order).  The entry in the $i$th row and $j$th column of the table represents the output of combining the element that labels the $i$th row with the element that labels the $j$th column (order matters).
 
 \begin{example}\label{example:table}
 Consider the following table.
@@ -504,7 +504,7 @@ What property must the table for a binary operation have in order for the operat
 Without further ado, here is our official definition of a group.
 
 \begin{definition}\label{def:group}
-A group $(G,*)$ is a set $G$ together with a binary operation $*$ such that the following axioms hold.
+A \textbf{group} $(G,*)$ is a set $G$ together with a binary operation $*$ such that the following axioms hold.
 \begin{enumerate}
 \item[(0)] The set $G$ is closed under $*$.
 \item[(1)] The operation $*$ is associative.
@@ -560,7 +560,7 @@ If $G$ is a group, then there is a unique identity element in $G$.  That is, the
 \end{theorem}
 
 \begin{problem}
-Describe a group of order 1.  Can you find more than one such group?
+Provide an example of a group of order 1.  Can you find more than one such group?
 \end{problem}
 
 Any group of order 1 is called a \textbf{trivial group}. It follows immediately from the definition of a group that the element of a trivial group must be the identity.
