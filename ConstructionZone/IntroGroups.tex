@@ -215,7 +215,7 @@ How many scrambled $3\times 3$ Spinpossible boards are there?  To answer this qu
 How many spins are there?
 \end{problem}
 
-It's useful to have some notation. Let $s_{ij}$ (with $i\leq j$) denote the spin that rotates the subrectangle that has tile $i$ in the upper-left corner and tile $j$ in the lower-right corner.  As an example, the sequence of spins that we used above to unscramble the board is
+It's useful to have some notation. Let $s_{ij}$ (with $i\leq j$) denote the spin that rotates the subrectangle that has tile $i$ in the upper-left corner and tile $j$ in the lower-right corner.  As an example, the sequence of spins that we used above to unscramble our initial scrambled board is
 \[
 s_{29}\to s_{28} \to s_{12}.
 \]
@@ -223,12 +223,12 @@ It may not have occurred to you, but we can also rotate a single tile. Every spi
 
 We can think of each spin as a function and since we are doing spins on top of spins, every sequence of spins corresponds to a composition of functions. We will follow the standard convention of function composition that says the function on the right goes first.  In this case, our previous sequence of spins becomes $s_{12} \circ s_{28}  \circ s_{29}$, which we abbreviate as $s_{12} s_{28} s_{29}$. This might take some getting used to, but just remember that it is just like function notation---stuff on the right goes first. We will refer to expressions like $s_{12} \circ s_{28}  \circ s_{29}$ as \textbf{words} in the alphabet $\{s_{ij}\mid i\leq j\}$.  Our words will always consist of a finite number of spins.
 
-Every word consisting of spins corresponds to a function that takes as input some scrambled board and returns a scrambled board. We say that the words ``act on" the scrambled boards. In each case, there is a net action associated with each word. For example, the word $s_{12} s_{23} s_{12}$ corresponds to swapping the positions but not orientation of the tiles in positions 1 and 3.  You should take the time to verify this for yourself. Sometimes it is difficult to describe what the net action associated to a word is, but there is always some corresponding net action nonetheless.
+Every word consisting of spins corresponds to a function that takes as input some scrambled board and returns a scrambled board. We say that the words ``act on" the scrambled boards. For each word, there is an associated net action. For example, the word $s_{12} s_{23} s_{12}$ corresponds to swapping the positions but not orientation of the tiles in positions 1 and 3.  You should take the time to verify this for yourself. Sometimes it is difficult to describe what the net action associated to a word is, but there is always some corresponding net action nonetheless.
 
-It is worth pointing out that $s_{12} s_{23} s_{12}$ is not itself a spin.  However, sometimes a composition of spins will yield a spin.  For example, the net action of $s_{12} s_{11} s_{12}$ is toggling the tile in position 2.  That is, $s_{12} s_{11} s_{12}$ and $s_{22}$ are two different words that correspond to the same net action. In this case, we write $s_{12} s_{11} s_{12}=s_{22}$, where the equality is referring to the next action as opposed to the words themselves. The previous example illustrates that multiple words may represent the same net action. 
+It is worth pointing out that $s_{12} s_{23} s_{12}$ is not itself a spin.  However, sometimes a composition of spins will yield a spin.  For example, the net action of $s_{12} s_{11} s_{12}$ is toggling the tile in position 2.  That is, $s_{12} s_{11} s_{12}$ and $s_{22}$ are two different words that correspond to the same net action. In this case, we write $s_{12} s_{11} s_{12}=s_{22}$, where the equality is referring to the net action as opposed to the words themselves. The previous example illustrates that multiple words may represent the same net action. 
 
 \begin{problem}\label{prob:3_different_spins}
-Find a sequence of 3 spins that is different from the one described in our very first example that unscrambles the following board. Write your answer as a word consisting of spins.
+Find a sequence of 3 spins that is different from the one we described earlier that unscrambles the following board. Write your answer as a word consisting of spins.
 \begin{center}
 \begin{tikzpicture}[every node/.style={minimum size=.65cm}]
   \node [draw] (1) {\rotatebox{180}{$\underline{2}$}};
@@ -299,7 +299,7 @@ The upshot is that the net action that corresponds to a word consisting of spins
 Imagine we started with the solved board and then you scrambled the board according to some word consisting of spins.  Let's call this word $w$. How could you obtain the solved board from the scrambled board determined by $w$? How is this related to $w^{-1}$?
 \end{problem}
 
-There is one detail we have been sweeping under the rug.  Notice that every time we wrote down a word consisting of two or more spins, we didn't bother to group pairs of adjacent spins using parentheses.  Recall that the composition of functions with compatible domains and codomains is \textbf{associative}.  That is, if $f$, $g$, and $h$ are functions with compatible domains and codomains, then
+There is one detail we have been sweeping under the rug.  Notice that every time we wrote down a word consisting of two or more spins, we didn't bother to group pairs of adjacent spins using parentheses.  Recall that the composition of functions with compatible domains and codomains is \textbf{associative} (see Theorem~\ref{thm:function_comp_associative}.  That is, if $f$, $g$, and $h$ are functions with compatible domains and codomains, then
 \[
 (f\circ g)\circ h = f\circ (g\circ h).
 \]
@@ -454,7 +454,7 @@ Provide an example of a set $A$ and a binary operation $*$ on $A$ such that $(a*
 Define the binary operation $*$ on $\mathbb{R}$ via $a*b=1+ab$. In this case, $ab$ denotes the multiplication of the real numbers $a$ and $b$. Determine whether $*$ is associative on $\mathbb{R}$.
 \end{problem}
 
-\begin{theorem}
+\begin{theorem}\label{thm:function_comp_associative}
 Let $A$ be a nonempty set and let $F$ be the set of functions from $A$ to $A$.  Then function composition is an associative binary operation on $F$.
 \end{theorem}
 
