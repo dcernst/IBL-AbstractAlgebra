@@ -215,11 +215,11 @@ How many scrambled $3\times 3$ Spinpossible boards are there?  To answer this qu
 How many spins are there?
 \end{problem}
 
-It's useful to have some notation. Let $s_{ij}$ (with $i\leq j$) denote the spin that rotates the subrectangle that has tile $i$ in the upper-left corner and tile $j$ in the lower-right corner.  As an example, the sequence of spins that we used above to unscramble our initial scrambled board is
+It's useful to have some notation. Let $s_{ij}$ (with $i\leq j$) denote the spin that rotates the subrectangle that has position $i$ in the upper-left corner and position $j$ in the lower-right corner.  As an example, the sequence of spins that we used above to unscramble our initial scrambled board is
 \[
 s_{29}\to s_{28} \to s_{12}.
 \]
-It may not have occurred to you, but we can also rotate a single tile. Every spin of the form $s_{ii}$ is called a \emph{toggle}. For example, $s_{44}$ toggles the tile in position 4.
+As you noticed in Problem~\ref{prob:counting_spins}, we can also rotate a single tile. Every spin of the form $s_{ii}$ is called a \emph{toggle}. For example, $s_{44}$ toggles the tile in position 4.
 
 We can think of each spin as a function and since we are doing spins on top of spins, every sequence of spins corresponds to a composition of functions. We will follow the standard convention of function composition that says the function on the right goes first.  In this case, our previous sequence of spins becomes $s_{12} \circ s_{28}  \circ s_{29}$, which we abbreviate as $s_{12} s_{28} s_{29}$. This might take some getting used to, but just remember that it is just like function notation---stuff on the right goes first. We will refer to expressions like $s_{12} s_{28} s_{29}$ as \textbf{words} in the alphabet $\{s_{ij}\mid i\leq j\}$.  Our words will always consist of a finite number of spins.
 
