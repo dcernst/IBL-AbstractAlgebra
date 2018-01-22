@@ -323,7 +323,7 @@ Let's collect our key observations about $\Spin_{3\times 3}$.
 
 It turns out that $\Spin_{3\times 3}$ is an example of a group. Loosely speaking, a \textbf{group} is a set together with a method for combining two elements together that satisfies conditions (2), (3), (4), and (5) above.  More formally, a group is a nonempty set together with an associative binary operation such that the set contains an identity element and every element in the set has an inverse that is also in the set.  As we shall see, groups can have a variety of generating sets, possibly of different sizes. Also, some groups are commutative and some groups are not.
 
-Before closing out this section, let's tackle a few more interesting problems concerning Spinpossible. We say that a generating set for a group is a \textbf{minimal generating set} if removing any single element from the generating set results in a set that no longer generates the group.
+Before closing out this section, let's tackle a few more interesting problems concerning Spinpossible. We say that a generating set $S$ for a group is a \textbf{minimal generating set} if $S\setminus\{x\}$ is no longer a generating set for the group for all $x\in S$.
 
 \begin{problem}
 Determine whether the set of spins is a minimal generating set for $\Spin_{3\times 3}$.
@@ -656,7 +656,7 @@ If $G$ is a group under $*$ and $S$ is a subset of $G$, then $\langle S\rangle$ 
 \end{theorem}
 
 \begin{definition}
-If $G$ is a group and $S$ is a subset of $G$ such that $G=\langle S\rangle$, then $S$ is called a \textbf{generating set} of $G$. In other words, $S$ is a generating set of $G$ if every element of $G$ can be expressed as a word in $S$.  In this case, we say $S$ \textbf{generates} $G$.  A generating set $S$ for $G$ is a \textbf{minimal generating set} if removing any single element from $S$ results in a set that no longer generates the group.
+If $G$ is a group and $S$ is a subset of $G$ such that $G=\langle S\rangle$, then $S$ is called a \textbf{generating set} of $G$. In other words, $S$ is a generating set of $G$ if every element of $G$ can be expressed as a word in $S$.  In this case, we say $S$ \textbf{generates} $G$.  A generating set $S$ for $G$ is a \textbf{minimal generating set} if $S\setminus\{x\}$ is no longer a generating set for $G$ for all $x\in S$.
 \end{definition}
 
 A generating set for a group is analogous to a spanning set for a vector space and a minimal generating set for a group is analogous to a basis for a vector space.  
