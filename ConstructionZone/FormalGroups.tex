@@ -73,7 +73,7 @@ Let $A$ be a set and let $F$ be the set of functions from $A$ to $A$.  Then func
 
 When the set $A$ is finite, we can represent a binary operation on $A$ using a table in which the elements of the set are listed across the top and the left side (in the same order).  The entry in the $i$th row and $j$th column of the table represents the output of combining the element that labels the $i$th row with the element that labels the $j$th column (order matters).
 
-\begin{example}\label{example:table}
+\begin{example}\label{example:table2}
 Consider the following table.
 \begin{center}
 \begin{tabu}{c|[2pt]c|c|c}
@@ -108,7 +108,7 @@ Fill in the missing entries in the following table so that $*$ defines an associ
 \begin{section}{Groups}
 Without further ado, here is our official definition of a group.
 
-\begin{definition}\label{def:group}
+\begin{definition}\label{def:group2}
 A group $(G,*)$ is a set $G$ together with a binary operation $*$ such that the following axioms hold.
 \begin{enumerate}
 \item[(0)] The set $G$ is closed under $*$.
@@ -132,7 +132,7 @@ A few comments are in order.
 Explain why Axiom 0 is unnecessary.
 \end{exercise}
 
-At this time, we have two definitions of a group.  The first one was intended to provide an intuitive introduction and Definition~\ref{def:group} provides a rigorous mathematical definition.  We should confirm that these two definitions are in fact compatible.
+At this time, we have two definitions of a group.  The first one was intended to provide an intuitive introduction and Definition~\ref{def:group2} provides a rigorous mathematical definition.  We should confirm that these two definitions are in fact compatible.
 
 \begin{exercise}
 Compare and contrast our two definitions of a group.  How do the rules and axioms match up?
@@ -153,12 +153,12 @@ Determine whether each of the following are groups.  If the pair is a group, ide
 \item $(\mathbb{R}\setminus \{0\},\cdot)$
 \item $(M_{2\times 2}(\mathbb{R}),+)$
 \item $(M_{2\times 2}(\mathbb{R}),*)$, where $*$ is matrix multiplication.
-\item $(\{a,b,c\},*)$, where $*$ is the operation determined by the table in Example~\ref{example:table}.
+\item $(\{a,b,c\},*)$, where $*$ is the operation determined by the table in Example~\ref{example:table2}.
 \item $(\{a,b,c,d\},*)$, where $*$ is the operation determined by the table in Exercise~\ref{exer:table_missing_entries}.
 \end{enumerate}
 \end{exercise}
 
-Notice that in Axiom 2 of Definition~\ref{def:group}, we said \emph{the} identity and not \emph{an} identity.  Implicitly, this implies that the identity is unique.
+Notice that in Axiom 2 of Definition~\ref{def:group2}, we said \emph{the} identity and not \emph{an} identity.  Implicitly, this implies that the identity is unique.
 
 \begin{theorem}\label{thm:unique_id}
 Let $G$ be a group with binary operation $*$.  Then there is a unique identity element in $G$.  That is, there is only one element $e$ in $G$ such that $g*e=e*g=g$ for all $g\in G$.
@@ -480,7 +480,7 @@ Consider the diagram given in Figure~\ref{fig:nonRegular2}
 \caption{Diagram for Exercise~\ref{exer:nonRegular2}.}\label{fig:nonRegular2}
 \end{figure}
 
-As the previous two exercises indicate, the moral of the story is that our original intuitive definition of a group has a weakness.  It does not agree with our formal definition of a group given in Definition~\ref{def:group}.  Let's see if we can figure out what goes wrong.
+As the previous two exercises indicate, the moral of the story is that our original intuitive definition of a group has a weakness.  It does not agree with our formal definition of a group given in Definition~\ref{def:group2}.  Let's see if we can figure out what goes wrong.
 
 Consider the Cayley diagram for $D_3$ with generating set $\{r,s\}$ that is given in Figure~\ref{fig:D3}. Notice that we labeled the lower right corner of the Cayley diagram with the word $r^2s$.  This means that we first followed a blue arrow out of $e$ and then two red arrows.  However, we could also get to this vertex by first doing a red arrow out of $e$ followed by a blue arrow.  So, we could also have labeled this vertex with the word $sr$.  The upshot is that $r^2s=sr$.  These types of group equations are called \textbf{relations}.
 
@@ -525,7 +525,7 @@ Verify that the diagrams in Exercise~\ref{exer:nonRegular1} and \ref{exer:nonReg
 Explain why the Cayley diagram for a group must be regular.
 \end{problem}
 
-The discussion and exercises above lead us to conclude that one thing missing from our original intuitive definition of a group is regularity.  It turns out that this is the only thing missing.  That is, if we add the requirement of regularity to our intuitive definition, we could convert it into a rigorous definition that is equivalent to Definition~\ref{def:group}.  However, we won't bother doing this since our intuitive definition served its purpose.
+The discussion and exercises above lead us to conclude that one thing missing from our original intuitive definition of a group is regularity.  It turns out that this is the only thing missing.  That is, if we add the requirement of regularity to our intuitive definition, we could convert it into a rigorous definition that is equivalent to Definition~\ref{def:group2}.  However, we won't bother doing this since our intuitive definition served its purpose.
 
 We close this section with a problem that asks you to think about the structure of the Cayley diagrams for an abelian group.
 
