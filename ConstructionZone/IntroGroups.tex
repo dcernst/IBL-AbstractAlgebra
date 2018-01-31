@@ -718,16 +718,6 @@ Consider the dihedral group $D_4$ introduced in Problem~\ref{prob:introducing_D4
 Consider the symmetric group $S_3$ that was introduced in Problem~\ref{prob:introducing_S3}. Let $s_1$ be the action that swaps the positions of the first and second coins and let $s_2$ be the action that swaps the positions of the second and third coins. Prove that $S_3=\langle s_1, s_2\rangle$.
 \end{problem}
 
-\begin{problem}\label{prob:introducing_S2}
-Consider the symmetric group $S_2$ that consists of the permutations of two coins that are sitting side by side.
-\begin{enumerate}[label=\rm{(\alph*)}]
-\item What is the order of $S_2$?
-\item Find a generating set for $S_2$.
-\item Is $S_2$ cyclic?
-\item Is $S_2$ abelian?
-\end{enumerate}
-\end{problem}
-
 \begin{problem}
 Find a minimal generating set for $(\mathbb{Z},+)$.  Is $\mathbb{Z}$ a cyclic group under addition?
 \end{problem}
@@ -742,7 +732,6 @@ Find a minimal generating set for $(\mathbb{Z},+)$.  Is $\mathbb{Z}$ a cyclic gr
 
 Recall that we could represent a binary operation on a finite set using a table.  Since groups have binary operations at their core, we can represent a finite group (i.e., a group with finitely many elements) using a table, called a \textbf{group table}. For example, the group table for $D_3$ is given below, where we have used $\{r,s\}$ as the generating set (see Problem~\ref{prob:revisiting_D3}). %and $V_4$, respectively.
 
-%table for D_3
 \begin{center}
 \begin{tabu}{c|[2pt]c|c|c|c|c|c}
 $*$ & $e$ & $r$ & $r^2$ & $s$ & $sr$ & $sr^2$\\ \tabucline[2pt]{-}
@@ -753,16 +742,6 @@ $e$ & $e$ & $r$ & $r^2$ & $s$ & $sr$ & $sr^2$\\
 \hline $sr$ & $sr$ & $sr^2$ & $s$ & $r^2$ & $e$ & $r$\\
 \hline $sr^2$ & $sr^2$ & $s$ & $sr$ & $r$ & $r^2$ & $e$ 
 \end{tabu}
-
-%table for V_4
-%\hspace{1cm}
-%\begin{tabu}{c|[2pt]c|c|c|c}
-%$*$ & $e$ & $v$ & $h$ & $vh$ \\ \tabucline[2pt]{-}
-%$e$ & $e$ & $v$ & $h$ & $vh$ \\
-%\hline $v$ & $v$ & $e$ & $vh$ & $h$  \\
-%\hline $h$ & $h$ & $vh$ & $e$ & $v$\\
-%\hline $vh$ & $vh$ & $h$ & $v$ & $e$
-%\end{tabu}
 \end{center}
 
 As a reminder, our convention is that if $x$ appears in row $i$ and $y$ appears in column $j$, then row $i$ ``times" column $j$ will result in the element determined by $xy$, where as usual we follow our right to left convention.  That is, $xy$ means we apply $y$ first and then $x$ (as in function composition).
@@ -785,7 +764,7 @@ Given the table for a group, how can you identify which elements are inverses of
 Let's introduce a couple of new groups.
 
 \begin{problem}\label{prob:introducing_S2}
-Consider the symmetric group $S_2$ consisting of the net actions that permute the positions of two coins (without flipping them over) that are sitting side by side in a line.  Let $s$ be the action that swaps the positions of the two coins.
+Consider the symmetric group $S_2$ that consists of the net actions that permute the positions of two coins (without flipping them over) that are sitting side by side in a line.  Let $s$ be the action that swaps the positions of the two coins.
 \begin{enumerate}[label=\rm{(\alph*)}]
 \item Verify that $S_2=\langle s\rangle$. What is the order of $S_2$?
 \item Create the group table for $S_2$.
