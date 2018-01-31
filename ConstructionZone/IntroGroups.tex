@@ -622,7 +622,7 @@ The good news is that the rules of exponents you are familiar with still hold fo
 \begin{theorem}\label{thm:exponents}
 If $G$ is a group and $g\in G$, then for all $n,m\in\mathbb{Z}$, we have the following:
 \begin{enumerate}[label=\rm{(\alph*)}]
-\item $g^n*g^m=g^{n+m}$,
+\item $g^ng^m=g^{n+m}$,
 \item $(g^n)^{-1}=g^{-n}$.
 \end{enumerate}
 \end{theorem}
@@ -681,7 +681,7 @@ Consider the rotation group $R_4$ that we introduced in Problem~\ref{prob:introd
 \end{enumerate}
 \end{problem}
 
-\begin{problem}\label{prob:revisit_D3}
+\begin{problem}\label{prob:revisiting_D3}
 Consider the dihedral group $D_3$ introduced in Problem~\ref{prob:introducing_D3}. To give us a common starting point, let's assume the triangle and hole are positioned so that one of the tips of the triangle is pointed up. Let $r$ be rotation by $120^\circ$ in the clockwise direction and let $s$ be the reflection in $D_3$ that fixes the top of the triangle.
 \begin{enumerate}[label=\rm{(\alph*)}]
 \item Describe the action of $r^{-1}$ on the triangle and express $r^{-1}$ as a word using $r$ only.
@@ -695,10 +695,10 @@ Consider the dihedral group $D_3$ introduced in Problem~\ref{prob:introducing_D3
 It is important to point out that the fact that $\{r,s\}$ is a minimal generating set for $D_3$ does not imply that $D_3$ is not a cyclic group. There are examples of cyclic groups that have minimal generating sets consisting of more than one element (see Problem~\ref{prob:introducing_R6}).
 
 \begin{problem}\label{prob:alternate_D3}
-Let's consider the group $D_3$ again. Let $s$ be the same reflection as in Problem~\ref{prob:revisit_D3} and let $s'$ be the reflection in $D_3$ that fixes the bottom right corner of the triangle.
+Let's consider the group $D_3$ again. Let $s$ be the same reflection as in Problem~\ref{prob:revisiting_D3} and let $s'$ be the reflection in $D_3$ that fixes the bottom right corner of the triangle.
 \begin{enumerate}[label=\rm{(\alph*)}]
 \item Express $r$ as a word in $s$ and $s'$.
-\item Use part (a) together with Problem~\ref{prob:revisit_D3} to prove that $\langle s,s'\rangle=D_3$.
+\item Use part (a) together with Problem~\ref{prob:revisiting_D3} to prove that $\langle s,s'\rangle=D_3$.
 \end{enumerate}
 \end{problem}
 
@@ -740,11 +740,122 @@ Find a minimal generating set for $(\mathbb{Z},+)$.  Is $\mathbb{Z}$ a cyclic gr
 
 %%----------------------------%%
 
-Maybe I should do a quick intro to group tables and Cayley diagrams (introducing a couple new groups) and then end the chapter.  The next chapter could be subgroups and isomorphisms (introducing more groups).
+Recall that we could represent a binary operation on a finite set using a table.  Since groups have binary operations at their core, we can represent a finite group (i.e., a group with finitely many elements) using a table, called a \textbf{group table}. For example, the group table for $D_3$ is given below, where we have used $\{r,s\}$ as the generating set (see Problem~\ref{prob:revisiting_D3}). %and $V_4$, respectively.
 
-Maybe half of this should come before generating sets.
+%table for D_3
+\begin{center}
+\begin{tabu}{c|[2pt]c|c|c|c|c|c}
+$*$ & $e$ & $r$ & $r^2$ & $s$ & $sr$ & $sr^2$\\ \tabucline[2pt]{-}
+$e$ & $e$ & $r$ & $r^2$ & $s$ & $sr$ & $sr^2$\\
+\hline $r$ & $r$ & $r^2$ & $e$ & $sr^2$ & $s$ & $sr$ \\
+\hline $r^2$ & $r^2$ & $e$ & $r$ & $sr$ & $sr^2$ & $s$\\
+\hline $s$ & $s$ & $sr$ & $sr^2$ & $e$ & $r$ & $r^2$\\
+\hline $sr$ & $sr$ & $sr^2$ & $s$ & $r^2$ & $e$ & $r$\\
+\hline $sr^2$ & $sr^2$ & $s$ & $sr$ & $r$ & $r^2$ & $e$ 
+\end{tabu}
 
-Introduce at least one new group, say $V_4$.
+%table for V_4
+%\hspace{1cm}
+%\begin{tabu}{c|[2pt]c|c|c|c}
+%$*$ & $e$ & $v$ & $h$ & $vh$ \\ \tabucline[2pt]{-}
+%$e$ & $e$ & $v$ & $h$ & $vh$ \\
+%\hline $v$ & $v$ & $e$ & $vh$ & $h$  \\
+%\hline $h$ & $h$ & $vh$ & $e$ & $v$\\
+%\hline $vh$ & $vh$ & $h$ & $v$ & $e$
+%\end{tabu}
+\end{center}
+
+As a reminder, our convention is that if $x$ appears in row $i$ and $y$ appears in column $j$, then row $i$ ``times" column $j$ will result in the element determined by $xy$, where as usual we follow our right to left convention.  That is, $xy$ means we apply $y$ first and then $x$ (as in function composition).
+
+Given an arbitrary group $G$, we should probably say, ``a group table for $G$" and not ``the group table for $G$."  The reason for this is that if we chose a different order of the elements (e.g., swap rows 1 and 4---which swaps columns 1 and 4, as well), then the table would look slightly different.  Also, if we had chosen a different generating set, then the names of the elements would look different.  Regardless, the table still captures the same information about the binary operation. Because every possible table for a given group conveys the same information about the architecture of the group, people may refer to any table for the group as ``the" table. Regardless of the ordering of the other elements in the group, it is standard practice to list the identity first. That is, we will always put $e$ in the top row and the leftmost column.
+
+\begin{problem}
+For each of the following groups, identify a generating set and then create the group table.
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item $R_4$
+\item $D_4$
+\item $S_3$
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Given the table for a group, how can you identify which elements are inverses of each other?  Does this tell you anything about which element must appear in every row and column of the group table?
+\end{problem}
+
+Let's introduce a couple of new groups.
+
+\begin{problem}\label{prob:introducing_S2}
+Consider the symmetric group $S_2$ consisting of the net actions that permute the positions of two coins (without flipping them over) that are sitting side by side in a line.  Let $s$ be the action that swaps the positions of the two coins.
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item Verify that $S_2=\langle s\rangle$. What is the order of $S_2$?
+\item Create the group table for $S_2$.
+\item Is $S_2$ abelian?
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Consider a rectangle (which may or may not be a square) oriented so that one side is parallel to the ground.  Let $h$ be the symmetry that reflects the rectangle over the horizontal midline and let $v$ be the symmetry that reflects the rectangle over the vertical midline. Define $V_4:=\langle v, h\rangle$. This group is called the \textbf{Klein group} (or \textbf{Vierergruppe}, which is German for ``four-group") after the German mathematician Felix Klein in 1884.
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item Verify that $|V_4|=4$ by describing the symmetries in the group.
+\item Create the group table for $V_4$.
+\item Is $V_4$ abelian?
+\item Is $V_4$ cyclic?
+\end{enumerate}
+\end{problem}
+
+Perhaps you noticed when creating the tables above that each element of the group appeared exactly once in each row and column, respectively.  This is true in general for groups.
+
+\begin{theorem}
+If $(G,*)$ is a finite group, then each element of $G$ appears exactly once in each row and each column, respectively, in any group table for $G$.
+\end{theorem}
+
+We can also use tables to define groups.  For example, consider the following table on the set $A=\{e,a,b,c\}$.
+
+\begin{center}
+\begin{tabu}{c|[2pt]c|c|c|c}
+$*$ & $e$ & $a$ & $b$ & $c$ \\ \tabucline[2pt]{-}
+$e$ & $e$ & $a$ & $b$ & $c$ \\
+\hline $a$ & $a$ & $e$ & $c$ & $b$  \\
+\hline $b$ & $b$ & $c$ & $e$ & $a$\\
+\hline $c$ & $c$ & $b$ & $a$ & $e$
+\end{tabu}
+\end{center}
+
+\noindent Is this a table for a group?  First, we see that the binary operation determined by the table is closed.  Second, we see that $e$ is acting as the identity.  Since every row and column has the identity element $e$ appearing, we know that every element has an inverse (do you see why that follows?).  The only thing left to check is associativity.  Imagine for a moment what this entails.  It's messy right?!  And this is only for a group of order 4.
+
+Thankfully, we can rely on some prior knowledge to help out with associativity.  It turns out that if you look closely, the group table for $V_4$ looks the ``same" as the table above.  What do we mean by ``same" here?  The names for elements are different (except for $e$), but 
+\begin{quotation}
+\emph{the product of corresponding elements yields the corresponding result.}
+\end{quotation}
+To see what I mean, let's color both tables with white, red, blue, and green in such a way that each element corresponds to a unique color.  If we choose our colors wisely, it is easy to see that both tables have the same structure.
+
+\begin{center}
+\begin{tabu}{c|[2pt]c|c|c|c}
+$\circ$ & $e$ & \cellcolor{red}$v$ & \cellcolor{blue}$h$ & \cellcolor{green}$vh$ \\ \tabucline[2pt]{-}
+$e$ & $e$ & \cellcolor{red}$v$ & \cellcolor{blue}$h$ & \cellcolor{green}$vh$ \\
+\hline \cellcolor{red}$v$ & \cellcolor{red}$v$ & $e$ & \cellcolor{green}$vh$ & \cellcolor{blue}$h$  \\
+\hline \cellcolor{blue}$h$ & \cellcolor{blue}$h$ & \cellcolor{green}$vh$ & $e$ & \cellcolor{red}$v$\\
+\hline \cellcolor{green}$vh$ & \cellcolor{green}$vh$ & \cellcolor{blue}$h$ & \cellcolor{red}$v$ & $e$
+\end{tabu}
+\hspace{1cm}
+$\longleftrightarrow$
+\hspace{1cm}
+\begin{tabu}{c|[2pt]c|c|c|c}
+$*$ & $e$ & \cellcolor{red}$a$ & \cellcolor{blue}$b$ & \cellcolor{green}$c$ \\ \tabucline[2pt]{-}
+$e$ & $e$ & \cellcolor{red}$a$ & \cellcolor{blue}$b$ & \cellcolor{green}$c$ \\
+\hline \cellcolor{red}$a$ & \cellcolor{red}$a$ & $e$ & \cellcolor{green}$c$ & \cellcolor{blue}$b$  \\
+\hline \cellcolor{blue}$b$ & \cellcolor{blue}$b$ & \cellcolor{green}$c$ & $e$ & \cellcolor{red}$a$\\
+\hline \cellcolor{green}$c$ & \cellcolor{green}$c$ & \cellcolor{blue}$b$ & \cellcolor{red}$a$ & $e$
+\end{tabu}
+\end{center}
+
+\noindent Since we already know that $V_4$ is a group, we know that the binary operation for $V_4$ is associative.  This discussion verifies that $(A,*)$ is a group.
+
+It is important to point out that if we had not chosen our colors wisely, then perhaps the colorings of the two tables would not agree.  Moreover, if we had made the same color choices for elements, but then rearranged columns and rows of one table, the colorings of the two tables would not agree.  This doesn't imply anything.  The point is whether we \emph{can} get the tables to match.
+
+\begin{problem}
+Is it possible to color the group table for $R_4$ so that it matches the coloring of $V_4$?  Explain your answer.
+\end{problem}
 
 \end{section}
 
@@ -754,7 +865,7 @@ Introduce at least one new group, say $V_4$.
 
 %%----------------------------%%
 
-Blah
+Coming soon.
 
 \end{section}
 
@@ -764,7 +875,7 @@ Blah
 
 %%----------------------------%%
 
-Blah
+Coming soon.
 
 \end{section}
 
@@ -774,22 +885,7 @@ Blah
 
 %%----------------------------%%
 
-Maybe this should come before group tables???
-
-\end{section}
-
-
-
-%%----------------------------%%
-
-\begin{section}{Scraps}
-
-%%----------------------------%%
-
-%right spot for this?
-\begin{problem}
-Can you describe a group that has exactly $n$ elements for any natural number $n$?
-\end{problem}
+Blah
 
 \begin{theorem}%similar theorem above
 If $G$ is a group under $*$ and $S$ is a subset of $G$, then $\langle S\rangle$ is also a group under $*$. Smallest...
@@ -801,6 +897,19 @@ If $G$ is a group, then $\langle G\rangle =G$.
 
 \begin{problem}
 If $G$ is a group, then what is $\langle \emptyset\rangle$?
+\end{problem}
+
+\end{section}
+
+%%----------------------------%%
+
+\begin{section}{Scraps}
+
+%%----------------------------%%
+
+%right spot for this?
+\begin{problem}
+Can you describe a group that has exactly $n$ elements for any natural number $n$?
 \end{problem}
 
 \end{section}
