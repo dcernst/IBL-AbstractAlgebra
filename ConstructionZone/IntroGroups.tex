@@ -730,7 +730,7 @@ Find a minimal generating set for $(\mathbb{Z},+)$.  Is $\mathbb{Z}$ a cyclic gr
 
 %%----------------------------%%
 
-Recall that we could represent a binary operation on a finite set using a table.  Since groups have binary operations at their core, we can represent a finite group (i.e., a group with finitely many elements) using a table, called a \textbf{group table}. For example, the group table for $D_3$ is given below, where we have used $\{r,s\}$ as the generating set (see Problem~\ref{prob:revisiting_D3}). %and $V_4$, respectively.
+Recall that we could represent a binary operation on a finite set using a table.  Since groups have binary operations at their core, we can represent a finite group (i.e., a group with finitely many elements) using a table, called a \textbf{group table}. For example, the group table for $D_3$ is given below, where we have used $\{r,s\}$ as the generating set (see Problem~\ref{prob:revisiting_D3}).
 
 \begin{center}
 \begin{tabu}{c|[2pt]c|c|c|c|c|c}
@@ -772,7 +772,7 @@ Consider the symmetric group $S_2$ that consists of the net actions that permute
 \end{enumerate}
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{prob:introducing_V4}
 Consider a rectangle (which may or may not be a square) oriented so that one side is parallel to the ground.  Let $h$ be the symmetry that reflects the rectangle over the horizontal midline and let $v$ be the symmetry that reflects the rectangle over the vertical midline. Define $V_4:=\langle v, h\rangle$. This group is called the \textbf{Klein group} (or \textbf{Vierergruppe}, which is German for ``four-group") after the German mathematician Felix Klein in 1884.
 \begin{enumerate}[label=\rm{(\alph*)}]
 \item Verify that $|V_4|=4$ by describing the symmetries in the group.
@@ -844,7 +844,368 @@ Is it possible to color the group table for $R_4$ so that it matches the colorin
 
 %%----------------------------%%
 
-Coming soon.
+In this section, we will introduce visual way of encoding the abstract structure of the group in terms of a specified generating set.  To get started, let's tinker with an example.
+
+Recall that in Problem~\ref{prob:number_spinpossible_boards}, we discovered that there are a total of $2^9\cdot 9! = 185,794,560$ possible scrambled $3\times 3$ Spinpossible boards.  Now, imagine we wanted to write a solution manual that would describe how to solve all these boards.  There are many possible ways to construct such a solution manual, but here is one way.  
+
+The manual will consist of $185,794,560$ pages such that each page lists a unique scrambling of the $3\times 3$ board.  Don't forget that one of these scramblings is the solved board, which we will make page 1.  Also, imagine that the book is arranged in such a way that it isn't too difficult to look up a given scrambled board.  On each page below the scrambled board is a table that lists all possible spins.  Next to each spin, the table indicates whether doing that particular spin will result in a board that is either closer to being solved or farther away from being solved.  In addition, the page number that corresponds to the resulting board is listed next to each spin.
+
+In most cases, there will be many spins that take us closer to the solved board.  Given a scrambled board, a solution would consist of following one possible sequence of pages through the book that takes us from the scrambled board to the solved board.  There could be many such sequences.  If we could construct such a solution manual, we would have an atlas or map for the game Spinpossible.
+
+Note that even if we make a wrong turn (i.e., follow a page that takes us farther away from the solution), we can still get back on track by following page numbers that take us closer to the solved board.  In fact, we can always flip back to the page we were on before taking a wrong turn.  This page will be listed on our ``wrong turn page" since doing the same spin twice has the net effect of doing nothing.  If you were to actually do this, the number of pages we would need to visit would be longer than an optimal solution, but we'd get to the solved board nonetheless.
+
+Let's get a little more concrete.  Consider the game Spinpossible, except let's simplify it a little.  Instead of playing on the $3\times 3$ board, let's play on a $1\times 2$ board consisting of a single row with tiles labeled 1 and 2.  The rules of the game are what you would expect; we are restricted to spins involving just the tiles in positions 1 and 2 of the original board.  A scrambling of the $1\times 2$ Spinpossible board consists of any rearrangement of the tiles 1 and 2, where either of the tiles can be right-side-up or up-side-down.  
+
+\begin{problem}
+Let $\Spin_{1\times 2}$ denote the group of net actions that corresponds to compositions of allowable spins on the $1\times 2$ Spinpossible board.
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item How many scrambled boards are there for the $1\times 2$ Spinpossible game?  Write them all down. Don't forget to include the solved board.
+\item What is the order of $\Spin_{1\times 2}$?
+\item Verify that $\Spin_{1\times 2}=\langle s_{11}, s_{22}, s_{12}\rangle$ by writing every element as a word in $s_{11}$, $s_{22}$, or $s_{12}$.
+\item Is $\{s_{11}, s_{22}, s_{12}\}$ a minimal generating set for $\Spin_{1\times 2}$?
+\end{enumerate}
+\end{problem}
+
+Let's try to make a map for $\Spin_{1\times 2}$, but instead of writing a solution manual, we will draw a diagram of the group.  The first thing we'll do is draw each of the scramblings that we found in the previous problem.  It doesn't matter how we arrange all of these drawings, as long as there is some space between them.  Now, for each of our 8 scrambled boards, figure out what happens when we do each of our 3 allowable spins.  For each of these spins, we'll draw an arrow from the scrambled board under consideration to the resulting board.  Don't worry about whether doing each of these spins is a good idea or not.  In this case, each of our scrambled boards will have 3 arrows heading out towards 3 distinct boards.  Do you see why?  
+
+In order for us to keep straight what each arrow represents, let's color our arrows, so that doing a particular type of spin is always the same color.  For example, we could color the arrows that toggle the tile in the first position as green.  Recall that doing the same spin twice has the net effect of doing nothing, so let's just make all of our arrows point in both directions.
+
+To make sure you are following along, consider the following scrambled board.
+
+\begin{center}
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {\rotatebox{180}{$\underline{1}$}};
+\node [draw, right=0cm of 1] (2) {\rotatebox{180}{$\underline{2}$}};
+\end{tikzpicture}
+\end{center}
+
+\noindent This board is one of our 8 possible scrambled $1\times 2$ boards.  We have three possible spins we can do to this board: toggle position 1, toggle position 2, or spin the whole board.  Each of these spins has a corresponding two-way arrow that takes us to three different scrambled boards.  Figure~\ref{fig:partial_Cayley} provides a visual representation of what we just discussed.
+
+\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=6.5mm]
+\tikzstyle{b} = [draw,very thick,blue,stealth-stealth]
+\tikzstyle{r} = [draw, very thick, red,stealth-stealth]
+\tikzstyle{g} = [draw, very thick, green, stealth-stealth]
+
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}[scale=1.5,auto]
+\node (B) at (1,2) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {$\underline{1}$};
+\node [draw, right=0cm of 1] (2) {\rotatebox{180}{$\underline{2}$}};
+\end{tikzpicture}
+};
+\node (D) at (2,-.75) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {$\underline{2}$};
+\node [draw, right=0cm of 1] (2) {$\underline{1}$};
+\end{tikzpicture}
+};
+\node (E) at (1,-2) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {\rotatebox{180}{$\underline{1}$}};
+\node [draw, right=0cm of 1] (2) {\rotatebox{180}{$\underline{2}$}};
+\end{tikzpicture}
+};
+\node (F) at (-1,-2) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {\rotatebox{180}{$\underline{1}$}};
+\node [draw, right=0cm of 1] (2) {$\underline{2}$};
+\end{tikzpicture}
+};
+\node (H) at (-2,.75) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node (1) {};
+\node [right=0cm of 1] (2) {};
+\end{tikzpicture}
+};
+\path[b] (E) to (F);
+\path[r] (D) to (E);
+\path[g] (B) to (E);
+\end{tikzpicture}
+\caption{}
+\label{fig:partial_Cayley}
+\end{figure}
+
+\noindent Note that I could have drawn the four scrambled boards in Figure~\ref{fig:partial_Cayley} anywhere I wanted to, but I have a particular layout in mind.  Also, notice we have three different colored arrows. In this case, a green arrow corresponds to toggling the tile in position 1 ($s_{11}$), a blue arrow corresponds to toggling position 2 ($s_{22}$), and a red arrow corresponds to spinning the whole board ($s_{12}$). 
+
+If we include the rest of the scrambled boards and all possible spins, we obtain Figure~\ref{fig:Cayley_Spin_1x2}. Note that I've chosen a nice layout for the figure, but it's really the connections between the various boards that are important.
+
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}[scale=1.5,auto]
+\node (A) at (-1,2) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {$\underline{1}$};
+\node [draw, right=0cm of 1] (2) {$\underline{2}$};
+\end{tikzpicture}
+};
+\node (B) at (1,2) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {$\underline{1}$};
+\node [draw, right=0cm of 1] (2) {\rotatebox{180}{$\underline{2}$}};
+\end{tikzpicture}
+};
+\node (C) at (2,.75) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {$\underline{2}$};
+\node [draw, right=0cm of 1] (2) {\rotatebox{180}{$\underline{1}$}};
+\end{tikzpicture}
+};
+\node (D) at (2,-.75) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {$\underline{2}$};
+\node [draw, right=0cm of 1] (2) {$\underline{1}$};
+\end{tikzpicture}
+};
+\node (E) at (1,-2) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {\rotatebox{180}{$\underline{1}$}};
+\node [draw, right=0cm of 1] (2) {\rotatebox{180}{$\underline{2}$}};
+\end{tikzpicture}
+};
+\node (F) at (-1,-2) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {\rotatebox{180}{$\underline{1}$}};
+\node [draw, right=0cm of 1] (2) {$\underline{2}$};
+\end{tikzpicture}
+};
+\node (G) at (-2,-.75) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {\rotatebox{180}{$\underline{2}$}};
+\node [draw, right=0cm of 1] (2) {$\underline{1}$};
+\end{tikzpicture}
+};
+\node (H) at (-2,.75) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {\rotatebox{180}{$\underline{2}$}};
+\node [draw, right=0cm of 1] (2) {\rotatebox{180}{$\underline{1}$}};
+\end{tikzpicture}
+};
+\path[b] (A) to (B);
+\path[b] (C) to (D);
+\path[b] (E) to (F);
+\path[b] (G) to (H);
+\path[r] (B) to (C);
+\path[r] (D) to (E);
+\path[r] (F) to (G);
+\path[r] (H) to (A);
+\path[g] (B) to (E);
+\path[g] (C) to (H);
+\path[g] (D) to (G);
+\path[g] (F) to (A);
+\end{tikzpicture}
+\caption{}
+\label{fig:Cayley_Spin_1x2}
+\end{figure}
+
+Ultimately, we want a diagram that conveys information about the structure of the group, so instead of labeling the vertices of the diagram for $\Spin_{1\times 2}$ in Figure~\ref{fig:Cayley_Spin_1x2} with scrambled boards, we will label the vertices with the elements of the group in a way that respects the configuration of arrows. But in order to do this, we need to make a choice about how to start labeling.  A natural choice to make is to label the solved board with the identity $e$.  Then each scrambled board should be labeled by the group element that corresponds to the net action that takes us from the solved board to that scrambled board. 
+
+One way to do this is to label each vertex with the word that corresponds to a path of arrows that leads to the vertex from the vertex labeled by the identity $e$. Don't forget that we apply our composition of actions from right to left.  This means that following a sequence of arrows out of the vertex labeled by $e$ will get recorded as a word written right to left.  That is, the first arrow out of $e$ corresponds to the rightmost letter in the word.
+
+For example, consider the following scrambled board.
+\begin{center}
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {{$\underline{2}$}};
+\node [draw, right=0cm of 1] (2) {\rotatebox{180}{$\underline{1}$}};
+\end{tikzpicture}
+\end{center}
+Looking at Figure~\ref{fig:Cayley_Spin_1x2}, we see that one way to get to this board from the solved board is to follow a blue arrow and then a red arrow.  This corresponds to the word $s_{11}s_{22}$. However, it also corresponds to the word $s_{22}s_{12}s_{22}s_{11}$ even though this is not an optimal solution.  So, we can label the board in question with either $s_{11}s_{22}$ or $s_{22}s_{12}s_{22}s_{11}$ and there are other choices, as well.
+
+\begin{problem}
+Using Figure~\ref{fig:Cayley_Spin_1x2}, find three distinct words in $s_{11}, s_{22}$, or $s_{12}$ that correspond to the following scrambled board.
+\begin{center}
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {\rotatebox{180}{$\underline{1}$}};
+\node [draw, right=0cm of 1] (2) {\rotatebox{180}{$\underline{2}$}};
+\end{tikzpicture}
+\end{center}
+\end{problem}
+
+If we continue labeling the vertices of the directed graph in Figure~\ref{fig:Cayley_Spin_1x2}, then one possible labeling is given in Figure~\ref{fig:Cayley_Spin_1x2_group_labels}. Each word tells you how to reach the corresponding scrambled board from the solved board. The directed graph in Figure~\ref{fig:Cayley_Spin_1x2_group_labels} is called the \textbf{Cayley diagram} for $\Spin_{1\times 2}$ using $\{s_{11},s_{22},s_{12}\}$ as a generating set. It is important to point out that it will not always be the case that the arrows are two-way arrows. This happened to be the case here because each of our generators is its own inverse.
+
+\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=13mm]
+
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}[scale=1.5,auto]
+\node (A) at (-1,2) [vert] {\scriptsize $e$};
+\node (B) at (1,2) [vert] {\scriptsize $s_{22}$};
+\node (C) at (2,.75) [vert] {\scriptsize $s_{12}s_{22}$};
+\node (D) at (2,-.75) [vert] {\scriptsize $s_{22}s_{12}s_{22}$};
+\node (E) at (1,-2) [vert] {\scriptsize $s_{11}s_{22}$};
+\node (F) at (-1,-2) [vert] {\scriptsize $s_{11}$};
+\node (G) at (-2,-.75) [vert] {\scriptsize $s_{22}s_{12}$};
+\node (H) at (-2,.75) [vert] {\scriptsize $s_{12}$};
+\path[b] (A) to (B);
+\path[b] (C) to (D);
+\path[b] (E) to (F);
+\path[b] (G) to (H);
+\path[r] (B) to (C);
+\path[r] (D) to (E);
+\path[r] (F) to (G);
+\path[r] (H) to (A);
+\path[g] (B) to (E);
+\path[g] (C) to (H);
+\path[g] (D) to (G);
+\path[g] (F) to (A);
+\end{tikzpicture}
+\caption{Cayley diagram for $\Spin_{1\times 2}$ with generating set $\{s_{11},s_{22},s_{33}\}$.}
+\label{fig:Cayley_Spin_1x2_group_labels}
+\end{figure}
+
+\begin{problem}
+Consider the Cayley diagram for $\Spin_{1\times 2}$ in Figure~\ref{fig:Cayley_Spin_1x2_group_labels}.
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item Removing all the red arrows corresponds to forbidding the spin that rotates the full $1\times 2$ board. Can we obtain all of the scrambled boards from the solved board using only blue and green arrows? What does this tell you about $\{s_{11},s_{22}\}$?
+\item What if we remove the blue arrows? What does this tell you about $\{s_{11},s_{12}\}$?
+\item What if we remove the green arrows? What does this tell you about $\{s_{22},s_{12}\}$?
+\end{enumerate}
+\end{problem}
+
+\begin{definition}
+Suppose $G$ is a group and $S$ is a generating set of $G$. The \textbf{Cayley diagram} for $G$ with generating set $S$ is a colored directed graph constructed as follows:
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item The vertices correspond to elements of $G$.
+\item Each generator $s\in S$ is assigned a color, say $c_s$.
+\item For $g\in G$ and $s\in S$, there is a directed edge from $g$ to $sg$ with color $c_s$.
+\end{enumerate}
+\end{definition}
+
+Note that following the arrow from $g$ to $sg$ with color $c_s$ corresponds to applying the action of $s$ to $g$. Moreover, following the arrow backwards from $sg$ to $g$ corresponds to applying $s^{-1}$ to $sg$. If a generator is its own inverse (like the spins in $\Spin_{1\times 2}$), then the arrows corresponding to that generator are two-way arrows.  
+
+Cayley diagrams are named after their inventor Arthur Cayley, a nineteenth century British mathematician.  We'll see his name pop up a couple more times in the course.  
+
+Before asking you to construct some Cayley diagrams, let's play with another example. In the next problem you will encounter a Cayley diagram where all the edges are one-way arrows.
+
+\begin{problem}\label{prob:introducing_R6}
+Let $R_6$ denote the group of rotational symmetries of a regular hexagon and let $r$ be rotation by $60^{\circ}$ clockwise. It's not too hard to see that $R_6=\langle r\rangle$ and $|R_6|=6$.  The Cayley diagram for $R_6$ with generating set $\{r\}$ is given in Figure~\ref{fig:rotation6}. 
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item Is $R_6$ cyclic?
+\item Is $R_6$ abelian?
+\item Write $r^{-1}$ as a word in $r$.
+\item Can you find a shorter word to describe $r^8$?
+\item Does $r^2$ generate the group?
+\item Does $r^5$ generate the group?
+\end{enumerate}
+\end{problem}
+
+\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=6.5mm]
+\tikzstyle{b} = [draw,very thick,blue,-stealth]
+\tikzstyle{r} = [draw, very thick, red,-stealth]
+\tikzstyle{g} = [draw, very thick, green, stealth-stealth]
+
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}[scale=1.5,auto]
+\node (r2) at (0:1.5) [vert] {{\scriptsize $r^2$}};
+\node (r) at (60:1.5) [vert] {\scriptsize {$r$}};
+\node (e) at (120:1.5) [vert] {{\scriptsize $e$}};
+\node (r5) at (180:1.5) [vert] {{\scriptsize $r^5$}};
+\node (r4) at (240:1.5) [vert] {{\scriptsize $r^4$}};
+\node (r3) at (-60:1.5) [vert] {{\scriptsize $r^3$}};
+\path[r] (e) to (r);
+\path[r] (r) to (r2);
+\path[r] (r2) to (r3);
+\path[r] (r3) to (r4);
+\path[r] (r4) to (r5);
+\path[r] (r5) to (e);
+\end{tikzpicture}
+\caption{Cayley diagram for $R_6$ with generating set $\{r\}$.}
+\label{fig:rotation6}
+\end{figure}
+ 
+Now, let's build a few Cayley diagrams to further our intuition.
+
+\begin{problem}\label{prob:make_Cayley_diagrams}
+Construct a Cayley diagram for each of the following groups using the specified generating set.
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item $S_2$ with generating set $\{s\}$ (see Problem~\ref{prob:introducing_S2})
+\item $R_4$ with generating set $\{r\}$ (see Problem~\ref{prob:introducing_R4})
+\item $V_4$ with generating set $\{v,h\}$ (see Problem~\ref{prob:introducing_V4})
+\item $D_3$ with generating set $\{r,s\}$ (see Problem~\ref{prob:introducing_D3})
+\item $D_3$ with generating set $\{s,s'\}$ (see Problem~\ref{prob:alternate_D3})
+\item $S_3$ with generating set $\{s_1,s_2\}$ (see Problem~\ref{prob:introducing_S3})
+\item $D_4$ with generating set $\{r,s\}$ (see Problem~\ref{prob:introducing_D4})
+\end{enumerate}
+\end{problem}
+
+Not only are Cayley diagrams visually appealing, but they provide a map for the group in question.  That is, they provide a method for navigating the group.  Following sequences of arrows tells us how to achieve a net action.  However, each Cayley diagram very much depends on the set of generators that are chosen to generate the group.  If we change the generating set, we may end up with a very different looking Cayley diagram. For example, compare the Cayley diagrams for $D_3$ that you constructed in parts (d) and (e) of Problem~\ref{prob:make_Cayley_diagrams}.
+
+Before closing out this section, let's tackle a few more problems.
+
+\begin{problem}
+Consider the group $(\mathbb{Z},+)$.
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item Construct a portion of the Cayley diagram for $(\mathbb{Z},+)$ with generating set $\{1\}$.
+\item Construct a portion of the Cayley diagram for $(\mathbb{Z},+)$ with generating set $\{-1\}$. How does this diagram compare to the one in part (a)?
+\item It turns out that $\mathbb{Z}=\langle 2,3\rangle$. Construct a portion of the Cayley diagram for $(\mathbb{Z},+)$ with generating set $\{2,3\}$.
+\end{enumerate}
+\end{problem}
+
+\begin{problem}\label{prob:changing_generators_for_Cayley_diagram}
+Assume $G$ is a group.  Suppose that $S$ and $S'$ are two different sets that generate $G$.  If you draw the Cayley diagram for $G$ using $S$ and then draw the Cayley diagram for $G$ using $S'$, what features of the two graphs are the same and which are potentially different?
+\end{problem}
+
+\begin{problem}
+Consider the diagrams given in Figures~\ref{fig:nonCayley} and \ref{fig:nonRegular}. Explain why neither of these diagrams could possibly be the Cayley diagram for a group.
+\end{problem}
+
+\tikzstyle{b} = [draw,very thick,blue,-stealth]
+\tikzstyle{b2} = [draw,very thick,blue,stealth-stealth]
+\tikzstyle{r} = [draw, very thick, red,-stealth]
+
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}[scale=1.5,auto]
+\node (a) at (0,0) [vert] {{\scriptsize $a$}};
+\node (b) at (2,0) [vert] {{\scriptsize $b$}};
+\node (c) at (3,1) [vert] {{\scriptsize $c$}};
+\node (d) at (3,-1) [vert] {{\scriptsize $d$}};
+\node (e) at (4,0) [vert] {{\scriptsize $e$}};
+\node (f) at (6,0) [vert] {{\scriptsize $f$}};
+
+\path[b2] (a) to (b);
+\path[b] (e) to (b);
+\path[r] (b) to (c);
+\path[r] (b) to (d);
+\path[b] (e) to (b);
+\path[b] (d) to (e);
+\end{tikzpicture}
+\caption{}
+\label{fig:nonCayley}
+\end{figure}
+
+\tikzstyle{r2} = [draw, very thick, red,stealth-stealth]
+
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}[scale=1.5,auto]
+\node (a) at (0,0) [vert] {{\scriptsize $a$}};
+\node (b) at (2,0) [vert] {{\scriptsize $b$}};
+\node (c) at (4,0) [vert] {{\scriptsize $c$}};
+\node (d) at (6,0) [vert] {{\scriptsize $d$}};
+\node (e) at (6,2) [vert] {{\scriptsize $e$}};
+\node (f) at (4,2) [vert] {{\scriptsize $f$}};
+\node (g) at (2,2) [vert] {{\scriptsize $g$}};
+\node (h) at (0,2) [vert] {{\scriptsize $h$}};
+
+\path[b2] (a) to (b);
+\path[b2] (c) to (d);
+\path[b2] (h) to (g);
+\path[b2] (f) to (e);
+
+\path[r] (b) to (c);
+\path[r] (c) to (f);
+\path[r] (f) to (g);
+\path[r] (g) to (b);
+
+\path[r2] (a) to (h);
+\path[r2] (d) to (e);
+\end{tikzpicture}
+\caption{}
+\label{fig:nonRegular}
+\end{figure}
 
 \end{section}
 
@@ -864,19 +1225,19 @@ Coming soon.
 
 %%----------------------------%%
 
-Blah
+Coming soon.
 
-\begin{theorem}%similar theorem above
-If $G$ is a group under $*$ and $S$ is a subset of $G$, then $\langle S\rangle$ is also a group under $*$. Smallest...
-\end{theorem}
-
-\begin{theorem}
-If $G$ is a group, then $\langle G\rangle =G$.
-\end{theorem}
-
-\begin{problem}
-If $G$ is a group, then what is $\langle \emptyset\rangle$?
-\end{problem}
+%\begin{theorem}%similar theorem above
+%If $G$ is a group under $*$ and $S$ is a subset of $G$, then $\langle S\rangle$ is also a group under $*$. Smallest...
+%\end{theorem}
+%
+%\begin{theorem}
+%If $G$ is a group, then $\langle G\rangle =G$.
+%\end{theorem}
+%
+%\begin{problem}
+%If $G$ is a group, then what is $\langle \emptyset\rangle$?
+%\end{problem}
 
 \end{section}
 
