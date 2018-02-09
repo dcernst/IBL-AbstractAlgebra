@@ -1,0 +1,477 @@
+\chapter{Subgroups and Isomorphisms}
+\label{chapter:subgroups_isomorphisms}
+\thispagestyle{empty}
+
+%%----------------------------%%
+
+\begin{section}{Subgroups}
+
+%%----------------------------%%
+
+For the next two sections, it would be useful to have all of the Cayley diagrams we've encountered in one place for reference. So, before continuing, gather up the following Cayley diagrams:
+\begin{itemize}
+\item $\Spin_{1\times 2}$. There are 3 of these.  I drew one for you in Section~\ref{sec:cayley_diagrams} and you discovered two more in Problem~\ref{cayley:altSpin1x2}.
+\item $S_2$.  See Problem~\ref{prob:make_Cayley_diagrams}\ref{cayley:S2}.
+\item $R_4$.  See Problem~\ref{prob:make_Cayley_diagrams}\ref{cayley:R4}.
+\item $V_4$.  See Problem~\ref{prob:make_Cayley_diagrams}\ref{cayley:V4}.
+\item $D_3$.  There are two of these.  See Problems~\ref{prob:make_Cayley_diagrams}\ref{cayley:D3} and \ref{prob:make_Cayley_diagrams}\ref{cayley:altD3}.
+\item $S_3$.  See Problem~\ref{prob:make_Cayley_diagrams}\ref{cayley:S3}.
+\item $D_4$.  See Problem~\ref{prob:make_Cayley_diagrams}\ref{cayley:D4}.
+\end{itemize}
+
+\begin{problem}
+Recall the definition of ``subset."  What do you think ``subgroup" means?  Try to come up with a potential definition.  Try not to read any further before doing this.
+\end{problem}
+
+\begin{problem}\label{prob:R4_in_D4}
+Examine your Cayley diagrams for $D_4$ (with generating set $\{r,s\}$) and $R_4$ (with generating set $\{r\}$) and make some observations.  How are they similar and how are they different?  Can you reconcile the similarities and differences by thinking about the actions of each group?
+\end{problem}
+
+Hopefully, one of the things you noticed in the previous problem is that we can ``see" $R_4$ inside of $D_4$.  You may have used different colors in each case and maybe even labeled the vertices with different words, but the overall structure of $R_4$ is there nonetheless.
+
+\begin{problem}\label{prob:R4_subgroup_D_4}
+If you ignore the labels on the vertices and just pay attention to the configuration of arrows, it appears that there are two copies of the Cayley diagram for $R_4$ in the Cayley diagram for $D_4$.  Isolate these two copies by ignoring the edges that correspond to the generator $s$.  Now, paying close attention to the words that label the vertices from the original Cayley diagram for $D_4$, are either of these groups in their own right?
+\end{problem}
+
+Recall that the identity must be one of the elements included in a group.  If this didn't occur to you when doing the previous problem, you might want to go back and rethink your answer.  Just like in the previous problem, we can often ``see" smaller groups living inside larger groups.  These smaller groups are called \textbf{subgroups}.
+
+\begin{definition}
+Let $G$ be a group and let $H$ be a subset of $G$.  Then $H$ is a \textbf{subgroup} of $G$, written $H\leq G$, provided that $H$ is a group in its own right under the binary operation inherited from $G$.
+\end{definition}
+
+The phrase ``under the binary operation inherited from $G$" means that to combine two elements in $H$, we should treat the elements as if they were in $G$ and perform the binary operation of $G$.
+
+In light of Problem~\ref{prob:R4_subgroup_D_4}, we would write $R_4\leq D_4$.  The second sub-diagram of the Cayley diagram for $D_4$ (using $\{r,s\}$ as the generating set) that resembles $R_4$ cannot be a subgroup because it does not contain the identity.  However, since it looks a lot like $R_4$, we call it a \textbf{clone} of $R_4$. For convenience, we also say that a subgroup is a clone of itself.
+
+\begin{problem}\label{prob:informal_subgroup_criterion}
+Let $G$ be a group and let $H\subseteq G$. If we wanted to determine whether $H$ is a subgroup of $G$, can we skip checking any of the axioms? Which axioms must we verify?
+\end{problem}
+
+Let's make the observations of the previous problem a bit more formal.
+
+\begin{theorem}[Two Step Subgroup Test]\label{thm:subgroup_criterion}
+Suppose $G$ is a group and $H$ is a nonempty subset of $G$.  Then $H\leq G$ if and only if (i) for all $h\in H$, $h^{-1} \in H$, as well, and (ii) $H$ is closed under the binary operation of $G$.
+\end{theorem}
+
+Notice that one of the hypotheses of Theorem~\ref{thm:subgroup_criterion} is that $H$ be nonempty.  This means that if we want to prove that a certain subset $H$ is a subgroup of a group $G$, then one of the things we must do is verify that $H$ is in fact nonempty. In light of this, the ``Two Step Subgroup Test" should probably be called the ``Three Step Subgroup Test".
+
+As Theorems~\ref{thm:trivial_subgroup} and \ref{thm:improper_subgroup} will illustrate, there are a couple subgroups that every group has.
+
+\begin{theorem}\label{thm:trivial_subgroup}
+If $G$ is a group, then $\{e\}\leq G$.
+\end{theorem}
+
+The subgroup $\{e\}$ is referred to as the \textbf{trivial subgroup}.  All other subgroups are called \textbf{nontrivial}.
+
+\begin{problem}
+Let $G$ be a group. What does the Cayley diagram for the subgroup $\{e\}$ look like? What are you using as your generating set?
+\end{problem}
+
+Earlier, we referred to subgroups as being ``smaller."  However, our definition does not imply that this has to be the case.
+
+\begin{theorem}\label{thm:improper_subgroup}
+If $G$ is a group, then $G\leq G$.
+\end{theorem}
+
+We refer to subgroups that are not equal to the whole group as \textbf{proper subgroups}. If $H$ is a proper subgroup, then we may write $H<G$.
+
+
+%%%% here %%%% see Theorem 2.50
+
+
+Lots of groups have been given formal names (e.g., $D_4$, $R_4$, etc.).  However, not every group or subgroup has a name.  In this case, it's useful to have notation to refer to specific subgroups.
+
+\begin{definition}\label{def:subgroup_gen_by}
+Let $G$ be a group of actions and let $g_1,\ldots, g_n$ be distinct actions from $G$.  We define $\langle g_1,\ldots, g_n\rangle$ to be the smallest subgroup containing $g_1,\ldots, g_n$.  In this case, we call $\langle g_1,\ldots, g_n\rangle$ the \textbf{subgroup generated by} $g_1,\ldots, g_n$.
+\end{definition}
+
+For example, consider $r, s, s'\in D_3$ as defined in Exercises~\ref{prob:introducing_D3} and \ref{prob:alternate_D3}.  Then $D_3\langle r,s\rangle=\langle s, s'\rangle$.  Recall that $R_4$ is the subgroup of $D_4$ consisting of rotational symmetries of the square. In this case, $R_4=\langle r\rangle$.  Similarly, the group of rotations of an equilateral triangle is called $R_3$.  Then using the $r$ from $D_3$, we have $R_3=\langle r\rangle$, which is a subgroup of $D_3$.
+
+Note that in Definition~\ref{def:subgroup_gen_by}, we used a finite number of generators.  There's no reason we have to do this.  That is, we can consider groups/subgroups generated by infinitely many elements.
+
+\begin{problem}
+Suppose $\{g_1,\ldots,g_n\}$ is a generating set for a group $G$.
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item Explain why $\{g^{-1}_1,\ldots,g^{-1}_n\}$ is also a generating set for $G$.
+\item How does the Cayley diagram for $G$ with generating set $\{g_1,\ldots,g_n\}$ compare to the Cayley diagram with generating set $\{g^{-1}_1,\ldots,g^{-1}_n\}$?
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Consider $\Spin_{1\times 2}$.  
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item Can you find the Cayley diagram for $\langle t_1\rangle$ inside the Cayley diagram for $\Spin_{1\times 2}$ that we previously constructed?
+\item Write down all the actions of the subgroup $\langle t_1, t_2\rangle$ by writing them as words in $t_1$ and $t_2$.  Can you find the Cayley diagram for $\langle t_1, t_2\rangle$ as a subgroup of $\Spin_{1\times 2}$?  Can you find a clone for $\langle t_1, t_2\rangle$ that is not the subgroup itself?
+\end{enumerate}
+\end{problem}
+
+One of the benefits of Cayley diagrams is that they are useful for visualizing subgroups.  However, recall that if we change our set of generators, we might get a very different looking Cayley diagram.  The upshot of this is that we may be able to see a subgroup in one Cayley diagram for a given group, but not be able to see it in the Cayley diagram arising from a different generating set.
+
+\begin{problem}
+We currently have two different Cayley diagrams for $D_3$ (see Exercises \ref{prob:introducing_D3} and \ref{prob:alternate_D3}).  
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item Can you find the Cayley diagram for $\langle e\rangle$ as a subgroup of $D_3$?  Can you see it in both Cayley diagrams for $D_3$?  Can you find all the clones?
+\item Can you find the Cayley diagram for $\langle r\rangle =R_3$ as a subgroup of $D_3$?  Can you see it in both Cayley diagrams?  Can you find all the clones?
+\item Find the Cayley diagrams for $\langle s\rangle$ and $\langle s'\rangle$ as subgroups of $D_3$.  Can you see them in both Cayley diagrams for $D_3$?  Can you find all the clones?
+\end{enumerate}
+\end{problem}
+
+\begin{problem}\label{prob:subgroups_D4}
+Consider $D_4$.  Let $h$ be the action that reflects (i.e., flips over) the square over the horizontal midline and let $v$ be the action that reflects the square over the vertical midline.  Also, recall that $r^2$ is shorthand for the action $rr$ that does $r$ twice in a row.  Which of the following are subgroups of $D_4$?  In each case, justify your answer.  If a subset is a subgroup, try to find a minimal set of generators.  Also, determine whether you can see the subgroups in our Cayley diagram for $D_4$.
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item $\{e, r^2\}$
+\item $\{e,h\}$
+\item $\{e, h, v\}$
+\item\label{V4} $\{e, h, v, r^2\}$
+\end{enumerate}
+\end{problem}
+
+The subgroup in Problem~\ref{prob:subgroups_D4}\ref{V4} is often referred to as the \textbf{Klein four-group} and is denoted by $V_4$.
+
+\begin{problem}\label{prob:V4}
+Draw the Cayley diagram for $V_4$ using $\{v,h\}$ as the generating set.
+\end{problem}
+
+Let's introduce a group we haven't seen yet.  Define the \textbf{quaternion group} to be the group $Q_8=\{1,-1,i,-i,j,-j,k,-k\}$ having the Cayley diagram with generating set $\{i, j, -1\}$ given in Figure~\ref{fig:Q8}.  In this case, 1 is the do-nothing action.
+
+\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=6.5mm]
+\tikzstyle{b} = [draw,very thick,blue,-stealth]
+\tikzstyle{r} = [draw, very thick, red,-stealth]
+\tikzstyle{g} = [draw, very thick, green, stealth-stealth]
+
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}[scale=1.5,auto]
+\node (1) at (135:2) [vert] {\scriptsize $1$};
+\node (i) at (45:2) [vert] {\scriptsize $i$};
+\node (k) at (-45:2) [vert] {\scriptsize $k$};
+\node (j) at (-135:2) [vert] {\scriptsize $j$};
+\node (-1) at (135:1) [vert] {\scriptsize $-1$};
+\node (-i) at (45:1) [vert] {\scriptsize $-i$};
+\node (-k) at (-45:1) [vert] {\scriptsize $-k$};
+\node (-j) at (-135:1) [vert] {\scriptsize $-j$};
+
+\path[b] (1) to (i);
+\path[b] (i) to (-1);
+\path[b] (-1) to (-i);
+\path[b] (-i) to (1);
+
+\path[b] (-j) to (-k);
+\path[b] (-k) to (j);
+\path[b] (j) to (k);
+\path[b] (k) to (-j);
+
+\path[r] (-k) to (-i);
+\path[r] (-i) to (k);
+\path[r] (k) to (i);
+\path[r] (i) to (-k);
+
+\path[r] (1) to (j);
+\path[r] (j) to (-1);
+\path[r] (-1) to (-j);
+\path[r] (-j) to (1);
+
+\path[g] (1) to (-1);
+\path[g] (j) to (-j);
+\path[g] (i) to (-i);
+\path[g] (k) to (-k);
+
+\end{tikzpicture}
+\caption{Cayley diagram for $Q_8$ with generating set $\{-1, i, j\}$.}\label{fig:Q8}
+\end{figure}
+
+Notice that I didn't mention what the actions actually do.  For now, let's not worry about that.  The relationship between the arrows and vertices tells us everything we need to know.  Also, let's take it for granted that $Q_8$ actually is a group.
+
+\begin{problem}
+Consider the Cayley diagram for $Q_8$ given in Figure~\ref{fig:Q8}.
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item Which arrows correspond to which generators in our Cayley diagram for $Q_8$?
+\item What is $i^2$ equal to?  That is, what element of $\{1,-1,i,-i,j,-j,k,-k\}$ is $i^2$ equal to?  How about $i^3$, $i^4$, and $i^5$?
+\item What are $j^2$, $j^3$, $j^4$, and $j^5$ equal to?
+\item What is $(-1)^2$ equal to?
+\item What is $ij$ equal to?  How about $ji$?
+\item Can you determine what $k^2$ and $ik$ are equal to?
+\item Can you identify a generating set consisting of only two elements?  Can you find more than one?
+\item What subgroups of $Q_8$ can you see in the Cayley diagram in Figure~\ref{fig:Q8}?
+\item Find a subgroup of $Q_8$ that you cannot see in the Cayley diagram.
+\end{enumerate}
+\end{problem}
+
+
+%%----------------------------%
+
+%\begin{definition}
+%Let $(G,*)$ be a group and let $H$ be a subset of $G$.  Then $H$ is a \textbf{subgroup} of $G$, written $H\leq G$, provided that $H$ is a group in its own right under the binary operation inherited from $G$.
+%\end{definition}
+%
+%The phrase ``under the binary operation inherited from $G$" means that to combine two elements in $H$, we should treat the elements as if they were in $G$ and perform $G$'s binary operation.
+
+%Recall that Theorems~\ref{thm:trivial_subgroup} and \ref{thm:improper_subgroup} tell us that $\langle e\rangle=\{e\}$ and $G$ are always subgroups of $G$. This is still true even using our official definition of a group.  The subgroup $\{e\}$ is referred to as the \textbf{trivial subgroup}.  All other subgroups are called \textbf{nontrivial}.  If $H$ is a subgroup of a group $G$ with $H\neq G$, then we may write $H<G$ and refer to $H$ as a \textbf{proper subgroup} of $G$.
+
+%The next theorem tells us that we don't need to verify all the axioms of a group to determine whether a nonempty subset is a subgroup.
+
+%\begin{theorem}\label{thm:subgroup_criterion}
+%Suppose $(G,*)$ is a group and $H$ is a nonempty subset of $G$.  Then $H\leq G$ if and only if (i) for all $h\in H$, $h^{-1} \in H$, as well, and (ii) $H$ is closed under the binary operation of $G$.
+%\end{theorem}
+%
+%\begin{remark}
+%Notice that one of the hypotheses of Theorem~\ref{thm:subgroup_criterion} is that $H$ be nonempty.  This means that if we want to prove that a certain subset $H$ is a subgroup of a group $G$, then one of the things we must do is verify that $H$ is in fact nonempty.
+%\end{remark}
+
+\begin{exercise}
+Consider $(\mathbb{R}^3,+)$, where $\mathbb{R}^3$ is the set of all 3-entry row vectors with real number entries (e.g., $(a,b,c)$ where $a,b,c\in\mathbb{R}$) and $+$ is ordinary vector addition.  It turns out that $(\mathbb{R}^3,+)$ is an abelian group with identity $(0,0,0)$.  
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item Let $H$ be the subset of $\mathbb{R}^3$ consisting of vectors with first coordinate 0.  Is $H$ a subgroup of $\mathbb{R}^3$?  Prove your answer.
+\item Let $K$ be the subset of $\mathbb{R}^3$ consisting of vectors whose entries sum to 0.  Is $K$ a subgroup of $\mathbb{R}^3$?  Prove your answer.
+\item Construct a subset of $\mathbb{R}^3$ (different from $H$ and $K$) that is \emph{not} a subgroup of $\mathbb{R}^3$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{prob:nZ}
+Consider the group $(\mathbb{Z},+)$ (under ordinary addition).
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item Show that the even integers, written $2\mathbb{Z}:=\{2k\mid k\in\mathbb{Z}\}$, form a subgroup of $\mathbb{Z}$.
+\item Show that the odd integers are not a subgroup of $\mathbb{Z}$.
+\item Show that all subsets of the form $n\mathbb{Z}:=\{nk\mid k\in\mathbb{Z}\}$ for $n\in\mathbb{Z}$ are subgroups of $\mathbb{Z}$.
+\item\label{prob:nZothers} Are there any other subgroups besides the ones listed in part (c)?  Explain your answer.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Consider the group of symmetries of a regular octagon.  This group is denoted by $D_8$, where the operation is composition of actions.  The group $D_8$ consists of 16 elements (8 rotations and 8 reflections).  Let $H$ be the subset consisting of the following clockwise rotations: $0^\circ$, $90^\circ$, $180^\circ$, and $270^\circ$.  Determine whether $H$ is a subgroup of $D_8$ and justify your answer.
+\end{exercise}
+
+\begin{exercise}
+Consider the groups $(\mathbb{R},+)$ and $(\mathbb{R}\setminus\{0\},\cdot)$.  Explain why $\mathbb{R}\setminus\{0\}$ is not a subgroup of $\mathbb{R}$ despite the fact that $\mathbb{R}\setminus\{0\}\subseteq\mathbb{R}$ and both are groups (under the respective binary operations).
+\end{exercise}
+
+\begin{theorem}
+Suppose $(G,*)$ is a group and let $H,K\leq G$.  Then $H\cap K\leq G$.
+\end{theorem}
+
+\begin{problem}
+Can we replace intersection with union in the theorem above?  If so, prove the corresponding theorem.  If not, then provide a specific counterexample.
+\end{problem}
+
+\begin{theorem}
+Suppose $(G,*)$ is an abelian group and let $H\leq G$.  Then $H$ is an abelian subgroup.
+\end{theorem}
+
+\begin{problem}
+Is the converse of the previous theorem true?  If so, prove it.  Otherwise, provide a counterexample.
+\end{problem}
+
+\begin{theorem}
+Suppose $(G,*)$ is a group.  Define
+\[
+Z(G):=\{z\in G\mid zg=gz\text{ for all } g\in G\}
+\]
+(called the \textbf{center} of $G$).  Then $Z(G)$ is an abelian subgroup of $G$.
+\end{theorem}
+
+\begin{exercise}
+Find the center of each of the following groups.
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item $S_2$
+\item $V_4$
+\item $S_3$
+\item $D_3$
+\item $D_4$
+\item $R_4$
+\item $R_6$
+\item $\Spin_{1\times 2}$
+\item $Q_8$
+\item $(\mathbb{Z},+)$
+\item $(\mathbb{R}\setminus\{0\},\cdot)$
+\end{enumerate}
+\end{exercise}
+
+The following definition formalizes Definition~\ref{def:subgroup_gen_by}.
+
+\begin{definition}
+Let $(G,*)$ be a group and let $S$ be a nonempty subset of $G$.  Then we define $\langle S\rangle$ to be the set consisting of all possible (finite) products of elements from $S$ and their inverses.  The set $\langle S\rangle$ is called the \textbf{subgroup generated by $S$}.  The elements of $S$ are called \textbf{generators} of $\langle S\rangle$.
+\end{definition}
+
+Note that $S$ may be finite or infinite.  Moreover, even if $S$ is finite, $\langle S\rangle$ may be infinite.  Also, it is important to point out that we are not putting any restrictions about efficiency on $S$ in the definition above.  That is, it is possible that some elements are included in $S$ that are not necessary to generate all of the elements of $\langle S\rangle$.
+
+In cases when we know what the elements of $S$ actually are, then we will list them inside the angle brackets without the set braces.  For example, if $S=\{a,b,c\}$, then we will write $\langle a, b, c\rangle$ instead of $\langle \{a,b,c\}\rangle$.  In the special case when $S$ equals a single element, say $S=\{a\}$, then
+\[
+\langle a\rangle =\{a^n\mid n\in\mathbb{Z}\},
+\]
+which is called the \textbf{subgroup generated by $a$}.  
+
+The set $\langle S\rangle$ is called the ``subgroup generated by $S$", so it better be a subgroup!
+
+\begin{theorem}\label{thm:smallest_subgroup_containing_S}
+Let $(G,*)$ be a group and let $S\subseteq G$, where $S\neq \emptyset$.  Then $\langle S\rangle \leq G$.  In particular, $\langle S\rangle$ is the smallest subgroup of $G$ containing $S$.
+\end{theorem}
+
+\begin{exercise}
+In Exercise~\ref{prob:nZ} we introduced the notation $n\mathbb{Z}$.  Write these subgroups in the ``generated by" notation.  That is, find a set $S$ such that $\langle S\rangle =n\mathbb{Z}$.  Can you find more than one way to do it?
+\end{exercise}
+
+Every subgroup can be written in the ``generated by" form.  That is, if $H$ is a subgroup of a group $G$, then there always exists a subset $S$ of $G$ such that $\langle S\rangle=H$.  In particular, $\langle H\rangle=H$.
+
+Let's explore a couple of examples.  First, consider the group $R_4$ (where the operation is composition of actions).  What are the subgroups of $R_4$?  Theorems~\ref{thm:trivial_subgroup} and \ref{thm:improper_subgroup} tell us that $\{e\}$ and $R_4$ itself are subgroups of $R_4$.  Are there any others?  Theorem~\ref{thm:subgroup_criterion} tells us that if we want to find other subgroups of $R_4$, we need to find nonempty subsets of $R_4$ that are closed and contain all the necessary inverses.  However, the previous paragraph indicates that we can find all of the subgroups of $R_4$ by forming the subgroups generated by various combinations of elements from $R_4$.  We can certainly be more efficient, but below we list all of the possible subgroups we can generate using subsets of $R_4$.  We are assuming that $r$ is rotation by $90^{\circ}$ clockwise.  As you scan the list, you should take a moment to convince yourself that the list is accurate.
+\begin{multicols}{2}
+\begin{itemize}
+\item[] $\langle e \rangle = \{e\}$
+\item[] $\langle r \rangle  = \{e,r,r^2,r^3\}$
+\item[] $\langle r^2 \rangle  = \{e,r^2\}$
+\item[] $\langle r^3 \rangle  = \{e,r^3,r^2,r\}$
+\item[] $\langle e,r \rangle  = \{e,r,r^2,r^3\}$
+\item[] $\langle e,r^2 \rangle  = \{e,r^2\}$
+\item[] $\langle e,r^3 \rangle  = \{e,r^3,r^2,r\}$
+\item[] $\langle r,r^2 \rangle  = \{e,r,r^2,r^3\}$
+\item[] $\langle r,r^3 \rangle  = \{e,r,r^2,r^3\}$
+\item[] $\langle r^2,r^3 \rangle  = \{e,r,r^2,r^3\}$
+\item[] $\langle e,r,r^2 \rangle  = \{e,r,r^2,r^3\}$
+\item[] $\langle e,r,r^3 \rangle  = \{e,r,r^2,r^3\}$
+\item[] $\langle e,r^2,r^3 \rangle  = \{e,r,r^2,r^3\}$
+\item[] $\langle r,r^2,r^3 \rangle  = \{e,r,r^2,r^3\}$
+\item[] $\langle e,r,r^2,r^3 \rangle = \{e,r,r^2,r^3\}$
+\end{itemize}
+\end{multicols}
+Let's make a few observations.  Scanning the list, we see only three distinct subgroups: $\{e\}, \{e,r^2\},\{e,r,r^2,r^3\}$.  Our exhaustive search guarantees that these are the only subgroups of $R_4$.  It is also worth pointing out that if a subset contains either $r$ or $r^3$, then that subset generates all of $R_4$.  The reason for this is that $r$ and $r^3$ are each generators for $R_4$, respectively.  Also, observe that if we increase the size of the subset using an element that was already contained in the subgroup generated by the smaller set, then we don't get anything new.  For example, consider $\langle r^2\rangle=\{e,r^2\}$.  Since $e\in\langle r^2\rangle$, we don't get anything new by including $e$ in our generating set.  We can state this as a general fact.
+
+\begin{theorem}
+Let $(G,*)$ be a group and let $g_1,g_2,\ldots,g_n\in G$.  If $x\in\langle g_1,g_2,\ldots,g_n\rangle$, then $\langle g_1,g_2,\ldots,g_n\rangle = \langle g_1,g_2,\ldots,g_n,x\rangle$.
+\end{theorem}
+
+It is important to point out that in the theorem above, we are not saying that $\{g_1,g_2,\ldots,g_n\}$ is a generating set for $G$---although this may be the case.  Instead, are simply making a statement about the subgroup $\langle g_1,g_2,\ldots,g_n\rangle$, whatever it may be.
+
+Let's return to our example involving $R_4$.  We have three subgroups, namely the two trivial subgroups $\{e\}$ and $R_4$ itself, together with one nontrivial subgroup $\{e,r^2\}$.  Notice that $\{e\}$ is also a subgroup of $\{e,r^2\}$.  We can capture the overall relationship between the subgroups using a \textbf{subgroup lattice}, which we depict in Figure~\ref{fig:latticeR4} case of $R_4$.
+
+\tikzstyle{b3} = [draw,very thick,black]
+
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}[scale=1.5,auto]
+\node (a) at (0,0) {$\langle e\rangle=\{e\}$};
+\node (b) at (0,2) {$\langle r^2\rangle=\{e,r^2\}$};
+\node (c) at (0,4) {$\langle r\rangle=R_4$};
+
+\path[b3] (a) to (b);
+\path[b3] (b) to (c);
+\end{tikzpicture}
+\caption{Subgroup lattice for $R_4$.}
+\label{fig:latticeR4}
+\end{figure}
+
+In general, subgroups of smaller order are towards the bottom of the lattice while larger subgroups are towards the top.  Moreover, an edge between two subgroups means that the smaller set is a subgroup of the larger set.
+
+Let's see what we can do with $V_4=\{e,v,h,vh\}$.  Using an exhaustive search, we find that there are five subgroups:
+\begin{itemize}
+\item[] $\langle e \rangle = \{e\}$
+\item[] $\langle h \rangle  = \{e,h\}$
+\item[] $\langle v \rangle  = \{e,v\}$
+\item[] $\langle vh \rangle  = \{e,vh\}$
+\item[] $\langle v,h \rangle = \langle v,vh\rangle = \langle h, vh\rangle= \{e,v,h,vh\}=V_4$
+\end{itemize}
+For each subgroup above, we've used minimal generating sets to determine the group.  (Note that minimal generating sets are generating sets where we cannot remove any elements and still obtain the same group.  Two minimal generating sets for the same group do not have to have the same number of generators.)  In this case, we get the subgroup lattice in Figure~\ref{fig:latticeV4}.
+
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}[scale=1.5,auto]
+\node (a) at (0,0) {$\langle e\rangle=\{e\}$};
+\node (b) at (0,2) {$\langle h\rangle=\{e,h\}$};
+\node (c) at (-2,2) {$\langle v\rangle=\{e,v\}$};
+\node (d) at (2,2) {$\langle vh\rangle=\{e,vh\}$};
+\node (e) at (0,4) {$\langle v,h\rangle=V_4$};
+
+\path[b3] (a) to (b);
+\path[b3] (a) to (c);
+\path[b3] (a) to (d);
+\path[b3] (b) to (e);
+\path[b3] (c) to (e);
+\path[b3] (d) to (e);
+\end{tikzpicture}
+\caption{Subgroup lattice for $V_4$.}
+\label{fig:latticeV4}
+\end{figure}
+
+Notice that there are no edges among $\langle v\rangle, \langle h\rangle$, and $\langle vh\rangle$.  The reason for this is that none of these groups are subgroups of each other.  We already know that $R_4$ and $V_4$ are not isomorphic, but this becomes even more apparent if you compare their subgroup lattices.
+
+In the next few exercises, you are asked to create subgroup lattices.  As you do this, try to minimize the amount of work it takes to come up with all the subgroups.  In particular, I do \emph{not} recommend taking a full brute-force approach like we did for $R_4$. 
+
+\begin{exercise}
+Find all the subgroups of $R_5=\{e,r,r^2,r^3,r^4\}$ (where $r$ is rotation clockwise of a regular pentagon by $72^{\circ}$) and then draw the subgroup lattice for $R_5$.
+\end{exercise}
+
+\begin{exercise}
+Find all the subgroups of $R_6=\{e,r,r^2,r^3,r^4,r^5\}$ (where $r$ is rotation clockwise of a regular hexagon by $60^{\circ}$) and then draw the subgroup lattice for $R_6$.
+\end{exercise}
+
+\begin{exercise}\label{prob:latticeD3}
+Find all the subgroups of $D_3=\{e,r,r^2,s,sr,sr^2\}$ (where $r$ and $s$ are the usual actions) and then draw the subgroup lattice for $D_3$.
+\end{exercise}
+
+\begin{exercise}
+Find all the subgroups of $S_3=\langle s_1, s_2\rangle$ (where $s_1$ is the action is that swaps the positions of the first and second coins and $s_2$ is the action that swaps the second and third coins; see Exercise~\ref{prob:S3}) and then draw the subgroup lattice for $S_3$. How does your lattice compare to the one in Exercise~\ref{prob:latticeD3}? You should look back at Exercise~\ref{prob:D3_iso_S3} and ponder what just happened.
+\end{exercise}
+
+\begin{exercise}
+Find all the subgroups of $D_4=\{e,r,r^2,r^3,s,sr,sr^2,sr^3\}$ (where $r$ and $s$ are the usual actions) and then draw the subgroup lattice for $D_4$.
+\end{exercise}
+
+\begin{exercise}
+Find all the subgroups of $Q_8=\{1,-1,i,-i,j,-j,k,-k\}$ and then draw the subgroup lattice for $Q_8$.
+\end{exercise}
+
+\begin{problem}
+What claims can be made about the subgroup lattices of two groups that are isomorphic? What claims can be made about the subgroup lattices of two groups that are not isomorphic?  What claims can be made about two groups if their subgroup lattices look nothing alike?  \emph{Hint:} The answers to two of these questions should be obvious, but the answer to the remaining question should be something like, ``we don't have enough information to make any claims."
+\end{problem}
+
+Here are two final problems to conclude this section.
+
+\begin{problem}
+Several times we've referred to the fact that some subgroups are visible in a Cayley diagram for the parent group and some subgroups are not.  Suppose $(G,*)$ is a group and let $H\leq G$.  Can you describe a process for creating a Cayley diagram for $G$ that ``reveals" the subgroup $H$ inside of this Cayley diagram?
+\end{problem}
+
+\begin{problem}
+Suppose $(G,*)$ is a finite group and let $H\leq G$.  Can you describe a process that ``reveals" the subgroup $H$ inside the group table for $G$?  Where will the clones for $H$ end up?
+\end{problem}
+
+
+
+
+%\begin{theorem}%similar theorem above
+%If $G$ is a group under $*$ and $S$ is a subset of $G$, then $\langle S\rangle$ is also a group under $*$. Smallest...
+%\end{theorem}
+%
+%\begin{theorem}
+%If $G$ is a group, then $\langle G\rangle =G$.
+%\end{theorem}
+%
+%\begin{problem}
+%If $G$ is a group, then what is $\langle \emptyset\rangle$?
+%\end{problem}
+
+\end{section}
+
+%
+
+
+%%----------------------------%%
+
+\begin{section}{Isomorphisms}
+
+%%----------------------------%%
+
+Coming soon.
+
+\end{section}
+
+%%----------------------------%
+
+%\begin{section}{Scraps}
+%
+%%%----------------------------%%
+%
+%%right spot for this?
+%\begin{problem}
+%Can you describe a group that has exactly $n$ elements for any natural number $n$?
+%\end{problem}
+%
+%\end{section}
+
