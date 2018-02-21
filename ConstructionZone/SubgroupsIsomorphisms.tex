@@ -471,7 +471,7 @@ Find all the subgroups of $D_3=\{e,r,r^2,s,sr,sr^2\}$ (where $r$ and $s$ are the
 \end{problem}
 
 \begin{problem}
-Find all the subgroups of $S_3=\langle s_1, s_2\rangle$ (where $s_1$ is the action is that swaps the positions of the first and second coins and $s_2$ is the action that swaps the second and third coins; see Problem~\ref{prob:revisiting_S3}) and then draw the subgroup lattice for $S_3$. How does your lattice compare to the one in Problem~\ref{prob:latticeD3}? You should look back at parts~\ref{cayley:altD3} and \ref{cayley:S3} of Problems~\ref{prob:make_Cayley_diagrams} and ponder what just happened.
+Find all the subgroups of $S_3=\langle s_1, s_2\rangle$ (where $s_1$ is the action is that swaps the positions of the first and second coins and $s_2$ is the action that swaps the second and third coins; see Problem~\ref{prob:revisiting_S3}) and then draw the subgroup lattice for $S_3$. How does your lattice compare to the one in Problem~\ref{prob:latticeD3}? You should look back at parts~\ref{cayley:altD3} and \ref{cayley:S3} of Problem~\ref{prob:make_Cayley_diagrams} and ponder what just happened.
 \end{problem}
 
 \begin{problem}
@@ -486,14 +486,525 @@ Find all the subgroups of $Q_8=\{1,-1,i,-i,j,-j,k,-k\}$ and then draw the subgro
 
 \end{section}
 
-
 %%----------------------------%%
 
 \begin{section}{Isomorphisms}
 
 %%----------------------------%%
 
-Coming soon.
+As we have been exploring various groups, I'm sure you've noticed that some groups seem to look and behave the same.  For example, if we choose the same colors for our arrows and ignore the labels on the vertices, the Cayley diagram for $D_3$ with generating set $\{s,s'\}$ looks the same as the Cayley diagram for $S_3$ with generating set $\{s_1, s_2\}$. That is, if we pick the appropriate colors and set the Cayley diagram for $D_3$ (with generating set $\{s,s'\}$) on top of the Cayley diagram for $S_3$ (with generating set $\{s_1, s_2\}$) such that the identities match up, then the two Cayley diagrams are identical up to relabeling the rest of the vertices.  Figure~\ref{fig:D3andS3} should make this clear.  This act of matching up the Cayley diagrams establishes a correspondence between the elements of the two groups:
+\begin{align*}
+e & \mapsto e\\
+s & \mapsto s_1\\
+s' &\mapsto s_2\\
+ss' &\mapsto s_1s_2\\
+s's & \mapsto s_2s_1\\
+ss's & \mapsto s_1s_2s_1
+\end{align*}
+Notice that each correspondence is compatible with the correspondence of the generators, namely: $s \mapsto s_1$ and $s' \mapsto s_2$. Given this correspondence, it should not be surprising that the subgroup lattices for $D_3$ and $S_3$ have the same structure.
+
+
+\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=8.5mm]
+\tikzstyle{b2} = [draw,very thick,blue,stealth-stealth]
+\tikzstyle{r2} = [draw, very thick, red,stealth-stealth]
+
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}[scale=1.75,auto]
+\node (s's) at (-30:1.5) [vert] {{\scriptsize $s's$}};
+\node (s) at (30:1.5) [vert] {\scriptsize {$s$}};
+\node (e) at (90:1.5) [vert] {{\scriptsize $e$}};
+\node (s') at (150:1.5) [vert] {{\scriptsize $s'$}};
+\node (ss') at (210:1.5) [vert] {{\scriptsize $ss'$}};
+\node (ss's) at (-90:1.5) [vert] {{\scriptsize $ss's$}};
+\path[r2] (e) to (s);
+\path[b2] (e) to (s');
+\path[r2] (s') to (ss');
+\path[b2] (ss') to (ss's);
+\path[b2] (s) to (s's);
+\path[r2] (s's) to (ss's);
+\node (D3) at (0,0) {$D_3$};
+\end{tikzpicture}
+\hspace{1cm}
+\begin{tikzpicture}[scale=1.75,auto]
+\node (s's) at (-30:1.5) [vert] {{\scriptsize $s_2s_1$}};
+\node (s) at (30:1.5) [vert] {\scriptsize {$s_1$}};
+\node (e) at (90:1.5) [vert] {{\scriptsize $e$}};
+\node (s') at (150:1.5) [vert] {{\scriptsize $s_2$}};
+\node (ss') at (210:1.5) [vert] {{\scriptsize $s_1s_2$}};
+\node (ss's) at (-90:1.5) [vert] {{\scriptsize $s_1s_2s_1$}};
+\path[r2] (e) to (s);
+\path[b2] (e) to (s');
+\path[r2] (s') to (ss');
+\path[b2] (ss') to (ss's);
+\path[b2] (s) to (s's);
+\path[r2] (s's) to (ss's);
+\node (S3) at (0,0) {$S_3$};
+\end{tikzpicture}
+\caption{Cayley diagrams for $D_3$ and $S_3$ with generating sets $\{s,s'\}$ and $\{s_1,s_2\}$, respectively.}
+\label{fig:D3andS3}
+\end{figure}
+
+Perhaps you've also noticed that the Cayley diagram for $R_4$ with generating set $\{r\}$ looks like the Cayley diagram for the subgroup $\langle j\rangle=\{\pm 1,\pm j\}$ with generating set $\{j\}$ in $Q_8$.  We've depicted the correspondence in Figure~\ref{fig:<j>isoR4}. Similarly, the Cayley diagram for $S_2$ with generating set $\{s\}$ looks like the Cayley diagram for the subgroup $\langle -1\rangle=\{\pm 1\}$ with generating set $\{-1\}$ in $Q_8$ (see Figure~\ref{fig:isoS2}), and both of these Cayley diagrams look like the Cayley diagram for the subgroup $\langle v\rangle =\{e,v\}$ with generating set $\{v\}$ in $V_4$.  The goal of this section is to formalize this phenomenon by introducing the notion of an \textbf{isomorphism}. First, let's develop a little more intuition.
+
+\tikzstyle{correspondence} = [draw, very thick, black, dashed, stealth-stealth]
+\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=6.5mm]
+\tikzstyle{b} = [draw,very thick,blue,-stealth]
+\tikzstyle{r} = [draw, very thick, red,-stealth]
+\tikzstyle{g} = [draw, very thick, green,stealth-stealth]
+
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}[scale=1.5,auto]
+\node (1) at (135:2.2) [vert] {\scriptsize $1$};
+\node (i) at (45:2.2) [vert] {\scriptsize $i$};
+\node (k) at (-45:2.2) [vert] {\scriptsize $k$};
+\node (j) at (-135:2.2) [vert] {\scriptsize $j$};
+\node (-1) at (135:1) [vert] {\scriptsize $-1$};
+\node (-i) at (45:1) [vert] {\scriptsize $-i$};
+\node (-k) at (-45:1) [vert] {\scriptsize $-k$};
+\node (-j) at (-135:1) [vert] {\scriptsize $-j$};
+
+\path[b] (1) to (i);
+\path[b] (i) to (-1);
+\path[b] (-1) to (-i);
+\path[b] (-i) to (1);
+
+\path[b] (-j) to (-k);
+\path[b] (-k) to (j);
+\path[b] (j) to (k);
+\path[b] (k) to (-j);
+
+\path[r] (-k) to (-i);
+\path[r] (-i) to (k);
+\path[r] (k) to (i);
+\path[r] (i) to (-k);
+
+\path[r] (1) to (j);
+\path[r] (j) to (-1);
+\path[r] (-1) to (-j);
+\path[r] (-j) to (1);
+
+\path[g] (1) to (-1);
+\path[g] (j) to (-j);
+\path[g] (i) to (-i);
+\path[g] (k) to (-k);
+\node (Q8) at (0,0) {$Q_8$};
+
+\node (r) at (-3,.75) [vert] {\scriptsize $r$};
+\node (e) at (-4.5,.75) [vert] {\scriptsize $e$};
+\node (r3) at (-4.5,-.75) [vert] {\scriptsize $r^3$};
+\node (r2) at (-3,-.75) [vert] {\scriptsize $r^2$};
+\path[r] (e) to (r);
+\path[r] (r) to (r2); 
+\path[r] (r2) to (r3);
+\path[r]  (r3) to (e);
+\node (R4) at (-3.75,0) {$R_4$};
+
+\path[correspondence] (1) to [bend right=60] (e);
+\path[correspondence] (j) to [bend right=30] (r);
+\path[correspondence] (-1) to [bend right=30] (r2);
+\path[correspondence] (-j) to [bend left=30] (r3);
+
+\end{tikzpicture}
+\caption{Correspondence between $R_4=\langle r\rangle$ and $\langle j\rangle\leq Q_8$.}\label{fig:<j>isoR4}
+\end{figure}
+
+
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}[scale=1.5,auto]
+\node (1) at (135:2.2) [vert] {\scriptsize $1$};
+\node (i) at (45:2.2) [vert] {\scriptsize $i$};
+\node (k) at (-45:2.2) [vert] {\scriptsize $k$};
+\node (j) at (-135:2.2) [vert] {\scriptsize $j$};
+\node (-1) at (135:1) [vert] {\scriptsize $-1$};
+\node (-i) at (45:1) [vert] {\scriptsize $-i$};
+\node (-k) at (-45:1) [vert] {\scriptsize $-k$};
+\node (-j) at (-135:1) [vert] {\scriptsize $-j$};
+
+\path[b] (1) to (i);
+\path[b] (i) to (-1);
+\path[b] (-1) to (-i);
+\path[b] (-i) to (1);
+
+\path[b] (-j) to (-k);
+\path[b] (-k) to (j);
+\path[b] (j) to (k);
+\path[b] (k) to (-j);
+
+\path[r] (-k) to (-i);
+\path[r] (-i) to (k);
+\path[r] (k) to (i);
+\path[r] (i) to (-k);
+
+\path[r] (1) to (j);
+\path[r] (j) to (-1);
+\path[r] (-1) to (-j);
+\path[r] (-j) to (1);
+
+\path[g] (1) to (-1);
+\path[g] (j) to (-j);
+\path[g] (i) to (-i);
+\path[g] (k) to (-k);
+
+\node (e) at (-3,0) [vert] {\scriptsize $e$};
+\node (s) at (-5,0) [vert] {\scriptsize $s$};
+\path[g] (e) to (s);
+
+\node (Q8) at (0,0) {$Q_8$};
+\node (S2) at (-4,.3) {$S_2$};
+
+\path[correspondence] (1) to [bend left=30] (e);
+\path[correspondence] (-1) to [bend left=50] (s);
+
+\end{tikzpicture}
+\caption{Correspondence between $S_2=\langle s\rangle$ and $\langle -1\rangle\leq Q_8$.}\label{fig:isoS2}
+\end{figure}
+
+
+\begin{problem}
+We have seen two different Cayley diagrams for $D_3$, one with generating set $\{s,r\}$ and one with generating set $\{s,s'\}$. As Figure~\ref{fig:D3andS3} illustrates, the Cayley diagrams for $D_3$ with generating set $\{s,s'\}$ and $S_3$ with generating set $\{s_1,s_2\}$ look the same.  Find a different generating set for $S_3$ such that the corresponding Cayley diagram looks like the Cayley diagram for $D_3$ with generating set $\{s,r\}$.
+\end{problem}
+
+\begin{problem}
+
+\end{problem}
+
+$s$ and $-1$ would correspond to each other.  In other words, the two Cayley diagrams are identical up to relabeling the vertices.
+
+Suppose $(G_1,*)$ and $(G_2,\odot)$ are two groups.  Recall that $G_1$ and $G_2$ are isomorphic, written $G_1\cong G_2$, provided that we can choose generating sets for $G_1$ and $G_2$, respectively, so that the Cayley diagrams for both groups are identical (ignoring the labels on the vertices).  When two groups are isomorphic, it means that they have identical structure up to relabeling the names of the elements of the group.
+
+One consequence of two groups being isomorphic is that there is a one-to-one correspondence between the elements of the group.  This correspondence is referred to as an isomorphism.  In other words, an isomorphism is a one-to-one and onto function that preserves the structure of the two groups.  
+
+Having an isomorphism between two groups immediately implies that they have the same order, i.e., $|G_1|=|G_2|$ (see Theorem~\ref{thm:iso_same_order}).  However, it is extremely important to remember that two groups having the same order does \emph{not} imply that the two groups are isomorphic.  Said another way, having a one-to-one correspondence between two groups does not imply that the two groups are isomorphic.  They must also have the same structure!
+
+\begin{exercise}
+Provide an example of two groups that have the same order but are not isomorphic.
+\end{exercise}
+
+After we introduced groups tables, we also discussed the fact that $G_1\cong G_2$ exactly when we can arrange the rows and columns and color elements in such a way that the colorings for the two group tables agree (see Problem~\ref{prob:iso_same_group_table}).  The upshot of this is that if $G_1\cong G_2$, then
+\begin{quotation}
+\emph{the product of corresponding elements yields the corresponding result.}
+\end{quotation}
+This is the essence of what it means for two groups to have the same structure.  
+
+Let's try to make a little more sense of this.  Suppose that $G_1\cong G_2$ and imagine we have arranged the rows and columns of their respective group tables and colored the elements in such a way that the colorings for the two group tables agree.  Now, let $x,y\in G_1$.  Then these two elements have corresponding elements in the group table for $G_2$, say $x'$ and $y'$, respectively.  In other words, $x$ and $x'$ have the same color while $y$ and $y'$ have the same color.  Since $G_1$ is closed under its binary operation $*$, there exists $z\in G_1$ such that $z=x*y$.  There must exist a $z'\in G_2$ such that $z'$ has the same color as $z$.  What must be true of $x'\odot y'$?  Since the two tables exhibit the same color pattern, it must be the case that $z'=x'\odot y'$.  This is what it means for the product of corresponding elements to yield the corresponding result.  Figure~\ref{fig:isoGroupTables} depicts this phenomenon for group tables.
+
+\begin{figure}
+\begin{center}
+\begin{tabu}{c|[2pt]ccc|c|c}
+$*$                & & & & \cellcolor{green}$y$  & \\ \tabucline[2pt]{-}
+                   & & & &                       & \\ \hline
+\cellcolor{red}$x$ & & & & \cellcolor{orange}$z$ & \\ \hline
+                   & & & &                      & \\
+                   & & & &                      &
+\end{tabu}
+\hspace{1cm}
+$\longleftrightarrow$
+\hspace{1cm}
+\begin{tabu}{c|[2pt]ccc|c|c}
+$\odot$                & & & & \cellcolor{green}$y'$  & \\ \tabucline[2pt]{-}
+                   & & & &                       & \\ \hline
+\cellcolor{red}$x'$ & & & & \cellcolor{orange}$z'$ & \\ \hline
+                   & & & &                      & \\
+                   & & & &                      &
+\end{tabu}
+\end{center}
+\caption{}\label{fig:isoGroupTables}
+\end{figure}
+
+We can describe the isomorphism between $G_1$ and $G_2$ using a function.  Let $\phi:G_1\to G_2$ be the one-to-one and onto function that maps elements of $G_1$ to their corresponding elements in $G_2$.  Then $\phi(x)=x'$, $\phi(y)=y'$, and $\phi(z)=z'$.  Since $z'=x'\odot y'$, we can obtain
+\[
+\phi(x*y)=\phi(z)=z'=x'\odot y'=\phi(x)\odot \phi(y).
+\]
+In summary, it must be the case that 
+\[
+\phi(x*y)=\phi(x)\odot \phi(y).
+\]
+We are now prepared to state a formal definition of what it means for two groups to be isomorphic.
+
+\begin{definition}\label{def:iso}
+Let $(G_1,*)$ and $(G_2,\odot)$ be two groups.  Then $G_1$ is \textbf{isomorphic} to $G_2$, written $G_1\cong G_2$, if and only if there exists a one-to-one and onto function $\phi:G_1\to G_2$ such that
+\begin{equation}\label{hom_property}
+\phi(x*y)=\phi(x)\odot \phi(y).
+\end{equation}
+The function $\phi$ is referred to as an \textbf{isomorphism}.  Equation \ref{hom_property} is often referred to as the \textbf{homomorphic property}.
+\end{definition}
+
+You should definitely take a few minutes to convince yourself that the above definition agrees with our previous informal approach to isomorphisms.  For those of you that have had linear algebra, notice that our homomorphic property looks a lot like the requirement for a function on vector spaces to be a linear transformation.  Linear transformations preserve the algebraic structure of vector spaces while the homomorphic property is preserving the algebraic structure of groups.
+
+We've seen several instances of two groups being isomorphic, but now that we have a formal definition, we can open the door to more possibilities.
+
+\begin{problem}
+Consider the groups $(\mathbb{R},+)$ and $(\mathbb{R}^+,\cdot)$, where $\mathbb{R}^+$ is the set of positive real numbers.  It turns out that these two groups are isomorphic, but this would be difficult to discover using our previous techniques because the groups are infinite.  Define $\phi:\mathbb{R}\to \mathbb{R}^+$ via $\phi(r)=e^r$ (where $e$ is the natural base, not the identity). Prove that $\phi$ is an isomorphism.
+\end{problem}
+
+\begin{exercise}
+For each of the following pairs of groups, determine whether the given function is an isomorphism from the first group to the second group.
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item $(\mathbb{Z},+)$ and $(\mathbb{Z},+)$, $\phi(n)=n+1$.
+\item $(\mathbb{Z},+)$ and $(\mathbb{Z},+)$, $\phi(n)=-n$.
+\item $(\mathbb{Q},+)$ and $(\mathbb{Q},+)$, $\phi(x)=x/2$.
+\end{enumerate}
+
+\end{exercise}
+
+\begin{problem}
+Show that the groups $(\mathbb{Z},+)$ and $(2\mathbb{Z},+)$ are isomorphic.
+\end{problem}
+
+Perhaps one surprising consequence of the previous problem is that when dealing with infinite groups, a group can have a proper subgroup that it is isomorphic to.  Of course, this never happens with finite groups.
+
+Once we know that two groups are isomorphic, there are lots of interesting things we can say.  The next theorem tells us that isomorphisms map the identity element of one group to the identity of the second group.  It was already clear that this was the case using our informal definition of isomorphic.  Prove the next theorem using Definition~\ref{def:iso}
+
+\begin{theorem}\label{thm:hom_id}
+Suppose $\phi:G_1\to G_2$ is an isomorphism from the group $(G_1,*)$ to the group $(G_2,\odot)$.  If $e$ and $e'$ are the identity elements of $G_1$ and $G_2$, respectively, then $\phi(e)=e'$.
+\end{theorem}
+
+\begin{theorem}\label{thm:hom_inverse}
+Suppose $\phi:G_1\to G_2$ is an isomorphism from the group $(G_1,*)$ to the group $(G_2,\odot)$.   Then $\phi(g^{-1})=[\phi(g)]^{-1}$.
+\end{theorem}
+
+\begin{theorem}
+Suppose $\phi:G_1\to G_2$ is an isomorphism from the group $(G_1,*)$ to the group $(G_2,\odot)$. If $G_1$ is abelian, then $G_2$ is abelian.
+\end{theorem}
+
+\begin{theorem}
+Suppose $\phi:G_1\to G_2$ is an isomorphism from the group $(G_1,*)$ to the group $(G_2,\odot)$. Then the function $\phi^{-1}:G_2\to G_1$ is an isomorphism.
+\end{theorem}
+
+\begin{theorem}
+Suppose $\phi:G_1\to G_2$ and $\psi:G_2\to G_3$ are isomorphisms from the groups $(G_1,*)$ to $(G_2,\odot)$ and $(G_2,\odot)$ to $(G_3,\star)$, respectively. Then the composite function $\psi\circ\phi$ is an isomorphism of $G_1$ and $G_3$.
+\end{theorem}
+
+\begin{theorem}
+Let $\mathcal{G}$ be any nonempty collection of groups.  Then the relation $\cong$ of being isomorphic is an equivalence relation.
+\end{theorem}
+
+\begin{theorem}
+Suppose $\phi:G_1\to G_2$ is an isomorphism from the group $(G_1,*)$ to the group $(G_2,\odot)$.  If $H\leq G_1$, then $\phi(H)\leq G_2$, where
+\[
+\phi(H):=\{y\in G_2\mid \text{there exists } h\in H\text{ such that }\phi(h)=y\}. 
+\]
+Note that $\phi(H)$ is called the \textbf{image} of $H$.
+\end{theorem}
+
+\begin{theorem}
+Suppose $(G,*)$ is a group and let $g\in G$.  Define $\phi_g:G\to G$ via $\phi(x)=gxg^{-1}$.  Then $\phi_g$ is an isomorphism from $G$ to $G$.  Note that the map $\phi_g$ is called \textbf{conjugation} by $g$.
+\end{theorem}
+
+Now that you've proved the above theorems, it's a good idea to review the key themes.  If you were really paying attention, you may have noticed that in a few of the proofs, we did not use the fact that the function was one-to-one and onto despite assuming that the function was an isomorphism.
+
+\begin{problem}
+For which of the recent theorems could we remove the assumption that the function is one-to-one and onto and only assume that it satisfies the homomorphic property?  Such functions are called \textbf{homomorphisms} and will be the subject of a future chapter.
+\end{problem}
+
+
+%By now you've probably seen enough examples of Cayley diagrams to witness some patterns appearing over and over again.    One of the things you've probably noticed is that parts of some Cayley diagrams look just like parts of other Cayley diagrams.
+%
+%Recall from Exercise~\ref{exer:introducing_S2} that $S_2$ is the group that acts on two coins by swapping their positions (but not flipping them over).  We defined $s$ to be the action that swaps the left and right coins and as usual $e$ is the do-nothing action.  The Cayley diagram for $S_2$ with generator $s$ is given in Figure~\ref{fig:S2}. 
+%
+%\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=6.5mm]
+%\tikzstyle{twoway} = [draw, very thick, blue, stealth-stealth]
+%
+%\begin{figure}
+%\centering
+%\begin{tikzpicture}[scale=1.5,auto]
+%\node (e) at (0,0) [vert] {\scriptsize $e$};
+%\node (s) at (2,0) [vert] {\scriptsize $s$};
+%\path[twoway] (e) to (s);
+%\end{tikzpicture}
+%\caption{Cayley diagram for $S_2$ with generator $s$.}\label{fig:S2}
+%\end{figure}
+%
+%If you look back at all the Cayley diagrams you've encountered, you'll notice that many of them contained chunks that resemble the Cayley diagram for $S_2$ with generator $s$.  In particular, in the Cayley diagrams for $\Spin_{1\times 2}$, $D_3$, $D_4$, and $Q_8$ that we've seen, it is easy to identify the portions that ``look like" $S_2$.  For example, if you isolate the Cayley diagram for the subgroup $\langle -1\rangle=\{1,-1\}$ in $Q_8$, we see that it looks just like the Cayley diagram for $S_2$, except the labels are not identical.  The clones of the subgroup $\langle -1\rangle=\{1,-1\}$ in $Q_8$ look like $S_2$, as well, but they do not contain the do-nothing action.  
+%
+%The one thing that is different about the Cayley diagram for $S_2$ and the Cayley diagram for $\langle -1\rangle$ is that the labels are different.  If we set the Cayley diagram for $S_2$ on top of the Cayley diagram for $\langle -1\rangle$ such that the do-nothing actions match up, then $s$ and $-1$ would correspond to each other.  In other words, the two Cayley diagrams are identical up to relabeling the vertices.
+%
+%In this case, we say that $S_2$ and the subgroup $\langle -1\rangle$ of $Q_8$ are \textbf{isomorphic} under the correspondence $e\leftrightarrow 1$ and $s\leftrightarrow -1$.  This one-to-one correspondence between the two groups is called an \textbf{isomorphism}, which is depicted in Figure~\ref{fig:isoS2}. Note that I've recolored the arrow in $S_2$ so that it matches the corresponding arrow color of $\langle -1\rangle$.  This isn't necessary, but it makes the correspondence more obvious.
+%
+%\tikzstyle{correspondence} = [draw, very thick, black, dashed, stealth-stealth]
+%\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=6.5mm]
+%
+%\begin{figure}[!ht]
+%\centering
+%\begin{tikzpicture}[scale=1.5,auto]
+%\node (1) at (135:2) [vert] {\scriptsize $1$};
+%\node (i) at (45:2) [vert] {\scriptsize $i$};
+%\node (k) at (-45:2) [vert] {\scriptsize $k$};
+%\node (j) at (-135:2) [vert] {\scriptsize $j$};
+%\node (-1) at (135:1) [vert] {\scriptsize $-1$};
+%\node (-i) at (45:1) [vert] {\scriptsize $-i$};
+%\node (-k) at (-45:1) [vert] {\scriptsize $-k$};
+%\node (-j) at (-135:1) [vert] {\scriptsize $-j$};
+%
+%\path[b] (1) to (i);
+%\path[b] (i) to (-1);
+%\path[b] (-1) to (-i);
+%\path[b] (-i) to (1);
+%
+%\path[b] (-j) to (-k);
+%\path[b] (-k) to (j);
+%\path[b] (j) to (k);
+%\path[b] (k) to (-j);
+%
+%\path[r] (-k) to (-i);
+%\path[r] (-i) to (k);
+%\path[r] (k) to (i);
+%\path[r] (i) to (-k);
+%
+%\path[r] (1) to (j);
+%\path[r] (j) to (-1);
+%\path[r] (-1) to (-j);
+%\path[r] (-j) to (1);
+%
+%\path[g] (1) to (-1);
+%\path[g] (j) to (-j);
+%\path[g] (i) to (-i);
+%\path[g] (k) to (-k);
+%
+%\node (e) at (3,0) [vert] {\scriptsize $e$};
+%\node (s) at (5,0) [vert] {\scriptsize $s$};
+%\path[g] (e) to (s);
+%
+%\node (Q8) at (0,0) {$Q_8$};
+%\node (S2) at (4,-.5) {$S_2$};
+%
+%\path[correspondence] (1) to [bend left=60] (e);
+%\path[correspondence] (-1) to [bend left=60] (s);
+%
+%\end{tikzpicture}
+%\caption{Isomorphism between $\langle -1\rangle\leq Q_8$ and $S_2$.}\label{fig:isoS2}
+%\end{figure}
+%
+%What this means is that these two groups have the same structure and characteristics.  Or, in other words, these two groups essentially do the ``same kind" of thing.  Clearly, the two do-nothing actions behave the same way.  Also, $s$ and $-1$ both have the property that doing the action twice results in having done nothing (i.e., each element is its own reverse).  Since there are only two elements, there isn't anything else to check.  In groups with more elements, things can get much more complicated.  
+%
+%It is important to point out that $S_2$ and $\langle -1\rangle$ (in $Q_8$) are not equal.  But they have the same structure.  Identifying when two groups have the same structure (i.e., isomorphic) is an important pursuit in group theory.
+%
+%If you look at the original Cayley diagram for $\Spin_{1\times 2}$ (with generators $s, t_1, t_2$), we can see three subgroups that look like $S_2$; namely $\langle s\rangle$, $\langle t_1\rangle$, and $\langle t_2\rangle$.  Each of these three subgroups is isomorphic to $S_2$.  
+%
+%There is one serious potential for confusion here.  Notice that there is an $s$ in $S_2$ and an $s$ in $\Spin_{1\times 2}$.  Despite having identical names, they are not the same element.  Since we only have 26 letters in our alphabet this sort of thing is unavoidable.  Under the isomorphism between $S_2$ and the subgroup $\langle s\rangle$ in $\Spin_{1\times 2}$, the two elements with the same name match up.  That is, these two elements are the ones in each group with the same behavior.
+%
+%\begin{exercise}
+%Can you find any other subgroups or groups that are isomorphic to $S_2$?
+%\end{exercise}
+%
+%Let's write down an official definition of isomorphic.
+%
+%\begin{definition}
+%Let $G$ and $G'$ be two groups.  We say that $G$ and $G'$ are \textbf{isomorphic} if there exist generating sets $S$ and $S'$ for $G$ and $G'$, respectively, such that the corresponding Cayley diagrams are identical where we ignore the labels on the vertices and recolor the edges if necessary.  In this case, we write $G\cong G'$.  Otherwise, we say that $G$ and $G'$ are not isomorphic.  If $G$ and $G'$ are isomorphic, then the one-to-one correspondence determined by matching up the corresponding generators and respecting arrow paths is called an \textbf{isomorphism}.
+%\end{definition}
+%
+%The last sentence in the definition above might be a bit much to handle at the moment, but as we construct more examples, the concept should become clear.  The general idea is to take two identical Cayley diagrams (ignoring labels) for $G$ and $G'$ and then set one on top of the other so that the vertices and arrows of the same color match up.  This should be done so that the do-nothing actions correspond to each other.  Then it becomes clear which actions in $G$ correspond to which actions in $G'$.  There might be many ways to do this.
+%
+%Consider the group $R_4$ with generator $r$ (rotation by $90^\circ$ clockwise).  Now, take a look at the Cayley diagram for $Q_8$ with generators $i, j, -1$.  It should be easy to convince yourself that $R_4$ is isomorphic to both $\langle i\rangle=\{1,i,-i,-1\}$ and $\langle j\rangle=\{1,j,-j,-1\}$.  However, you have to do some rearranging of one of the diagrams to set one on top of the other.  Let's just focus on $\langle i\rangle$.  
+%
+%How do $R_4$ and $\langle i\rangle$ match up?  We want to pair elements in each group with an element in the other group that has the same behavior.  Clearly, $e$ and $1$ match up since these are the two do-nothing actions.  Also, the reason why we noticed these two groups were isomorphic is because their Cayley diagrams looked the same.  Since each Cayley diagram only had one arrow type determined by $r$ and $i$, we should pair these two elements.  Now, following the arrows around the diagram, we see that $r^2$ must pair with $i^2=-1$ and $r^3$ corresponds to $i^3=-i$.  In summary, the isomorphism between $R_4$ and $\langle i\rangle$ (in $Q_8$) is given by $e\leftrightarrow 1$, $r\leftrightarrow i$, $r^2\leftrightarrow -1$, and $r^3\leftrightarrow -i$, which is depicted in Figure~\ref{fig:isoR4}. Note that this time we have not recolored the edges so that they match.  Nonetheless, the correspondence should be clear.
+%
+%\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=6.5mm]
+%
+%\begin{figure}[!ht]
+%\centering
+%\begin{tikzpicture}[scale=1.5,auto]
+%\node (r) at (1,1) [vert] {\scriptsize $r$};
+%\node (e) at (-1,1) [vert] {\scriptsize $e$};
+%\node (r3) at (-1,-1) [vert] {\scriptsize $r^3$};
+%\node (r2) at (1,-1) [vert] {\scriptsize $r^2$};
+%
+%\path[r] (e) to (r);
+%\path[r] (r) to (r2);
+%\path[r] (r2) to (r3);
+%\path[r] (r3) to (e);
+%
+%\node (R4) at (0,0) {$R_4$};
+%
+%\node (i) at (5,1) [vert] {\scriptsize $i$};
+%\node (1) at (3,1) [vert] {\scriptsize $1$};
+%\node (-i) at (3,-1) [vert] {\scriptsize $-i$};
+%\node (-1) at (5,-1) [vert] {\scriptsize $-1$};
+%
+%\path[b] (1) to (i);
+%\path[b] (i) to (-1);
+%\path[b] (-1) to (-i);
+%\path[b] (-i) to (1);
+%
+%\node (subgroupQ8) at (4,0) {$\langle i\rangle\leq Q_8$};
+%
+%\path[correspondence] (e) to [bend left=30] (1);
+%\path[correspondence] (r) to [bend left=30] (i);
+%\path[correspondence] (r2) to [bend right=30] (-1);
+%\path[correspondence] (r3) to [bend right=30] (-i);
+%
+%\end{tikzpicture}
+%\caption{Isomorphism between $\langle i\rangle\leq Q_8$ and $R_4$.}\label{fig:isoR4}
+%\end{figure}
+%
+%Now, take a look at the Cayley diagram for $D_4$ with generating set $\{r,s\}$.  As we noticed in Exercise~\ref{exer:R4_in_D4}, $R_4$ is a subgroup of $D_4$.  We could say that this subgroup is isomorphic to $R_4$, but in this case, we can say something even stronger: they are equal!
+%
+%Before continuing, we need to emphasize an important point.  If the Cayley diagram for one group does not look like the Cayley diagram for another group, then that does \emph{not} immediately imply that the groups are not isomorphic.  The issue is that perhaps we could choose appropriate generating sets for each group so that the Cayley diagrams do look alike.  For example, notice that our standard Cayley diagram for $R_4$ does not look like the Cayley diagram that you constructed for $V_4$ in Exercise~\ref{exer:V4}.  This does \emph{not} imply that these two groups are not isomorphic.  We would need to do some more work in order to determine whether the two groups are isomorphic or not.  You will get a chance to do this in Exercise~\ref{exer:R4vsV4}.
+%
+%It turns out that there is a fancy word for the size of a group.
+%
+%\begin{definition}
+%If $G$ is a group with $n$ distinct actions, then we say that $G$ has \textbf{order} $n$ and write $|G|=n$.  If $G$ contains infinitely many elements, then we say $G$ has infinite order and write $|G|=\infty$.
+%\end{definition}
+%
+%\begin{exercise}
+%Find the orders of the following groups: $S_2$, $\Spin_{1\times 2}$, $\Spin_{3\times 3}$, $R_4$, $D_3$, $D_4$, $V_4$, and $Q_8$.
+%\end{exercise}
+%
+%\begin{theorem}\label{thm:iso_same_order}
+%Suppose $G$ and $G'$ are two groups of actions such that $G\cong G'$.  Then $|G|=|G'|$.
+%\end{theorem}
+%
+%Unfortunately, the converse of the previous theorem is not true in general.  That is, two groups that have the same order may or may not be isomorphic.
+%
+%Loosely speaking, if one group has a property that the other does not have, then the two groups cannot be isomorphic.  For example, if one group has the property that every pair of actions commutes (i.e., the order\footnote{Don't confuse the word ``order" in this sentence with the order of a group.} of the actions does not matter), but another group has a pair of actions that do not commute, then the two groups cannot be isomorphic.  Moreover, if one group contains an action that requires a minimum of $k$ applications to get back to the do-nothing action, but a second group does not have such an element, then the two groups cannot be isomorphic.  
+%
+%Justifying these two claims takes a bit of work and for now, we'll put that on hold.  For the time being, if you don't see why these claims about when two groups are not isomorphic are true, just take them on faith and we will return to the issue in a later chapter.  Feel free to use these ideas in the exercises that follow.
+%
+%\begin{problem}\label{exer:R4vsV4}
+%Determine whether $R_4$ and $V_4$ are isomorphic.  Justify your answer.  If they are isomorphic, specify the isomorphism by listing the correspondence of elements.  If they are not isomorphic, explain why.
+%\end{problem}
+%
+%\begin{problem}\label{prob:R6_not_iso_D3}
+%Consider the group given by the Cayley diagram for $R_6$ that was given in Exercise~\ref{exer:intro_R6}.  We can think of $R_6$ as the rotation group for a regular hexagon.  Determine whether $R_6$ and $D_3$ are isomorphic.  Justify your answer.  If they are isomorphic, specify the isomorphism by listing the correspondence of elements.  If they are not isomorphic, explain why.
+%\end{problem}
+%
+%\begin{exercise}
+%Consider two light switches on a wall side by side.  Consider the group of actions that consists of all possible actions that you can do to the two light switches.  For example, one action is toggle the left light switch while leaving the right alone.  Let's call this group $L_2$.
+%\begin{enumerate}[label=\rm{(\alph*)}]
+%\item How many distinct actions does $L_2$ have?
+%\item Can you find a minimal generating set for $L_2$?  If so, give these actions names and then write all of the actions of $L_2$ as words in your generator(s).
+%\item Using your generators from part (b), draw a Cayley diagram for $L_2$.
+%\end{enumerate}
+%\end{exercise}
+%
+%\begin{problem}
+%Determine whether $L_2$ and $V_4$ are isomorphic.  Justify your answer.  If they are isomorphic, specify the isomorphism by listing the correspondence of elements. If they are not isomorphic, explain why.
+%\end{problem}
+%
+%\begin{problem}
+%Determine whether $Q_8$ and $D_4$ are isomorphic.  Justify your answer.  If they are isomorphic, specify the isomorphism by listing the correspondence of elements. If they are not isomorphic, explain why.
+%\end{problem}
+%
+%\begin{problem}
+%Determine whether $\Spin_{1\times 2}$ and $D_4$ are isomorphic.  Justify your answer.  If they are isomorphic, specify the isomorphism by listing the correspondence of elements. If they are not isomorphic, explain why.
+%\end{problem}
+%
+%\begin{exercise}\label{exer:S3}
+%Consider the group that acts on three coins that are in a row by rearranging their positions (but not flipping them over).  This group is called $S_3$.  Number the positions of the coins (not the coins themselves) 1, 2, 3 from left to right.  Let $s_1$ be the action that swaps the coins in positions 1 and 2 and let $s_2$ be the action that swaps the coins in positions 2 and 3.
+%\begin{enumerate}[label=\rm{(\alph*)}]
+%\item The group $S_3$ consists of 6 actions, which we can generate with $s_1$ and $s_2$.  Write all 6 actions as words in $s_1$ and $s_2$.
+%\item Using $s_1$ and $s_2$ as generators, draw a Cayley diagram for $S_3$.
+%\end{enumerate}
+%\end{exercise}
+%
+%\begin{problem}\label{prob:D3_iso_S3}
+%Determine whether $S_3$ and $D_3$ are isomorphic.  Justify your answer.  If they are isomorphic, specify the isomorphism by listing the correspondence of elements.  If they are not isomorphic, explain why. Don't forget that we've drawn two different Cayley diagrams for $D_3$.
+%\end{problem}
+
 
 % We already know that $R_4$ and $V_4$ are not isomorphic, but this becomes even more apparent if you compare their subgroup lattices.
 
