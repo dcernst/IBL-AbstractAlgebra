@@ -776,13 +776,13 @@ Once we know that two groups are isomorphic, there are lots of interesting thing
 Suppose $\phi:G_1\to G_2$ is an isomorphism from the group $(G_1,*)$ to the group $(G_2,\odot)$.  If $e_1$ and $e_2$ are the identity elements of $G_1$ and $G_2$, respectively, then $\phi(e_1)=e_2$.
 \end{theorem}
 
+The next theorem tells us that isomorphisms respect inverses.
+
 \begin{theorem}\label{thm:hom_inverse}
 If $\phi:G_1\to G_2$ is an isomorphism from the group $(G_1,*)$ to the group $(G_2,\odot)$, then $\phi(g^{-1})=[\phi(g)]^{-1}$.
 \end{theorem}
 
-\begin{theorem}
-Suppose $\phi:G_1\to G_2$ is an isomorphism from the group $(G_1,*)$ to the group $(G_2,\odot)$. If $G_1$ is abelian, then $G_2$ is abelian.
-\end{theorem}
+It turns out that ``isomorphic" ($\cong$) determines an equivalence relation on the class of all possible groups.  The next two theorems justify that $\cong$ is symmetric and transitive.
 
 \begin{theorem}
 If $\phi:G_1\to G_2$ is an isomorphism from the group $(G_1,*)$ to the group $(G_2,\odot)$, then the function $\phi^{-1}:G_2\to G_1$ is an isomorphism.
@@ -792,8 +792,81 @@ If $\phi:G_1\to G_2$ is an isomorphism from the group $(G_1,*)$ to the group $(G
 If $\phi:G_1\to G_2$ and $\psi:G_2\to G_3$ are isomorphisms from the groups $(G_1,*)$ to $(G_2,\odot)$ and $(G_2,\odot)$ to $(G_3,\star)$, respectively, then the composite function $\psi\circ\phi$ is an isomorphism of $G_1$ and $G_3$.
 \end{theorem}
 
+The only thing left to do in order to justify the next theorem is prove that $\cong$ is reflexive.
+
 \begin{theorem}
 If $\mathcal{G}$ is any nonempty collection of groups, then the relation $\cong$ is an equivalence relation on $\mathcal{G}$.
+\end{theorem}
+
+Mathematicians love to classify things.  In particular, mathematicians want to classify groups.  One can think of this pursuit as a taxonomy of groups. In order to simplify the task, one can classify isomorphism classes (i.e., the equivalence classes determined by $\cong$) instead of of classifying groups.  If two groups are isomorphic, then we say that the groups are \textbf{the same up to isomorphism}.  If there are $k$ isomorphism classes of order $n$, then we say that there are \textbf{$k$ groups of order $n$ up to isomorphism}.
+
+\begin{problem}
+Explain why all groups with a single element are isomorphic.  Justify your answer using group tables.
+\end{problem}
+
+In light of the previous problem, we say that there is one group of order one up to isomorphism.
+
+\begin{problem}
+Suppose that $(G,*)$ is a group of order 2 such that $G=\{e,a\}$.  Complete the following group table for $G$.
+\begin{center}
+\begin{tabu}{c|[2pt]c|c}
+$*$ & $e$ & $a$ \\ \tabucline[2pt]{-}
+$e$ &  &  \\
+\hline $a$ &  & 
+\end{tabu}
+\end{center}
+Explain why every group of order 2 must be isomorphic to $S_2$. 
+\end{problem}
+
+The previous problem implies that up to isomorphism, there is only one group of order 2.
+
+\begin{problem}
+Suppose $(G,*)$ is a group of order 3 such that $G=\{e,a,b\}$.  Complete the following group table for $G$.
+\begin{center}
+\begin{tabu}{c|[2pt]c|c|c}
+$*$ & $e$ & $a$ & $b$ \\ \tabucline[2pt]{-}
+$e$ &  &  & \\
+\hline $a$ &  & & \\
+\hline $b$ &  & &
+\end{tabu}
+\end{center}
+Explain why every group of order 3 must be isomorphic to $R_3$.
+\end{problem}
+
+\begin{problem}
+Suppose $(G,*)$ is a group of order 4 such that $G=\{e,a,b,c\}$.  Assuming that $e$ is the identity, the first row and first column of the corresponding group table must be completed as follows.
+
+\begin{center}
+\begin{tabu}{c|[2pt]c|c|c|c}
+$*$ & $e$ & $a$ & $b$ & $c$ \\ \tabucline[2pt]{-}
+$e$ &  $e$ & $a$ & $b$ & $c$ \\
+\hline $a$ & $a$ & ? & & \\
+\hline $b$ & $b$ & & & \\
+\hline $c$ & $c$ & & &
+\end{tabu}
+\end{center}
+
+\noindent The cell with the question mark cannot be filled with an $a$.  So, this entry must be either $e$, $b$, or $c$.  However, it should be easy to see that the cases with $b$ and $c$ are symmetric.  Thus, there are two cases: (i) the entry with the question mark is filled with $e$, or (ii) the entry with the question mark is without loss of generality filled with $b$.  Complete the group table in each of these two cases.  Are either of the resulting groups isomorphic to $R_4$ or $V_4$.  What conclusion can you make about groups of order 4?
+\end{problem}
+
+So far we've seen that there are unique groups up to isomorphism of orders 1, 2, and 3, but that there are two groups up to isomorphism of order 4.  A natural question to ask is: how many groups are there of order $n$?
+
+In a future chapter we will be able to prove that there is only one group up to isomorphism of order 5, namely those groups isomorphic to $R_5$.
+
+We've seen three groups of order 6, namely $R_6$, $D_3$, and $S_3$.  However, $D_3\cong S_3$ while $R_6$ is not isomorphic to either of these.  So, we can conclude that there are at least two groups up to isomorphism of order 6.   But are there others?  It turns out that the answer is no, but why?
+
+The group $R_7$ is the group of rotational symmetries of a regular 7-sided polygon.  This group has order 7.  Are there other groups of order 7 that are not isomorphic to $R_7$? It turns out that the answer is no, but why?
+
+We've encountered several groups of order 8, namely $D_4$, $\Spin_{1\times 2}$, $Q_8$, $R_8$, and $L_3$.  Of these, only $D_4$ and $\Spin_{1\times 2}$ are isomorphic.  Thus, there are at least four groups up to isomorphism of order 8.  Are these the only isomorphism types?  It turns out that there are five groups of order 8 up to isomorphism.
+
+Let's return to proving some general statements about isomorphisms.
+
+\begin{theorem}
+Suppose $\phi:G_1\to G_2$ is an isomorphism from the group $(G_1,*)$ to the group $(G_2,\odot)$. If $G_1$ is cyclic, then $G_2$ is cyclic.
+\end{theorem}
+
+\begin{theorem}
+Suppose $\phi:G_1\to G_2$ is an isomorphism from the group $(G_1,*)$ to the group $(G_2,\odot)$. If $G_1$ is abelian, then $G_2$ is abelian.
 \end{theorem}
 
 If $\phi:G_1\to G_2$ is a function, not necessarily an isomorphism, and $X\subseteq G_1$, then the set
@@ -815,8 +888,10 @@ If $G$ is a group and $g\in G$, then conjugation by $g$ is an isomorphism from $
 Now that you've proved the above theorems, it's a good idea to review the key themes.  If you were really paying attention, you may have noticed that in a few of the proofs, we did not use the fact that the function was one-to-one and onto despite assuming that the function was an isomorphism.
 
 \begin{problem}
-For which of the recent theorems could we remove the assumption that the function is one-to-one and onto and only assume that it satisfies the homomorphic property?  Such functions are called \textbf{homomorphisms} and will be the subject of a future chapter.
+For which of the recent theorems could we remove either the assumption that the function is one-to-one or the assumption that the function is onto?
 \end{problem}
+
+A function that satisfies the homomorphic property and may or may not be one-to-one or onto is called a \textbf{homomorphisms} and will be the subject of a future chapter.
 
 \begin{problem}
 What claims can be made about the subgroup lattices of two groups that are isomorphic? What claims can be made about the subgroup lattices of two groups that are not isomorphic?  What claims can be made about two groups if their subgroup lattices look nothing alike?
