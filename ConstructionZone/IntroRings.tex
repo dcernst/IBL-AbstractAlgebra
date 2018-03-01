@@ -40,26 +40,26 @@ A ring $R$ is called \textbf{commutative} if multiplication is commutative.
 A ring $R$ is said to have an \textbf{identity} (or called a \textbf{ring with  1}) if there is an element $1\in R$ such that $1a=a 1=a$ for all $a\in R$.
 \end{definition}
 
-\begin{exercise}
+\begin{problem}
 Justify that $\mathbb{Z}$ is a commutative ring with 1 under the usual operations of addition and multiplication. Which elements have multiplicative inverses in $\mathbb{Z}$?
-\end{exercise}
+\end{problem}
 
-\begin{exercise}
+\begin{problem}
 Justify that $\mathbb{Z}_n$ is a commutative ring with 1 under addition and multiplication mod $n$.
-\end{exercise}
+\end{problem}
 
-\begin{exercise}\label{exer:Z10Ring}
+\begin{problem}\label{prob:Z10Ring}
 Consider the set $\mathbb{Z}_{10}=\{0,1,2,3,4,5,6,7,8,9\}$. Which elements have multiplicative inverses in $\mathbb{Z}_{10}$?
-\end{exercise}
+\end{problem}
 
-\begin{exercise}
+\begin{problem}
 For each of the following, find a positive integer $n$ such that the ring $\mathbb{Z}_n$ does not have the stated property.
 \begin{enumerate}[label=\rm{(\alph*)}]
 \item $a^2=a$ implies $a=0$ or $a=1$.
 \item $ab=0$ implies $a=0$ or $b=0$.
 \item $ab=ac$ and $a\neq 0$ imply $b=c$.
 \end{enumerate}
-\end{exercise}
+\end{problem}
 
 \begin{theorem}
 If $R$ is a ring with 1, then the multiplicative identity is unique and $-a=(-1)a$.
@@ -81,17 +81,17 @@ A commutative division ring is called a \textbf{field}.
 A nonzero element $a$ in a ring $R$ is called a \textbf{zero divisor} if there is a nonzero element $b\in R$ such that either $ab=0$ or $ba=0$.
 \end{definition}
 
-\begin{exercise}
+\begin{problem}
 Are there any zero divisors in $\mathbb{Z}_{10}$?  If so, find all of them.
-\end{exercise}
+\end{problem}
 
-\begin{exercise}
+\begin{problem}
 Are there any zero divisors in $\mathbb{Z}_5$?  If so, find all of them.
-\end{exercise}
+\end{problem}
 
-\begin{exercise}
+\begin{problem}
 Provide an example of a ring $R$ and elements $a,b\in R$ such that $ax=b$ has more than one solution.  How does this compare with groups?
-\end{exercise}
+\end{problem}
 
 \begin{theorem}[Cancellation Law]\label{thm:RingCancellation}
 Assume $a,b,c\in R$ such that $a$ is not a zero divisor.  If $ab=ac$, then either $a=0$ or $b=c$.
@@ -101,14 +101,14 @@ Assume $a,b,c\in R$ such that $a$ is not a zero divisor.  If $ab=ac$, then eithe
 Assume $R$ is a ring with $1$ with $1\neq 0$. An element $u\in R$ is called a \textbf{unit} in $R$ if $u$ has a multiplicative inverse (i.e., there exists $v\in R$ such that $uv=vu=1$.  The set of units in $R$ is denoted $U(R)$.
 \end{definition}
 
-\begin{exercise}
+\begin{problem}
 Consider the ring $\mathbb{Z}_{20}$.
 \begin{enumerate}[label=\rm{(\alph*)}]
 \item Find $U(\mathbb{Z}_{20})$.
 \item Find the zero divisors of $\mathbb{Z}_{20}$.
 \item Any observations?
 \end{enumerate}
-\end{exercise}
+\end{problem}
 
 \begin{theorem}
 If $U(R)\neq\emptyset$, then $U(R)$ forms a group under multiplication.
@@ -159,9 +159,9 @@ The group of units $U(\mathbb{Z}_n)$ is the set of elements in $\mathbb{Z}_n$ th
 \end{enumerate}
 \end{example}
 
-\begin{exercise}
+\begin{problem}
 Find an example of a ring $R$ and an element $a\in R\setminus\{0\}$ such that $a$ is neither a zero divisor nor a unit.
-\end{exercise}
+\end{problem}
 
 \begin{definition}
 A \textbf{subring} of a ring $R$ is a subgroup of $R$ that is closed under multiplication.
@@ -185,7 +185,7 @@ Here are a few quick examples.
 \end{example}
 
 \begin{problem}
-Consider the ring $\mathbb{Z}_{10}$ from Exercise~\ref{exer:Z10Ring}. Let $S=\{0,2,4,6,8\}$.
+Consider the ring $\mathbb{Z}_{10}$ from Problem~\ref{prob:Z10Ring}. Let $S=\{0,2,4,6,8\}$.
 \begin{enumerate}[label=\rm{(\alph*)}]
 \item Argue that $S$ is a subring of $\mathbb{Z}_{10}$.
 \item Is $S$ a ring with 1?  If so, find the multiplicative identity.  If not, explain why.
@@ -222,7 +222,7 @@ for all $a,b\in R$. The \textbf{kernel} of $\phi$ is defined via $\ker(\phi)=\{a
 \end{enumerate}
 \end{example}
 
-\begin{exercise}
+\begin{problem}
 For each of the following, determine whether the given function is a ring homomorphism.  Justify your answers.
 \begin{enumerate}[label=\rm{(\alph*)}]
 \item Define $\phi:\mathbb{Z}_4\to \mathbb{Z}_{12}$ via $\phi(x)=3x$.
@@ -230,7 +230,7 @@ For each of the following, determine whether the given function is a ring homomo
 \item Let $\displaystyle S=\left\{\begin{pmatrix}a & b\\ -b & a\end{pmatrix}\mid a, b\in \mathbb{R}\right\}$.  Define $\phi:\mathbb{C}\to S$ via $\displaystyle \phi(a+ib)=\begin{pmatrix}a & b\\ -b & a\end{pmatrix}$.
 \item Let $\displaystyle T=\left\{\begin{pmatrix}a & b\\ 0 & c\end{pmatrix}\mid a, b\in \mathbb{Z}\right\}$. Define $\phi:T\to \mathbb{Z}$ via $\displaystyle \phi\left(\begin{pmatrix}a & b\\ 0 & c\end{pmatrix}\right)=a$.
 \end{enumerate}
-\end{exercise}
+\end{problem}
 
 \begin{theorem}\label{thm:kernelsubring}
 Let $\phi:R\to S$ be a ring homomorphism.

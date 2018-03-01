@@ -64,15 +64,15 @@ Here is another significant observation we can make.  Consider the Cayley diagra
 \label{fig:D3_repeat}
 \end{figure}
 
-\begin{exercise}\label{exer:left_cosets_D3}
+\begin{problem}\label{prob:left_cosets_D3}
 Consider the group $D_3$.  Find all the left cosets for $H=\langle s\rangle$.  Are they the same as the right cosets?  Are they the same as the subgroup $H$ and its clones that we can see in the Cayley graph for $D_3$ with generating set $\{r,s\}$?
-\end{exercise}
+\end{problem}
 
 As the previous exercise indicates, the collections of left and right cosets may not be the same and when they are not the same, the subgroup and its clones do not coincide with the left cosets.
 
 You might be thinking that somehow right cosets are ``better" than left cosets since we were able to visualize them in the Cayley graph.  However, this is just a consequence of our convention of composing actions from right to left.  If we had adopted a left to right convention, then we would be able to visualize the left cosets in Cayley diagrams.  
 
-Computing left and right cosets using a group table is fairly easy.  Hopefully, you figured out in Exercise~\ref{exer:left_cosets_D3} that the left cosets of $H=\langle s\rangle$ in $D_3$ are $H=\{e,s\}$, $srH=\{r^2,sr\}$, and $rsH=\{r,rs\}$.  Now, consider the following group table for $D_3$ that has the rows and columns arranged according to the left cosets of $H$.
+Computing left and right cosets using a group table is fairly easy.  Hopefully, you figured out in Problem~\ref{prob:left_cosets_D3} that the left cosets of $H=\langle s\rangle$ in $D_3$ are $H=\{e,s\}$, $srH=\{r^2,sr\}$, and $rsH=\{r,rs\}$.  Now, consider the following group table for $D_3$ that has the rows and columns arranged according to the left cosets of $H$.
 
 \begin{center}
 \begin{tabu}{c|[2pt]c|c|c|c|c|c}
@@ -127,15 +127,15 @@ We would get a similar table (but in this case, not identical) if we colored the
 
 Let's tackle a few more examples.
 
-\begin{exercise}\label{exer:normal_in_D3}
+\begin{problem}\label{prob:normal_in_D3}
 Consider $D_3$ and let $K=\langle r\rangle$.  
 \begin{enumerate}[label=\rm{(\alph*)}]
 \item Find all of the left cosets of $K$ and then find all of the right cosets of $K$ in $D_3$.  Any observations?
 \item Write down the group table for $D_3$, but this time arrange the rows and columns according to the left cosets for $K$.  Color the entire table according to which \emph{left} coset an element belongs to.  Can you visualize the observations you made in part (a)?
 \end{enumerate}
-\end{exercise}
+\end{problem}
 
-\begin{exercise}\label{exer:normal_in_Q8}
+\begin{problem}\label{prob:normal_in_Q8}
 Consider $Q_8$.  Let $H=\langle i\rangle$ and $K=\langle -1\rangle$.
 \begin{enumerate}[label=\rm{(\alph*)}]
 \item Find all of the left cosets of $H$ and all of the right cosets of $H$ in $Q_8$.  
@@ -143,25 +143,25 @@ Consider $Q_8$.  Let $H=\langle i\rangle$ and $K=\langle -1\rangle$.
 \item Find all of the left cosets of $K$ and all of the right cosets of $K$ in $Q_8$.
 \item Write down the group table for $Q_8$ so that rows and columns are arranged according to the left cosets for $K$.  Color the entire table according to which \emph{left} coset an element belongs to.
 \end{enumerate}
-\end{exercise}
+\end{problem}
 
-\begin{exercise}
+\begin{problem}
 Consider $S_4$.  Find all of the left cosets and all of the right cosets of $A_4$ in $S_4$. Instead of doing brute-force, try to be clever. \emph{Hint:} What happens when you compose two even permutations versus an even permutation and an odd permutation?
-\end{exercise}
+\end{problem}
 
-\begin{exercise}
+\begin{problem}
 Consider $\mathbb{Z}_8$.  Find all of the left cosets and all of the right cosets of $\langle 4\rangle$ in $\mathbb{Z}_8$. Why do you know the left and right cosets are the same without actually verifying?
-\end{exercise}
+\end{problem}
 
-\begin{exercise}
+\begin{problem}
 Consider $(\mathbb{Z},+)$.  Find all of the left cosets and all of the right cosets of $3\mathbb{Z}$ in $\mathbb{Z}$. Why do you know the left and right cosets are the same without actually verifying?
-\end{exercise}
+\end{problem}
 
 \begin{theorem}
 Let $G$ be a group and let $H\leq G$. If $G$ is abelian, then for all $a\in G$, $aH=Ha$.  That is, if $G$ is abelian, then the left cosets of $H$ are the same as the right cosets of $H$.
 \end{theorem}
 
-Exercises~\ref{exer:left_cosets_D3} and \ref{exer:normal_in_D3} illustrate that if a group is non-abelian, then the cosets of a subgroup may or may not coincide.  That is, knowing that the group is non-abelian is not enough to determine whether the left and right cosets are different.
+Exercises~\ref{prob:left_cosets_D3} and \ref{prob:normal_in_D3} illustrate that if a group is non-abelian, then the cosets of a subgroup may or may not coincide.  That is, knowing that the group is non-abelian is not enough to determine whether the left and right cosets are different.
 
 Now that we've played with a few examples, let's make a few general observations.
 
@@ -252,9 +252,9 @@ This simple sounding theorem is extremely powerful.  One consequence is that gro
 
 One important consequence of Lagrange's Theorem is that it narrows down the possible sizes for subgroups.
 
-\begin{exercise}
+\begin{problem}
 Suppose $G$ is a group of order 48.  What are the possible orders for subgroups of $G$?  
-\end{exercise}
+\end{problem}
 
 Lagrange's Theorem tells us what the possible orders of a subgroup are, but if $k$ is a divisor of the order of a group, it does not guarantee that there is a subgroup of order $k$. It's not too hard to show that the converse of Lagrange's Theorem is true for cyclic groups.  However, it's not true, in general.  The next problem will show that $A_4$ is an example of a group where the converse of Lagrange's Theorem fails.  Can you think of others?
 
@@ -292,17 +292,17 @@ Lagrange's Theorem motivates the following definition.
 Let $G$ be a group and let $H\leq G$.  The \textbf{index} of $H$ in $G$ is the number of cosets (left or right) of $H$ in $G$. Equivalently, if $G$ is finite, then the index of $H$ in $G$ is equal to $|G|/|H|$.  We denote the index via $[G:H]$.
 \end{definition}
 
-\begin{exercise}
+\begin{problem}
 Let $H=\langle (1,2)(3,4),(1,3)(2,4)\rangle$.
 \begin{enumerate}[label=\rm{(\alph*)}]
 \item Find $[A_4:H]$.
 \item Find $[S_4:H]$.
 \end{enumerate}
-\end{exercise}
+\end{problem}
 
-\begin{exercise}
+\begin{problem}
 Find $[\mathbb{Z}:4\mathbb{Z}]$.
-\end{exercise}
+\end{problem}
 
 \end{section}
 
@@ -314,9 +314,9 @@ We've seen an example where the left and right cosets of a subgroup were differe
 Let $G$ be a group and let $H\leq G$.  If $aH=Ha$ for all $a\in G$, then we say that $H$ is a \textbf{normal subgroup}.  If $H$ is a normal subgroup of $G$, then we write $H\trianglelefteq G$.
 \end{definition}
 
-\begin{exercise}
+\begin{problem}
 Provide an example of group that has a subgroup that is not normal.
-\end{exercise}
+\end{problem}
 
 \begin{problem}\label{prob:checkerboard}
 Suppose $G$ is a finite group and let $H\leq G$.  If $H\trianglelefteq G$ and we arrange the rows and columns of the group table for $G$ according to the left cosets of $H$ and then color the corresponding cosets, what property will the table have?  Is the converse true?  That is, if the table has the property you discovered, will $H$ be normal in $G$?
@@ -384,13 +384,13 @@ If $G$ is a group and $H\leq G$, then $H\trianglelefteq N_G(H)$.  Moreover, $N_G
 
 It is worth pointing out that the ``smallest" $N_G(H)$ can be is $H$ itself---certainly a subgroup is a normal subgroup of itself.  Also, the ``largest" that $N_G(H)$ can be is $G$, which happens precisely when $H$ is normal in $G$.
 
-\begin{exercise}
+\begin{problem}
 Find $N_{D_4}(V_4)$.
-\end{exercise}
+\end{problem}
 
-\begin{exercise}
+\begin{problem}
 Find $N_{D_3}(\langle s\rangle)$.
-\end{exercise}
+\end{problem}
 
 We conclude this chapter with a few remarks.  We've seen examples of groups that have subgroups that are normal and subgroups that are not normal.  In an abelian group, all the subgroups are normal.  It turns out that there are examples of groups that have no normal subgroups.  These groups are called \textbf{simple groups}.  The smallest simple group is $A_5$, which has 60 elements and lots of proper nontrivial subgroups, none of which are normal.
 
