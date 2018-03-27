@@ -606,65 +606,6 @@ Draw the subgroup lattice for $S_3$.
 Now, using $(1,2)$ and $(1,2,3)$ as generators, draw the Cayley diagram for $S_3$.  Look familiar?
 \end{problem}
 
-It turns out that the subgroups of symmetric groups play an important role in group theory.
-
-\begin{definition}
-Every subgroup of a symmetric group is called a \textbf{permutation group}.
-\end{definition}
-
-The proof of the following theorem isn't too bad, but for now we'll take it for granted.
-
-\begin{theorem}[Cayley's Theorem]
-Every finite group is isomorphic to some permutation group.  In particular, if $(G,*)$ is a group of order $n$, then $G$ is isomorphic to a subgroup of $S_n$.
-\end{theorem}
-
-Cayley's Theorem guarantees that every finite group is isomorphic to a permutation group and it turns out that there is a rather simple algorithm for constructing the corresponding permutation group.  I'll briefly explain an example and then let you try a couple.
-
-Consider the Klein four-group $V_4=\{e,v,h,vh\}$.  Recall that $V_4$ has the following group table.
-
-\begin{center}
-\begin{tabu}{c|[2pt]c|c|c|c}
-$*$ & $e$ & $v$ & $h$ & $vh$ \\ \tabucline[2pt]{-}
-$e$ & $e$ & $v$ & $h$ & $vh$ \\
-\hline $v$ & $v$ & $e$ & $vh$ & $h$  \\
-\hline $h$ & $h$ & $vh$ & $e$ & $v$\\
-\hline $vh$ & $vh$ & $h$ & $v$ & $e$
-\end{tabu}
-\end{center}
-
-If we number the elements $e,v,h,$ and $vh$ as $1,2,3,$ and $4$, respectively, then we obtain the following table.
-
-\begin{center}
-\begin{tabu}{c|[2pt]c|c|c|c}
- & $1$ & $2$ & $3$ & $4$ \\ \tabucline[2pt]{-}
-$1$ & $1$ & $2$ & $3$ & $4$ \\
-\hline $2$ & $2$ & $1$ & $4$ & $3$  \\
-\hline $3$ & $3$ & $4$ & $1$ & $2$\\
-\hline $4$ & $4$ & $3$ & $2$ & $1$
-\end{tabu}
-\end{center}
-
-\noindent Comparing each of the four columns to the leftmost column, we can obtain the corresponding permutations.  In particular, we obtain
-\begin{align*}
-e&\leftrightarrow (1)\\
-v&\leftrightarrow (1,2)(3,4)\\
-h&\leftrightarrow (1,3)(2,4)\\
-vh&\leftrightarrow(1,4)(2,3). 
-\end{align*}
-Do you see where these permutations came from?  The claim is that the set of permutations $\{(1),(1,2)(3,4),(1,3)(2,4),(1,4)(2,3)\}$ is isomorphic to $V_4$.  In this particular case, it's fairly clear that this is true.  However, it takes some work to prove that this process will always result in an isomorphic permutation group.  In fact, verifying the algorithm is essentially the proof of Cayley's Theorem. 
-
-Since there are potentially many ways to rearrange the rows and columns of a given table, it should be clear that there are potentially many isomorphisms that could result from the algorithm described above.
-
-Here's another way to obtain a permutation group that is isomorphic to a given group.  Let's consider $V_4$ again.  Recall that $V_4$ is a subset of $D_4$, which is the symmetry group for a square.  Alternatively, $V_4$ is the symmetry group for a non-square rectangle.  Label the corners of the rectangle 1, 2, 3, and 4 by starting in the upper left corner and continuing clockwise.  Recall that $v$ is the action that reflects the rectangle over the vertical midline.  The result of this action is that the corners labeled by 1 and 2 switch places and the corners labeled by 3 and 4 switch places.  Thus, $v$ corresponds to the permutation $(1,2)(3,4)$.  Similarly, $h$ swaps the corners labeled by 1 and 4 and the corners labeled by 2 and 3, and so $h$ corresponds to the permutation $(1,4)(2,3)$.  Notice that this is not the same answer we got earlier and that's okay as there may be many permutation representations for a given group.  Lastly, $vh$ rotates the rectangle $180^{\circ}$ which sends ends up swapping corners labeled 1 and 3 and swapping corners labeled by 2 and 4.  Therefore, $vh$ corresponds to the permutation $(1,3)(2,4)$.
-
-\begin{problem}
-Find a permutation group that is isomorphic to $D_4$.
-\end{problem}
-
-\begin{problem}
-Find a permutation group that is isomorphic to $\mathbb{Z}_6$.
-\end{problem}
-
 \begin{problem}
 Consider $S_3$.
 \begin{enumerate}[label=\rm{(\alph*)}]
@@ -736,6 +677,73 @@ Here are two interesting facts that I will let you ponder on your own time.
 \end{center}
 \caption{Truncated cube. [Image source: \href{https://en.wikipedia.org/wiki/Truncated_cube}{Wikipedia}]}\label{fig:TruncatedCube}
 \end{figure}
+
+It turns out that the subgroups of symmetric groups play an important role in group theory.
+
+\begin{definition}
+Every subgroup of a symmetric group is called a \textbf{permutation group}.
+\end{definition}
+
+The proof of the following theorem isn't too bad, but for now we'll take it for granted.
+
+\begin{theorem}[Cayley's Theorem]
+Every finite group is isomorphic to some permutation group.  In particular, if $(G,*)$ is a group of order $n$, then $G$ is isomorphic to a subgroup of $S_n$.
+\end{theorem}
+
+Cayley's Theorem guarantees that every finite group is isomorphic to a permutation group and it turns out that there is a rather simple algorithm for constructing the corresponding permutation group.  I'll briefly explain an example and then let you try a couple.
+
+Consider the Klein four-group $V_4=\{e,v,h,vh\}$.  Recall that $V_4$ has the following group table.
+
+\begin{center}
+\begin{tabu}{c|[2pt]c|c|c|c}
+$*$ & $e$ & $v$ & $h$ & $vh$ \\ \tabucline[2pt]{-}
+$e$ & $e$ & $v$ & $h$ & $vh$ \\
+\hline $v$ & $v$ & $e$ & $vh$ & $h$  \\
+\hline $h$ & $h$ & $vh$ & $e$ & $v$\\
+\hline $vh$ & $vh$ & $h$ & $v$ & $e$
+\end{tabu}
+\end{center}
+
+If we number the elements $e,v,h,$ and $vh$ as $1,2,3,$ and $4$, respectively, then we obtain the following table.
+
+\begin{center}
+\begin{tabu}{c|[2pt]c|c|c|c}
+ & $1$ & $2$ & $3$ & $4$ \\ \tabucline[2pt]{-}
+$1$ & $1$ & $2$ & $3$ & $4$ \\
+\hline $2$ & $2$ & $1$ & $4$ & $3$  \\
+\hline $3$ & $3$ & $4$ & $1$ & $2$\\
+\hline $4$ & $4$ & $3$ & $2$ & $1$
+\end{tabu}
+\end{center}
+
+\noindent Comparing each of the four columns to the leftmost column, we can obtain the corresponding permutations.  In particular, we obtain
+\begin{align*}
+e&\leftrightarrow (1)\\
+v&\leftrightarrow (1,2)(3,4)\\
+h&\leftrightarrow (1,3)(2,4)\\
+vh&\leftrightarrow(1,4)(2,3). 
+\end{align*}
+Do you see where these permutations came from?  The claim is that the set of permutations $\{(1),(1,2)(3,4),(1,3)(2,4),(1,4)(2,3)\}$ is isomorphic to $V_4$.  In this particular case, it's fairly clear that this is true.  However, it takes some work to prove that this process will always result in an isomorphic permutation group.  In fact, verifying the algorithm is essentially the proof of Cayley's Theorem. 
+
+Since there are potentially many ways to rearrange the rows and columns of a given table, it should be clear that there are potentially many isomorphisms that could result from the algorithm described above.
+
+Here's another way to obtain a permutation group that is isomorphic to a given group.  Let's consider $V_4$ again.  Recall that $V_4$ is a subset of $D_4$, which is the symmetry group for a square.  Alternatively, $V_4$ is the symmetry group for a non-square rectangle.  Label the corners of the rectangle 1, 2, 3, and 4 by starting in the upper left corner and continuing clockwise.  Recall that $v$ is the action that reflects the rectangle over the vertical midline.  The result of this action is that the corners labeled by 1 and 2 switch places and the corners labeled by 3 and 4 switch places.  Thus, $v$ corresponds to the permutation $(1,2)(3,4)$.  Similarly, $h$ swaps the corners labeled by 1 and 4 and the corners labeled by 2 and 3, and so $h$ corresponds to the permutation $(1,4)(2,3)$.  Notice that this is not the same answer we got earlier and that's okay as there may be many permutation representations for a given group.  Lastly, $vh$ rotates the rectangle $180^{\circ}$ which sends ends up swapping corners labeled 1 and 3 and swapping corners labeled by 2 and 4.  Therefore, $vh$ corresponds to the permutation $(1,3)(2,4)$.
+
+\begin{problem}
+Consider $D_4$.
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item Using the method outlined above, find a subgroup of $S_8$ that is isomorphic to $D_4$.
+\item Label the corners of a square 1--4. Find a subgroup of $S_4$ that is isomorphic to $D_4$ by considering the natural action of $D_4$ on the labels on the corners of the square.
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Consider $\mathbb{Z}_6$.
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item Using the method outlined earlier, find a subgroup of $S_6$ that is isomorphic to $\mathbb{Z}_6$.
+\item Label the corners of a regular hexagon 1--6. Find a subgroup of $S_6$ that is isomorphic to $\mathbb{Z}_6$ by considering the natural action of $\mathbb{Z}_6$ on the labels on the corners of the hexagon.
+\end{enumerate}
+\end{problem}
 
 \end{section}
 
