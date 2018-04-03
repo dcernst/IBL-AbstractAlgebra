@@ -259,10 +259,6 @@ Suppose $G$ is a group of order 48.  What are the possible orders for subgroups 
 Lagrange's Theorem tells us what the possible orders of a subgroup are, but if $k$ is a divisor of the order of a group, it does not guarantee that there is a subgroup of order $k$. It's not too hard to show that the converse of Lagrange's Theorem is true for cyclic groups.  However, it's not true, in general.  
 
 \begin{problem}
-Provide an example of a finite group $G$ such that $|G|$ has a divisor $k$ but $G$ does not have an element of order $k$.
-\end{problem}
-
-\begin{problem}
 Provide an example of a finite group $G$ such that $|G|$ has a divisor $k$ but $G$ does not have a subgroup of order $k$.
 \end{problem}
 
@@ -286,15 +282,19 @@ Using Lagrange's Theorem, we can quickly prove both of the following theorems.
 Let $G$ be a finite group and let $a\in G$.  Then $|a|$ divides $|G|$.
 \end{theorem}
 
-\begin{theorem}
-Every group of prime order is cyclic.
-\end{theorem}
-
 Since the converse of Lagrange's Theorem is not true, the converse of Theorem~\ref{thm:order_element_divides_group_order} is not true either.  However, it is much easier to find a counterexample.
 
 \begin{problem}
 Argue that $S_4$ does not have any elements of order 8.
 \end{problem}
+
+\begin{theorem}
+For every prime $p$, if $G$ has order $p$, then $G\cong \mathbb{Z}_p$.
+\end{theorem}
+
+\begin{corollary}
+For every prime $p$, there is a unique group of order $p$ up to isomorphism.
+\end{corollary}
 
 Lagrange's Theorem motivates the following definition.
 
