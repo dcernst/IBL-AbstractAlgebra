@@ -8,7 +8,7 @@ In this section, we will discuss a method for using existing groups as building 
 
 Suppose $(G,*)$ and $(H,\odot)$ are two groups.  Recall that the Cartesian product of $G$ and $H$ is defined to be
 \[
-G\times H=\{(g,h):g\in G,h\in H\}
+G\times H=\{(g,h)\mid g\in G,h\in H\}
 \]
 For more information on Cartesian products, see Definition~\ref{def:cartesian_product}.  Using the binary operations for the groups $G$ and $H$, we can define a binary operation on the set $G\times H$.  Define $\star$ on $G\times H$ via
 \[
@@ -60,7 +60,7 @@ If each $G_i$ is abelian, then we may use additive notation.  For example, consi
 \[
 \mathbb{Z}_2\times \mathbb{Z}_3=\{(0,0),(0,1),(0,2),(1,0),(1,1),(1,2)\}.
 \]
-Since $\mathbb{Z}_2$ and $\mathbb{Z}_3$ are cyclic, both groups are abelian, and hence $\mathbb{Z}_2\times \mathbb{Z}_3$ is abelian.  In this case, we will use addition notation in $\mathbb{Z}_2\times \mathbb{Z}_3$.  For example,
+Since $\mathbb{Z}_2$ and $\mathbb{Z}_3$ are cyclic, both groups are abelian, and hence $\mathbb{Z}_2\times \mathbb{Z}_3$ is abelian.  In this case, we will use additive notation in $\mathbb{Z}_2\times \mathbb{Z}_3$.  For example,
 \[
 (0,1)+(1,2)=(1,0)
 \]
@@ -71,19 +71,19 @@ and
 
 There is a very natural generating set for $\mathbb{Z}_2\times \mathbb{Z}_3$, namely, $\{(1,0),(0,1)\}$ since $1\in \mathbb{Z}_2$ and $1\in \mathbb{Z}_3$ generate $\mathbb{Z}_2$ and $\mathbb{Z}_3$, respectively.
 
-\begin{exercise}
+\begin{problem}
 Draw the Cayley diagram for $\mathbb{Z}_2\times \mathbb{Z}_3$ using $\{(1,0),(0,1)\}$ as the generating set.  Do you see a subgroup of $\mathbb{Z}_2\times \mathbb{Z}_3$ isomorphic to $\mathbb{Z}_2$ in the Cayley diagram?  What is this subgroup?  How about a subgroup isomorphic to $\mathbb{Z}_3$?
-\end{exercise}
+\end{problem}
 
-\begin{exercise}
+\begin{problem}
 Prove that $\mathbb{Z}_2\times \mathbb{Z}_3$ is a cyclic group of order 6 and hence isomorphic to $R_6$.  
-\end{exercise}
+\end{problem}
 
 Let's play with a few more examples.
 
-\begin{exercise}
+\begin{problem}
 Consider $\mathbb{Z}_2\times \mathbb{Z}_2$ under the operation of addition mod 2 in each component.  Find a generating set for $\mathbb{Z}_2\times \mathbb{Z}_2$ and then create a Cayley diagram for this group.  What well-known group is $\mathbb{Z}_2\times \mathbb{Z}_2$ isomorphic to?
-\end{exercise}
+\end{problem}
 
 Consider the similarities and differences between $\mathbb{Z}_2\times \mathbb{Z}_3$ and $\mathbb{Z}_2\times \mathbb{Z}_2$.  Both groups are abelian by Theorem~\ref{thm:product_abelian_groups}, but only the former is cyclic.  Here's another exercise.
 
@@ -97,7 +97,31 @@ Consider $\mathbb{Z}_2\times \mathbb{Z}_4$ under the operation of addition mod 2
 \end{enumerate}
 \end{problem}
 
-The upshot of the previous problem is that there are at least 4 groups of order 8 up to isomorphism.  It turns out that there are exactly 5 groups of order 8 up to isomorphism.  Three of these groups are non-abelian and 2 are abelian.  Exercise~\ref{exer:groupsOrder8} asks you to find the remaining abelian group of order 8.  Unfortunately, we will not develop the tools necessary to prove that there are not more than 3 non-abelian groups of order 8 up to isomorphism.
+The upshot of the previous problem is that there are at least four groups of order 8 up to isomorphism.  It turns out that there are exactly five groups of order 8 up to isomorphism.  Three of these groups are non-abelian and two are abelian.  Problem~\ref{prob:groupsOrder8} asks you to find the remaining abelian group of order 8.  Unfortunately, we will not develop the tools necessary to prove that there are not more than 3 non-abelian groups of order 8 up to isomorphism.
+
+The next theorem tells us how to compute the order of an element in a direct product of groups.
+
+\begin{theorem}
+Suppose $G_1, G_2,\ldots, G_n$ are groups and let $(g_1,g_2,\ldots, g_n)\in \prod_{i=1}^nG_i$.  If $|g_i|=r_i<\infty$, then $|(g_1,g_2,\ldots, g_n)|=\lcm(r_1,r_2,\ldots,r_n)$.
+\end{theorem}
+
+\begin{problem}
+Find the order of each of the following elements.
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item $(6,5)\in\mathbb{Z}_{12}\times \mathbb{Z}_7$.
+\item $(r,i)\in D_3\times Q_8$.
+\item $((1,2)(3,4),3)\in S_4\times \mathbb{Z}_{15}$.
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Find the largest possible order of elements in each of the following groups.
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item $\mathbb{Z}_6\times \mathbb{Z}_8$
+\item $\mathbb{Z}_9\times \mathbb{Z}_{12}$
+\item $\mathbb{Z}_4\times \mathbb{Z}_{18}\times \mathbb{Z}_{15}$
+\end{enumerate}
+\end{problem}
 
 \begin{theorem}
 The group $\mathbb{Z}_m\times \mathbb{Z}_n$ is cyclic if and only if $m$ and $n$ are relatively prime.
@@ -113,7 +137,7 @@ The previous results can be extended to more than two factors.
 The group $\prod_{i=1}^n \mathbb{Z}_{m_i}$ is cyclic and isomorphic to $\mathbb{Z}_{m_1m_2\cdots m_n}$ if and only if every pair from the collection $\{m_1,m_2,\ldots, m_n\}$ is relatively prime.
 \end{theorem}
 
-\begin{exercise}
+\begin{problem}
 Determine whether each of the following groups is cyclic.
 \begin{enumerate}[label=\rm{(\alph*)}]
 \item $\mathbb{Z}_7\times \mathbb{Z}_8$
@@ -121,7 +145,7 @@ Determine whether each of the following groups is cyclic.
 \item $\mathbb{Z}_2\times \mathbb{Z}_7\times \mathbb{Z}_8$
 \item $\mathbb{Z}_5\times \mathbb{Z}_7\times \mathbb{Z}_8$
 \end{enumerate}
-\end{exercise}
+\end{problem}
 
 \begin{theorem}
 Suppose $n=p_1^{n_1}p_2^{n_2}\cdots p_r^{n_r}$, where each $p_i$ is a distinct prime number.  Then
@@ -133,30 +157,6 @@ Suppose $n=p_1^{n_1}p_2^{n_2}\cdots p_r^{n_r}$, where each $p_i$ is a distinct p
 \begin{theorem}
 Suppose $G$ and $H$ are two groups.  Then $G\times H\cong H\times G$.
 \end{theorem}
-
-The next theorem tells us how to compute the order of an element in a direct product of groups.
-
-\begin{theorem}
-Suppose $G_1, G_2,\ldots, G_n$ are groups and let $(g_1,g_2,\ldots, g_n)\in \prod_{i=1}^nG_i$.  If $|g_i|=r_i<\infty$, then $|(g_1,g_2,\ldots, g_n)|=\lcm(r_1,r_2,\ldots,r_n)$.
-\end{theorem}
-
-\begin{exercise}
-Find the order of each of the following elements.
-\begin{enumerate}[label=\rm{(\alph*)}]
-\item $(6,5)\in\mathbb{Z}_{12}\times \mathbb{Z}_7$.
-\item $(r,i)\in D_3\times Q_8$.
-\item $((1,2)(3,4),3)\in S_4\times \mathbb{Z}_{15}$.
-\end{enumerate}
-\end{exercise}
-
-\begin{exercise}
-Find the largest possible order of elements in each of the following groups.
-\begin{enumerate}[label=\rm{(\alph*)}]
-\item $\mathbb{Z}_6\times \mathbb{Z}_8$
-\item $\mathbb{Z}_9\times \mathbb{Z}_{12}$
-\item $\mathbb{Z}_4\times \mathbb{Z}_{18}\times \mathbb{Z}_{15}$
-\end{enumerate}
-\end{exercise}
 
 \begin{theorem}
 Suppose $G_1$ and $G_2$ are groups such that $H_1\leq G_1$ and $H_2\leq G_2$.  Then $H_1\times H_2\leq G_1\times G_2$.
@@ -188,11 +188,11 @@ where each $p_i$ is a prime number (not necessarily distinct).  The product is u
 
 Note that the number $k$ is called the \textbf{Betti number}.  A  finitely generated abelian group is finite if and only if the Betti number is 0.
 
-\begin{exercise}\label{exer:groupsOrder8}
+\begin{problem}\label{prob:groupsOrder8}
 Find all abelian groups up to isomorphism of order 8.  How many different groups up to isomorphism (both abelian and non-abelian) have we seen and what are they?
-\end{exercise}
+\end{problem}
 
-\begin{exercise}
+\begin{problem}
 Find all abelian groups up to isomorphism for each of the following orders.
 \begin{enumerate}[label=\rm{(\alph*)}]
 \item 16
@@ -201,7 +201,7 @@ Find all abelian groups up to isomorphism for each of the following orders.
 \item 30
 \item 60
 \end{enumerate}
-\end{exercise}
+\end{problem}
 
 \end{section}
 
@@ -209,13 +209,13 @@ Find all abelian groups up to isomorphism for each of the following orders.
 
 In the previous section, we discussed a method for constructing ``larger" groups from ``smaller" groups using a direct product construction.  In this section, we will in some sense do the opposite.
 
-Problem~\ref{prob:checkerboard} hinted that if $H\leq G$ and we arrange the group table according to the left cosets of $H$, then the group table will have checkerboard pattern if and only if $H$ is normal in G (i.e., the left and right cosets of $H$ are the same).  For example, see the colored table prior to Exercise~\ref{exer:normal_in_D3} versus the ones you created in Exercises~\ref{exer:normal_in_D3}, \ref{exer:normal_in_Q8}.  If we have the checkerboard pattern in the group table that arises from a normal subgroup, then by ``gluing together" the colored blocks, we obtain a group table for a smaller group that has the cosets as the elements. 
+Problem~\ref{prob:checkerboard} hinted that if $H\leq G$ and we arrange the group table according to the left cosets of $H$, then the group table will have checkerboard pattern if and only if $H$ is normal in G (i.e., the left and right cosets of $H$ are the same).  For example, see the colored table prior to Problem~\ref{prob:normal_in_D3} versus the ones you created in Exercises~\ref{prob:normal_in_D3}, \ref{prob:normal_in_Q8}.  If we have the checkerboard pattern in the group table that arises from a normal subgroup, then by ``gluing together" the colored blocks, we obtain a group table for a smaller group that has the cosets as the elements. 
 
-For example, let's consider $K=\langle -1\rangle \leq Q_8$.  Exercise~\ref{exer:normal_in_Q8} showed us that $K$ is normal $Q_8$.  The left (and right) cosets of $K$ in $Q_8$ are
+For example, let's consider $K=\langle -1\rangle \leq Q_8$.  Problem~\ref{prob:normal_in_Q8} showed us that $K$ is normal $Q_8$.  The left (and right) cosets of $K$ in $Q_8$ are
 \[
 K=\{1,-1\}, iK=\{i,-i\}, jK=\{j,-j\}, \text{ and } kK=\{k,-k\}.
 \]
-As you found in Exercise~\ref{exer:normal_in_Q8}, if we arrange the rows and columns of $Q_8$ according to these cosets, we obtain the following group table.
+As you found in Problem~\ref{prob:normal_in_Q8}, if we arrange the rows and columns of $Q_8$ according to these cosets, we obtain the following group table.
 
 \begin{center}
 \begin{tabu}{c|[2pt]c|c|c|c|c|c|c|c}
@@ -240,6 +240,10 @@ Before continuing, let's continue tinkering with the same example.  Consider the
 \tikzstyle{2b} = [draw,very thick,blue,stealth-stealth]
 \tikzstyle{2r} = [draw, very thick, red,stealth-stealth]
 \tikzstyle{greenvert} = [circle, draw, fill=green,inner sep=0pt, minimum size=6.5mm]
+\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=6.5mm]
+\tikzstyle{b} = [draw,very thick,blue,-stealth]
+\tikzstyle{r} = [draw, very thick, red,-stealth]
+\tikzstyle{g} = [draw, very thick, green, stealth-stealth]
 
 \begin{figure}[!ht]
 \centering
@@ -291,11 +295,11 @@ Before continuing, let's continue tinkering with the same example.  Consider the
 
 We can visualize the right cosets of $K$ as the clumps of vertices connected together with the two-way green arrows.  In this case, we are also seeing the left cosets since $K$ is normal in $Q_8$.  If we collapse the cosets onto each other and collapse the corresponding arrows, we obtain the diagram given in Figure~\ref{fig:Q8QuotientB}. It is clear that this diagram is the Cayley diagram for a group that is isomorphic to $V_4$.  For reasons we will understand shortly, this processing of collapsing a Cayley diagram according to the cosets of a normal subgroup is called the ``quotient process."
 
-\begin{exercise}\label{exer:bad_quotient}
-Let's see what happens if we attempt the quotient process for a subgroup that is not normal.  Consider $H=\langle s\rangle \leq D_3$.  In Exercise~\ref{exer:left_cosets_D3}, we discovered that the left cosets of $H$ are not the same as the right cosets of $H$.  This implies that $H$ is not normal in $D_3$.  Consider the standard Cayley diagram for $D_3$ that uses the generators $r$ and $s$.  Draw the diagram that results from attempting the quotient process on $D_3$ using the subgroup $H$.  Explain why this diagram cannot be the diagram for a group.
-\end{exercise}
+\begin{problem}\label{prob:bad_quotient}
+Let's see what happens if we attempt the quotient process for a subgroup that is not normal.  Consider $H=\langle s\rangle \leq D_3$.  In Problem~\ref{prob:left_cosets_D3}, we discovered that the left cosets of $H$ are not the same as the right cosets of $H$.  This implies that $H$ is not normal in $D_3$.  Consider the standard Cayley diagram for $D_3$ that uses the generators $r$ and $s$.  Draw the diagram that results from attempting the quotient process on $D_3$ using the subgroup $H$.  Explain why this diagram cannot be the diagram for a group.
+\end{problem}
 
-The problem that arises in Exercise~\ref{exer:bad_quotient} is that if the same arrow types (i.e., those representing the same generator) leaving a coset do not point at elements in the same coset, attempting the quotient process will result in a diagram that violates Rule 3 (every action is deterministic) of Definition~\ref{def:informal_group}.  In Figure~\ref{fig:QuotientProcessBad}, we illustrate what goes wrong if all the arrows for a generator pointing out of a coset do not unanimously point to elements in the same coset.  In Figure~\ref{fig:QuotientProcessGood}, all the arrows point to elements in the same coset, and in this case, it appears that everything works out just fine.
+The problem that arises in Problem~\ref{prob:bad_quotient} is that if the same arrow types (i.e., those representing the same generator) leaving a coset do not point at elements in the same coset, attempting the quotient process will result in a diagram that violates Rule 3 (every action is deterministic) of Definition~\ref{def:informal_group}.  In Figure~\ref{fig:QuotientProcessBad}, we illustrate what goes wrong if all the arrows for a generator pointing out of a coset do not unanimously point to elements in the same coset.  In Figure~\ref{fig:QuotientProcessGood}, all the arrows point to elements in the same coset, and in this case, it appears that everything works out just fine.
 
 %figure adapted from Matt Macauley.
 \begin{figure}[!ht]
@@ -360,13 +364,13 @@ The problem that arises in Exercise~\ref{exer:bad_quotient} is that if the same 
 \end{tikzpicture}}
 \end{tabular}
 }
-\caption{In the left subfigure, blue arrows go from elements of the left coset $g_1H$ to elements of \emph{multiple} left cosets, which results in ambiguous blue arrows in the collapsed diagram. This violates Rule 3 (every action is deterministic). In the right subfigure, blue arrows go from elements of the left coset $g_1H$ to elements inside a \emph{unique} left coset, which does not result in any ambiguity.}
+\caption{In the left subfigure, blue arrows go from elements of the left coset $g_1H$ to elements of \emph{multiple} left cosets, which results in ambiguous blue arrows in the collapsed diagram. This implies that left coset multiplication is not well-defined in this case. In the right subfigure, blue arrows go from elements of the left coset $g_1H$ to elements inside a \emph{unique} left coset, which does not result in any ambiguity.}
 \label{fig:QuotientProcess}
 \end{figure}
 
-\begin{exercise}
-In Exercise~\ref{exer:normal_in_D3}, we learned that the subgroup $K=\langle r\rangle$ is normal in $D_3$ since the left cosets are equal to the right cosets.  Note that this follows immediately from Theorem~\ref{thm:index2} since $[D_3:K]=2$.  Draw the diagram that results from performing the quotient process to $D_3$ using the subgroup $K$.  Does the resulting diagram represent a group?  If so, what group is it isomorphic to?
-\end{exercise}
+\begin{problem}
+In Problem~\ref{prob:normal_in_D3}, we learned that the subgroup $K=\langle r\rangle$ is normal in $D_3$ since the left cosets are equal to the right cosets.  Note that this follows immediately from Theorem~\ref{thm:index2} since $[D_3:K]=2$.  Draw the diagram that results from performing the quotient process to $D_3$ using the subgroup $K$.  Does the resulting diagram represent a group?  If so, what group is it isomorphic to?
+\end{problem}
 
 Now, suppose $G$ is an arbitrary group and let $H\leq G$. Consider the set of left cosets of $H$.  We define
 \[
@@ -374,13 +378,13 @@ Now, suppose $G$ is an arbitrary group and let $H\leq G$. Consider the set of le
 \]
 The natural question to ask is whether this operation is well-defined.  That is, does the result of multiplying two left cosets depend on our choice of representatives?  More specifically, suppose $c\in aH$ and $d\in bH$.  Then $cH=aH$ and $dH=bH$.  According to the operation defined above, $(cH)(dH)=cdH$.  It better be the case that $cdH=abH$, otherwise the operation is not well-defined.
 
-\begin{exercise}
+\begin{problem}
 Let $H=\langle s\rangle \leq D_3$.  Find specific examples of $a,b,c,d\in D_3$ such that
 \[
 (aH)(bH)\neq (cH)(dH)
 \]
 even though $aH=cH$ and $bH=dH$.
-\end{exercise}
+\end{problem}
 
 \begin{theorem}
 Let $G$ be a group and let $H\leq G$.  Then left coset multiplication (as defined above) is well-defined if and only if $H\trianglelefteq G$.
@@ -396,7 +400,7 @@ The group from Theorem~\ref{thm:quotient_grp} is denoted by $G/H$, read ``$G$ mo
 Let $G$ be a group and let $H\trianglelefteq G$.  Then $|G/H|=[G:H]$.  In particular, if $G$ is finite, then $|G/H|=|G|/|H|$.
 \end{theorem}
 
-\begin{exercise}%Borrowing from Fraleigh Exercises 9--15 in Section 14.
+\begin{problem}%Borrowing from Fraleigh Exercises 9--15 in Section 14.
 Find the order of the given element in the quotient group. You may assume that we are taking the quotient by a normal subgroup. 
 \begin{enumerate}[label=\rm{(\alph*)}]
 \item $s\langle r\rangle \in D_4/\langle r\rangle$
@@ -404,9 +408,9 @@ Find the order of the given element in the quotient group. You may assume that w
 \item $5+\langle 4\rangle \in \mathbb{Z}_{12}/\langle 4\rangle$
 \item $(2,1)+\langle (1,1)\rangle \in (\mathbb{Z}_3\times \mathbb{Z}_6)/\langle (1,1)\rangle$ 
 \end{enumerate}
-\end{exercise}
+\end{problem}
 
-\begin{exercise}
+\begin{problem}
 For each quotient group below, describe the group.  If possible, state what group each is isomorphic to.  You may assume that we are taking the quotient by a normal subgroup. 
 \begin{enumerate}[label=\rm{(\alph*)}]
 \item $Q_8/\langle -1\rangle$
@@ -419,7 +423,7 @@ For each quotient group below, describe the group.  If possible, state what grou
 \item $S_4/A_4$
 \item $(\mathbb{Z}_4\times \mathbb{Z}_2)/(\{0\}\times \mathbb{Z}_2)$
 \end{enumerate}
-\end{exercise}
+\end{problem}
 
 \begin{theorem}
 Let $G$ be a group.  Then
@@ -446,7 +450,7 @@ Let $G$ be a group and let $H\trianglelefteq G$.  If $G$ is abelian, then so is 
 Show that the converse of the previous theorem is not true by providing a specific counterexample.
 \end{problem}
 
-\begin{exercise}
+\begin{problem}
 Consider the quotient group $(\mathbb{Z}_4\times \mathbb{Z}_6)/\langle (0,1)\rangle$.
 \begin{enumerate}[label=\rm{(\alph*)}]
 \item What is the order of $(\mathbb{Z}_4\times \mathbb{Z}_6)/\langle (0,1)\rangle$?
@@ -455,7 +459,7 @@ Consider the quotient group $(\mathbb{Z}_4\times \mathbb{Z}_6)/\langle (0,1)\ran
 \item Does one of the elements generate the group?
 \item What well-known group is $(\mathbb{Z}_4\times \mathbb{Z}_6)/\langle (0,1)\rangle$ isomorphic to?
 \end{enumerate}
-\end{exercise}
+\end{problem}
 
 \begin{theorem}
 Let $G$ be a group and let $H\trianglelefteq G$.  If $G$ is cyclic, then so is $G/H$.
@@ -467,13 +471,13 @@ Show that the converse of the previous theorem is not true by providing a specif
 
 Here are few additional exercises.  These ones are a bit tougher.
 
-\begin{exercise}
+\begin{problem}
 For each quotient group below, describe the group.  If possible, state what group each is isomorphic to.  You may assume that we are taking the quotient by a normal subgroup. 
 \begin{enumerate}[label=\rm{(\alph*)}]
 \item $(\mathbb{Z}_4\times \mathbb{Z}_6)/\langle (0,2)\rangle$
 \item $(\mathbb{Z}\times \mathbb{Z})/\langle (1,1)\rangle$
 \item $\mathbb{Q}/\langle 1\rangle$ (the operation on $\mathbb{Q}$ is addition)
 \end{enumerate}
-\end{exercise}
+\end{problem}
 
 \end{section}
