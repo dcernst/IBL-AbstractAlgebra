@@ -1,0 +1,414 @@
+\chapter{Cayley Diagrams}
+\label{chapter:cayley_diagrams}
+\thispagestyle{empty}
+
+Recall that in the previous chapter we defined a group to be a set of actions that satisfies the following rules.
+
+\begin{description}
+\item[Rule 1.] There is a predefined list of actions that never changes.
+\item[Rule 2.] Every action is reversible.
+\item[Rule 3.] Every action is deterministic.
+\item[Rule 4.] Any sequence of consecutive actions is also an action.
+\end{description}
+
+It is important to point out that this is an intuitive starting point and does not constitute the official definition of a group.  We'll continue to postpone a rigorous definition in this chapter and instead we will focus on developing more intuition about what groups are and what they ``look like."  
+
+To get started, let's continue thinking about the game Spinpossible (see Chapter~\ref{chapter:intuitive_approach_groups}).  In Exercise~\ref{exer:number_spinpossible_boards}, we discovered that there are a total of $2^9\cdot 9! = 185,794,560$ possible scrambled Spinpossible boards.  Now, imagine we wanted to write a solution manual that would describe how to solve all these boards.  There are likely many possible ways to construct such a solution manual, but here is one way.  
+
+The manual will consist of $185,794,560$ pages such that each page lists a unique scrambling of the $3\times 3$ board.  Don't forget that one of these scramblings is the solved board, which we will make page 1.  Also, imagine that the book is arranged in such a way that it isn't too difficult to look up a given scrambled board.  On each page below the scrambled board is a table that lists all possible spins.  Next to each spin, the table indicates whether doing that particular spin will result in a board that is either closer to being solved or farther.  In addition, the page number that corresponds to the resulting board is listed next to each spin.
+
+In most cases, there will be many spins that take us closer to the solved board.  Given a scrambled board, a solution would consist of following one possible sequence of pages through the book that takes us from the scrambled board to the solved board.  There could be many such sequences.  If we could construct such a solution manual, we would have an atlas or map for the game Spinpossible.
+
+Note that even if we make a wrong turn (i.e., follow a page that takes us farther away from the solution), we can still get back on track by following page numbers that take us closer to the solved board.  In fact, we can always flip back to the page we were on before taking a wrong turn.  This page will be listed on our ``wrong turn page" since doing the same spin twice has the net effect of doing nothing.  If you were to actually do this, the number of pages we would need to visit would be longer than an optimal solution, but we'd get to the solved board nonetheless.
+
+Let's get a little more concrete.  Consider the game Spinpossible, except let's simplify it a little.  Instead of playing on the $3\times 3$ board, let's play on a $1\times 2$ board consisting of a single row with tiles labeled 1 and 2.  The rules of the game are what you would expect; we are restricted to spins involving just the tiles in positions 1 and 2 of the original board.  A scrambling of the $1\times 2$ Spinpossible board consists of any rearrangement of the tiles 1 and 2, where either of the tiles can be right-side-up or up-side-down.
+
+\begin{exercise}
+First, convince yourself that the set of actions corresponding to the $1\times 2$ Spinpossible board satisfies our four rules of a group. We'll refer to this group as $\Spin_{1\times 2}$.  
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item How many scrambled boards are there for the $1\times 2$ Spinpossible game?  Don't forget to include the solved board.
+\item How many actions are there in $\Spin_{1\times 2}$? Which of these actions are spins? \emph{Hint:} There are actions that are not spins.
+\end{enumerate}
+\end{exercise}
+
+Let's try to make a map for $\Spin_{1\times 2}$, but instead of writing a solution manual, we will draw a picture of the group called a \textbf{Cayley diagram}.  The first thing we'll do is draw each of the scramblings that we found in the previous exercise.  It doesn't matter how we arrange all of these drawings, as long as there is some space between them.  Now, for each scrambling, figure out what happens when we do each of our allowable spins.  For each of these spins, we'll draw an arrow from the initial scrambled board to the resulting board.  Don't worry about whether doing each of these spins is a good idea or not.  In fact, figure out what happens when we do our allowable spins to the solved board, as well.  In this case, each of our scrambled boards will have 3 arrows heading out towards 3 distinct boards.  Do you see why?  
+
+In order for us to keep straight what each arrow represents, let's color our arrows, so that doing a particular type of spin is always the same color.  For example, we could color the arrows that toggle the tile in the first position as green.  Recall that doing the same spin twice has the net effect of doing nothing, so we should just make all of our arrows point in both directions.
+
+To make sure you are keeping up to speed, consider the following scrambled board.
+
+\begin{center}
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+  \node [draw] (1) {\rotatebox{180}{$\underline{1}$}};
+  \node [draw, right=0cm of 1] (2) {\rotatebox{180}{$\underline{2}$}};
+\end{tikzpicture}
+\end{center}
+
+\noindent This board is one of our 8 possible scrambled $1\times 2$ boards.  We have three possible spins we can do to this board: toggle position 1, toggle position 2, or spin the whole board.  Each of these spins has a corresponding two-way arrow that takes us to three different scrambled boards.  Figure~\ref{fig:partial_Cayley} provides a visual representation of what we just discussed.
+
+\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=6.5mm]
+\tikzstyle{b} = [draw,very thick,blue,stealth-stealth]
+\tikzstyle{r} = [draw, very thick, red,stealth-stealth]
+\tikzstyle{g} = [draw, very thick, green, stealth-stealth]
+
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}[scale=1.5,auto]
+\node (B) at (1,2) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {$\underline{1}$};
+\node [draw, right=0cm of 1] (2) {\rotatebox{180}{$\underline{2}$}};
+\end{tikzpicture}
+};
+\node (D) at (2,-.75) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {$\underline{2}$};
+\node [draw, right=0cm of 1] (2) {$\underline{1}$};
+\end{tikzpicture}
+};
+\node (E) at (1,-2) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {\rotatebox{180}{$\underline{1}$}};
+\node [draw, right=0cm of 1] (2) {\rotatebox{180}{$\underline{2}$}};
+\end{tikzpicture}
+};
+\node (F) at (-1,-2) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {\rotatebox{180}{$\underline{1}$}};
+\node [draw, right=0cm of 1] (2) {$\underline{2}$};
+\end{tikzpicture}
+};
+\node (H) at (-2,.75) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node (1) {};
+\node [right=0cm of 1] (2) {};
+\end{tikzpicture}
+};
+\path[b] (E) to (F);
+\path[r] (D) to (E);
+\path[g] (B) to (E);
+\end{tikzpicture}
+\caption{A portion of the Cayley diagram for $\Spin_{1\times2}$ with generating set $\{t_1, t_2, s\}$.}
+\label{fig:partial_Cayley}
+\end{figure}
+
+\noindent Note that I could have drawn the four scrambled boards in Figure~\ref{fig:partial_Cayley} anywhere I wanted to, but I have a particular layout in mind.  Also, notice we have three different colored arrows.  Can you see what each of the colors corresponds to?  In this case, a green arrow corresponds to toggling the tile in position 1, a blue arrow corresponds to toggling position 2, and a red arrow corresponds to spinning the whole board. 
+
+If we include the rest of the scrambled boards and all possible spins, we obtain Figure~\ref{fig:Cayley_Spin_1x2}. Note that I've chosen a nice layout for the figure, but it's really the connections between the various boards that are important.
+
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}[scale=1.5,auto]
+\node (A) at (-1,2) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {$\underline{1}$};
+\node [draw, right=0cm of 1] (2) {$\underline{2}$};
+\end{tikzpicture}
+};
+\node (B) at (1,2) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {$\underline{1}$};
+\node [draw, right=0cm of 1] (2) {\rotatebox{180}{$\underline{2}$}};
+\end{tikzpicture}
+};
+\node (C) at (2,.75) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {$\underline{2}$};
+\node [draw, right=0cm of 1] (2) {\rotatebox{180}{$\underline{1}$}};
+\end{tikzpicture}
+};
+\node (D) at (2,-.75) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {$\underline{2}$};
+\node [draw, right=0cm of 1] (2) {$\underline{1}$};
+\end{tikzpicture}
+};
+\node (E) at (1,-2) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {\rotatebox{180}{$\underline{1}$}};
+\node [draw, right=0cm of 1] (2) {\rotatebox{180}{$\underline{2}$}};
+\end{tikzpicture}
+};
+\node (F) at (-1,-2) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {\rotatebox{180}{$\underline{1}$}};
+\node [draw, right=0cm of 1] (2) {$\underline{2}$};
+\end{tikzpicture}
+};
+\node (G) at (-2,-.75) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {\rotatebox{180}{$\underline{2}$}};
+\node [draw, right=0cm of 1] (2) {$\underline{1}$};
+\end{tikzpicture}
+};
+\node (H) at (-2,.75) {
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+\node [draw] (1) {\rotatebox{180}{$\underline{2}$}};
+\node [draw, right=0cm of 1] (2) {\rotatebox{180}{$\underline{1}$}};
+\end{tikzpicture}
+};
+\path[b] (A) to (B);
+\path[b] (C) to (D);
+\path[b] (E) to (F);
+\path[b] (G) to (H);
+\path[r] (B) to (C);
+\path[r] (D) to (E);
+\path[r] (F) to (G);
+\path[r] (H) to (A);
+\path[g] (B) to (E);
+\path[g] (C) to (H);
+\path[g] (D) to (G);
+\path[g] (F) to (A);
+\end{tikzpicture}
+\caption{Cayley diagram for $\Spin_{1\times2}$ with generating set $\{t_1, t_2, s\}$.}
+\label{fig:Cayley_Spin_1x2}
+\end{figure}
+
+\noindent In this case, the spins that correspond to the three arrow colors are the \textbf{generators} of $\Spin_{1\times 2}$.  What this means is that we can obtain all possible scramblings/unscramblings by using just these 3 spins.  Let $t_1$ be the spin that toggles position 1, $t_2$ be the spin that toggles position 2, and $s$ be the spin that rotates the full board.  
+
+In order to obtain the Cayley diagram for $\Spin_{1\times 2}$ (with the generators we have in mind), we need to identify each scrambled board in Figure~\ref{fig:Cayley_Spin_1x2} with an action from the group.  The most natural choice is to identify the solved board with the do-nothing action, which we will denote by $e$.  As soon as we make this choice, we can just follow the arrows around the diagram to determine which actions correspond to which scrambled boards.  
+
+For example, consider the following scrambled board.
+\begin{center}
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+  \node [draw] (1) {{$\underline{2}$}};
+  \node [draw, right=0cm of 1] (2) {\rotatebox{180}{$\underline{1}$}};
+\end{tikzpicture}
+\end{center}
+Looking at Figure~\ref{fig:Cayley_Spin_1x2}, we see that one way to get to this board from the solved board is to follow a blue arrow and then a red arrow.  This corresponds to the word $st_2$.  (Recall that when we write down words, we should apply the actions from right to left, just like function composition.) However, it also corresponds to the word $t_2st_2t_1$ even though this is not an optimal solution.  So, we can label the board in question with either $st_2$ or $t_2st_2t_1$ (there are other choices, as well).
+
+As another example, consider the following scrambled board.
+\begin{center}
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+  \node [draw] (1) {\rotatebox{180}{$\underline{1}$}};
+  \node [draw, right=0cm of 1] (2) {$\underline{2}$};
+\end{tikzpicture}
+\end{center}
+To get here from the solved board, we can simply follow a green arrow. So, this scrambled board corresponds to $t_1$.  However, we could also follow a red arrow, then a blue arrow, and then a red arrow. Thus, we could also label the scrambled board by $s t_2 s$.
+
+\begin{exercise}
+Using Figure~\ref{fig:Cayley_Spin_1x2}, find three distinct words in $t_1, t_2$, and $s$ that correspond to the following scrambled board.  Don't worry about whether your word is of optimal length or not.
+\begin{center}
+\begin{tikzpicture}[every node/.style={minimum size=.65cm}]
+  \node [draw] (1) {\rotatebox{180}{$\underline{1}$}};
+  \node [draw, right=0cm of 1] (2) {\rotatebox{180}{$\underline{2}$}};
+\end{tikzpicture}
+\end{center}
+\end{exercise}
+
+\begin{exercise}\label{exer:Cayley_Spin_1x2}
+Label each of the remaining boards from Figure~\ref{fig:Cayley_Spin_1x2} with at least one appropriate word using $t_1, t_2$, and $s$.  The diagram in Figure~\ref{fig:Cayley_Spin_1x2} together with your labels is the Cayley diagram for $\Spin_{1\times 2}$ with generating set $\{t_1,t_2,s\}$.
+\end{exercise}
+
+It is important to point out that each word that corresponds to a given scrambled board tells you how to reach that scrambled board from the solved board (which is labeled by $e$, the do-nothing action).
+
+\begin{exercise}
+Given a word that corresponds to a scrambled board in Figure~\ref{fig:Cayley_Spin_1x2}, how could we obtain a solution to the scrambled board?  That is, how can we return to the solved board?
+\end{exercise}
+
+\begin{exercise}
+Consider the Cayley diagram for $\Spin_{1\times 2}$ in Figure~\ref{fig:Cayley_Spin_1x2}, but remove all the red arrows.  This corresponds to forbidding the spin that rotates the full $1\times 2$ board.  Can we obtain all of the scrambled boards from the solved board using only blue and green arrows?
+\end{exercise}
+
+\begin{exercise}\label{exer:minimal_Cayley_Spin1by2}
+Repeat the previous exercise, but this time remove only the green arrows.  What about the blue arrows?
+\end{exercise}
+
+In general, a \textbf{Cayley diagram} for a group $G$ is a digraph having the set of actions of $G$ as its vertices and the directed edges (i.e., arrows) correspond to the generators of the group.  Following an arrow forward corresponds to applying the corresponding action.  Recall that the generators are a potentially smaller set of actions from which you can derive all the actions of the group.  The way you can derive new actions is by forming words in the generators (i.e., follow a sequence of arrows).  Rule 2 guarantees that every action is reversible, so we also allow the use of a generator's reversal in our words (i.e., follow an arrow backwards).
+
+If a generator is its own reversal, then the arrows corresponding to that generator are two-way arrows.  It is always true that following an arrow backwards corresponds to a generator's reversal.  That is, if an arrow corresponds to the action $a$, then the inverse of $a$, namely $a^{-1}$, corresponds to the reverse arrow. 
+
+Notice that all the arrows in the Cayley diagram for $\Spin_{1\times 2}$ given in Figure~\ref{fig:Cayley_Spin_1x2} are two-way arrows.  This means that every generator is its own inverse (in the case of $\Spin_{1\times 2}$).  It's important to point out that this is not true in general (i.e., we may have one-way arrows that correspond to generators that are not their own inverses).
+
+We need a way to tell our arrow types apart.  One way to do this is to color them.  Another way would be to label the arrows by their corresponding generator.
+
+Remember that in any group there is always a do-nothing action and one of the vertices should be labeled by this action.  From this point forward, unless someone says otherwise, let's use $e$ to denote our do-nothing action for a group.  Each vertex is labeled with a word that corresponds to the sequence of arrows that we can follow from the do-nothing action to the particular vertex.  Since there are possibly many sequences of arrows that could take us from the do-nothing vertex to another, each vertex could be labeled with many different words.
+
+In our Cayley diagram for $\Spin_{1\times 2}$, our vertices were fancy pictures of scrambled $1\times 2$ Spinpossible boards.  This wasn't necessary, but is convenient and appealing for aesthetic reasons.  After labeling the solved board with the do-nothing action, $e$, in Exercise~\ref{exer:Cayley_Spin_1x2} you labeled each remaining vertex of the diagram with a word that corresponds to a sequence of arrows from the solved board to the vertex in question.
+
+The next two exercises may be too abstract for you at the moment.  Give them a shot and if you can't do them now, come back to them after you've constructed a few Cayley diagrams.
+
+\begin{exercise}\label{exer:understanding_arrows}
+Assume $G$ is a group of actions and $S$ is a set of generators for $G$. Suppose we draw the Cayley diagram for $G$ using the actions of $S$ as our arrows and we color the arrows according to which generator they correspond to.  Assume that each vertex is labeled with a word in the generators or their reversals.  If the arrows are not labeled, how can you tell which generator they correspond to?
+\end{exercise}
+
+\begin{exercise}\label{exer:changing_generators_for_Cayley_diagram}
+Assume $G$ is a group.  Suppose that $S$ and $S'$ are two different sets that generate $G$.  If you draw the Cayley diagram for $G$ using $S$ and then draw the Cayley diagram for $G$ using $S'$, what features of the two graphs are the same and which are potentially different?
+\end{exercise}
+
+Let's build a few more Cayley diagrams to further our intuition.
+
+\begin{exercise}\label{exer:introducing_S2}
+Consider the group consisting of the actions that rearranges two coins (but we won't flip them over), say a penny and a nickel.  Let's assume we start with the penny on the left and the nickel on the right.  Let's call this group $S_2$.
+
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item Write down all possible actions using verbal descriptions.  \emph{Hint:} There aren't that many of them.
+\item Let $s$ be the action that swaps the left and right coins.  Does $s$ generate $S_2$?  That is, can we write all of the actions of $S_2$ as words in $s$ (or its reversal)?
+\item Decide on a simple generating set for $S_2$ and draw a Cayley diagram for $S_2$ using your generating set.  Label all the vertices and arrows appropriately.  Recall that above we said that we will use $e$ to denote the do-nothing action unless someone says otherwise.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exer:introducing_R4}
+Consider a square puzzle piece that fits perfectly into a square hole.  Let $R_4$ be the group of actions consisting of rotating the square by an appropriate amount so that it fits back into the hole. 
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item Write down all possible actions using verbal descriptions.  Are there lots of ways to describe each of your actions?
+\item Let $r$ be the action that rotates the puzzle piece by $90^\circ$ clockwise.  Does $r$ generate $R_4$?  If so, write down all of the actions of $R_4$ as words in $r$.
+\item Which of your words above is the reversal of $r$?  That is, can we describe $r^{-1}$ using $r$?
+\item Draw the Cayley diagram for $R_4$ using $r$ as the generator.  Be sure to label the vertices and arrows.  Are your arrows one-way or two-way arrows?
+\end{enumerate}
+\end{exercise}
+
+We will refer to $R_4$ as the group of rotational symmetries of a square.  In general, $R_n$ is the group of rotational symmetries of a regular $n$-gon.
+
+\begin{exercise}\label{exer:introducing_D3}
+Consider a puzzle piece like the one in the previous exercise, except this time, let's assume that the piece and the hole are an equilateral triangle.  Let $D_3$ be the group of actions that allow the triangle to fit back in the hole.  In addition to rotations, we will also allow the triangle to be flipped over.  To give us a common starting point, let's assume the triangle and hole are positioned so that one of the tips of the triangle is pointed up.  Also, let's label both the points of the hole and the points of the triangle with the numbers 1, 2, and 3.  Assume the labeling on the hole starts with 1 on top and then continues around in the obvious way going clockwise.  Label the puzzle piece in the same way and let's assume that the triangle starts in the position that has the labels matching (i.e., the point of the triangle labeled 1 is in the corner of the hole labeled 1, etc.).
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item How many actions are there?  Can you describe them?  One way to do this would be to indicate where the labels of the triangle are in the hole.
+\item Let $r$ be rotation by $120^\circ$ in the clockwise direction.  Does $r$ generate $D_3$? That is, can you write each of your actions from part (a) as words in $r$?
+\item What is the reversal of $r$?  That is, what is $r^{-1}$? Can you write it as a word in $r$?
+\item Let $s$ be the flip (or we could call it a reflection) that swaps the corners of the puzzle piece that are in the positions of the hole labeled by 2 and 3 (this leaves the corner in position 1 of the hole in the same spot).  Does $s$ generate $D_3$?
+\item What is the reversal of $s$?  That is, what is $s^{-1}$? Can you write it as a word?
+\item Can we generate all of $D_3$ using both $r$ and $s$?  If so, write all the actions of $D_3$ as words in $r$ and $s$ (or their reversals/inverses).
+\item Draw the Cayley diagram for $D_3$ using $r$ and $s$ as your arrows.  \emph{Hints:} One of your arrow types is one-way and the other is two-way.  I suggest putting half the vertices in a circle and then the other half in a concentric circle outside your first half.  Label one of the vertices on the inner circle as $e$ and first think about applying consecutive actions of $r$.  Try to stay on the inner circle of vertices as you do this.  Now, starting at $e$, apply $s$ and go to one of the vertices in the outer circle.  Try to label the remaining vertices using both $r$ and $s$.  There are multiple ways to label each of the vertices.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exer:introducing_D4}
+Repeat the above exercise, but do it for a square instead of a triangle.  You'll need to make some modifications to $r$ and $s$.  The resulting group is called $D_4$.
+\end{exercise}
+
+The groups $D_3$ and $D_4$ are the group of symmetries (rotations and reflections) of an equilateral triangle and a square, respectively.  In general, $D_n$ is the group of symmetries of a regular $n$-gon and is referred to as the \textbf{dihedral group} of order $2n$. In this case, the word ``order" simply means the number of actions in the group.  We will encounter a formal definition of order in Chapter~\ref{chapter:intro_subgroups_isomorphisms}. Why does $D_n$ consist of $2n$ actions?
+
+\begin{exercise}
+Consider the group from Exercise~\ref{exer:introducing_Z}.  Using ``add 1" (or simply 1) as the generator\footnote{Recall that Rule 2 guarantees that every action is reversible.  So, if we have ``add 1", we also have ``add $-1$."}, describe what the Cayley diagram for this group would look like.  Draw a chunk of the Cayley diagram.  Can you think of another generating set?  What will the Cayley diagram look like in this case?
+\end{exercise}
+
+Now that you've constructed a few examples for yourself, you should have a pretty healthy understanding of Cayley diagrams.  There are still lots of properties to discover and opportunities to gain more intuition.  If you weren't able to complete exercises~\ref{exer:introducing_Z} and \ref{exer:changing_generators_for_Cayley_diagram}, go give them another shot.
+
+By the way, Cayley diagrams are named after their inventor Arthur Cayley, a nineteenth century British mathematician.  We'll see his name pop up a couple more times in the course.  
+
+Not only are Cayley diagrams visually appealing, but they provide a map for the group in question.  That is, they provide a method for navigating the group.  Following sequences of arrows tells us how to do an action.  However, each Cayley diagram very much depends on the set of generators that are chosen to generate the group.  If we change the generating set, we may end up with a very different looking Cayley diagram.  This was the point of Exercise~\ref{exer:changing_generators_for_Cayley_diagram}.  It's important to drive this point home, so let's construct an explicit example.
+
+\begin{exercise}\label{exer:alternate_D3}
+In Exercise~\ref{exer:introducing_D3}, you constructed the Cayley diagram for the group called $D_3$.  In this case, you used the generators $r$ and $s$.  Now, let $s'$ be the reflection that swaps the corners of the triangle that are in the corners of the hole labeled by 1 and 2.  
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item Justify that $s$ and $s'$ generate all of $D_3$.  \emph{Hint:} Is it enough to generate $r$ with $s$ and $s'$?
+\item Construct the Cayley diagram for $D_3$ using $s$ and $s'$ as your generators.  Did you get a different diagram than you did in Exercise~\ref{exer:introducing_D3}?
+\end{enumerate}
+\end{exercise}
+
+Let's do a few more exercises involving Cayley diagrams.
+
+\begin{problem}\label{prob:introducing_R6} 
+Consider the Cayley diagram for the group that we will call $R_6$ given in Figure~\ref{fig:rotation6}. 
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item Assuming $e$ is the do-nothing action, which action is the generator of the group?
+\item Describe the inverse of each of the 6 actions as a word in $r$.
+\item Can you find a shorter word to describe $r^8$?
+\item Does $r^2$ generate the group? How about $r^5$?  Explain your answers.
+\item Describe a concrete collection of actions that would yield this Cayley diagram.
+\end{enumerate}
+\end{problem}
+
+\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=6.5mm]
+\tikzstyle{b} = [draw,very thick,blue,-stealth]
+\tikzstyle{r} = [draw, very thick, red,-stealth]
+\tikzstyle{g} = [draw, very thick, green, stealth-stealth]
+
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}[scale=1.5,auto]
+\node (r2) at (0:1.5) [vert] {{\scriptsize $r^2$}};
+\node (r) at (60:1.5) [vert] {\scriptsize {$r$}};
+\node (e) at (120:1.5) [vert] {{\scriptsize $e$}};
+\node (r5) at (180:1.5) [vert] {{\scriptsize $r^5$}};
+\node (r4) at (240:1.5) [vert] {{\scriptsize $r^4$}};
+\node (r3) at (-60:1.5) [vert] {{\scriptsize $r^3$}};
+
+\path[r] (e) to (r);
+\path[r] (r) to (r2);
+\path[r] (r2) to (r3);
+\path[r] (r3) to (r4);
+\path[r] (r4) to (r5);
+\path[r] (r5) to (e);
+\end{tikzpicture}
+\caption{Cayley diagram for $R_6$ with generator $r$.}
+\label{fig:rotation6}
+\end{figure}
+
+We haven't explicitly defined what a Cayley diagram actually is yet.  So, it's not completely obvious that the diagram in the previous exercise is actually a diagram for a group.  But rest assured; this Cayley diagram truly does correspond to a group.  It's important to point out that we can't just throw together a digraph willy nilly and expect it to be a Cayley diagram.
+
+\begin{exercise}
+Consider the diagram given in Figure~\ref{fig:nonCayley}. Explain why the diagram cannot possibly be a Cayley diagram for a group.  How many reasons can you come up with?
+\end{exercise}
+
+\tikzstyle{b} = [draw,very thick,blue,-stealth]
+\tikzstyle{b2} = [draw,very thick,blue,stealth-stealth]
+\tikzstyle{r} = [draw, very thick, red,-stealth]
+
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}[scale=1.5,auto]
+\node (a) at (0,0) [vert] {{\scriptsize $a$}};
+\node (b) at (2,0) [vert] {{\scriptsize $b$}};
+\node (c) at (3,1) [vert] {{\scriptsize $c$}};
+\node (d) at (3,-1) [vert] {{\scriptsize $d$}};
+\node (e) at (4,0) [vert] {{\scriptsize $e$}};
+\node (f) at (6,0) [vert] {{\scriptsize $f$}};
+
+\path[b2] (a) to (b);
+\path[b] (e) to (b);
+\path[r] (b) to (c);
+\path[r] (b) to (d);
+\path[b] (e) to (b);
+\path[b] (d) to (e);
+\end{tikzpicture}
+\caption{}
+\label{fig:nonCayley}
+\end{figure}
+
+\begin{exercise}\label{exer:properties_Cayley}
+Let $G$ be a group of actions and suppose $S$ is a set of generators for $G$. Suppose we draw the Cayley diagram for $G$ using the actions of $S$ as our arrows and we color the arrows according to which generator they correspond to.  
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item Explain why there must be a sequence of arrows (forwards or backwards) from the vertex labeled $e$ to every other vertex.  Do you think this is true for every pair of vertices?
+\item Recall that $G$ must satisfy Rule 1.  What restriction does this put on our Cayley diagram?
+\item Since $G$ must satisfy Rule 3, what constraints does this place on the Cayley diagram?  Try to draw a diagram that is almost a Cayley diagram but violates Rule 3.
+\item Since $G$ must satisfy Rule 2, what does this imply about the Cayley diagram?  Can you construct a diagram that is almost a Cayley diagram but violates Rule 2?  To do this, you may need to violate another one of our rules.
+\item What property does Rule 4 force the Cayley diagram to have?  Can you construct a diagram that is almost a Cayley diagram but violates Rule 4? 
+\end{enumerate}
+\end{exercise}
+
+In the previous exercise, you discovered several properties embodied by all Cayley diagrams. Unfortunately, not every diagram having these properties will yield a Cayley diagram.  For example, the diagram in Figure~\ref{fig:nonRegular} satisfies the properties you discovered in Exercise~\ref{exer:properties_Cayley}, but it turns out that this cannot be a diagram for any group (regardless of how we label the vertices).
+
+\tikzstyle{r2} = [draw, very thick, red,stealth-stealth]
+
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}[scale=1.5,auto]
+\node (a) at (0,0) [vert] {{\scriptsize $a$}};
+\node (b) at (2,0) [vert] {{\scriptsize $b$}};
+\node (c) at (4,0) [vert] {{\scriptsize $c$}};
+\node (d) at (6,0) [vert] {{\scriptsize $d$}};
+\node (e) at (6,2) [vert] {{\scriptsize $e$}};
+\node (f) at (4,2) [vert] {{\scriptsize $f$}};
+\node (g) at (2,2) [vert] {{\scriptsize $g$}};
+\node (h) at (0,2) [vert] {{\scriptsize $h$}};
+
+\path[b2] (a) to (b);
+\path[b2] (c) to (d);
+\path[b2] (h) to (g);
+\path[b2] (f) to (e);
+
+\path[r] (b) to (c);
+\path[r] (c) to (f);
+\path[r] (f) to (g);
+\path[r] (g) to (b);
+
+\path[r2] (a) to (h);
+\path[r2] (d) to (e);
+\end{tikzpicture}
+\caption{}
+\label{fig:nonRegular}
+\end{figure}
+
+This fact exposes one of the weaknesses of our intuitive definition of a group and is one of the many reasons we will soon require a more rigorous definition.
