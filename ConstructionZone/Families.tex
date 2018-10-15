@@ -148,10 +148,6 @@ The next result provides an extremely useful interpretation of the order of an e
 If $G$ is a group and $g\in G$ such that $\langle g\rangle$ is a finite group, then the order of $g$ is the smallest positive integer $n$ such that $g^n=e$.
 \end{corollary}
 
-%\begin{theorem}
-%Suppose $G$ is a group and let $g\in G$ such that $|g|=n$.  If $g^i=g^j$, then $n$ divides $i-j$.\footnote{Try using the Division Algorithm.}
-%\end{theorem}
-
 \begin{problem}\label{prob:Cayley_cyclic}
 Suppose $G$ is a finite cyclic group such that $G=\langle g\rangle$. Using the generating set $\{g\}$, what does the Cayley diagram for $G$ look like?
 \end{problem}
@@ -164,9 +160,15 @@ Suppose $G$ is a finite cyclic group of order $n$ with generator $g$.  If we wri
 Notice that in the definition for $\langle g\rangle$, we allow the exponents on $g$ to be negative.  Explain why we only need to use positive exponents when $\langle g\rangle$ is a finite group.
 \end{problem}
 
-\begin{problem}\label{prob:MultiplesOfOrder}
-Suppose $G$ is a group and $g\in G$ with $|g|=n$.  For what other exponents $k$ do you think will it be true that $g^k=e$? You'll have an opportunity to prove your claim later.
-\end{problem}
+The Division Algorithm should come in handy when proving the next theorem.
+
+\begin{theorem}\label{thm:criterion_on_powers}
+Suppose $G$ is a group and let $g\in G$ such that $|g|=n$.  Then $g^i=g^j$ if and only if $n$ divides $i-j$.
+\end{theorem}
+
+\begin{corollary}
+Suppose $G$ is a group and let $g\in G$ such that $|g|=n$.  If $g^k=e$, then $n$ divides $k$.
+\end{corollary}
 
 Recall that for $n\geq3$, $R_n$ is the group of rotational symmetries of a regular $n$-gon, where the operation is composition of actions.
 
@@ -175,7 +177,7 @@ For all $n\geq 3$, $R_n$ is cyclic.
 \end{theorem}
 
 \begin{theorem}\label{thm:finite_cyclic_groups}
-Suppose $G$ is a finite cyclic group of order $n\geq 1$.  Then $G$ is isomorphic to $R_n$ if $n\geq 3$, $S_2$ if $n=2$, and the trivial group if $n=1$.
+Suppose $G$ is a finite cyclic group of order $n$.  Then $G$ is isomorphic to $R_n$ if $n\geq 3$, $S_2$ if $n=2$, and the trivial group if $n=1$.
 \end{theorem}
 
 Most of the previous results have involved finite cyclic groups.  What about infinite cyclic groups?
@@ -204,9 +206,15 @@ For each set above, the immediate goal is to determine a binary operation that w
 
 We write $a\equiv b\pmod n$, and say ``$a$ is equivalent to $b$ mod $n$", if $a$ and $b$ both have the same remainder when divided by $n$.  We may also write $a\equiv_n b$, or even $a=b$ if the context is perfectly clear.  It is well-known, and not too hard to prove, that $\equiv_n$ is an equivalence relation on $\mathbb{Z}$.  The corresponding equivalence classes are called congruence classes.  The elements of a single congruence class are the integers that all have the same remainder when divided by $n$. According to the Division Algorithm, there are $n$ congruence classes modulo $n$, one for each of the remainders $0,1,\ldots, n-1$. We can think of $\mathbb{Z}_n$ as the set of canonical representatives of these equivalence classes.
 
-\begin{theorem}
+\begin{theorem}\label{thm:mod_divisiblity}
 Let $n$ be a positive integer and let $a,b\in\mathbb{Z}$. Then $a\equiv b\pmod n$ if and only if $n$ divides $a-b$.
 \end{theorem}
+
+The next result follows immediately from Theorems~\ref{thm:mod_divisiblity} and \ref{thm:criterion_on_powers}.
+
+\begin{corollary}
+Suppose $G$ is a group and let $g\in G$ such that $|g|=n$.  Then $g^i=g^j$ if and only if $i\equiv j\pmod n$.
+\end{corollary}
 
 \begin{theorem}
 The set $\mathbb{Z}_n$ is a group under addition mod $n$.  
@@ -265,17 +273,7 @@ One consequence of the previous theorem is that $\mathbb{Z}_n$ is always cyclic.
 Let $(G,*)$ be a cyclic group. If the order of $G$ is infinite, then $G$ is isomorphic to $(\mathbb{Z},+)$. If $G$ has finite order $n$, then $G$ is isomorphic to $(\mathbb{Z}_n,+\text{ mod }n)$.
 \end{theorem}
 
-Now that we have a complete description of the cyclic groups, let's focus our attention on subgroups of cyclic groups.  The Division Algorithm should come in handy when proving the next theorem.
-
-\begin{theorem}\label{thm:criterion_on_powers}
-Suppose $G$ is a group and let $g\in G$ such that $|g|=n$.  Then $g^i=g^j$ if and only if $n$ divides $i-j$.
-\end{theorem}
-
-Compare the next result to Problem~\ref{prob:MultiplesOfOrder}.
-
-\begin{corollary}
-Suppose $G$ is a group and let $g\in G$ such that $|g|=n$.  If $g^k=e$, then $n$ divides $k$.
-\end{corollary}
+Now that we have a complete description of the cyclic groups, let's focus our attention on subgroups of cyclic groups.  
 
 \begin{theorem}\label{thm:subgroups_of_cyclic_groups}
 Suppose $G$ is a cyclic group. If $H\leq G$, then $H$ is also cyclic.
@@ -293,7 +291,7 @@ The next result officially settles Problem~\ref{prob:nZ}\ref{prob:nZothers} and 
 The subgroups of $\mathbb{Z}$ are precisely the groups $n\mathbb{Z}$ under addition for $n\in \mathbb{Z}$.
 \end{corollary}
 
-Let's explore finite cyclic groups.
+Let's further explore finite cyclic groups.
 
 \begin{theorem}\label{thm:order_of_power}
 If $G$ is a finite cyclic group with generator $g$ such that $|G|=n$, then for all $m\in\mathbb{Z}$, $\displaystyle |g^m|=\frac{n}{\gcd(n,m)}$.\footnote{By Corollary~\ref{cor:order_smallest_exponent}, the order of $g^m$ is the smallest positive exponent $k$ such that $(g^m)^k=e$. First, verify that $k=\frac{n}{\gcd(n,m)}$ has the desired property and then verify that it is the smallest such exponent.}
