@@ -139,7 +139,7 @@ If $G$ is a finite group, then for all $g\in G$, there exists $n\in\mathbb{N}$ s
 \end{corollary}
 
 \begin{theorem}
-Suppose $G$ is a group and let $g\in G$ such that $\langle g\rangle$ is a finite group. If $n$ is the smallest positive integer such that $g^n=e$, then $\langle g\rangle = \{e, g, g^2, \ldots, g^{n-1}\}$ and this set contains $n$ distinct elements.\footnote{Note that Theorem~\ref{thm:finite_group_finite_exponent} together with the Well-Ordering Principle guarantees the existence of a smallest positive integer $n$ such that $g^n=e$. Let $m\in\mathbb{Z}$ and use the Division Algorithm with $m$ and $n$. By the way, the claim that the set contains $n$ distinct elements is not immediate.  You need to argue that there are no repeats in the list.}
+Suppose $G$ is a group and let $g\in G$ such that $\langle g\rangle$ is a finite group. If $n$ is the smallest positive integer such that $g^n=e$, then $\langle g\rangle = \{e, g, g^2, \ldots, g^{n-1}\}$ and this set contains $n$ distinct elements.\footnote{Note that Theorem~\ref{thm:finite_group_finite_exponent} together with the Well-Ordering Principle guarantees the existence of a smallest positive integer $n$ such that $g^n=e$. The claim that the set contains $n$ distinct elements is not immediate.  You need to argue that there are no repeats in the list. Choose distinct $i,j\in\{0,1,\ldots,n-1\}$ such that $i\neq j$ and then show that $g^i\neq g^j$.  Consider a proof by contradiction and try to contradict the minimality of $n$.}
 \end{theorem}
 
 The next result provides an extremely useful interpretation of the order of an element.
