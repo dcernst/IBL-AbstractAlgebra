@@ -194,7 +194,7 @@ The upshot of Theorems~\ref{thm:infinite_cyclic_groups} and \ref{thm:finite_cycl
 
 We now turn our attention to two new groups. Recall that two integers are \textbf{relatively prime} if the only positive integer that divides both of them is 1.  That is, integers $n$ and $k$ are relatively prime if and only if $\gcd(n,k)=1$.
 
-\begin{definition}
+\begin{definition}\label{def:integers_modn}
 Let $n\in\mathbb{N}$ and define the following sets.
 \begin{enumerate}[label=\rm{(\alph*)}]
 \item $\mathbb{Z}_n:=\{0,1,\ldots,n-1\}$
@@ -202,12 +202,18 @@ Let $n\in\mathbb{N}$ and define the following sets.
 \end{enumerate}
 \end{definition}
 
-For each set above, the immediate goal is to determine a binary operation that will yield a group.  The key is to use modular arithmetic.  Let $n$ be a positive integer. To calculate the sum (respectively, product) of two integers modulo $n$ (we say ``mod $n$" for short), add (respectively, multiply) the two numbers and then find the remainder after dividing the sum (respectively, product) by $n$. For example, $4+9$ is $3$ mod $5$ since $13$ has remainder 3 when divided by 5.  Similarly, $4\cdot 9$ is 1 mod $5$ since 36 has remainder 1 when divided by 5. The hope is that these two operations turn $\mathbb{Z}_n$ and $U_n$ into groups.
+\begin{example}
+For example, $\mathbb{Z}_{12}=\{0,1,2,3,4,5,6,7,8,9,10,11\}$ while $U_{12}=\{1,5,7,11\}$ since 1, 5, 7, and 11 are the only elements in $\mathbb{Z}_{12}$ that are relatively prime to 12.
+\end{example}
 
-We write $a\equiv b\pmod n$, and say ``$a$ is equivalent to $b$ mod $n$", if $a$ and $b$ both have the same remainder when divided by $n$.  We may also write $a\equiv_n b$, or even $a=b$ if the context is perfectly clear.  It is well-known, and not too hard to prove, that $\equiv_n$ is an equivalence relation on $\mathbb{Z}$.  The corresponding equivalence classes are called congruence classes.  The elements of a single congruence class are the integers that all have the same remainder when divided by $n$. According to the Division Algorithm, there are $n$ congruence classes modulo $n$, one for each of the remainders $0,1,\ldots, n-1$. We can think of $\mathbb{Z}_n$ as the set of canonical representatives of these equivalence classes.
+For each set in Definition~\ref{def:integers_modn}, the immediate goal is to determine a binary operation that will yield a group.  The key is to use modular arithmetic.  Let $n$ be a positive integer. To calculate the sum (respectively, product) of two integers modulo $n$ (we say ``mod $n$" for short), add (respectively, multiply) the two numbers and then find the remainder after dividing the sum (respectively, product) by $n$. For example, $4+9$ is $3$ mod $5$ since $13$ has remainder 3 when divided by 5.  Similarly, $4\cdot 9$ is 1 mod $5$ since 36 has remainder 1 when divided by 5. The hope is that these two operations turn $\mathbb{Z}_n$ and $U_n$ into groups.
+
+We write $i\equiv j\pmod n$, and say ``$i$ is equivalent to $j$ modulo $n$" or ``$i$ is equal to $j$ modulo $n$", if $i$ and $j$ both have the same remainder when divided by $n$.  It is common to abbreviate ``modulo" as ``mod".  It is also common to write $i\equiv_n j$, or even $i=j$ if the context is perfectly clear.  
+
+It is well-known, and not too hard to prove, that $\equiv_n$ is an equivalence relation on $\mathbb{Z}$.  The corresponding equivalence classes are called congruence classes.  The elements of a single congruence class are the integers that all have the same remainder when divided by $n$. According to the Division Algorithm, there are $n$ congruence classes modulo $n$, one for each of the remainders $0,1,\ldots, n-1$. We can think of $\mathbb{Z}_n$ as the set of canonical representatives of these equivalence classes.
 
 \begin{theorem}\label{thm:mod_divisiblity}
-Let $n$ be a positive integer and let $a,b\in\mathbb{Z}$. Then $a\equiv b\pmod n$ if and only if $n$ divides $a-b$.
+Let $n$ be a positive integer and let $i,j\in\mathbb{Z}$. Then $i\equiv j\pmod n$ if and only if $n$ divides $i-j$.
 \end{theorem}
 
 The next result follows immediately from Theorems~\ref{thm:mod_divisiblity} and \ref{thm:criterion_on_powers}.
@@ -261,7 +267,7 @@ In light of Exercises~\ref{prob:U10} and \ref{prob:U12}, $U_n$ may or may not be
 For all $n$, $U_n$ is abelian.
 \end{theorem}
 
-The upshot of the next theorem is that for $n\geq 3$, $\mathbb{Z}_n$ is just the set of (smallest nonnegative) exponents on $r$ in $R_n$.
+The upshot of the next theorem is that for $n\geq 3$, $\mathbb{Z}_n$ is just the set of exponents in the set $R_n=\{e,r,r^2,\ldots,r^{n-1}\}$ (where $e=r^0$).
 
 \begin{theorem}\label{thm:Zn_iso_to_Rn}
 For $n\geq 3$, $\mathbb{Z}_n\cong R_n$. Moreover, $\mathbb{Z}_2\cong S_2$ and $\mathbb{Z}_1$ is isomorphic to the trivial group.
@@ -270,7 +276,7 @@ For $n\geq 3$, $\mathbb{Z}_n\cong R_n$. Moreover, $\mathbb{Z}_2\cong S_2$ and $\
 One consequence of the previous theorem is that $\mathbb{Z}_n$ is always cyclic. Combining the results of Theorems~\ref{thm:finite_cyclic_groups} and \ref{thm:infinite_cyclic_groups} together with Theorem~\ref{thm:Zn_iso_to_Rn}, we immediately obtain the following.
 
 \begin{theorem}
-Let $(G,*)$ be a cyclic group. If the order of $G$ is infinite, then $G$ is isomorphic to $(\mathbb{Z},+)$. If $G$ has finite order $n$, then $G$ is isomorphic to $(\mathbb{Z}_n,+\text{ mod }n)$.
+Let $G$ be a cyclic group. If the order of $G$ is infinite, then $G$ is isomorphic to $\mathbb{Z}$. If $G$ has finite order $n$, then $G$ is isomorphic to $\mathbb{Z}_n$.
 \end{theorem}
 
 Now that we have a complete description of the cyclic groups, let's focus our attention on subgroups of cyclic groups.  
@@ -288,7 +294,7 @@ Provide an example of a group $G$ such that $G$ is not cyclic, but all proper su
 The next result officially settles Problem~\ref{prob:nZ}\ref{prob:nZothers} and also provides a complete description of the subgroups of infinite cyclic groups up to isomorphism.
 
 \begin{corollary}\label{cor:subgroups_of_Z}
-The subgroups of $\mathbb{Z}$ are precisely the groups $n\mathbb{Z}$ under addition for $n\in \mathbb{Z}$.
+The subgroups of $\mathbb{Z}$ are precisely the groups $n\mathbb{Z}$ for $n\in \mathbb{Z}$.
 \end{corollary}
 
 Let's further explore finite cyclic groups.
@@ -330,6 +336,12 @@ If $G$ is a finite cyclic group such that $|G|=p$, where $p$ is prime, then $G$ 
 \end{corollary}
 
 \begin{problem}
+If there is exactly one group up to isomorphism of order $n$, then to what group are all the groups of order $n$ isomorphic?
+\end{problem}
+
+We conclude this section with a couple interesting counting problems involving the number of generators of certain cyclic groups.
+
+\begin{problem}
 Let $p$ and $q$ be distinct primes. Find the number of generators of $\mathbb{Z}_{pq}$.
 \end{problem}
 
@@ -337,9 +349,7 @@ Let $p$ and $q$ be distinct primes. Find the number of generators of $\mathbb{Z}
 Let $p$ be a prime. Find the number of generators of $\mathbb{Z}_{p^r}$, where $r$ is an integer greater than or equal to 1.
 \end{problem}
 
-\begin{problem}
-If there is exactly one group up to isomorphism of order $n$, then to what group are all the groups of order $n$ isomorphic?
-\end{problem}
+
 
 \end{section}
 
@@ -682,10 +692,10 @@ It turns out that the subgroups of symmetric groups play an important role in gr
 Every subgroup of a symmetric group is called a \textbf{permutation group}.
 \end{definition}
 
-The proof of the following theorem isn't too bad, but for now we'll take it for granted.
+The proof of the following theorem isn't too bad, but we'll take it for granted. After tinkering with a few examples, you should have enough intuition to see why the theorem is true and how a possible proof might go.
 
 \begin{theorem}[Cayley's Theorem]
-Every finite group is isomorphic to some permutation group.  In particular, if $(G,*)$ is a group of order $n$, then $G$ is isomorphic to a subgroup of $S_n$.
+Every finite group is isomorphic to some permutation group.  In particular, if $G$ is a group of order $n$, then $G$ is isomorphic to a subgroup of $S_n$.
 \end{theorem}
 
 Cayley's Theorem guarantees that every finite group is isomorphic to a permutation group and it turns out that there is a rather simple algorithm for constructing the corresponding permutation group.  I'll briefly explain an example and then let you try a couple.

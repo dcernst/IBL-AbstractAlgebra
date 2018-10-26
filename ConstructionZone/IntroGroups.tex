@@ -506,7 +506,7 @@ A \textbf{group} $(G,*)$ is a set $G$ together with a binary operation $*$ such 
 \item[(0)] The set $G$ is closed under $*$.
 \item[(1)] The operation $*$ is associative.
 \item[(2)] There is an element $e\in G$ such that for all $g\in G$, $e*g=g*e=g$.  We call $e$ the \textbf{identity}.
-\item[(3)] Corresponding to each $g\in G$, there is an element $g'\in G$ such that $g*g'=g'*g=e$.  In this case, $g'$ is called the \textbf{inverse} of $g$, which we shall denote as $g^{-1}$.
+\item[(3)] Corresponding to each $g\in G$, there is an element $g'\in G$ such that $g*g'=g'*g=e$.  In this case, $g'$ is said to be an \textbf{inverse} of $g$.
 \end{enumerate}
 The \textbf{order} of $G$, denoted $|G|$, is the cardinality of the set $G$. If $|G|$ is finite, then we say that $G$ has finite order. Otherwise, we say that $G$ has infinite order.
 \end{definition}
@@ -516,7 +516,8 @@ In the definition of a group, the binary operation $*$ is not required to be com
 \item Axiom 2 forces $G$ to be nonempty.
 \item If $(G,*)$ is a group, then we say that \textbf{$G$ is a group under $*$}.
 \item We refer to $a*b$ as the \textbf{product} of $a$ and $b$ even if $*$ is not actually multiplication. 
-\item For simplicity, if $(G,*)$ is a group, we will often refer to $G$ as being the group and suppress any mention of $*$ whatsoever.  In particular, we will often abbreviate $a*b$ as $ab$. 
+\item For simplicity, if $(G,*)$ is a group, we will often refer to $G$ as being the group and suppress any mention of $*$ whatsoever.  In particular, we will often abbreviate $a*b$ as $ab$.
+\item In Theorem~\ref{thm:unique_inverse}, we shall see that each $g\in G$ has a unique inverse.  From that point on, we will denote \emph{the} inverse of $g$ by $g^{-1}$.
 \end{itemize}
 
 \begin{problem}
@@ -572,9 +573,13 @@ Let $G$ be a group and let $g,x,y\in G$.  Then $gx=gy$ if and only if $x=y$.  Si
 Show that $(\mathbb{R},\cdot)$ fails the Cancellation Law confirming the fact that it is not a group.
 \end{problem}
 
-\begin{corollary}
+Recall that Axiom~(3) of Definition~\ref{def:group} states that each element of a group has at least one inverse.  The next theorem tells us that each element has exactly one inverse.
+
+\begin{theorem}\label{thm:unique_inverse}
 If $G$ is a group, then each $g\in G$ has a unique inverse.
-\end{corollary}
+\end{theorem}
+
+In light of the previous theorem, the unique inverse of $g$ in a group $G$ will be denoted as $g^{-1}$.
 
 \begin{theorem}\label{thm:unique_soln}
 If $G$ is a group, then for all $g,h\in G$, the equations $gx=h$ and $yg=h$ have unique solutions for $x$ and $y$ in $G$.  
@@ -582,7 +587,7 @@ If $G$ is a group, then for all $g,h\in G$, the equations $gx=h$ and $yg=h$ have
 
 While proving the previous few theorems, hopefully one of the things you realized is that you can multiply both sides of a group equation by the same element but that you have to do it on the same side of each half.  That is, since a group may or may not be abelian, if we multiply one side of an equation on the left by a group element, then we must multiply the other side of the equation on the left by the same group element.
 
-Despite the fact that a group may or may not be abelian, if one product is equal to the identity, then reversing the order yields the same result.
+Despite the fact that a group may or may not be abelian, the next result tells us that if one product is equal to the identity, then reversing the order yields the same result.
 
 \begin{theorem}
 If $G$ is a group and $g,h\in G$ such that $gh=e$, then $hg=e$.
