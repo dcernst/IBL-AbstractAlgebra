@@ -162,21 +162,21 @@ Let $G$ be a group and let $H\leq G$. If $G$ is abelian, then for all $a\in G$, 
 
 Exercises~\ref{prob:left_cosets_D3} and \ref{prob:normal_in_D3} illustrate that if a group is non-abelian, then the cosets of a subgroup may or may not coincide.  That is, knowing that the group is non-abelian is not enough to determine whether the left and right cosets are different.
 
-Now that we've played with a few examples, let's make a few general observations.
+%Now that we've played with a few examples, let's make a few general observations.
+%
+%\begin{theorem}\label{thm:coset_representative}
+%Let $G$ be a group and let $H\leq G$.
+%\begin{enumerate}[label=\rm{(\alph*)}]
+%\item If $a\in G$, then $a\in aH$ (respectively, $Ha$).
+%\item We have $b\in aH$ (respectively, $Ha$) if and only if $aH=bH$ (respectively, $Ha=Hb$).
+%\item If $a\in H$, then $aH=H=Ha$.
+%\item If $a\notin H$, then for all $h\in H$, $ah\notin H$ (respectively, $ha \notin H$).
+%\end{enumerate}
+%\end{theorem}
+%
+%The upshot of part (b) of Theorem~\ref{thm:coset_representative} is that cosets can have different names.  In particular, if $b$ is an element of the left coset $aH$, then we could have just as easily called the coset by the name $bH$.  In this case, both $a$ and $b$ are called \textbf{coset representatives}.
 
-\begin{theorem}\label{thm:coset_representative}
-Let $G$ be a group and let $H\leq G$.
-\begin{enumerate}[label=\rm{(\alph*)}]
-\item If $a\in G$, then $a\in aH$ (respectively, $Ha$).
-\item If $b\in aH$ (respectively, $Ha$), then $aH=bH$ (respectively, $Ha=Hb$).
-\item If $a\in H$, then $aH=H=Ha$.
-\item If $a\notin H$, then for all $h\in H$, $ah\notin H$ (respectively, $ha \notin H$).
-\end{enumerate}
-\end{theorem}
-
-The upshot of part (b) of Theorem~\ref{thm:coset_representative} is that cosets can have different names.  In particular, if $b$ is an element of the left coset $aH$, then we could have just as easily called the coset by the name $bH$.  In this case, both $a$ and $b$ are called \textbf{coset representatives}.
-
-In all of the examples we've seen so far, the left and right cosets partitioned $G$ into equal-sized chunks.  We need to prove that this is true in general.  To prove that the cosets form a partition, we'll define an appropriate equivalence relation.
+In all of the examples we've seen so far, the left and right cosets partitioned $G$ into equal-sized chunks.  We need to prove that this is true in general.  To prove that the cosets form a partition, we will define an appropriate equivalence relation.
 
 \begin{theorem}
 Let $G$ be a group and let $H\leq G$.  Define $\sim_L$ and $\sim_R$ via 
@@ -190,9 +190,19 @@ $a\sim_R b$ if and only if $ab^{-1}\in H$.
 Then both $\sim_L$ and $\sim_R$ are equivalence relations.\footnote{You only need to prove that either $\sim_L$ or $\sim_R$ is an equivalence relation as the proof for the other is similar.}
 \end{theorem}
 
-\begin{problem}
-If $[a]_{\sim_L}$ (respectively, $[a]_{\sim_R}$) denotes the equivalence class of $a$ under $\sim_L$ (respectively, $\sim_R$), what is $[a]_{\sim_L}$ (respectively, $[a]_{\sim_R}$)?  \emph{Hint:} It's got something to do with cosets.
-\end{problem}
+Since $\sim_L$ and $\sim_R$ are equivalence relations, the corresponding equivalence classes form a partition of $G$. If $a\in G$, then the ``left" and ``right" equivalence classes containing $a$ are given by
+\[
+[a]_{\sim_L}=\{g\in G\mid a\sim_L g\}
+\]
+and
+\[
+[a]_{\sim_R}=\{g\in G\mid a\sim_R g\}.
+\]
+The next theorem tells us that the equivalence classes determined by $\sim_L$ and $\sim_R$ are indeed the left and right cosets of $H\leq G$, respectively.
+
+\begin{theorem}
+If $G$ is a group and $H\leq G$, then $[a]_{\sim_L}=aH$ and $[a]_{\sim_R}=Ha$ for all $a\in G$.
+\end{theorem}
 
 \begin{corollary}
 If $G$ is a group and $H\leq G$, then the left (respectively, right) cosets of $H$ form a partition of $G$.
@@ -207,6 +217,20 @@ Let $G$ be a group, $H\leq G$, and $a\in G$.  Define $\phi:H\to aH$ via $\phi(h)
 \begin{corollary}\label{cor:cosets_same_size}
 Let $G$ be a group and let $H\leq G$.  Then all of the left and right cosets of $H$ are the same size as $H$.  In other words $\#(aH)=|H|=\#(Ha)$ for all $a\in G$.\footnote{As you probably expect, $\#(aH)$ denotes the size of $aH$. Note that everything works out just fine even if $H$ has infinite order.}
 \end{corollary}
+
+The next theorem provides a useful characterization of cosets.  Each part can either be proved directly or by appealing to previous results in this section.
+
+\begin{theorem}\label{thm:coset_representative}
+Let $G$ be a group and let $H\leq G$.
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item If $a\in G$, then $a\in aH$ (respectively, $Ha$).
+\item We have $b\in aH$ (respectively, $Ha$) if and only if $aH=bH$ (respectively, $Ha=Hb$).
+\item If $a\in H$, then $aH=H=Ha$.
+\item If $a\notin H$, then for all $h\in H$, $ah\notin H$ (respectively, $ha \notin H$).
+\end{enumerate}
+\end{theorem}
+
+The upshot of part (b) of Theorem~\ref{thm:coset_representative} is that cosets can have different names.  In particular, if $b$ is an element of the left coset $aH$, then we could have just as easily called the coset by the name $bH$.  In this case, both $a$ and $b$ are called \textbf{coset representatives}.
 
 The final result of this chapter verifies that the clones of a subgroup in a Cayley diagram coincide with the right cosets of the subgroup.
 
