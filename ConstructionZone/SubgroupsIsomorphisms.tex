@@ -652,13 +652,13 @@ Suppose $G$ is a finite group and consider the group table for $G$.  A \textbf{c
 
 \begin{figure}[!ht]
 \centering
-\begin{tabu}{c|[2pt]c|c|c|c}
-$\circ$ & $e$ & \cellcolor{red}$v$ & \cellcolor{blue}$h$ & \cellcolor{green}$vh$ \\ \tabucline[2pt]{-}
+\begin{tabular}{c!{\vrule width 2pt}c|c|c|c}
+$\circ$ & $e$ & \cellcolor{red}$v$ & \cellcolor{blue}$h$ & \cellcolor{green}$vh$ \\ \noalign{\hrule height 2pt}
 $e$ & $e$ & \cellcolor{red}$v$ & \cellcolor{blue}$h$ & \cellcolor{green}$vh$ \\
 \hline \cellcolor{red}$v$ & \cellcolor{red}$v$ & $e$ & \cellcolor{green}$vh$ & \cellcolor{blue}$h$  \\
 \hline \cellcolor{blue}$h$ & \cellcolor{blue}$h$ & \cellcolor{green}$vh$ & $e$ & \cellcolor{red}$v$\\
 \hline \cellcolor{green}$vh$ & \cellcolor{green}$vh$ & \cellcolor{blue}$h$ & \cellcolor{red}$v$ & $e$
-\end{tabu}
+\end{tabular}
 \caption{A coloring for the group table of $V_4$.}\label{fig:V4coloring}
 \end{figure}
 
@@ -698,23 +698,23 @@ Let's try to make this a little more precise.  Suppose $(G_1,*)$ and $(G_2,\odot
 
 \begin{figure}[!ht]
 \begin{center}
-\begin{tabu}{c|[2pt]ccc|c|c}
-$*$                & & & & \cellcolor{green}$y_1$  & \\ \tabucline[2pt]{-}
+\begin{tabular}{c!{\vrule width 2pt}ccc|c|c}
+$*$                & & & & \cellcolor{green}$y_1$  & \\ \noalign{\hrule height 2pt}
                    & & & &                       & \\ \hline
 \cellcolor{red}$x_1$ & & & & \cellcolor{orange}$z_1$ & \\ \hline
                    & & & &                      & \\
                    & & & &                      &
-\end{tabu}
+\end{tabular}
 \hspace{1cm}
 $\longleftrightarrow$
 \hspace{1cm}
-\begin{tabu}{c|[2pt]ccc|c|c}
-$\odot$                & & & & \cellcolor{green}$y_2$  & \\ \tabucline[2pt]{-}
+\begin{tabular}{c!{\vrule width 2pt}ccc|c|c}
+$\odot$                & & & & \cellcolor{green}$y_2$  & \\ \noalign{\hrule height 2pt}
                    & & & &                       & \\ \hline
 \cellcolor{red}$x_2$ & & & & \cellcolor{orange}$z_2$ & \\ \hline
                    & & & &                      & \\
                    & & & &                      &
-\end{tabu}
+\end{tabular}
 \end{center}
 \caption{}\label{fig:isoGroupTables}
 \end{figure}
@@ -806,11 +806,11 @@ In light of the previous problem, we say that there is one group of order one up
 \begin{problem}
 Suppose that $(G,*)$ is a group of order 2 such that $G=\{e,a\}$.  Complete the following group table for $G$.
 \begin{center}
-\begin{tabu}{c|[2pt]c|c}
-$*$ & $e$ & $a$ \\ \tabucline[2pt]{-}
+\begin{tabular}{c!{\vrule width 2pt}c|c}
+$*$ & $e$ & $a$ \\ \noalign{\hrule height 2pt}
 $e$ &  &  \\
 \hline $a$ &  & 
-\end{tabu}
+\end{tabular}
 \end{center}
 Explain why every group of order 2 must be isomorphic to $S_2$. 
 \end{problem}
@@ -820,12 +820,12 @@ The previous problem implies that up to isomorphism, there is only one group of 
 \begin{problem}
 Suppose $(G,*)$ is a group of order 3 such that $G=\{e,a,b\}$.  Complete the following group table for $G$.
 \begin{center}
-\begin{tabu}{c|[2pt]c|c|c}
-$*$ & $e$ & $a$ & $b$ \\ \tabucline[2pt]{-}
+\begin{tabular}{c!{\vrule width 2pt}c|c|c}
+$*$ & $e$ & $a$ & $b$ \\ \noalign{\hrule height 2pt}
 $e$ &  &  & \\
 \hline $a$ &  & & \\
 \hline $b$ &  & &
-\end{tabu}
+\end{tabular}
 \end{center}
 Explain why every group of order 3 must be isomorphic to $R_3$.
 \end{problem}
@@ -834,13 +834,13 @@ Explain why every group of order 3 must be isomorphic to $R_3$.
 Suppose $(G,*)$ is a group of order 4 such that $G=\{e,a,b,c\}$.  Assuming that $e$ is the identity, the first row and first column of the corresponding group table must be completed as follows.
 
 \begin{center}
-\begin{tabu}{c|[2pt]c|c|c|c}
-$*$ & $e$ & $a$ & $b$ & $c$ \\ \tabucline[2pt]{-}
+\begin{tabular}{c!{\vrule width 2pt}c|c|c|c}
+$*$ & $e$ & $a$ & $b$ & $c$ \\ \noalign{\hrule height 2pt}
 $e$ &  $e$ & $a$ & $b$ & $c$ \\
 \hline $a$ & $a$ & ? & & \\
 \hline $b$ & $b$ & & & \\
 \hline $c$ & $c$ & & &
-\end{tabu}
+\end{tabular}
 \end{center}
 
 \noindent The cell with the question mark cannot be filled with an $a$.  So, this entry must be either $e$, $b$, or $c$.  However, it should be easy to see that the cases with $b$ and $c$ are symmetric.  Thus, there are two cases: (i) the entry with the question mark is filled with $e$, or (ii) the entry with the question mark is without loss of generality filled with $b$.  Complete the group table in each of these two cases.  Are either of the resulting groups isomorphic to $R_4$ or $V_4$.  What conclusion can you make about groups of order 4?

@@ -74,53 +74,53 @@ You might be thinking that somehow right cosets are ``better" than left cosets s
 Computing left and right cosets using a group table is fairly easy.  Hopefully, you figured out in Problem~\ref{prob:left_cosets_D3} that the left cosets of $H=\langle s\rangle$ in $D_3$ are $H=\{e,s\}$, $srH=\{r^2,sr\}$, and $rsH=\{r,rs\}$.  Now, consider the following group table for $D_3$ that has the rows and columns arranged according to the left cosets of $H$.
 
 \begin{center}
-\begin{tabu}{c|[2pt]c|c|c|c|c|c}
-$*$ & $e$ & $s$ & $sr$ & $r^2$ & $rs$ & $r$ \\ \tabucline[2pt]{-}
+\begin{tabular}{c!{\vrule width 2pt}c|c|c|c|c|c}
+$*$ & $e$ & $s$ & $sr$ & $r^2$ & $rs$ & $r$ \\ \noalign{\hrule height 2pt}
 $e$ & $e$ & $s$ & $sr$ & $r^2$ & $rs$ & $r$\\
 \hline $s$ & $s$ & $e$ & $r$ & $rs$ & $r^2$ & $sr$ \\
 \hline $sr$ & $sr$ & $r^2$ & $e$ & $s$ & $r$ & $rs$\\
 \hline $r^2$ & $r^2$ & $sr$ & $rs$ & $r$ & $s$ & $e$\\
 \hline $rs$ & $rs$ & $r$ & $r^2$ & $sr$ & $e$ & $s$\\
 \hline $r$ & $r$ & $rs$ & $s$ & $e$ & $sr$ & $r^2$\\
-\end{tabu}
+\end{tabular}
 \end{center}
 The left coset $srH$ must appear in the row labeled by $sr$ and in the columns labeled by the elements of $H=\{e,s\}$.  We've depicted this below.
 
 \begin{center}
-\begin{tabu}{c|[2pt]c|c|c|c|c|c}
-$*$ & \cellcolor{lightgray}$e$ & \cellcolor{lightgray}$s$ & $sr$ & $r^2$ & $rs$ & $r$ \\ \tabucline[2pt]{-}
+\begin{tabular}{c!{\vrule width 2pt}c|c|c|c|c|c}
+$*$ & \cellcolor{lightgray}$e$ & \cellcolor{lightgray}$s$ & $sr$ & $r^2$ & $rs$ & $r$ \\ \noalign{\hrule height 2pt}
 $e$ & $e$ & $s$ & $sr$ & $r^2$ & $rs$ & $r$\\
 \hline $s$ & $s$ & $e$ & $r$ & $rs$ & $r^2$ & $sr$ \\
 \hline \cellcolor{lightgray}$sr$ & \cellcolor{blue}$sr$ & \cellcolor{blue}$r^2$ & $e$ & $s$ & $r$ & $rs$\\
 \hline $r^2$ & $r^2$ & $sr$ & $rs$ & $r$ & $s$ & $e$\\
 \hline $rs$ & $rs$ & $r$ & $r^2$ & $sr$ & $e$ & $s$\\
 \hline $r$ & $r$ & $rs$ & $s$ & $e$ & $sr$ & $r^2$\\
-\end{tabu}
+\end{tabular}
 \end{center}
 On the other hand, the right coset $Hsr$ must appear in the column labeled by $sr$ and the rows labeled by the elements of $H=\{e,s\}$:
 \begin{center}
-\begin{tabu}{c|[2pt]c|c|c|c|c|c}
-$*$ & $e$ & $s$ & \cellcolor{lightgray}$sr$ & $r^2$ & $rs$ & $r$ \\ \tabucline[2pt]{-}
+\begin{tabular}{c!{\vrule width 2pt}c|c|c|c|c|c}
+$*$ & $e$ & $s$ & \cellcolor{lightgray}$sr$ & $r^2$ & $rs$ & $r$ \\ \noalign{\hrule height 2pt}
 \cellcolor{lightgray}$e$ & $e$ & $s$ & \cellcolor{blue}$sr$ & $r^2$ & $rs$ & $r$\\
 \hline \cellcolor{lightgray}$s$ & $s$ & $e$ & \cellcolor{blue}$r$ & $rs$ & $r^2$ & $sr$ \\
 \hline $sr$ & $sr$ & $r^2$ & $e$ & $s$ & $r$ & $rs$\\
 \hline $r^2$ & $r^2$ & $sr$ & $rs$ & $r$ & $s$ & $e$\\
 \hline $rs$ & $rs$ & $r$ & $r^2$ & $sr$ & $e$ & $s$\\
 \hline $r$ & $r$ & $rs$ & $s$ & $e$ & $sr$ & $r^2$\\
-\end{tabu}
+\end{tabular}
 \end{center}
 As we can see from the tables, $srH\neq Hsr$ since $\{sr,r^2\}\neq \{sr,r\}$.  If we color the entire group table for $D_3$ according to which \emph{left} coset an element belongs to, we get the following.
  
 \begin{center}
-\begin{tabu}{c|[2pt]c|c|c|c|c|c}
-$*$ & $e$ & $s$ & $sr$ & $r^2$ & $rs$ & $r$ \\ \tabucline[2pt]{-}
+\begin{tabular}{c!{\vrule width 2pt}c|c|c|c|c|c}
+$*$ & $e$ & $s$ & $sr$ & $r^2$ & $rs$ & $r$ \\ \noalign{\hrule height 2pt}
 $e$ & \cellcolor{red}$e$ & \cellcolor{red}$s$ & \cellcolor{blue}$sr$ & \cellcolor{blue}$r^2$ & \cellcolor{green}$rs$ & \cellcolor{green}$r$\\
 \hline $s$ & \cellcolor{red}$s$ & \cellcolor{red}$e$ & \cellcolor{green}$r$ & \cellcolor{green}$rs$ & \cellcolor{blue}$r^2$ & \cellcolor{blue}$sr$ \\
 \hline $sr$ & \cellcolor{blue}$sr$ & \cellcolor{blue}$r^2$ & \cellcolor{red}$e$ & \cellcolor{red}$s$ & \cellcolor{green}$r$ & \cellcolor{green}$rs$\\
 \hline $r^2$ & \cellcolor{blue}$r^2$ & \cellcolor{blue}$sr$ & \cellcolor{green}$rs$ & \cellcolor{green}$r$ & \cellcolor{red}$s$ & \cellcolor{red}$e$\\
 \hline $rs$ & \cellcolor{green}$rs$ & \cellcolor{green}$r$ & \cellcolor{blue}$r^2$ & \cellcolor{blue}$sr$ & \cellcolor{red}$e$ & \cellcolor{red}$s$\\
 \hline $r$ & \cellcolor{green}$r$ & \cellcolor{green}$rs$ & \cellcolor{red}$s$ & \cellcolor{red}$e$ & \cellcolor{blue}$sr$ & \cellcolor{blue}$r^2$\\
-\end{tabu}
+\end{tabular}
 \end{center}
 We would get a similar table (but in this case, not identical) if we colored the elements according to the right cosets.
 

@@ -460,12 +460,12 @@ When the set $A$ is finite, we can represent a binary operation on $A$ using a t
 \begin{example}\label{example:table1}
 Consider the following table.
 \begin{center}
-\begin{tabu}{c|[2pt]c|c|c}
-$*$ & $a$ & $b$ & $c$ \\ \tabucline[2pt]{-}
+\begin{tabular}{c!{\vrule width 2pt}c|c|c}
+$*$ & $a$ & $b$ & $c$ \\ \noalign{\hrule height 2pt}
 $a$ & $b$ & $c$ & $b$ \\
 \hline $b$ & $a$ & $c$ & $b$  \\
 \hline $c$ & $c$ & $b$ & $a$
-\end{tabu}
+\end{tabular}
 \end{center}
 This table represents a binary operation on the set $A=\{a,b,c\}$.  In this case, $a*b=c$ while $b*a=a$.  This shows that $*$ is not commutative.
 \end{example}
@@ -473,12 +473,12 @@ This table represents a binary operation on the set $A=\{a,b,c\}$.  In this case
 \begin{problem}\label{prob:table}
 Consider the following table that displays the binary operation $*$ on the set $\{x,y,z\}$.
 \begin{center}
-\begin{tabu}{c|[2pt]c|c|c}
-$*$ & $x$ & $y$ & $z$ \\ \tabucline[2pt]{-}
+\begin{tabular}{c!{\vrule width 2pt}c|c|c}
+$*$ & $x$ & $y$ & $z$ \\ \noalign{\hrule height 2pt}
 $x$ & $x$ & $y$ & $z$ \\
 \hline $y$ & $y$ & $x$ & $x$  \\
 \hline $z$ & $y$ & $x$ & $x$
-\end{tabu}
+\end{tabular}
 \end{center}
 \begin{enumerate}[label=\rm{(\alph*)}]
 \item Determine whether $*$ is commutative.
@@ -739,15 +739,15 @@ Find a minimal generating set for $(\mathbb{Z},+)$.  Is $\mathbb{Z}$ a cyclic gr
 Recall that we could represent a binary operation on a finite set using a table.  Since groups have binary operations at their core, we can represent a finite group (i.e., a group with finitely many elements) using a table, called a \textbf{group table}. For example, the group table for $D_3$ is given below, where we have used $\{r,s\}$ as the generating set (see Problem~\ref{prob:revisiting_D3}).
 
 \begin{center}
-\begin{tabu}{c|[2pt]c|c|c|c|c|c}
-$*$ & $e$ & $r$ & $r^2$ & $s$ & $sr$ & $sr^2$\\ \tabucline[2pt]{-}
+\begin{tabular}{c!{\vrule width 2pt}c|c|c|c|c|c}
+$*$ & $e$ & $r$ & $r^2$ & $s$ & $sr$ & $sr^2$\\ \noalign{\hrule height 2pt}
 $e$ & $e$ & $r$ & $r^2$ & $s$ & $sr$ & $sr^2$\\
 \hline $r$ & $r$ & $r^2$ & $e$ & $sr^2$ & $s$ & $sr$ \\
 \hline $r^2$ & $r^2$ & $e$ & $r$ & $sr$ & $sr^2$ & $s$\\
 \hline $s$ & $s$ & $sr$ & $sr^2$ & $e$ & $r$ & $r^2$\\
 \hline $sr$ & $sr$ & $sr^2$ & $s$ & $r^2$ & $e$ & $r$\\
 \hline $sr^2$ & $sr^2$ & $s$ & $sr$ & $r$ & $r^2$ & $e$ 
-\end{tabu}
+\end{tabular}
 \end{center}
 
 As a reminder, our convention is that if $x$ appears in row $i$ and $y$ appears in column $j$, then row $i$ ``times" column $j$ will result in the element determined by $xy$, where as usual we follow our right to left convention.  That is, $xy$ means we apply $y$ first and then $x$ (as in function composition).
@@ -797,13 +797,13 @@ If $(G,*)$ is a finite group, then each element of $G$ appears exactly once in e
 We can also use tables to define groups.  For example, consider the following table on the set $A=\{e,a,b,c\}$.
 
 \begin{center}
-\begin{tabu}{c|[2pt]c|c|c|c}
-$*$ & $e$ & $a$ & $b$ & $c$ \\ \tabucline[2pt]{-}
+\begin{tabular}{c!{\vrule width 2pt}c|c|c|c}
+$*$ & $e$ & $a$ & $b$ & $c$ \\ \noalign{\hrule height 2pt}
 $e$ & $e$ & $a$ & $b$ & $c$ \\
 \hline $a$ & $a$ & $e$ & $c$ & $b$  \\
 \hline $b$ & $b$ & $c$ & $e$ & $a$\\
 \hline $c$ & $c$ & $b$ & $a$ & $e$
-\end{tabu}
+\end{tabular}
 \end{center}
 
 \noindent Is this a table for a group?  First, we see that the binary operation determined by the table is closed.  Second, we see that $e$ is acting as the identity.  Since every row and column has the identity element $e$ appearing, we know that every element has an inverse (do you see why that follows?).  The only thing left to check is associativity.  Imagine for a moment what this entails.  It's messy right?!  And this is only for a group of order 4.
@@ -815,23 +815,23 @@ Thankfully, we can rely on some prior knowledge to help out with associativity. 
 To see what I mean, let's color both tables with white, red, blue, and green in such a way that each element corresponds to a unique color.  If we choose our colors wisely, it is easy to see that both tables have the same structure.
 
 \begin{center}
-\begin{tabu}{c|[2pt]c|c|c|c}
-$\circ$ & $e$ & \cellcolor{red}$v$ & \cellcolor{blue}$h$ & \cellcolor{green}$vh$ \\ \tabucline[2pt]{-}
+\begin{tabular}{c!{\vrule width 2pt}c|c|c|c}
+$\circ$ & $e$ & \cellcolor{red}$v$ & \cellcolor{blue}$h$ & \cellcolor{green}$vh$ \\ \noalign{\hrule height 2pt}
 $e$ & $e$ & \cellcolor{red}$v$ & \cellcolor{blue}$h$ & \cellcolor{green}$vh$ \\
 \hline \cellcolor{red}$v$ & \cellcolor{red}$v$ & $e$ & \cellcolor{green}$vh$ & \cellcolor{blue}$h$  \\
 \hline \cellcolor{blue}$h$ & \cellcolor{blue}$h$ & \cellcolor{green}$vh$ & $e$ & \cellcolor{red}$v$\\
 \hline \cellcolor{green}$vh$ & \cellcolor{green}$vh$ & \cellcolor{blue}$h$ & \cellcolor{red}$v$ & $e$
-\end{tabu}
+\end{tabular}
 \hspace{1cm}
 $\longleftrightarrow$
 \hspace{1cm}
-\begin{tabu}{c|[2pt]c|c|c|c}
-$*$ & $e$ & \cellcolor{red}$a$ & \cellcolor{blue}$b$ & \cellcolor{green}$c$ \\ \tabucline[2pt]{-}
+\begin{tabular}{c!{\vrule width 2pt}c|c|c|c}
+$*$ & $e$ & \cellcolor{red}$a$ & \cellcolor{blue}$b$ & \cellcolor{green}$c$ \\ \noalign{\hrule height 2pt}
 $e$ & $e$ & \cellcolor{red}$a$ & \cellcolor{blue}$b$ & \cellcolor{green}$c$ \\
 \hline \cellcolor{red}$a$ & \cellcolor{red}$a$ & $e$ & \cellcolor{green}$c$ & \cellcolor{blue}$b$  \\
 \hline \cellcolor{blue}$b$ & \cellcolor{blue}$b$ & \cellcolor{green}$c$ & $e$ & \cellcolor{red}$a$\\
 \hline \cellcolor{green}$c$ & \cellcolor{green}$c$ & \cellcolor{blue}$b$ & \cellcolor{red}$a$ & $e$
-\end{tabu}
+\end{tabular}
 \end{center}
 
 \noindent Since we already know that $V_4$ is a group, we know that the binary operation for $V_4$ is associative.  This discussion verifies that $(A,*)$ is a group.
