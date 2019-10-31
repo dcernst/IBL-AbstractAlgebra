@@ -73,14 +73,11 @@ Determine whether each of the following groups is cyclic.  If the group is cycli
 \end{enumerate}
 \end{problem}
 
-
-
-
-\begin{theorem}
+\begin{theorem}\label{thm:cyclic_implies_abelian}
 If $G$ is a cyclic group, then $G$ is abelian.
 \end{theorem}
 
-\begin{problem}
+\begin{problem}\label{prob:abelian_does_not_imply_cyclic}
 Provide an example of a finite group that is abelian but not cyclic.
 \end{problem}
 
@@ -323,7 +320,7 @@ Suppose $G$ is a finite cyclic group with generator $g$ such that $|G|=n$. Then 
 Consider $\mathbb{Z}_{18}$.
 \begin{enumerate}[label=\rm{(\alph*)}]
 \item Find all of the elements of $\mathbb{Z}_{18}$ that individually generate all of $\mathbb{Z}_{18}$.
-\item Draw the subgroup lattice for $\mathbb{Z}_{18}$. For each subgroup, list the elements of the corresponding set.  Moreover, circle the the elements in each subgroup that individually generate that subgroup.  For example, $\langle 2\rangle=\{0,2,4,6,8,10,12,14,16\}$. In this case, we should circle 2, 4, 8, 10, 14, and 16 since each of these elements individually generate $\langle 2\rangle$ and none of the remaining elements do.  I'll leave it to you to figure out why this is true.
+\item Draw the subgroup lattice for $\mathbb{Z}_{18}$. For each subgroup, list the elements of the corresponding set.  Moreover, circle the elements in each subgroup that individually generate that subgroup.  For example, $\langle 2\rangle=\{0,2,4,6,8,10,12,14,16\}$. In this case, we should circle 2, 4, 8, 10, 14, and 16 since each of these elements individually generate $\langle 2\rangle$ and none of the remaining elements do.  I'll leave it to you to figure out why this is true.
 \end{enumerate}
 \end{problem}
 
@@ -339,6 +336,30 @@ If $G$ is a finite cyclic group such that $|G|=p$, where $p$ is prime, then $G$ 
 If there is exactly one group up to isomorphism of order $n$, then to what group are all the groups of order $n$ isomorphic?
 \end{problem}
 
+\begin{problem}
+Suppose $G$ is a group and $x,y\in G$ such that $|x|=m$ and $|y|=n$. Is it true that $|xy|=mn$?  If this is true, provide a proof.  If this is not true, then provide a counterexample.
+\end{problem}
+
+The punchline of the next two theorems is Theorem~\ref{thm:special_abelian_implies_cyclic}.
+
+\begin{theorem}
+Suppose $G$ is a finite abelian group and let $x,y\in G$ such that $|x|=m$ and $|y|=n$. If $\gcd(m,n)=1$, then $|xy|=mn$.\footnote{\emph{Hint:} First, verify that $(xy)^{mn}=e$. Now, suppose $|xy|=k$. What do you immediately know about the relationship between $k$ and $mn$. Next, consider $(xy)^{kn}$. Argue that $m$ divides $kn$ and then argue that $m$ divides $k$. Similarly, $n$ divides $k$. Ultimately, conclude that $mn=k$.}
+\end{theorem}
+
+\begin{theorem}
+Suppose $G$ is a finite abelian group. If $n$ is the maximal order among all elements in $G$, then the order of every element in $G$ divides $n$.\footnote{\emph{Hint:} Suppose $g\in G$ such that $|g|=n$. Let $h$ be an arbitrary element in $G$ such that $|h|=m$. You need to show that $m$ divides $n$. For sake of a contradiction, assume otherwise. Then there exists a prime $p$ whose multiplicity as a factor of $m$ exceeds that of $n$. Let $p^a$ be the highest power of $p$ in $m$ and $p^b$ be the highest power of $p$ in $n$, so $a>b$. Consider the elements $g^{p^a}$ and $h^{m/p^b}$.}
+\end{theorem}
+
+Recall that every cyclic group is abelian (see Theorem~\ref{thm:cyclic_implies_abelian}.  However, we know that not every abelian group is cyclic (see Problem~\ref{prob:abelian_does_not_imply_cyclic}.  The next theorem tells us that abelian groups with some additional properties are cyclic.
+
+\begin{theorem}\label{thm:special_abelian_implies_cyclic}
+If $G$ is a finite abelian group with at most one subgroup of any order, then $G$ is cyclic.\footnote{\emph{Hint:} Let $n$ be the maximal order among the elements of $G$ and let $g\in G$ be an element with order $n$. Prove that $G=\langle g\rangle$.}
+\end{theorem}
+
+\begin{problem}
+Is the converse of Theorem~\ref{thm:special_abelian_implies_cyclic} true for finite groups?  That is, if $G$ is a finite cyclic group, does that imply that $G$ contains at most one subgroup of each order? If the answer is yes, then prove it.  Otherwise, provide a counterexample.
+\end{problem}
+
 We conclude this section with a couple interesting counting problems involving the number of generators of certain cyclic groups.
 
 \begin{problem}
@@ -348,8 +369,6 @@ Let $p$ and $q$ be distinct primes. Find the number of generators of $\mathbb{Z}
 \begin{problem}
 Let $p$ be a prime. Find the number of generators of $\mathbb{Z}_{p^r}$, where $r$ is an integer greater than or equal to 1.
 \end{problem}
-
-
 
 \end{section}
 
@@ -367,10 +386,6 @@ For example, as we've seen, $D_3$ and $D_4$ are the symmetry groups of equilater
 The group $D_n$ is a non-abelian group of order $2n$.
 \end{theorem}
 
-\begin{theorem}
-For $n\geq 3$, $R_n\leq D_n$.
-\end{theorem}
-
 \begin{theorem}\label{thm:generators_Dn}
 Fix $n\geq 3$ and consider $D_n$. Let $r$ be rotation clockwise by $360^{\circ}/n$  and let $s$ and $s'$ be any two adjacent reflections of a regular $n$-gon.  Then
 \begin{enumerate}[label=\rm{(\alph*)}]
@@ -378,6 +393,14 @@ Fix $n\geq 3$ and consider $D_n$. Let $r$ be rotation clockwise by $360^{\circ}/
 \item $D_n=\langle s,s'\rangle = \text{all possible products of }s\text{ and }s'$.
 \end{enumerate}
 \end{theorem}
+
+The next result is an obvious corollary of Theorem~\ref{thm:generators_Dn}.
+
+\begin{corollary}
+For $n\geq 3$, $R_n\leq D_n$.
+\end{corollary}
+
+The following theorem generalizes many of the relations we have witnessed in the Cayley diagrams for the dihedral groups $D_3$ and $D_4$.
 
 \begin{theorem}
 Fix $n\geq 3$ and consider $D_n$. Let $r$ be rotation clockwise by $360^{\circ}/n$  and let $s$ and $s'$ be any two adjacent reflections of a regular $n$-gon.  Then the following relations hold.
@@ -764,8 +787,31 @@ Write down every permutation in $S_3$ as a product of 2-cycles in the most effic
 \end{problem}
 
 \begin{lemma}
-If $\alpha_1,\alpha_2,\ldots,\alpha_k$ is a collection of 2-cycles in $S_n$ such that $\alpha_1\alpha_2\cdots\alpha_k=(1)$, then $k$ must be even.\footnote{Use strong induction on $k$. Start by showing that $k\neq 1$ but that the statement is true when $k=2$. Then assume that $k>2$ and proceed by induction.}
+If $\alpha_1,\alpha_2,\ldots,\alpha_k$ is a collection of 2-cycles in $S_n$ such that $\alpha_1\alpha_2\cdots\alpha_k=(1)$, then $k$ must be even.
 \end{lemma}
+
+\begin{proof}
+Suppose $\alpha_1,\alpha_2,\ldots,\alpha_k$ is a collection of 2-cycles in $S_n$ such that $\alpha_1\alpha_2\cdots\alpha_k=(1)$.  We need to show that $k$ is even. We proceed by strong induction. First, it is clear that the statement is not true when $k=1$, but is true when $k=2$. 
+
+Now, assume that $k>2$ and if $j\leq k-1$ and we have a product of $j$ 2-cycles that equals the identity, then $j$ is even. Consider $\alpha_1\alpha_2$. The only possibilities are:
+\begin{enumerate}
+\item[(i)] $\alpha_1\alpha_2=(a,b)(a,b)$,
+\item[(ii)] $\alpha_1\alpha_2=(a,b)(a,c)$,
+\item[(iii)] $\alpha_1\alpha_2=(a,b)(c,d)$,
+\item[(iv)] $\alpha_1\alpha_2=(a,b)(b,c)$.
+\end{enumerate}
+If case (i) happens, then
+\[
+(1)=\alpha_1\alpha_2\cdots,\alpha_k=\alpha_3\alpha_4\cdots\alpha_k.
+\]
+Since the expression on the right consists of $k-2$ factors, $k-2$ must be even by induction, which implies that $k$ is even. Now, suppose we are in one of cases (ii), (iii), or (iv). Observe that:
+\begin{enumerate}
+\item[(ii)] $(a,b)(a,c)=(b,c)(a,b)$,
+\item[(iii)] $(a,b)(c,d)=(c,d)(a,b)$,
+\item[(iv)] $(a,b)(b,c)=(b,c)(a,c)$.
+\end{enumerate}
+In each case, we were able to move $a$ from the original left 2-cycle to a new right 2-cycle. That is, we were able to rewrite $\alpha_1\alpha_2$ so that $a$ does not appear in the left 2-cycle. Systematically repeat this process for the pairs $\alpha_2\alpha_3$, $\alpha_3\alpha_4$,\ldots, $\alpha_{k-1}\alpha_k$. If we ever encounter case (i) along the way, then we are done by induction. Otherwise, we are able to rewrite $\alpha_1\alpha_2\cdots\alpha_k$ so that $a$ only appears in the rightmost 2-cycle. But this implies that $\alpha_1\alpha_2\cdots\alpha_k$ does not fix $a$, which contradicts $\alpha_1\alpha_2\cdots\alpha_k =(1)$. This implies that at some point we must encounter case (i), and hence $k$ is even by induction.
+\end{proof}
 
 \begin{theorem}
 If $\sigma\in S_n$, then every transposition representation of $\sigma$ has the same parity.
@@ -806,7 +852,7 @@ The set of all even permutations in $S_n$ is denoted by $A_n$ and is called the 
 Since we referred to $A_n$ as a group, it darn well better be a group!
 
 \begin{theorem}
-The set $A_n$ forms a group under composition of permutations and has order $n!/2$.
+The set $A_n$ forms a group under composition of permutations and has order $n!/2$.\footnote{\emph{Hint:} To show that $A_n$ is a group, argue that $A_n$ is a subgroup of $S_n$ using the Two-Step Subgroup Test (see Theorem~\ref{thm:subgroup_criterion}). To show that $|A_n|=n!/2$, prove that the number of even permutations in $S_n$ is the same as the number of odd permutations in $S_n$.  Here is one way to accomplish this. Define $f:S_n\to S_n\setminus A_n$ via $f(\sigma)=(1,2)\sigma$.  Note that $S_n\setminus A_n$ is the set of odd permutations in $S_n$. Show that $f$ is a bijection.}
 \end{theorem}
 
 \begin{problem}
