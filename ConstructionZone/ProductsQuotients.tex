@@ -395,9 +395,25 @@ Let $G$ be a group and let $H\trianglelefteq G$.  Then the set of left cosets of
 
 The group from Theorem~\ref{thm:quotient_grp} is denoted by $G/H$, read ``$G$ mod $H$", and is referred to as the \textbf{quotient group} (or \textbf{factor group}) of $G$ by $H$.  If $G$ is a finite group, then $G/H$ is exactly the group that arises from ``gluing together" the colored blocks in a checkerboard-patterned group table.  It's also the group that we get after applying the quotient process to the Cayley diagram.  It's important to point out once more that this only works properly if $H$ is a normal subgroup.
 
+Recall that Theorem~\ref{thm:AbelianImpliesNormal} tells us that if $G$ is abelian, then every subgroup is normal.  This implies that when $G$ is abelian, $G/H$ is a well-defined group for every subgroup $H$ of $G$.  However, it is not necessary for $G$ to be abelian in order for $G/H$ to be a well-defined group.  The quotient group $Q_8/\langle -1\rangle$ is an example where this happens. 
+
+The next theorem tells us how to compute the order of a quotient group.
+
 \begin{theorem}
 Let $G$ be a group and let $H\trianglelefteq G$.  Then $|G/H|=[G:H]$.  In particular, if $G$ is finite, then $|G/H|=|G|/|H|$.
 \end{theorem}
+
+It's important to point out that the order of a quotient group might be finite even if $G$ has infinite order.
+
+\begin{problem}
+Consider the group $(\mathbb{Z},+)$. Since $\mathbb{Z}$ is abelian, every subgroup is normal. For example, $4\mathbb{Z} \trianglelefteq \mathbb{Z}$, which implies that $\mathbb{Z}/4\mathbb{Z}$ is a well-defined quotient group.  Moreover, both $\mathbb{Z}$ and $4\mathbb{Z}$ have infinite order. What is $|\mathbb{Z}/4\mathbb{Z}|$ equal to?  Can you determine what well-known group $\mathbb{Z}/4\mathbb{Z}$ is isomorphic to?
+\end{problem}
+
+Suppose $G$ is a group and $H\trianglelefteq G$, so that $G/H$ is a group. Recall that the elements of the group $G/H$ are the left cosets of $H$, which are of the form $aH$ where $a\in G$. The operation of the group is defined via
+\[
+(aH)(bH) = abH.
+\]
+Moreover, the identity in $G/H$ is $eH = H$ since $(aH)(eH) = aH$. By Corollary~\ref{cor:order_smallest_exponent} $|aH| = k$ if and only $(aH)^k = H$ and $k$ is the smallest such positive exponent with this property. But notice that $(aH)^k = a^kH$. So, in order to compute the order of $aH$, we need to find the smallest positive exponent $k$ such that $a^kH = H$, but $a^kH = H$ exactly when $a^k$ is in $H$. The upshot is that to find the order of $aH$ in $G/H$, we need the smallest positive $k$ such that $a^k$ is in $H$.
 
 \begin{problem}%Borrowing from Fraleigh Exercises 9--15 in Section 14.
 Find the order of the given element in the quotient group. You may assume that we are taking the quotient by a normal subgroup. 
