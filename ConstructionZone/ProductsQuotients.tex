@@ -19,9 +19,71 @@ This looks fancier than it is.  We're just doing the operation of each group in 
 Suppose $(G,*)$ and $(H,\odot)$ are two groups, where $e$ and $e'$ are the identity elements of $G$ and $H$, respectively.   Then $(G\times H,\star)$ is a group, where $\star$ is defined as above.  Moreover, $(e,e')$ is the identity of $G\times H$ and the inverse of $(g,h)\in G\times H$ is given by $(g,h)^{-1}=(g^{-1},h^{-1})$.
 \end{theorem}
 
-We refer to $G\times H$ as the \textbf{direct product} of the groups $G$ and $H$.  Note that we abbreviate $(g_1,h_1)\star(g_2,h_2)=(g_1*g_2,h_1\odot h_2)$ by $(g_1,h_1)(g_2,h_2)=(g_1 g_2,h_1 h_2)$.
+We refer to $G\times H$ as the \textbf{direct product} of the groups $G$ and $H$.  In this case, each of $G$ and $H$ is called a \textbf{factor} of the direct product.  We often abbreviate $(g_1,h_1)\star(g_2,h_2)=(g_1*g_2,h_1\odot h_2)$ by $(g_1,h_1)(g_2,h_2)=(g_1 g_2,h_1 h_2)$. One exception to this is if we are using the operation of addition in each component.  For example, consider $\mathbb{Z}_4\times \mathbb{Z}_2$ under the operation of addition mod 4 in the first component and addition mod 2 in the second component.  Then
+\[
+\mathbb{Z}_4 \times \mathbb{Z}_2=\{(0,0),(1,0),(2,0),(3,0),(0,1),(1,1),(2,1),(3,1)\}.
+\]
+In this case, we will use additive notation in $\mathbb{Z}_4\times \mathbb{Z}_2$.  For example, in $\mathbb{Z}_4 \times \mathbb{Z}_2$ we have
+\[
+(2,1)+(3,1)=(1,0)
+\]
+and
+\[
+(1,0)+(2,1)=(3,1).
+\]
+Moreover, the identity of the group is $(0,0)$.  As an example, the inverse of $(1,1)$ is $(3,1)$ since $(1,1)+(3,1)=(0,0)$.  There is a very natural generating set for $\mathbb{Z}_4\times \mathbb{Z}_2$, namely, $\{(1,0),(0,1)\}$ since $1\in \mathbb{Z}_4$ and $1\in \mathbb{Z}_2$ generate $\mathbb{Z}_4$ and $\mathbb{Z}_2$, respectively.  The corresponding Cayley diagram is given in Figure~\ref{fig:Cayley_Z4xZ2}.
 
-There's no reason we can't do this for more than two groups.  If $A_1, A_2, \ldots, A_n$ is a collection of sets, we define
+\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=6.5mm]
+\tikzstyle{b} = [draw,very thick,blue,stealth-stealth]
+\tikzstyle{r} = [draw, very thick, red,-stealth]
+
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}[scale=1.5,auto]
+\node (01) at (135:2.2) [vert] {\tiny $(0,1)$};
+\node (11) at (45:2.2) [vert] {\tiny $(1,1)$};
+\node (21) at (-45:2.2) [vert] {\tiny $(2,1)$};
+\node (31) at (-135:2.2) [vert] {\tiny $(3,1)$};
+\node (00) at (135:1) [vert] {\tiny $(0,0)$};
+\node (10) at (45:1) [vert] {\tiny $(1,0)$};
+\node (20) at (-45:1) [vert] {\tiny $(2,0$};
+\node (30) at (-135:1) [vert] {\tiny $(3,0)$};
+
+\path[r] (00) to (10);
+\path[r] (10) to (20);
+\path[r] (20) to (30);
+\path[r] (30) to (00);
+
+\path[r] (01) to (11);
+\path[r] (11) to (21);
+\path[r] (21) to (31);
+\path[r] (31) to (01);
+
+\path[b] (00) to (01);
+\path[b] (10) to (11);
+\path[b] (20) to (21);
+\path[b] (30) to (31);
+\end{tikzpicture}
+\caption{Cayley diagram for $\mathbb{Z}_4 \times \mathbb{Z}_2$ with generating set $\{(1,0),(0,1)\}$.}\label{fig:Cayley_Z4xZ2}
+\end{figure}
+
+\begin{problem}
+Consider the group $\mathbb{Z}_4 \times \mathbb{Z}_2$.  Is this group abelian?  Is the group cyclic?  Determine whether $\mathbb{Z}_4 \times \mathbb{Z}_2$ is isomorphic to any of $D_4$, $Q_8$, $\mathbb{Z}_8$, or $L_3$.
+\end{problem}
+
+The upshot of the previous problem is that there are at least five groups of order 8 up to isomorphism.  It turns out that there are exactly five groups of order 8 up to isomorphism.  In particular, every group of order 8 is isomorphic to one of the following groups: $\mathbb{Z}_8$, $\mathbb{Z}_4 \times \mathbb{Z}_2$, $L_3$, $D_4$, and $Q_8$. Note that $R_8\cong \mathbb{Z}_8$ and $\Spin_{1\times 2}\cong D_4$. Three of the isomorphism classes correspond to abelian groups while the other two correspond to non-abelian groups.  Unfortunately, we will not develop the tools necessary to prove that this classification is complete.
+
+The next two theorems should not be terribly surprising.
+
+\begin{theorem}
+If $G_1$ and $G_2$ are groups, then $G_1\times G_2\cong G_2\times G_1$.
+\end{theorem}
+
+\begin{theorem}
+Suppose $G_1$ and $G_2$ are groups with identities $e_1$ and $e_2$, respectively.  Then $\{e_1\}\times G_2\cong G_2$ and $G_1\times \{e_2\}\cong G_1$.
+\end{theorem}
+
+There's no reason we can't take the direct product of more than two groups.  If $A_1, A_2, \ldots, A_n$ is a collection of sets, we define
 \[
 \prod_{i=1}^nA_i:=A_1\times A_2\times \cdots \times A_n.
 \]
@@ -35,7 +97,7 @@ Let $G_1, G_2,\ldots, G_n$ be groups.  For $(a_1,a_2, \ldots, a_n), (b_1,b_2,\ld
 Then $\prod_{i=1}^nG_i$, the \textbf{direct product} of $G_1,\ldots, G_n$, is a group under this binary operation.
 \end{theorem}
 
-Note that each $G_i$ above is called a \textbf{factor} of the direct product.  One way to think about direct products is that we can navigate the product by navigating each factor simultaneously but independently. 
+One way to think about direct products is that we can navigate the product by navigating each factor simultaneously but independently. Computing the order of a group that is a direct product is straightforward.
 
 \begin{theorem}
 Let $G_1, G_2,\ldots, G_n$ be finite groups.  Then
@@ -48,37 +110,17 @@ Let $G_1, G_2,\ldots, G_n$ be finite groups.  Then
 Let $G_1, G_2,\ldots, G_n$ be groups.  Then $|G_1\times G_2\times \cdots \times G_n|$ is infinite if and only if at least one $|G_i|$ is infinite.
 \end{theorem}
 
-
 The following theorem should be clear.
 
 \begin{theorem}\label{thm:product_abelian_groups}
 Let $G_1, G_2,\ldots, G_n$ be groups.  Then $\prod_{i=1}^nG_i$ is abelian if and only if each $G_i$ is abelian.
 \end{theorem}
 
-If each $G_i$ is abelian, then we may use additive notation.  For example, consider $\mathbb{Z}_2\times \mathbb{Z}_3$ under the operation of addition mod 2 in  the first component and addition mod 3 in the second component.  Then
-\[
-\mathbb{Z}_2\times \mathbb{Z}_3=\{(0,0),(0,1),(0,2),(1,0),(1,1),(1,2)\}.
-\]
-Since $\mathbb{Z}_2$ and $\mathbb{Z}_3$ are cyclic, both groups are abelian, and hence $\mathbb{Z}_2\times \mathbb{Z}_3$ is abelian.  In this case, we will use additive notation in $\mathbb{Z}_2\times \mathbb{Z}_3$.  For example,
-\[
-(0,1)+(1,2)=(1,0)
-\]
-and
-\[
-(1,2)+(0,2)=(1,1).
-\]
-
-There is a very natural generating set for $\mathbb{Z}_2\times \mathbb{Z}_3$, namely, $\{(1,0),(0,1)\}$ since $1\in \mathbb{Z}_2$ and $1\in \mathbb{Z}_3$ generate $\mathbb{Z}_2$ and $\mathbb{Z}_3$, respectively.
-
-\begin{problem}
-Draw the Cayley diagram for $\mathbb{Z}_2\times \mathbb{Z}_3$ using $\{(1,0),(0,1)\}$ as the generating set.  Do you see a subgroup of $\mathbb{Z}_2\times \mathbb{Z}_3$ isomorphic to $\mathbb{Z}_2$ in the Cayley diagram?  What is this subgroup?  How about a subgroup isomorphic to $\mathbb{Z}_3$?
-\end{problem}
-
-\begin{problem}
-Prove that $\mathbb{Z}_2\times \mathbb{Z}_3$ is a cyclic group of order 6 and hence isomorphic to $R_6$.  
-\end{problem}
-
 Let's play with a few more examples.
+
+\begin{problem}
+Draw the Cayley diagram for $\mathbb{Z}_2\times \mathbb{Z}_3$ using $\{(1,0),(0,1)\}$ as the generating set. Is $\mathbb{Z}_2\times \mathbb{Z}_3$ an abelian group?  Is it cyclic? What familiar group is $\mathbb{Z}_2\times \mathbb{Z}_3$ isomorphic to?
+\end{problem}
 
 \begin{problem}
 Consider $\mathbb{Z}_2\times \mathbb{Z}_2$ under the operation of addition mod 2 in each component.  Find a generating set for $\mathbb{Z}_2\times \mathbb{Z}_2$ and then create a Cayley diagram for this group.  What well-known group is $\mathbb{Z}_2\times \mathbb{Z}_2$ isomorphic to?
@@ -86,17 +128,19 @@ Consider $\mathbb{Z}_2\times \mathbb{Z}_2$ under the operation of addition mod 2
 
 Consider the similarities and differences between $\mathbb{Z}_2\times \mathbb{Z}_3$ and $\mathbb{Z}_2\times \mathbb{Z}_2$.  Both groups are abelian by Theorem~\ref{thm:product_abelian_groups}, but only the former is cyclic.  Here's another exercise.
 
-\begin{problem}
-Consider $\mathbb{Z}_2\times \mathbb{Z}_4$ under the operation of addition mod 2 in the first component and addition mod 4 in the second component. 
-\begin{enumerate}[label=\rm{(\alph*)}]
-\item Using $\{(1,0),(0,1)\}$ as the generating set, draw the Cayley diagram for $\mathbb{Z}_2\times \mathbb{Z}_4$.
-\item Draw the subgroup lattice for $\mathbb{Z}_2\times \mathbb{Z}_4$.
-\item Show that $\mathbb{Z}_2\times \mathbb{Z}_4$ is abelian but not cyclic.
-\item Argue that $\mathbb{Z}_2\times \mathbb{Z}_4$ cannot be isomorphic to any of $D_4$, $R_8$, and $Q_8$.
-\end{enumerate}
-\end{problem}
+%\begin{problem}
+%Consider $\mathbb{Z}_2\times \mathbb{Z}_4$ under the operation of addition mod 2 in the first component and addition mod 4 in the second component. 
+%\begin{enumerate}[label=\rm{(\alph*)}]
+%\item Using $\{(1,0),(0,1)\}$ as the generating set, draw the Cayley diagram for $\mathbb{Z}_2\times \mathbb{Z}_4$.
+%\item Draw the subgroup lattice for $\mathbb{Z}_2\times \mathbb{Z}_4$.
+%\item Show that $\mathbb{Z}_2\times \mathbb{Z}_4$ is abelian but not cyclic.
+%\item Argue that $\mathbb{Z}_2\times \mathbb{Z}_4$ cannot be isomorphic to any of $D_4$, $R_8$, and $Q_8$.
+%\end{enumerate}
+%\end{problem}
 
-The upshot of the previous problem is that there are at least four groups of order 8 up to isomorphism.  It turns out that there are exactly five groups of order 8 up to isomorphism.  Three of these groups are non-abelian and two are abelian.  Problem~\ref{prob:groupsOrder8} asks you to find the remaining abelian group of order 8.  Unfortunately, we will not develop the tools necessary to prove that there are not more than 3 non-abelian groups of order 8 up to isomorphism.
+\begin{problem}
+Consider the group $\mathbb{Z}_2 \times \mathbb{Z}_2 \times \mathbb{Z}_2$.  Find a generating set for $\mathbb{Z}_2 \times \mathbb{Z}_2 \times \mathbb{Z}_2$ and then create a Cayley diagram for this group.  Is there a group that we have seen before that $\mathbb{Z}_2 \times \mathbb{Z}_2 \times \mathbb{Z}_2$ isomorphic to?
+\end{problem}
 
 The next theorem tells us how to compute the order of an element in a direct product of groups.
 
@@ -157,7 +201,7 @@ Suppose $n=p_1^{n_1}p_2^{n_2}\cdots p_r^{n_r}$, where each $p_i$ is a distinct p
 Suppose $G$ and $H$ are two groups.  Then $G\times H\cong H\times G$.
 \end{theorem}
 
-\begin{theorem}
+\begin{theorem}\label{thm:ProductOfSubgroups}
 Suppose $G_1$ and $G_2$ are groups such that $H_1\leq G_1$ and $H_2\leq G_2$.  Then $H_1\times H_2\leq G_1\times G_2$.
 \end{theorem}
 
@@ -167,13 +211,13 @@ However, not every subgroup of a direct product has the form above.
 Find an example that illustrates that not every subgroup of a direct product is the direct product of subgroups of the factors.
 \end{problem}
 
-\begin{theorem}
-Suppose $G_1$ and $G_2$ are groups with identities $e_1$ and $e_2$, respectively.  Then $\{e_1\}\times G_2\trianglelefteq G_1\times G_2$ and $G_1\times \{e_2\}\trianglelefteq G_1\times G_2$.
-\end{theorem}
+\begin{problem}
+Can we extend Theorem~\ref{thm:ProductOfSubgroups} to normal subgroups?  That is, if $H_1\trianglelefteq G_1$ and $H_2\trianglelefteq G_2$, is it the case that $H_1\times H_2\trianglelefteq G_1\times G_2$? If so, prove it.  Otherwise, provide a counterexample.
+\end{problem}
 
-\begin{theorem}
-Suppose $G_1$ and $G_2$ are groups with identities $e_1$ and $e_2$, respectively.  Then $\{e_1\}\times G_2\cong G_2$ and $G_1\times \{e_2\}\cong G_1$.
-\end{theorem}
+%\begin{theorem}
+%Suppose $G_1$ and $G_2$ are groups with identities $e_1$ and $e_2$, respectively.  Then $\{e_1\}\times G_2\trianglelefteq G_1\times G_2$ and $G_1\times \{e_2\}\trianglelefteq G_1\times G_2$.
+%\end{theorem}
 
 The next theorem describes precisely the structure of finite abelian groups.  We will omit its proof, but allow ourselves to utilize it as needed.
 
@@ -421,7 +465,8 @@ Find the order of the given element in the quotient group. You may assume that w
 \item $s\langle r\rangle \in D_4/\langle r\rangle$
 \item $j\langle -1\rangle \in Q_8/\langle -1\rangle$
 \item $5+\langle 4\rangle \in \mathbb{Z}_{12}/\langle 4\rangle$
-\item $(2,1)+\langle (1,1)\rangle \in (\mathbb{Z}_3\times \mathbb{Z}_6)/\langle (1,1)\rangle$ 
+\item $(2,1)+\langle (1,1)\rangle \in (\mathbb{Z}_3\times \mathbb{Z}_6)/\langle (1,1)\rangle$
+\item $(1,3)+\langle (0,2)\rangle\in (\mathbb{Z}_4\times \mathbb{Z}_8)/\langle (0,2)\rangle$
 \end{enumerate}
 \end{problem}
 
@@ -438,6 +483,10 @@ For each quotient group below, describe the group.  If possible, state what grou
 \item $S_4/A_4$
 \item $(\mathbb{Z}_4\times \mathbb{Z}_2)/(\{0\}\times \mathbb{Z}_2)$
 \end{enumerate}
+\end{problem}
+
+\begin{problem}
+Compute the order of every element in the quotient group $(\mathbb{Z}_2\times \mathbb{Z}_4)/\langle (0,2)\rangle$. What well-known group is $(\mathbb{Z}_2\times \mathbb{Z}_4)/\langle (0,2)\rangle$ isomorphic to?
 \end{problem}
 
 \begin{theorem}
