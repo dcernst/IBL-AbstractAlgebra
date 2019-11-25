@@ -121,13 +121,25 @@ Let $G$ be a group and let $H\trianglelefteq G$.  Then the map $\gamma:G\to G/H$
 
 The upshot of Theorems~\ref{thm:kernel_normal} and \ref{thm:canonical_projection} is that kernels of homomorphisms are always normal and every normal subgroup is the kernel of some homomorphism. It turns out that the kernel can tell us whether $\phi$ is one-to-one.
 
-\begin{theorem}
+The next theorem tells us that two elements in the domain of a group homomorphism map to the same element in the codomain if and only if they are in the same coset of the kernel.
+
+\begin{theorem}\label{thm:same_image}
+Let $G_1$ and $G_2$ be groups and suppose $\phi:G_1\to G_2$ is a homomorphism. Then $\phi(a) = \phi(b)$ if and only if $a\in b\ker(\phi)$.
+\end{theorem}
+
+One consequence of Theorem~\ref{thm:same_image} is that if the kernel of a homomorphism has order $k$, then the homomorphism is $k$-to-1.  That is, every element in the range has exactly $k$ elements from the domain that map to it.  In particular, each of these collections of $k$ elements corresponds to a coset of the kernel. 
+
+\begin{problem}
+Suppose $\phi:\mathbb{Z}_{20}\to\mathbb{Z}_{20}$ is a group homomorphism such that $\ker(\phi)=\{0,5,10,15\}$.  If $\phi(13)=8$, determine all elements that $\phi$ maps to 8.
+\end{problem}
+
+The next result is a special case of Theorem~\ref{thm:same_image}.
+
+\begin{theorem}\label{thm:trivial_kernel}
 Let $G_1$ and $G_2$ be groups and suppose $\phi:G_1\to G_2$ is a homomorphism. Then $\phi$ is one-to-one if and only if $\ker(\phi)=\{e_1\}$, where $e_1$ is the identity in $G_1$.
 \end{theorem}
 
-\begin{remark}
 Let $G_1$ and $G_2$ be groups and suppose $\phi:G_1\to G_2$ is a homomorphism. Given a generating set for $G_1$, the homomorphism $\phi$ is uniquely determined by its action on the generating set for $G_1$.  In particular, if you have a word for a group element written in terms of the generators, just apply the homomorphic property to the word to find the image of the corresponding group element.
-\end{remark}
 
 \begin{problem}\label{prob:Q8toV4}
 Suppose $\phi: Q_8\to V_{4}$ is a group homomorphism satisfying $\phi(i)=h$ and $\phi(j)=v$.
