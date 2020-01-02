@@ -1,0 +1,247 @@
+\chapter{Homomorphisms and the Isomorphism Theorems}
+\label{chapter:homomorphisms}
+
+\begin{section}{Homomorphisms}
+Let $G_1$ and $G_2$ be groups. Recall that $\phi:G_1\to G_2$ is an isomorphism if and only if $\phi$
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item is one-to-one, 
+\item is onto, and
+\item satisfies the homomorphic property.
+\end{enumerate}
+We say that $G_1$ is isomorphic to $G_2$ and write $G_1\cong G_2$ if such a $\phi$ exists. Loosely speaking, two groups are isomorphic if they have the ``same structure."  What if we drop the one-to-one and onto requirement?
+
+\begin{definition}
+Let $(G_1,*)$ and $(G_2,\odot)$ be groups. A function $\phi:G_1\to G_2$ is a \textbf{homomorphism} if and only if $\phi$ satisfies the homomorphic property:
+\[
+\phi(x*y)=\phi(x)\odot\phi(y)
+\]
+for all $x,y\in G_1$. At the risk of introducing ambiguity, we will usually omit making explicit reference to the binary operations and write the homomorphic property as
+\[
+\phi(xy)=\phi(x)\phi(y).
+\]
+\end{definition}
+
+Group homomorphisms are analogous to linear transformations on vector spaces that one encounters in linear algebra.
+
+Figure~\ref{fig:isoGroupTables2} captures a visual representation of the homomorphic property.  We encountered this same representation in Figure~\ref{fig:isoGroupTables}. If $\phi(x)=x'$, $\phi(y)=y'$, and $\phi(z)=z'$ while $z'=x'\odot y'$, then the only way $G_2$ may respect the structure of $G_1$ is for
+\[
+\phi(x*y)=\phi(z)=z'=x'\odot y'=\phi(x)\odot \phi(y).
+\]
+
+\begin{figure}
+\begin{center}
+\begin{tabular}{c!{\vrule width 2pt}ccc|c|c}
+$*$                & & & & \cellcolor{green}$y$  & \\ \noalign{\hrule height 2pt}
+                   & & & &                       & \\ \hline
+\cellcolor{red}$x$ & & & & \cellcolor{orange}$z$ & \\ \hline
+                   & & & &                      & \\
+                   & & & &                      &
+\end{tabular}
+\hspace{1cm}
+$\longrightarrow$
+\hspace{1cm}
+\begin{tabular}{c!{\vrule width 2pt}ccc|c|c}
+$\odot$                & & & & \cellcolor{green}$y'$  & \\ \noalign{\hrule height 2pt}
+                   & & & &                       & \\ \hline
+\cellcolor{red}$x'$ & & & & \cellcolor{orange}$z'$ & \\ \hline
+                   & & & &                      & \\
+                   & & & &                      &
+\end{tabular}
+\end{center}
+\caption{}\label{fig:isoGroupTables2}
+\end{figure}
+
+\begin{problem}\label{prob:homomorphism}
+Define $\phi:\mathbb{Z}_3\to D_3$ via $\phi(k)=r^k$. Prove that $\phi$ is a homomorphism and then determine whether $\phi$ is one-to-one or onto. Also, try to draw a picture of the homomorphism in terms of Cayley diagrams.
+\end{problem}
+
+\begin{problem}
+Let $G$ and $H$ be groups. Prove that the function $\phi:G\times H\to G$ given by $\phi(g,h)=g$ is a homomorphism. This function is an example of a \textbf{projection map}.
+\end{problem}
+
+There is always at least one homomorphism between two groups.
+
+\begin{theorem}\label{thm:trivial_homomorphism}
+Let $G_1$ and $G_2$ be groups. Define $\phi:G_1\to G_2$ via $\phi(g)=e_2$ (where $e_2$ is the identity of $G_2$).  Then $\phi$ is a homomorphism. This function is often referred to as the \textbf{trivial homomorphism} or the \textbf{$0$-map}.
+\end{theorem}
+
+Back in Section~\ref{sec:isomorphisms}, we encountered several theorems about isomorphisms.  However, at the end of that section we remarked that some of those theorems did not require that the function be one-to-one and onto.  We collect those results here for convenience.
+
+\begin{theorem}
+Let $G_1$ and $G_2$ be groups and suppose $\phi:G_1\to G_2$ is a homomorphism.
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item If $e_1$ and $e_2$ are the identity elements of $G_1$ and $G_2$, respectively, then $\phi(e_1)=e_2$.
+\item For all $g\in G_1$, we have $\phi(g^{-1})=[\phi(g)]^{-1}$.
+\item If $H\leq G_1$, then $\phi(H)\leq G_2$, where
+\[
+\phi(H):=\{y\in G_2\mid \text{there exists } h\in H\text{ such that }\phi(h)=y\}. 
+\]
+Note that $\phi(H)$ is called the \textbf{image} of $H$. A special case is when $H=G_1$. Notice that $\phi$ is onto exactly when $\phi(G_1)=G_2$.
+\end{enumerate}
+\end{theorem}
+
+The following theorem is a consequence of Lagrange's Theorem.
+
+\begin{theorem}
+Let $G_1$ and $G_2$ be groups such that $G_2$ is finite and let $H\leq G_1$. If $\phi:G_1\to G_2$ is a homomorphism, then $|\phi(H)|$ divides $|G_2|$.
+\end{theorem}
+
+The next theorem tells us that under a homomorphism, the order of the image of an element must divide the order of the pre-image of that element.
+
+\begin{theorem}\label{thm:orderImage}
+Let $G_1$ and $G_2$ be groups and suppose $\phi:G_1\to G_2$ is a homomorphism. If $g\in G_1$ such that $|g|$ is finite, then $|\phi(g)|$ divides $|g|$.
+\end{theorem}
+
+Every homomorphism has an important subset of the domain associated with it.
+
+\begin{definition}
+Let $G_1$ and $G_2$ be groups and suppose $\phi:G_1\to G_2$ is a homomorphism.  The \textbf{kernel} of $\phi$ is defined via
+\[
+\ker(\phi):=\{g\in G_1\mid \phi(g)=e_2\}.
+\]
+\end{definition}
+
+The kernel of a homomorphism is analogous to the null space of a linear transformation of vector spaces.  
+
+\begin{problem}
+Identify the kernel and image for the homomorphism given in Problem~\ref{prob:homomorphism}.
+\end{problem}
+
+\begin{problem}
+What is the kernel of a trivial homomorphism (see Theorem~\ref{thm:trivial_homomorphism}).
+\end{problem}
+
+\begin{theorem}\label{thm:kernel_normal}
+Let $G_1$ and $G_2$ be groups and suppose $\phi:G_1\to G_2$ is a homomorphism. Then $\ker(\phi)\trianglelefteq G_1$.
+\end{theorem}
+
+\begin{theorem}\label{thm:canonical_projection}
+Let $G$ be a group and let $H\trianglelefteq G$.  Then the map $\gamma:G\to G/H$ given by $\gamma(g)=gH$ is a homomorphism with $\ker(\gamma)=H$. This map is called the \textbf{canonical projection map}.
+\end{theorem}
+
+The upshot of Theorems~\ref{thm:kernel_normal} and \ref{thm:canonical_projection} is that kernels of homomorphisms are always normal and every normal subgroup is the kernel of some homomorphism. It turns out that the kernel can tell us whether $\phi$ is one-to-one.
+
+The next theorem tells us that two elements in the domain of a group homomorphism map to the same element in the codomain if and only if they are in the same coset of the kernel.
+
+\begin{theorem}\label{thm:same_image}
+Let $G_1$ and $G_2$ be groups and suppose $\phi:G_1\to G_2$ is a homomorphism. Then $\phi(a) = \phi(b)$ if and only if $a\in b\ker(\phi)$.
+\end{theorem}
+
+One consequence of Theorem~\ref{thm:same_image} is that if the kernel of a homomorphism has order $k$, then the homomorphism is $k$-to-1.  That is, every element in the range has exactly $k$ elements from the domain that map to it.  In particular, each of these collections of $k$ elements corresponds to a coset of the kernel. 
+
+\begin{problem}
+Suppose $\phi:\mathbb{Z}_{20}\to\mathbb{Z}_{20}$ is a group homomorphism such that $\ker(\phi)=\{0,5,10,15\}$.  If $\phi(13)=8$, determine all elements that $\phi$ maps to 8.
+\end{problem}
+
+The next result is a special case of Theorem~\ref{thm:same_image}.
+
+\begin{theorem}\label{thm:trivial_kernel}
+Let $G_1$ and $G_2$ be groups and suppose $\phi:G_1\to G_2$ is a homomorphism. Then $\phi$ is one-to-one if and only if $\ker(\phi)=\{e_1\}$, where $e_1$ is the identity in $G_1$.
+\end{theorem}
+
+Let $G_1$ and $G_2$ be groups and suppose $\phi:G_1\to G_2$ is a homomorphism. Given a generating set for $G_1$, the homomorphism $\phi$ is uniquely determined by its action on the generating set for $G_1$.  In particular, if you have a word for a group element written in terms of the generators, just apply the homomorphic property to the word to find the image of the corresponding group element.
+
+\begin{problem}\label{prob:Q8toV4}
+Suppose $\phi: Q_8\to V_{4}$ is a group homomorphism satisfying $\phi(i)=h$ and $\phi(j)=v$.
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item Find $\phi(1)$, $\phi(-1)$, $\phi(k)$, $\phi(-i)$, $\phi(-j)$, and $\phi(-k)$.
+\item Find $\ker(\phi)$.
+\item What well-known group is $Q_8/\ker(\phi)$ isomorphic to?
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Find a non-trivial homomorphism from $\mathbb{Z}_{10}$ to $\mathbb{Z}_6$.
+\end{problem}
+
+\begin{problem}
+Find all non-trivial homomorphisms from $\mathbb{Z}_3$ to $\mathbb{Z}_6$.
+\end{problem}
+
+\begin{problem}
+Prove that the only homomorphism from $D_3$ to $\mathbb{Z}_3$ is the trivial homomorphism.
+\end{problem}
+
+\begin{problem}
+Let $F$ be the set of all functions from $\mathbb{R}$ to $\mathbb{R}$ and let $D$ be the subset of differentiable functions on $\mathbb{R}$.  It turns out that $F$ is a group under addition of functions and $D$ is a subgroup of $F$ (you do not need to prove this). Define $\phi:D\to F$ via $\phi(f)=f'$ (where $f'$ is the derivative of $f$). Prove that $\phi$ is a homomorphism.  You may recall facts from calculus without proving them. Is $\phi$ one-to-one? Onto? 
+\end{problem}
+
+\end{section}
+
+\begin{section}{The Isomorphism Theorems}
+
+The next theorem is arguably the crowning achievement of the course.
+
+\begin{theorem}[The First Isomorphism Theorem]
+Let $G_1$ and $G_2$ be groups and suppose $\phi:G_1\to G_2$ is a homomorphism. Then
+\[
+G_1/\ker(\phi)\cong \phi(G_1).
+\]
+If $\phi$ is onto, then
+\[
+G_1/\ker(\phi)\cong G_2.
+\]
+\end{theorem}
+
+\begin{problem}
+Let $\phi:Q_8\to V_4$ be the homomorphism described in Problem~\ref{prob:Q8toV4}. Use the First Isomorphism Theorem to prove that $Q_8/\langle-1\rangle\cong V_4$.
+\end{problem}
+
+\begin{problem}
+Define $\phi:S_n\to \mathbb{Z}_2$ via
+\[
+\phi(\sigma)=\begin{cases}
+0, & \sigma \text{ even}\\
+1, & \sigma \text{ odd}.
+\end{cases}
+\]
+Use the First Isomorphism Theorem to prove that $S_n/A_n\cong \mathbb{Z}_2$.
+\end{problem}
+
+\begin{problem}
+Use the First Isomorphism Theorem to prove that $\mathbb{Z}/6\mathbb{Z}\cong \mathbb{Z}_6$.  Attempt to draw a picture of this using Cayley diagrams.
+\end{problem}
+
+\begin{problem}
+Use the First Isomorphism Theorem to prove that $(\mathbb{Z}_4\times \mathbb{Z}_2)/(\{0\}\times \mathbb{Z}_2)\cong \mathbb{Z}_4$.
+\end{problem}
+
+The next theorem is a generalization of Theorem~\ref{thm:orderImage} and follows from the First Isomorphism Theorem together with Lagrange's Theorem.
+
+\begin{theorem}
+Let $G_1$ and $G_2$ be groups and suppose $\phi:G_1\to G_2$ is a homomorphism. If $G_1$ is finite, then $|\phi(G_1)|$ divides $|G_1|$.
+\end{theorem}
+
+We finish the chapter by listing a few of the remaining isomorphism theorems.%, but we will not prove these in this course.
+
+\begin{theorem}[The Second Isomorphism Theorem]
+Let $G$ be a group with $H\leq G$ and $N\trianglelefteq G$.  Then
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item $HN:=\{hn\mid h\in H, n\in N\}\leq G$;
+\item $H\cap N\trianglelefteq H$;
+\item $\displaystyle H/(H\cap N)\cong HN/N$.
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[The Third Isomorphism Theorem]
+Let $G$ be a group with $H,K\trianglelefteq G$ and $K\leq H$.  Then $H/K\trianglelefteq G/K$ and
+\[
+G/H\cong (G/K)/(H/K).
+\]
+\end{theorem}
+
+The last isomorphism theorem is sometimes called the \emph{Lattice Isomorphism Theorem} or the \emph{Correspondence Theorem}.
+
+\begin{theorem}[The Fourth Isomorphism Theorem]
+
+Let $G$ be a group with $N\trianglelefteq G$. Then there is a bijection from the set of subgroups of $G$ that contain $N$ onto the set of subgroups of $G/N$. In particular, every subgroup $G$ is of the form $H/N$ for some subgroup $H$ of $G$ containing $N$ (namely, its pre-image in $G$ under the canonical projection homomorphism from $G$ to $G/N$.) This bijection has the following properties: for all $H,K \subseteq G$ with  $N\subseteq H$ and $N\subseteq K$, we have
+\begin{enumerate}[label=\rm{(\alph*)}]
+\item $H\subset K$ if and only if $H/N \subset K/N$
+\item If $H\subset K$, then $|K:H|=|K/N:H/N|$
+\item $\langle H,K\rangle/N=\langle H/N,K/N\rangle$
+\item $(H\cap K)/N=H/N \cap K/N$
+\item $H\trianglelefteq G$ if and only if $H/N\trianglelefteq G/N$.
+\end{enumerate}
+\end{theorem}
+
+\end{section}

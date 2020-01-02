@@ -1,0 +1,105 @@
+\appendix
+\chapter{Elements of Style for Proofs}
+\label{appendix:elements_of_style}
+
+Years of elementary school math taught us incorrectly that the answer to a math problem is just a single number, ``the right answer.''  It is time to unlearn those lessons; those days are over.  From here on out, mathematics is about discovering proofs and writing them clearly and compellingly.
+
+The following rules apply whenever you write a proof.  I may refer to them, by number, in my comments on your homework and exams.  Keep these rules handy so that you may refer to them as you write your proofs.
+
+\begin{enumerate}
+
+\item \textbf{The writing process.}  Use the same writing process that you would for any writing project.
+\begin{enumerate}
+\item Prewriting.~This is the most mathematical step of the process. Often this step takes place on scratch paper. Figure out the mathematics: test conjectures, work out examples, try various proof techniques, etc. 
+\item Writing.~When you understand the mathematics it is time to write the first draft. The draft may have extraneous information, be missing  information, be written in the wrong order, contain some minor mathematical errors, etc.
+\item Revising.~Once you have a first draft, go back and revise the writing. Focus on large changes such as adding, removing, rearranging, and replacing. Fix any mathematical errors. 
+\item Editing/proofreading.~At this stage you must attend to the fine details. Fix any problems with spelling, grammar, word choice, punctuation, etc. Make sure all of the mathematics is typeset correctly.
+\item Publishing.~Make the final changes so that you can submit your work. You may need to fit it to a style guide (get the margins correct, add a title page, etc.), convert it to a certain file type, or print it.
+\end{enumerate}
+
+\item \textbf{The burden of communication lies on you, not on your reader.}
+It is your job to explain your thoughts; it is not your reader's job to guess them from a few hints. You are trying to convince a skeptical reader who doesn't believe you, so you need to argue with airtight logic in crystal clear language;
+otherwise the reader will continue to doubt.
+If you didn't write something on the paper, then (a) you didn't communicate it, (b) the reader didn't learn it, and (c) the grader has to assume you didn't know it in the first place.
+  
+\item \textbf{Tell the reader what you're proving.} The reader doesn't necessarily know or remember what ``Theorem 2.13'' is. Even a professor grading a stack of papers might lose track from time to time. Therefore, the statement you are proving should be on the same page as the beginning of your proof. For an exam this won't be a problem, of course, but on your homework, recopy the claim you are proving. This has the additional advantage that when you study for exams by reviewing your homework, you won't have to flip back in the notes/textbook to know what you were proving.
+
+\item \textbf{Use English words.} Although there will usually be equations or mathematical statements in your proofs, use English sentences to connect them and display their logical relationships. If you look in your notes/textbook, you'll see that each proof consists mostly of English words.
+
+\item \textbf{Use complete sentences.} If you wrote a history essay in sentence fragments, the reader would not understand what you meant; likewise in mathematics you must use complete sentences, with verbs, to convey your logical train of thought.
+
+Some complete sentences can be written purely in mathematical symbols, such as equations (e.g., $a^3=b^{-1}$), inequalities (e.g., $x<5$), and other relations (like $5\big|10$ or $7\in\mathbb{Z}$). These statements usually express a relationship between two mathematical \emph{objects}, like numbers or sets.  However, it is considered bad style to begin a sentence with symbols.  A common phrase to use to avoid starting a sentence with mathematical symbols is ``We see that...''
+
+\item \textbf{Show the logical connections among your sentences.} Use phrases like ``Therefore'' or ``because'' or ``if\ldots, then\ldots'' or ``if and only if'' to connect your sentences.
+  
+\item \textbf{Know the difference between statements and objects.} A mathematical object is a \emph{thing}, a noun, such as a group, an element, a vector space, a number, an ordered pair, etc. Objects either exist or don't exist. Statements, on the other hand, are mathematical \emph{sentences}:  they can be true or false.
+
+When you see or write a cluster of math symbols, be sure you know  whether it's an object (e.g., ``$x^2+3$'') or a statement (e.g., ``$x^2+3<7$''). One way to tell is that every mathematical statement includes a verb, such as $=$, $\leq$, ``divides'', etc.
+
+\item \textbf{``$=$'' means equals.} Don't write $A=B$ unless you mean that $A$ actually equals $B$. This rule seems obvious, but there is a great temptation to be sloppy.  In calculus, for example, some people might write $f(x)=x^{2}=2x$ (which is false), when they really mean that ``if $f(x)=x^{2}$, then $f'(x)=2x$.''
+
+\item \textbf{Don't interchange ${=}$ and ${\implies}$.} The equals sign connects two \emph{objects}, as in ``$x^2=b$''; the symbol ``$\implies$'' is an abbreviation for ``implies'' and connects two \emph{statements}, as in ``$a+b=a \implies b=0$.''  You should avoid using $\implies$ in your formal write-ups.
+
+\item \textbf{Say exactly what you mean.} Just as the $=$ is sometimes abused, so too people sometimes write $A\in B$ when they mean $A\subseteq B$, or write $a_{ij}\in A$ when they mean that $a_{ij}$ is an entry in matrix $A$. Mathematics is a very precise language, and there is a way to say exactly what you mean; find it and use it.
+
+\item \textbf{Don't write anything unproven.} Every statement on your paper should be something you \emph{know} to be true. The reader expects your proof to be a series of statements, each proven by the statements that came before it. If you ever need to write something you don't yet know is true, you \emph{must} preface it with words like ``assume,'' ``suppose,'' or ``if'' (if you are temporarily assuming it), or with words like ``we need to show that'' or ``we claim that'' (if it is your goal). Otherwise the reader will think they have missed part of your proof.
+
+\item \textbf{Write strings of equalities (or inequalities) in the proper order.} When your reader sees something like
+\[
+A=B\leq C=D,
+\]
+he/she expects to understand easily why $A=B$, why $B\leq C$, and why $C=D$, and he/she expects the \emph{point} of the entire line to be the more complicated fact that $A\leq D$. For example, if you were computing the distance $d$ of the point $(12,5)$ from the origin, you could write
+\[
+d = \sqrt{12^2+5^2} = 13.
+\]
+In this string of equalities, the first equals sign is true by the Pythagorean theorem, the second is just arithmetic, and the \emph{point} is that the first item equals the last item: $d=13$.
+
+A common error is to write strings of equations in the wrong order. For example, if you were to write ``$\sqrt{12^2+5^2}=13=d$'', your reader would understand the first equals sign, would be baffled as to how we know $d=13$, and would be utterly perplexed as to why you wanted or needed to go through $13$ to prove that $\sqrt{12^2+5^2}=d$.
+
+\item \textbf{Avoid circularity.}  Be sure that no step in your proof makes use of the conclusion!
+
+\item \textbf{Don't write the proof backwards.} Beginning students often attempt to write ``proofs'' like the following, which attempts to prove that $\tan^2(x)  = \sec^2(x) - 1$:
+\begin{align*}
+\tan^2(x) =& \sec^2(x) - 1 \\
+\left(\frac{\sin(x)}{\cos(x)}\right)^2 =& \frac{1}{\cos^2(x)} - 1 \\
+\frac{\sin^2(x)}{\cos^2(x)} =&  \frac{1-\cos^2(x)}{\cos^2(x)} \\
+\sin^2(x) =& 1-\cos^2(x) \\
+\sin^2(x) + \cos^2(x) =& 1 \\
+1 =& 1
+\end{align*}
+Notice what has happened here:  the writer \emph{started} with the conclusion, and deduced the true statement ``$1=1$.'' In other words, he/she has proved ``If $\tan^2(x) = \sec^2(x) - 1$, then $1=1$,'' which is true but highly uninteresting.
+
+Now this isn't a bad way of \emph{finding} a proof.
+Working backwards from your goal often is a good strategy \emph{on your scratch paper},
+but when it's time to \emph{write} your proof,
+you have to start with the hypotheses and work to the conclusion.
+
+\item \textbf{Be concise.} Most students err by writing their proofs too short, so that the reader can't understand their logic. It is nevertheless quite possible to be too wordy, and if you find yourself writing a full-page essay, it's probably because you don't really have a proof, but just an intuition. When you find a way to turn that intuition into a formal proof, it will be much shorter.
+
+\item \textbf{Introduce every symbol you use.} If you use the letter ``$k$,'' the reader should know exactly what $k$ is. Good phrases for introducing symbols include ``Let $n\in \mathbb{N}$,'' ``Let $k$ be the least integer such that\ldots,'' ``For every real number $a$\ldots,'' and ``Suppose that $X$ is a counterexample.''
+  
+\item \textbf{Use appropriate quantifiers (once).} When you introduce a variable $x\in S$, it must be clear to your reader whether you mean ``for all $x\in S$'' or just ``for some $x\in S$.'' If you just say something like ``$y=x^2$ where $x\in S$,'' the word ``where'' doesn't indicate whether you mean ``for all'' or ``some''.
+
+Phrases indicating the quantifier ``for all'' include ``Let $x\in S$''; ``for all $x\in S$''; ``for every $x\in S$''; ``for each $x\in S$''; etc. Phrases indicating the quantifier ``some'' (or ``there exists'') include ``for some $x\in S$''; ``there exists an $x\in S$''; ``for a suitable choice of $x\in S$''; etc.
+
+On the other hand, don't introduce a variable more than once! Once you have said ``Let $x\in S$,'' the letter $x$ has its meaning defined. You don't \emph{need} to say ``for all $x\in S$'' again, and you definitely should \emph{not} say ``let $x\in S$'' again.
+
+\item \textbf{Use a symbol to mean only one thing.} Once you use the letter $x$ once, its meaning is fixed for the duration of your proof. You cannot use $x$ to mean anything else.
+
+\item \textbf{Don't ``prove by example.''}\label{proof_by_example} Most problems ask you to prove that something is true ``for all''---You \emph{cannot} prove this by giving a single example, or even a hundred. Your answer will need to be a logical argument that holds for \emph{every example there possibly could be}.
+
+\item \textbf{Write ``Let $x=\dots$,'' not ``Let $\dots=x$.''} When you have an existing expression, say $a^{2}$, and you want to give it a new, simpler name like $b$, you should write ``Let $b=a^{2}$,'' which means, ``Let the new symbol $b$ mean $a^{2}$.''This convention makes it clear to the reader that $b$ is the brand-new symbol and $a^{2}$ is the old expression he/she already understands.
+
+If you were to write it backwards, saying ``Let $a^{2}=b$,'' then your startled reader would ask, ``What if $a^{2}\neq b$?''
+  
+\item \textbf{Make your counterexamples concrete and specific.} Proofs need to be entirely general, but counterexamples should be absolutely concrete. When you provide an example or counterexample, make it as specific as possible. For a set, for example, you must name its elements, and for a function you must give its rule. Do not say things like ``$\theta$ could be one-to-one but not onto'';
+instead, provide an actual function $\theta$ that \emph{is} one-to-one but not onto.
+    
+\item \textbf{Don't include examples in proofs.} Including an example very rarely adds anything to your proof. If your logic is sound, then it doesn't need an example to back it up. If your logic is bad, a dozen examples won't help it (see rule \ref{proof_by_example}). There are only two valid reasons to include an example in a proof: if it is a \emph{counterexample} disproving something, or if you are performing complicated manipulations in a general setting and the example is just to help the reader understand what you are saying.
+
+\item \textbf{Use scratch paper.} Finding your proof will be a long, potentially messy process, full of false starts and dead ends. Do all that on scratch paper
+until you find a real proof, and only then break out your clean paper to write your final proof carefully. \emph{Do not hand in your scratch work!}
+
+Only sentences that actually contribute to your proof should be part of the proof. Do not just perform a ``brain dump,'' throwing everything you know onto the paper before showing the logical steps that prove the conclusion. \emph{That is what scratch paper is for.}
+
+\end{enumerate}

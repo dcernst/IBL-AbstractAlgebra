@@ -1,0 +1,30 @@
+\chapter{Definitions in Mathematics}
+\label{appendix:definitions}
+
+It is difficult to overstate the importance of definitions in mathematics. Definitions play a different role in mathematics than they do in everyday life. 
+
+Suppose you give your friend a piece of paper containing the definition of the rarely-used word \textbf{rodomontade}. According to the Oxford English Dictionary\footnote{http://www.oed.com/view/Entry/166837} (OED) it is:
+\begin{quote}
+A vainglorious brag or boast; an extravagantly boastful, arrogant, or bombastic speech or piece of writing; an arrogant act.
+\end{quote}
+Give your friend some time to study the definition. Then take away the paper. Ten minutes later ask her to define rodomontade. Most likely she will be able to give a reasonably accurate definition. Maybe she'd say something like, ``It is a speech or act or piece of writing created by a pompous or egotistical person who wants to show off how great they are.'' It is unlikely that she will have quoted the OED word-for-word. In everyday English that is fine---you would probably agree that your friend knows the meaning of the rodomontade. This is because most definitions are \emph{descriptive}. They describe the common usage of a word. 
+
+Let us take a mathematical example. The OED\footnote{http://www.oed.com/view/Entry/40280}  gives this definition of \emph{continuous}.
+\begin{quote}
+Characterized by continuity; extending in space without interruption of substance; having no interstices or breaks; having its parts in immediate connection; connected, unbroken.
+\end{quote}
+Likewise, we often hear calculus students speak of a continuous function as one whose graph can be drawn ``without picking up the pencil.'' This definition is descriptive. (As we learned in calculus the picking-up-the-pencil description is not a perfect description of continuous functions.) This is not a mathematical definition. 
+
+Mathematical definitions are \emph{prescriptive}. The definition must prescribe the exact and correct meaning  of a word. Contrast the OED's descriptive definition of continuous with the the definition of continuous found in a real analysis textbook.
+\begin{quote}
+A function $f:A\to \mathbb{R}$ is \textbf{continuous at a point} $c\in A$ if,  for all $\varepsilon>0$, there exists $\delta>0$ such that whenever $|x-c|<\delta$ (and $x\in A$) it follows that $|f(x)-f(c)|<\varepsilon$. If $f$ is continuous at every point in the domain $A$, then we say that $f$ is \textbf{continuous on} $A$.\footnote{This definition is taken from page 109 of Stephen Abbott's \emph{Understanding Analysis}, but the definition would be essentially the same in any modern real analysis textbook.} 
+\end{quote}
+In mathematics there is very little freedom in definitions. Mathematics is a deductive theory; it is impossible to state and prove theorems without clear definitions of the mathematical terms. The definition of a term must completely, accurately, and unambiguously describe the term. Each word is chosen very carefully and the order of the words is  critical. In the definition of continuity changing ``there exists'' to ``for all,'' changing the orders of quantifiers, changing $<$ to $\leq$ or $>$, or changing $\mathbb{R}$ to $\mathbb{Z}$ would completely change the meaning of the definition. 
+
+What does this mean for you, the student? Our recommendation is that at this stage you memorize the definitions word-for-word. It is the safest way to guarantee that you have it correct. As you gain confidence and familiarity with the subject you may be ready to modify the wording. You may want to change ``for all'' to ``given any'' or you may want to change $|x-c|<\delta$ to $-\delta<x-c<\delta$ or to ``the distance between $x$ and $c$ is less than $\delta$.'' 
+
+Of course, memorization is not enough; you must have a conceptual understanding of the term, you must see how the formal definition matches up with your conceptual understanding, and you must know how to work with the definition. It is perhaps with the first of these that descriptive definitions are useful. They are useful for building intuition and for painting the ``big picture.'' Only after days (weeks, months, years?) of experience does one get an intuitive feel for the $\varepsilon,\delta$-definition of continuity; most mathematicians have the ``picking-up-the-pencil'' definitions in their head. This is fine as long as we know that it is imperfect, and that when we prove theorems about continuous functions mathematics we use the mathematical definition. 
+
+We end this discussion with an amusing real-life example in which a descriptive definition was not sufficient. In 2003 the German version of the game show \emph{Who wants to be a millionaire?} contained the following question: ``Every rectangle is: (a) a rhombus, (b) a trapezoid, (c) a square, (d) a parallelogram.'' 
+
+The confused contestant decided to skip the question and left with \euro 4000. Afterward the show received letters from irate viewers. Why were the contestant and the viewers upset with this problem? Clearly a rectangle is a parallelogram, so (d) is the answer. But what about (b)? Is a rectangle a trapezoid? We would describe a trapezoid as a quadrilateral with a pair of parallel sides. But this leaves open the question: can a trapezoid have \emph{two} pairs of parallel sides or must there only be \emph{one} pair? The viewers said two pairs is allowed, the producers of the television show said it is not. This is a case in which a clear, precise, mathematical definition is required.
