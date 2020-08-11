@@ -214,17 +214,21 @@ How many scrambled $3\times 3$ Spinpossible boards are there?  To answer this qu
 How many spins are there?
 \end{problem}
 
-It's useful to have some notation. Let $s_{ij}$ (with $i\leq j$) denote the spin that rotates the subrectangle that has position $i$ in the upper-left corner and position $j$ in the lower-right corner.  As an example, the sequence of spins that we used above to unscramble our initial scrambled board is
+It's useful to have some notation. Let $s_{ij}$ denote the spin that rotates the subrectangle that has position $i$ in the upper-left corner and position $j$ in the lower-right corner.  As an example, the sequence of spins that we used above to unscramble our initial scrambled board is
 \[
 s_{29}\to s_{28} \to s_{12}.
 \]
-As you noticed in Problem~\ref{prob:counting_spins}, we can also rotate a single tile. Every spin of the form $s_{ii}$ is called a \emph{toggle}. For example, $s_{44}$ toggles the tile in position 4.
+As you noticed in Problem~\ref{prob:counting_spins}, we can also rotate a single tile. Every spin of the form $s_{ii}$ is called a \emph{toggle}. For example, $s_{44}$ toggles the tile in position 4. 
 
 We can think of each spin as a function and since we are doing spins on top of spins, every sequence of spins corresponds to a composition of functions. We will follow the standard convention of function composition that says the function on the right goes first.  In this case, our previous sequence of spins becomes $s_{12} \circ s_{28}  \circ s_{29}$, which we abbreviate as $s_{12} s_{28} s_{29}$. This might take some getting used to, but just remember that it is just like function notation---stuff on the right goes first. We will refer to expressions like $s_{12} s_{28} s_{29}$ as \textbf{words} in the alphabet $\{s_{ij}\mid i\leq j\}$.  Our words will always consist of a finite number of spins.
 
-Every word consisting of spins corresponds to a function that takes a scrambled board as input and returns a scrambled board. We say that the words ``act on" the scrambled boards. For each word, there is an associated net action. For example, the word $s_{12} s_{23} s_{12}$ corresponds to swapping the positions but not orientation of the tiles in positions 1 and 3.  You should take the time to verify this for yourself. Sometimes it is difficult to describe what the net action associated to a word is, but there is always some corresponding net action nonetheless.
+Every word consisting of spins corresponds to a function that takes a scrambled board as input and returns a scrambled board. We say that the words ``act on" the scrambled boards. For each word, there is an associated \textbf{net action}. For example, the word $s_{12} s_{23} s_{12}$ corresponds to swapping the positions but not orientation of the tiles in positions 1 and 3.  You should take the time to verify this for yourself. Notice that the net action does not depend on the current configuration of the board. Sometimes it is difficult to describe what the net action associated to a word is, but there is always some corresponding net action nonetheless. Moreover, each net action has many---infinitely many, in fact---words that determine that net action. For example, it turns out that $s_{12}s_{23}s_{12}$, $s_{23}s_{12}s_{23}$, and $s_{12}s_{23}s_{11}s_{11}s_{12}$ all yield the same net action.   In this case, we would write
+\[
+s_{12}s_{23}s_{12}=s_{23}s_{12}s_{23}=s_{12}s_{23}s_{11}s_{11}s_{12}.
+\]
+Notice that equality here is referring to net action and not the words themselves.  That is, the words are different, but the result is the same.
 
-It is worth pointing out that $s_{12} s_{23} s_{12}$ is not itself a spin.  However, sometimes a composition of spins will yield a spin.  For example, the net action of $s_{12} s_{11} s_{12}$ is toggling the tile in position 2.  That is, $s_{12} s_{11} s_{12}$ and $s_{22}$ are two different words that correspond to the same net action. In this case, we write $s_{12} s_{11} s_{12}=s_{22}$, where the equality is referring to the net action as opposed to the words themselves. The previous example illustrates that multiple words may represent the same net action. 
+It is worth pointing out that $s_{12} s_{23} s_{12}$ is not itself a spin.  However, sometimes a composition of spins will yield a spin.  For example, the net action of $s_{12} s_{11} s_{12}$ is toggling the tile in position 2.  That is, $s_{12} s_{11} s_{12}=s_{22}$.
 
 \begin{problem}\label{prob:3_different_spins}
 Find a sequence of 3 spins that is different from the one we described earlier that unscrambles the following board. Write your answer as a word consisting of spins.
@@ -384,7 +388,7 @@ Let $A$ be a set. Determine whether $\cup$ (union) and $\cap$ (intersection) are
 \end{problem}
 
 \begin{problem}
-Consider the closed interval $[0,1]$ and define $*$ on $[0,1]$ via $a*b=\mathrm{min}\{a,b\}$ (i.e., take the minimum of $a$ and $b$).  Determine whether $*$ is a binary operation on $[0,1]$.
+Consider the closed interval $[0,1]$ and define $*$ on $[0,1]$ via $a*b=\min(a,b)$ (i.e., take the minimum of $a$ and $b$).  Determine whether $*$ is a binary operation on $[0,1]$.
 \end{problem}
 
 \begin{problem}\label{prob:introducing_R4}
@@ -394,6 +398,8 @@ Consider a square puzzle piece that fits perfectly into a square hole.  Let $R_4
 \item Is composition of symmetries a binary operation on $R_4$?
 \end{enumerate}
 \end{problem}
+
+Let's pause for a moment to make sure we understand our use of the word symmetry in this context. A fundamental question in mathematics is ``When are two things the same?", where ``things" can be whatever mathematical notion we happen to be thinking about at a particular moment. Right now we need to answer, ``When do we want to consider two symmetries to be the same?" To be clear, this is a choice, and different choices can lead to different, interesting, and equally valid mathematics. For symmetries, one natural thought is that symmetries are equal when they produce the same net action on the square, meaning that when applied to a square in a particular starting position, they both yield the same ending position. In general, two symmetries are equal if they produce the same net action on the object in question.
 
 The set $R_4$ is called the rotation group for the square. For $n\geq 3$, $R_n$ is the \textbf{rotation group} for the regular $n$-gon and consists of the rotational symmetries for a regular $n$-gon. As we shall see later, every $R_n$ really is a group under composition of symmetries.
 
@@ -452,7 +458,7 @@ Define the binary operation $*$ on $\mathbb{R}$ via $a*b=1+ab$. In this case, $a
 \end{problem}
 
 \begin{theorem}\label{thm:function_comp_associative}
-Let $A$ be a nonempty set and let $F$ be the set of functions from $A$ to $A$.  Then function composition is an associative binary operation on $F$.
+If $A$ is a nonempty set and $F$ is the set of functions from $A$ to $A$, then function composition is an associative binary operation on $F$.
 \end{theorem}
 
 When the set $A$ is finite, we can represent a binary operation on $A$ using a table in which the elements of the set are listed across the top and down the left side (in the same order).  The entry in the $i$th row and $j$th column of the table represents the output of combining the element that labels the $i$th row with the element that labels the $j$th column (order matters).
@@ -505,13 +511,13 @@ A \textbf{group} $(G,*)$ is a set $G$ together with a binary operation $*$ such 
 \begin{enumerate}
 \item[(0)] The set $G$ is closed under $*$.
 \item[(1)] The operation $*$ is associative.
-\item[(2)] There is an element $e\in G$ such that for all $g\in G$, $e*g=g*e=g$.  We call $e$ the \textbf{identity}.
+\item[(2)] There is an element $e\in G$ such that for all $g\in G$, $e*g=g*e=g$.  We call $e$ the \textbf{identity}.\footnote{The origin of using the letter $e$ for the identity of a group appears to be due to German mathematician Heinrich Weber, who uses ``einheit" (German for ``unit" or ``unity") and $e$ in his \emph{Lehrbuch der Algebra} (1896).}
 \item[(3)] Corresponding to each $g\in G$, there is an element $g'\in G$ such that $g*g'=g'*g=e$.  In this case, $g'$ is said to be an \textbf{inverse} of $g$.
 \end{enumerate}
 The \textbf{order} of $G$, denoted $|G|$, is the cardinality of the set $G$. If $|G|$ is finite, then we say that $G$ has finite order. Otherwise, we say that $G$ has infinite order.
 \end{definition}
 
-In the definition of a group, the binary operation $*$ is not required to be commutative.  If $*$ is commutative, then we say that $G$ is \textbf{abelian}. Commutative groups are called abelian in honor of the Norwegian mathematician Niels Abel (1802--1829). A few additional comments are in order.
+In the definition of a group, the binary operation $*$ is not required to be commutative.  If $*$ is commutative, then we say that $G$ is \textbf{abelian}\footnote{Commutative groups are called abelian in honor of the Norwegian mathematician Niels Abel (1802--1829).}. A few additional comments are in order.
 \begin{itemize}
 \item Axiom 2 forces $G$ to be nonempty.
 \item If $(G,*)$ is a group, then we say that \textbf{$G$ is a group under $*$}.
@@ -541,11 +547,13 @@ Determine whether each of the following is a group.  If the pair is a group, det
 \item $(\mathbb{Z},+)$
 \item $(\mathbb{N},+)$
 \item $(\mathbb{Z},\cdot)$
+\item $(\mathbb{Z},\div)$
 \item $(\mathbb{R},+)$
 \item $(\mathbb{R},\cdot)$
-\item $(\mathbb{R}\setminus \{0\},\cdot)$
+\item $(\mathbb{Q}\setminus \{0\},\cdot)$
 \item $(M_{2\times 2}(\mathbb{R}),+)$
 \item $(M_{2\times 2}(\mathbb{R}),*)$, where $*$ is matrix multiplication.
+\item $([0,1],*)$, where $a*b:=\min(a,b)$
 \item $(\{a,b,c\},*)$, where $*$ is the operation determined by the table in Example~\ref{example:table1}.
 \item $(\{x,y,z\},*)$, where $*$ is the operation determined by the table in Problem~\ref{prob:table}.
 \end{enumerate}
@@ -563,6 +571,8 @@ Provide an example of a group of order 1.  Can you find more than one such group
 
 Any group of order 1 is called a \textbf{trivial group}. It follows immediately from the definition of a group that the element of a trivial group must be the identity.
 
+It is important to note that if we have an equation involving the product of group elements, we can still ``do the same thing to both sides" and maintain equality. However, because general groups are not necessarily abelian, we have to be careful that we truly operate in the same way on each side. For example, if we have the equation $g = h$ in some group, then we also have $ag = ah$, where we ``multiplied" both sides on the left by the group element $a$. We could not necessarily conclude that $ag = ha$, unless one pair of the elements happen to commute with each other.
+
 The following theorem is crucial for proving many theorems about groups.
 
 \begin{theorem}[Cancellation Law]
@@ -579,21 +589,21 @@ Recall that Axiom~(3) of Definition~\ref{def:group} states that each element of 
 If $G$ is a group, then each $g\in G$ has a unique inverse.
 \end{theorem}
 
-In light of the previous theorem, the unique inverse of $g$ in a group $G$ will be denoted as $g^{-1}$.
+In light of the previous theorem, the unique inverse of $g\in G$ will be denoted as $g^{-1}$. In groups, it turns out that inverses are always ``two-sided". That is, ff $G$ is a group and $g,h\in G$ such that $gh=e$, then it must be the case that $hg=e$, as well. In this case, $g^{=1}=h$ and $h^{-1}=g$. However, there are mathematical structures where a ``left inverse" exists but the ``right inverse" does not. 
 
 \begin{theorem}\label{thm:unique_soln}
 If $G$ is a group, then for all $g,h\in G$, the equations $gx=h$ and $yg=h$ have unique solutions for $x$ and $y$ in $G$.  
 \end{theorem}
 
-While proving the previous few theorems, hopefully one of the things you realized is that you can multiply both sides of a group equation by the same element but that you have to do it on the same side of each half.  That is, since a group may or may not be abelian, if we multiply one side of an equation on the left by a group element, then we must multiply the other side of the equation on the left by the same group element.
+%Despite the fact that a group may or may not be abelian, the next result tells us that if one product is equal to the identity, then reversing the order yields the same result.
+%
+%\begin{theorem}
+%If $G$ is a group and $g,h\in G$ such that $gh=e$, then $hg=e$.
+%\end{theorem}
+%
+%The upshot of the previous theorem is if we have a ``left inverse" then we automatically have a ``right inverse" (and vice versa). 
 
-Despite the fact that a group may or may not be abelian, the next result tells us that if one product is equal to the identity, then reversing the order yields the same result.
-
-\begin{theorem}
-If $G$ is a group and $g,h\in G$ such that $gh=e$, then $hg=e$.
-\end{theorem}
-
-The upshot of the previous theorem is if we have a ``left inverse" then we automatically have a ``right inverse" (and vice versa). The next theorem should not be surprising.
+The next theorem should not be surprising.
 
 \begin{theorem}
 If $G$ is a group, then $(g^{-1})^{-1}=g$ for all $g\in G$.
@@ -621,21 +631,29 @@ If $G$ is a group under $+$, then we can reinterpret Definition~\ref{def:exponen
 \item $-ng=\underbrace{-g+-g+\cdots +-g}_{n\text{ summands}}$
 \item $0g=0$
 \end{enumerate}
+Notice all that we have done is taken the statements of Definition~\ref{def:exponents}, which use multiplicative notation for the group operation, and translated what they say in the case that the group operation uses additive notation.
 \end{remark}
 
-The good news is that the rules of exponents you are familiar with still hold for groups.
+The good news is that the many of the rules of exponents you are familiar with still hold for groups.
 
 \begin{theorem}\label{thm:exponents}
 If $G$ is a group and $g\in G$, then for all $n,m\in\mathbb{Z}$, we have the following:
 \begin{enumerate}[label=\rm{(\alph*)}]
 \item $g^ng^m=g^{n+m}$,
-\item $(g^n)^{-1}=g^{-n}$.
+\item $(g^n)^{-1}=g^{-n}$,
+\item $(g^n)^{m}=g^{nm}$.
 \end{enumerate}
 \end{theorem}
 
 \begin{problem}
 Reinterpret Theorem~\ref{thm:exponents} if $G$ is a group under addition.
 \end{problem}
+
+Unfortunately, there are some rules of exponents that do not apply for general groups.
+
+\begin{problem}
+Show with a specific example that for a group $G$ we may have $(ab)^2\neq a^2b^2$. What property would guarantee that $(ab)^2=a^2b^2$ for all $a,b\in G$? Is the converse of your claim true?
+\end{problem} 
 
 \end{section}
 
@@ -655,7 +673,13 @@ s_{x_1}s_{x_2}\cdots s_{x_n},
 where each $s_{x_i}$ is either an element from $S$ or the inverse of an element from $S$. Each $s_{x_i}$ is called a \textbf{letter} and the set $S$ is called the \textbf{alphabet}. By convention, the identity of $G$ can be represented by the \textbf{empty word}, which is the word having no letters. The set of elements of $G$ that can be written as words in $S$ is denoted by $\langle S\rangle$ and is called the \textbf{group generated by $S$}.
 \end{definition}
 
-For example, if $a, b,$ and $c$ are elements of a group $G$, then $ab$, $c^{-1}acc$, and $ab^{-1}caa^{-1}bc^{-1}$ are words in the set $\{a,b,c\}$.  It is important to point out that two different words may be equal to the same element in $G$. We saw this happen when we studied Spinpossible in Section~\ref{sec:first_example}. For example, see Problems~\ref{prob:3_different_spins}--\ref{prob:braid_relation}.
+It is important to pay close attention to our notation. While $S$ and $\langle S\rangle$ are both sets, the latter set is the set of elements we can build using letters and their inverses from $S$. It turns out that if $S$ is itself a group, then $S=\langle S\rangle$. Otherwise, $S$ is a proper subset of $\langle S\rangle$. 
+
+\begin{example}
+Suppose $G$ is a group such that $a,b,c\in G$ and let $S=\{a,b,c\}$. Then $ab$, $c^{-1}acc$, and $ab^{-1}caa^{-1}bc^{-1}$ are words in $\langle S\rangle$. If any one of these words is not equal to $a$, $b$, or $c$, then $\langle S\rangle$ is strictly larger than $S$.
+\end{example}
+
+It is worth mentioning that we are slightly abusing notation here. For nonempty $S\subset G$, we can form infinitely many words in $\langle S\rangle$, but often there are many words that represent the same group element. We can partition the collection of words in the alphabet $S$ into equivalence classes based on which group element a word represents. Strictly speaking, each group element is an equivalence class of words. When we say two words are equal in the group, what we really mean is that both words are in the same equivalence class.
 
 \begin{theorem}\label{thm:subgroup_generated_by_S}
 If $G$ is a group under $*$ and $S$ is a subset of $G$, then $\langle S\rangle$ is also a group under $*$.
@@ -1070,7 +1094,7 @@ Consider the Cayley diagram for $\Spin_{1\times 2}$ in Figure~\ref{fig:Cayley_Sp
 \end{problem}
 
 \begin{definition}
-Suppose $G$ is a group and $S$ is a generating set of $G$. The \textbf{Cayley diagram} for $G$ with generating set $S$ is a colored directed graph constructed as follows:
+Suppose $G$ is a group and $S$ is a generating set of $G$. The \textbf{Cayley diagram}\footnote{Cayley diagrams are named after their inventor Arthur Cayley, a nineteenth century British mathematician.} for $G$ with generating set $S$ is a colored directed graph constructed as follows:
 \begin{enumerate}[label=\rm{(\alph*)}]
 \item The vertices correspond to elements of $G$.
 \item Each generator $s\in S$ is assigned a color, say $c_s$.
@@ -1078,9 +1102,7 @@ Suppose $G$ is a group and $S$ is a generating set of $G$. The \textbf{Cayley di
 \end{enumerate}
 \end{definition}
 
-Note that following the arrow from $g$ to $sg$ with color $c_s$ corresponds to applying the action of $s$ to $g$. Moreover, following the arrow backwards from $sg$ to $g$ corresponds to applying $s^{-1}$ to $sg$. If a generator is its own inverse (like the spins in $\Spin_{1\times 2}$), then the arrows corresponding to that generator are two-way arrows.  
-
-Cayley diagrams are named after their inventor Arthur Cayley, a nineteenth century British mathematician.  We'll see his name pop up a couple more times in the course.  
+Note that following the arrow from $g$ to $sg$ with color $c_s$ corresponds to applying the action of $s$ to $g$. Moreover, following the arrow backwards from $sg$ to $g$ corresponds to applying $s^{-1}$ to $sg$. If a generator is its own inverse (like the spins in $\Spin_{1\times 2}$), then the arrows corresponding to that generator are two-way arrows.   
 
 Before asking you to construct some Cayley diagrams, let's play with another example. In the next problem you will encounter a Cayley diagram where all the edges are one-way arrows.
 
