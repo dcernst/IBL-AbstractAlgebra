@@ -220,11 +220,11 @@ Suppose $G$ is a group and let $g\in G$ such that $|g|=n$.  Then $g^i=g^j$ if an
 \end{corollary}
 
 \begin{theorem}
-The set $\mathbb{Z}_n$ is a group under addition mod $n$.  
+The set $\mathbb{Z}_n$ is a cyclic group under addition mod $n$.\footnote{There are two things to prove here.  First, you need to prove that $\mathbb{Z}_n$ is a group under addition mod $n$, and then you need to argue that the group is cyclic.}
 \end{theorem}
 
 \begin{theorem}
-The set $U_n$ is a group under multiplication mod $n$.  
+The set $U_n$ is an abelian group under multiplication mod $n$.\footnote{Like the previous theorem, there are two things to prove. First, prove that $U_n$ is a group under multiplication mod $n$, and then argue that the group is abelian.}
 \end{theorem}
 
 \begin{problem}
@@ -236,6 +236,8 @@ Consider $\mathbb{Z}_4$.
 \item Draw the subgroup lattice for $\mathbb{Z}_4$.
 \end{enumerate}
 \end{problem}
+
+The next two problems illustrate that $U_n$ may or may not be cyclic.
 
 \begin{problem}\label{prob:U10}
 Consider $U_{10}=\{1,3,7,9\}$.
@@ -258,19 +260,13 @@ Consider $U_{12}=\{1,5,7,11\}$.
 \end{enumerate}
 \end{problem}
 
-In light of Exercises~\ref{prob:U10} and \ref{prob:U12}, $U_n$ may or may not be cyclic. Nonetheless, as the next theorem illustrates, $U_n$ is always abelian.
-
-\begin{theorem}
-For all $n$, $U_n$ is abelian.
-\end{theorem}
-
 The upshot of the next theorem is that for $n\geq 3$, $\mathbb{Z}_n$ is just the set of exponents in the set $R_n=\{e,r,r^2,\ldots,r^{n-1}\}$ (where $e=r^0$).
 
 \begin{theorem}\label{thm:Zn_iso_to_Rn}
 For $n\geq 3$, $\mathbb{Z}_n\cong R_n$. Moreover, $\mathbb{Z}_2\cong S_2$ and $\mathbb{Z}_1$ is isomorphic to the trivial group.
 \end{theorem}
 
-One consequence of the previous theorem is that $\mathbb{Z}_n$ is always cyclic. Combining the results of Theorems~\ref{thm:finite_cyclic_groups} and \ref{thm:infinite_cyclic_groups} together with Theorem~\ref{thm:Zn_iso_to_Rn}, we immediately obtain the following.
+The next result can be thought of as a repackaging of Theorems~\ref{thm:finite_cyclic_groups} and \ref{thm:infinite_cyclic_groups}.
 
 \begin{theorem}
 Let $G$ be a cyclic group. If the order of $G$ is infinite, then $G$ is isomorphic to $\mathbb{Z}$. If $G$ has finite order $n$, then $G$ is isomorphic to $\mathbb{Z}_n$.
@@ -300,7 +296,7 @@ Let's further explore finite cyclic groups.
 If $G$ is a finite cyclic group with generator $g$ such that $|G|=n$, then for all $m\in\mathbb{Z}$, $\displaystyle |g^m|=\frac{n}{\gcd(n,m)}$.\footnote{By Corollary~\ref{cor:order_smallest_exponent}, the order of $g^m$ is the smallest positive exponent $k$ such that $(g^m)^k=e$. First, verify that $k=\frac{n}{\gcd(n,m)}$ has the desired property and then verify that it is the smallest such exponent.}
 \end{theorem}
 
-\begin{theorem}
+\begin{theorem}\label{thm:subgroups_gcd}
 If $G$ is a finite cyclic group with generator $g$ such that $|G|=n$, then $\langle g^m\rangle=\langle g^k\rangle$ if and only if $\gcd(m,n)=\gcd(k,n)$.\footnote{Use Theorem~\ref{thm:order_of_power} for the forward implication. For the reverse implication, first prove that for all $m\in\mathbb{Z}$, $\langle g^m\rangle=\langle g^{\gcd(m,n)}\rangle$ by proving two set containments. To show $\langle g^m\rangle\subseteq \langle g^{\gcd(m,n)}\rangle$, use the fact that there exists an integer $q$ such that $m=q\cdot \gcd(m,n)$. For the reverse containment, you may freely use a fact known as Bezout's Lemma, which states that $\gcd(m,n)=nx+my$ for some integers $x$ and $y$.}
 \end{theorem}
 
@@ -312,9 +308,13 @@ Suppose $G$ is a cyclic group of order 12 with generator $g$.
 \end{enumerate}
 \end{problem}
 
-\begin{corollary}
+\begin{corollary}\label{cor:generator_relatively_prime}
 Suppose $G$ is a finite cyclic group with generator $g$ such that $|G|=n$. Then $\langle g\rangle=\langle g^k\rangle$ if and only if $n$ and $k$ are relatively prime. That is, $g^k$ generates $G$ if and only if $n$ and $k$ are relatively prime.
 \end{corollary}
+
+\begin{problem}
+Theorem~\ref{thm:order_of_power}, Theorem~\ref{thm:subgroups_gcd}, and Corollary~\ref{cor:generator_relatively_prime} are written using multiplicative notation.  Rewrite both of these results using additive notation.
+\end{problem}
 
 \begin{problem}
 Consider $\mathbb{Z}_{18}$.
