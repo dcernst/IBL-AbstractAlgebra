@@ -16,7 +16,7 @@ A \textbf{ring} $R$ is a set together with two binary operations $+$ and $\cdot$
 
 \begin{remark}
 We make a couple comments about notation.
-\begin{enumerate}[label=\rm{(\alph*)}]
+\begin{enumerate}[label=\textrm{(\alph*)}]
 \item We often write $ab$ in place of $a\cdot b$.
 \item The additive inverse of the ring element $a\in R$ is denoted $-a$.
 \end{enumerate}
@@ -24,7 +24,7 @@ We make a couple comments about notation.
 
 \begin{theorem}
 If $R$ is a ring, then for all $a,b\in R$:
-\begin{enumerate}[label=\rm{(\alph*)}]
+\begin{enumerate}[label=\textrm{(\alph*)}]
 \item $0a=a0=0$
 \item $(-a)b=a(-b)=-(ab)$
 \item $(-a)(-b)=ab$
@@ -53,7 +53,7 @@ Consider the set $\mathbb{Z}_{10}=\{0,1,2,3,4,5,6,7,8,9\}$. Which elements have 
 
 \begin{problem}
 For each of the following, find a positive integer $n$ such that the ring $\mathbb{Z}_n$ does not have the stated property.
-\begin{enumerate}[label=\rm{(\alph*)}]
+\begin{enumerate}[label=\textrm{(\alph*)}]
 \item $a^2=a$ implies $a=0$ or $a=1$.
 \item $ab=0$ implies $a=0$ or $b=0$.
 \item $ab=ac$ and $a\neq 0$ imply $b=c$.
@@ -102,7 +102,7 @@ Assume $R$ is a ring with $1$ with $1\neq 0$. An element $u\in R$ is called a \t
 
 \begin{problem}
 Consider the ring $\mathbb{Z}_{20}$.
-\begin{enumerate}[label=\rm{(\alph*)}]
+\begin{enumerate}[label=\textrm{(\alph*)}]
 \item Find $U(\mathbb{Z}_{20})$.
 \item Find the zero divisors of $\mathbb{Z}_{20}$.
 \item Any observations?
@@ -115,7 +115,7 @@ If $U(R)\neq\emptyset$, then $U(R)$ forms a group under multiplication.
 
 \begin{remark}
 We make a few observations.
-\begin{enumerate}[label=\rm{(\alph*)}]
+\begin{enumerate}[label=\textrm{(\alph*)}]
 \item A field is a commutative ring $F$ with identity $1\neq 0$ in which every nonzero element is a unit, i.e., $U(F)=F\setminus\{0\}$.
 \item Zero divisors can never be units.
 \item Fields never have zero divisors.
@@ -140,7 +140,7 @@ Any finite integral domain is a field.
 
 \begin{example}
 Here are a few examples.  Details left as an exercise.
-\begin{enumerate}[label=\rm{(\alph*)}]
+\begin{enumerate}[label=\textrm{(\alph*)}]
 \item \textbf{Zero Ring}: If $R=\{0\}$, we can turn $R$ into a ring in the obvious way.  The zero ring is a finite commutative ring with 1.  It is the only ring where the additive and multiplicative identities are equal.  The zero ring is not a division ring, not a field, and not an integral domain.
 \item \textbf{Trivial Ring:} Given any abelian group $R$, we can turn $R$ into a ring by defining multiplication via $ab=0$ for all $a,b\in R$. Trivial rings are commutative rings in which every nonzero element is a zero divisor.  Hence a trivial ring is not a division ring, not a field, and not a integral domain.
 \item 
@@ -172,7 +172,7 @@ The property ``is a subring" is clearly transitive. To show that a subset $S$ of
 
 \begin{example}
 Here are a few quick examples.
-\begin{enumerate}[label=\rm{(\alph*)}]
+\begin{enumerate}[label=\textrm{(\alph*)}]
 \item $\mathbb{Z}$ is a subring of $\mathbb{Q}$, which is a subring of $\mathbb{R}$, which in turn is a subring of $\mathbb{C}$.
 \item $2\mathbb{Z}$ is a subring of $\mathbb{Z}$.
 \item The set $\mathbb{Z}(\sqrt{2})=\{a+b\sqrt{2}\mid a,b\in\mathbb{Z}\}$ is a subring of $\mathbb{Q}(\sqrt{2})$.
@@ -185,7 +185,7 @@ Here are a few quick examples.
 
 \begin{problem}
 Consider the ring $\mathbb{Z}_{10}$ from Problem~\ref{prob:Z10Ring}. Let $S=\{0,2,4,6,8\}$.
-\begin{enumerate}[label=\rm{(\alph*)}]
+\begin{enumerate}[label=\textrm{(\alph*)}]
 \item Argue that $S$ is a subring of $\mathbb{Z}_{10}$.
 \item Is $S$ a ring with 1?  If so, find the multiplicative identity.  If not, explain why.
 \item Is $S$ a field? Justify your answer.
@@ -206,7 +206,7 @@ Consider the ring $\mathbb{Z}$.  It turns out that $2\mathbb{Z}$ and $3\mathbb{Z
 
 \begin{definition}
 Let $R$ and $S$ be rings.  A \textbf{ring homomorphism} is a map $\phi:R\to S$ satisfying
-\begin{enumerate}[label=\rm{(\alph*)}]
+\begin{enumerate}[label=\textrm{(\alph*)}]
 \item $\phi(a+b)=\phi(a)+\phi(b)$
 \item $\phi(ab)=\phi(a)\phi(b)$
 \end{enumerate}
@@ -215,7 +215,7 @@ for all $a,b\in R$. The \textbf{kernel} of $\phi$ is defined via $\ker(\phi)=\{a
 
 \begin{example}
 \ 
-\begin{enumerate}[label=\rm{(\alph*)}]
+\begin{enumerate}[label=\textrm{(\alph*)}]
 \item For $n\in \mathbb{Z}$, define $\phi_n:\mathbb{Z}\to \mathbb{Z}$ via $\phi_n(x)=nx$.  We see that $\phi_n(x+y)=n(x+y)=nx+ny=\phi_n(x)+\phi_n(y)$.  However, $\phi_n(xy)=n(xy)$ while $\phi_n(x)\phi_n(y)=(nx)(ny)=n^2xy$.  It follows that $\phi_n$ is a ring homomorphism exactly when $n\in\{0,1\}$.
 \item Define $\phi:\mathbb{Q}[x]\to \mathbb{Q}$ via $\phi(p(x))=p(0)$ (called \textbf{evaluation at 0}).  It turns out that $\phi$ is a ring homomorphism, where $\ker(\phi)$ is the set of polynomials with 0 constant term.
 \end{enumerate}
@@ -223,7 +223,7 @@ for all $a,b\in R$. The \textbf{kernel} of $\phi$ is defined via $\ker(\phi)=\{a
 
 \begin{problem}
 For each of the following, determine whether the given function is a ring homomorphism.  Justify your answers.
-\begin{enumerate}[label=\rm{(\alph*)}]
+\begin{enumerate}[label=\textrm{(\alph*)}]
 \item Define $\phi:\mathbb{Z}_4\to \mathbb{Z}_{12}$ via $\phi(x)=3x$.
 \item Define $\phi:\mathbb{Z}_{10}\to \mathbb{Z}_{10}$ via $\phi(x)=5x$.
 \item Let $\displaystyle S=\left\{\begin{pmatrix}a & b\\ -b & a\end{pmatrix}\mid a, b\in \mathbb{R}\right\}$.  Define $\phi:\mathbb{C}\to S$ via $\displaystyle \phi(a+ib)=\begin{pmatrix}a & b\\ -b & a\end{pmatrix}$.
@@ -233,7 +233,7 @@ For each of the following, determine whether the given function is a ring homomo
 
 \begin{theorem}\label{thm:kernelsubring}
 Let $\phi:R\to S$ be a ring homomorphism.
-\begin{enumerate}[label=\rm{(\alph*)}]
+\begin{enumerate}[label=\textrm{(\alph*)}]
 \item $\phi(R)$ is a subring of $S$.
 \item $\ker(\phi)$ is a subring of $R$.
 \end{enumerate}
@@ -292,7 +292,7 @@ We have shown that the quotient $R/I$ of the ring $R$ by a subgroup $I$ has a na
 
 \begin{definition}
 Let $R$ be a ring and let $I$ be a subset of $R$.
-\begin{enumerate}[label=\rm{(\alph*)}]
+\begin{enumerate}[label=\textrm{(\alph*)}]
 \item $I$ is a \textbf{left ideal} (respectively, \textbf{right ideal}) of $R$ if $I$ is a subring and $rI\subseteq I$ (respectively, $Ir\subseteq I$) for all $r\in R$.
 \item $I$ is an \textbf{ideal} (or \textbf{two-sided ideal}) if $I$ is both a left and a right ideal.
 \end{enumerate}
@@ -339,7 +339,7 @@ Let $A$ be any subset of $R$. Let $(A)$ denote the smallest ideal of $R$ contain
 
 \begin{remark}
 The following facts are easily verified.
-\begin{enumerate}[label=\rm{(\alph*)}]
+\begin{enumerate}[label=\textrm{(\alph*)}]
 \item $(A)$ is the intersection of all ideals containing $A$.
 \item If $R$ is commutative, then $(a)=aR:=\{ar\mid r\in R\}$.
 \end{enumerate}
@@ -379,7 +379,7 @@ Assume $R$ is a commutative ring with 1. An ideal $M$ in a ring $R$ is called a 
 
 \begin{example}
 Here are a few examples.  Checking the details is left as an exercise.
-\begin{enumerate}[label=\rm{(\alph*)}]
+\begin{enumerate}[label=\textrm{(\alph*)}]
 \item In $\mathbb{Z}$, all the ideals are of the form $n\mathbb{Z}$ for $n\in\mathbb{Z}^+$.  The maximal ideals correspond to the ideals $p\mathbb{Z}$, where $p$ is prime.
 \item Consider the integral domain $\mathbb{Z}[x]$.  The ideals $(x)$ (i.e., the subring containing polynomials with 0 constant term) and $(2)$ (i.e, the set of polynomials with even coefficients) are not maximal since both are contained in the proper ideal $(2,x)$.  However, as we shall see soon, $(2,x)$ is maximal in $\mathbb{Z}[x]$.
 \item The zero ring has no maximal ideals.
@@ -401,7 +401,7 @@ Assume $R$ is a commutative ring with 1.  Then $M$ is a maximal ideal if and onl
 
 \begin{example}
 We can use the previous theorem to verify whether an ideal is maximal.
-\begin{enumerate}[label=\rm{(\alph*)}]
+\begin{enumerate}[label=\textrm{(\alph*)}]
 \item Recall that $\mathbb{Z}/n\mathbb{Z}\cong \mathbb{Z}_n$ and that $\mathbb{Z}_n$ is a field if and only if $n$ is prime.  We can conclude that $n\mathbb{Z}$ is a maximal ideal precisely when $n$ is prime.
 \item Define $\phi:\mathbb{Z}[x]\to\mathbb{Z}$ via $\phi(p(x))=p(0)$.  Then $\phi$ is surjective and $\ker(\phi)=(x)$.  By the First Isomorphism Theorem for Rings, we see that $\mathbb{Z}[x]/(x)\cong \mathbb{Z}$.  However, $\mathbb{Z}$ is not a field.  Hence $(x)$ is not maximal in $\mathbb{Z}[x]$.  Now, define $\psi:\mathbb{Z}\to\mathbb{Z}_2$ via $\psi(x)=x\mod 2$ and consider the composite homomorphism $\psi\circ\phi:\mathbb{Z}\to\mathbb{Z}_2$.    It is clear that $\psi\circ\phi$ is onto and the kernel of $\psi\circ\phi$ is given by $\{p(x)\in\mathbb{Z}[x]\mid p(0)\in 2\mathbb{Z}\}=(2,x)$. Again by the First Isomorphism Theorem for Rings, $\mathbb{Z}[x]/(2,x)\cong \mathbb{Z}_2$.  Since $\mathbb{Z}_2$ is a field, $(2,x)$ is a maximal ideal.
 \end{enumerate}
