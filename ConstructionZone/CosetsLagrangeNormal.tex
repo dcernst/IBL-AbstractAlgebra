@@ -187,7 +187,7 @@ and
 \begin{center}
 $a\sim_R b$ if and only if $ab^{-1}\in H$.
 \end{center}
-Then both $\sim_L$ and $\sim_R$ are equivalence relations.\footnote{You only need to prove that either $\sim_L$ or $\sim_R$ is an equivalence relation as the proof for the other is similar.}
+Then both $\sim_L$ and $\sim_R$ are equivalence relations.\emph{Note:} You only need to prove that either $\sim_L$ or $\sim_R$ is an equivalence relation as the proof for the other is similar.
 \end{theorem}
 
 Since $\sim_L$ and $\sim_R$ are equivalence relations, the corresponding equivalence classes form a partition of $G$. If $a\in G$, then the ``left" and ``right" equivalence classes containing $a$ are given by
@@ -214,8 +214,10 @@ Next, we argue that all of the cosets have the same size.
 Let $G$ be a group, $H\leq G$, and $a\in G$.  Define $\phi:H\to aH$ via $\phi(h)=ah$.  Then $\phi$ is one-to-one and onto.
 \end{theorem}
 
+In the next result, $\#(aH)$ denotes the size of $aH$. Note that everything works out just fine even if $H$ has infinite order.
+
 \begin{corollary}\label{cor:cosets_same_size}
-Let $G$ be a group and let $H\leq G$.  Then all of the left and right cosets of $H$ are the same size as $H$.  In other words $\#(aH)=|H|=\#(Ha)$ for all $a\in G$.\footnote{As you probably expect, $\#(aH)$ denotes the size of $aH$. Note that everything works out just fine even if $H$ has infinite order.}
+Let $G$ be a group and let $H\leq G$.  Then all of the left and right cosets of $H$ are the same size as $H$.  In other words $\#(aH)=|H|=\#(Ha)$ for all $a\in G$.
 \end{corollary}
 
 The next theorem provides a useful characterization of cosets.  Each part can either be proved directly or by appealing to previous results in this section.

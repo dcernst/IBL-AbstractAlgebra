@@ -1,6 +1,24 @@
 \chapter{An Introduction to Groups}
 \label{chapter:intro_groups}
 
+%verts
+\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=6.5mm]
+\tikzstyle{vert-fat} = [circle, draw, fill=grey,inner sep=0pt, minimum size=7mm]
+\tikzstyle{vert-superfat} = [circle, draw, fill=grey,inner sep=0pt, minimum size=13mm]
+\tikzstyle{v-faded} = [circle, draw, grey, fill=lightgrey,inner sep=0pt, minimum size=1.25mm]
+\tikzstyle{v-tiny} = [circle, draw, fill=lightgrey,inner sep=0pt, minimum size=2.5mm]
+
+%edges
+\tikzstyle{p} = [draw, very thick, cb-purple,-stealth]
+\tikzstyle{p2} = [draw, very thick, cb-purple,stealth-stealth]
+\tikzstyle{o} = [draw, very thick, cb-orange,-stealth]
+\tikzstyle{o2} = [draw, very thick, cb-orange,stealth-stealth]
+\tikzstyle{g} = [draw, very thick, cb-green,-stealth]
+\tikzstyle{g2} = [draw, very thick, cb-green, stealth-stealth]
+\tikzstyle{p2-faded} = [draw, thick, cb-lightpurple,stealth-stealth]
+\tikzstyle{o2-faded} = [draw, thick, dashed, cb-lightorange,stealth-stealth]
+\tikzstyle{g2-faded} = [draw, thick, cb-lightgreen,stealth-stealth]
+
 %%----------------------------%%
 
 One of the major topics of this course is \textbf{groups}.  The area of mathematics that is concerned with groups is called \textbf{group theory}. Loosely speaking, group theory is the study of symmetry, and in my opinion is one of the most beautiful areas in all of mathematics. It arises in puzzles, visual arts, music, nature, the physical and life sciences, computer science, cryptography, and of course, throughout mathematics.
@@ -11,7 +29,7 @@ One of the major topics of this course is \textbf{groups}.  The area of mathemat
 
 %%----------------------------%%
 
-Let's begin our study by developing some intuition about what groups actually are.  To get started, we will explore the game Spinpossible\texttrademark, which used to be available for iOS and Android devices\footnote{If you'd like to play the game, try going here: \url{https://www.kongregate.com/games/spinpossible}.}.  The game is played on a $3\times 3$ board of scrambled tiles numbered 1 to 9, each of which may be right-side-up or up-side-down. The objective of the game is to return the board to the standard configuration where tiles are arranged in numerical order and right-side-up. This is accomplished by a sequence of ``spins", where a spin consists of rotating an $m\times n$ subrectangle by 180$^\circ$. The goal is to minimize the number of spins used.  The following figure depicts a scrambled board on the left and the solved board on the right.  The sequence of arrows is used to denote some sequence of spins that transforms the scrambled board into the solved board.
+Let's begin our study by developing some intuition about what groups actually are.  To get started, we will explore the game Spinpossible\texttrademark, which used to be available for iOS and Android devices. The game is played on a $3\times 3$ board of scrambled tiles numbered 1 to 9, each of which may be right-side-up or up-side-down. The objective of the game is to return the board to the standard configuration where tiles are arranged in numerical order and right-side-up. This is accomplished by a sequence of ``spins", where a spin consists of rotating an $m\times n$ subrectangle by 180$^\circ$. The goal is to minimize the number of spins used.  The following figure depicts a scrambled board on the left and the solved board on the right.  The sequence of arrows is used to denote some sequence of spins that transforms the scrambled board into the solved board.
 
 \begin{center}
 \begin{tabular}{c}\includegraphics[width=1.5in]{scramble1.PNG}\end{tabular}
@@ -206,6 +224,8 @@ It turns out that there are multiple ways to unscramble this board, but I have o
 \end{center}
 In this case, we were able to solve the scrambled board in 3 moves.  It's not immediately obvious, but it turns out that there is no way to unscramble the board in fewer than 3 spins.  However, there is at least one other solution that involves exactly 3 spins.
 
+If you would like to tinker with Spinpossible yourself, check out Jeff Slye's interactive implementation of the game, located here: \url{https://jslyemath.itch.io/spin3x3}. 
+
 \begin{problem}\label{prob:number_spinpossible_boards}
 How many scrambled $3\times 3$ Spinpossible boards are there?  To answer this question, you will need to rely on some counting principles such as factorials. In this context, we want to include the solved board as one of the scrambled boards---it's just not very scrambled.
 \end{problem}
@@ -316,7 +336,7 @@ In the previous problem, you discovered that the composition of two spins may or
 
 Let's collect our key observations about $\Spin_{3\times 3}$.
 \begin{enumerate}[label=\rm{(\arabic*)}]
-\item \textbf{Generating Set:} The set of spins generates $\Spin_{3\times 3}$.  That is, every net action from $\Spin_{3\times 3}$ corresponds to a word consisting of spins.\footnote{The case of Spinpossible is a little misleading. Since each spin is its own inverse, we never need to write words consisting of spins with inverses. However, as we shall see later, there are situations outside the context of Spinpossible where we will need to utilize inverses of elements from a generating set.} 
+\item \textbf{Generating Set:} The set of spins generates $\Spin_{3\times 3}$.  That is, every net action from $\Spin_{3\times 3}$ corresponds to a word consisting of spins. It is worth mentioning that the case of Spinpossible is a little misleading. Since each spin is its own inverse, we never need to write words consisting of spins with inverses. However, as we shall see later, there are situations outside the context of Spinpossible where we will need to utilize inverses of elements from a generating set. 
 \item \textbf{Closure:} The composition of any two net actions from $\Spin_{3\times 3}$ results in a net action from $\Spin_{3\times 3}$.
 \item \textbf{Associative:} The composition of net actions from $\Spin_{3\times 3}$ is associative.
 \item \textbf{Identity:} There is an identity in $\Spin_{3\times 3}$ whose corresponding net action is ``do nothing".
@@ -362,7 +382,7 @@ Taking for granted that $T$ is a generating set for $\Spin_{3\times 3}$, determi
 Before beginning our formal study of groups, we need to have an understanding of binary operations. After learning to count as a child, you likely learned how to add, subtract, multiply, and divide with real numbers.  As long as we avoid division by zero, these operations are examples of binary operations since we are combining two objects to obtain a single object.  More formally, we have the following definition.
 
 \begin{definition}
-A \textbf{binary operation} $*$ on a set $A$ is a function from $A\times A$ into $A$.  For each $(a,b)\in A\times A$, we denote the element $*(a,b)$ via $a*b$.  If the context is clear, we may abbreviate $a*b$ as $ab$.
+A \textbf{binary operation} $*$ on a set $A$ is a function $*:A\times A\to A$.  For each $(a,b)\in A\times A$, we denote the element $*(a,b)$ via $a*b$.  If the context is clear, we may abbreviate $a*b$ as $ab$.
 \end{definition}
 
 Don't misunderstand the use of $*$ in this context.  We are not implying that $*$ is the ordinary multiplication of real numbers that you are familiar with.  We use $*$ to represent a generic binary operation.  
@@ -511,13 +531,15 @@ A \textbf{group} $(G,*)$ is a set $G$ together with a binary operation $*$ such 
 \begin{enumerate}
 \item[(0)] The set $G$ is closed under $*$.
 \item[(1)] The operation $*$ is associative.
-\item[(2)] There is an element $e\in G$ such that for all $g\in G$, $e*g=g*e=g$.  We call $e$ the \textbf{identity}.\footnote{The origin of using the letter $e$ for the identity of a group appears to be due to German mathematician Heinrich Weber, who uses ``einheit" (German for ``unit" or ``unity") and $e$ in his \emph{Lehrbuch der Algebra} (1896).}
+\item[(2)] There is an element $e\in G$ such that for all $g\in G$, $e*g=g*e=g$.  We call $e$ the \textbf{identity}.
 \item[(3)] Corresponding to each $g\in G$, there is an element $g'\in G$ such that $g*g'=g'*g=e$.  In this case, $g'$ is said to be an \textbf{inverse} of $g$.
 \end{enumerate}
 The \textbf{order} of $G$, denoted $|G|$, is the cardinality of the set $G$. If $|G|$ is finite, then we say that $G$ has finite order. Otherwise, we say that $G$ has infinite order.
 \end{definition}
 
-In the definition of a group, the binary operation $*$ is not required to be commutative.  If $*$ is commutative, then we say that $G$ is \textbf{abelian}\footnote{Commutative groups are called abelian in honor of the Norwegian mathematician Niels Abel (1802--1829).}. A few additional comments are in order.
+The origin of using the letter $e$ for the identity of a group appears to be due to German mathematician \href{https://en.wikipedia.org/wiki/Heinrich_Martin_Weber}{Heinrich Weber}, who uses ``einheit" (German for ``unit" or ``unity") and $e$ in his \emph{Lehrbuch der Algebra} (1896).
+
+In the definition of a group, the binary operation $*$ is not required to be commutative.  If $*$ is commutative, then we say that $G$ is \textbf{abelian}. Commutative groups are called abelian in honor of the Norwegian mathematician \href{https://en.wikipedia.org/wiki/Niels_Henrik_Abel}{Niels Henrik Abel} (1802--1829). A few additional comments are in order.
 \begin{itemize}
 \item Axiom 2 forces $G$ to be nonempty.
 \item If $(G,*)$ is a group, then we say that \textbf{$G$ is a group under $*$}.
@@ -551,7 +573,7 @@ Determine whether each of the following is a group.  If the pair is a group, det
 \item $(\mathbb{R},+)$
 \item $(\mathbb{R},\cdot)$
 \item $(\mathbb{Q}\setminus \{0\},\cdot)$
-\item $(M_{2\times 2}(\mathbb{R}),+)$ \quad \emph{Note:} $M_{2\times 2}(\mathbb{R})$ is the set of $2\times 2$ matrices.
+\item $(M_{2\times 2}(\mathbb{R}),+)$ \quad \emph{Note:} $M_{2\times 2}(\mathbb{R})$ is the set of $2\times 2$ matrices with real number entries.
 \item $(M_{2\times 2}(\mathbb{R}),*)$, where $*$ is matrix multiplication.
 \item $([0,1],*)$, where $a*b:=\min(a,b)$
 \item $(\{a,b,c\},*)$, where $*$ is the operation determined by the table in Example~\ref{example:table1}.
@@ -576,7 +598,7 @@ It is important to note that if we have an equation involving the product of gro
 The following theorem is crucial for proving many theorems about groups.
 
 \begin{theorem}[Cancellation Law]
-Let $G$ be a group and let $g,x,y\in G$.  Then $gx=gy$ if and only if $x=y$.  Similarly, $xg=yg$ if and only if $x=y$.\footnote{You only need to prove one of these statements as the proof of the other is similar.}
+Let $G$ be a group and let $g,x,y\in G$.  Then $gx=gy$ if and only if $x=y$.  Similarly, $xg=yg$ if and only if $x=y$.\emph{Note:} You only need to prove one of these statements as the proof of the other is similar.
 \end{theorem}
 
 \begin{problem}
@@ -592,7 +614,7 @@ If $G$ is a group, then each $g\in G$ has a unique inverse.
 In light of the previous theorem, the unique inverse of $g\in G$ will be denoted as $g^{-1}$. In groups, it turns out that inverses are always ``two-sided". That is, if $G$ is a group and $g,h\in G$ such that $gh=e$, then it must be the case that $hg=e$, as well. In this case, $g^{-1}=h$ and $h^{-1}=g$. However, there are mathematical structures where a ``left inverse" exists but the ``right inverse" does not. 
 
 \begin{theorem}\label{thm:unique_soln}
-If $G$ is a group, then for all $g,h\in G$, the equations $gx=h$ and $yg=h$ have unique solutions for $x$ and $y$ in $G$.  
+If $G$ is a group, then for all $g,h\in G$, the equation $gx=h$ has a unique solution for $x$ in $G$. Similarly, the equation $xg=h$ has a unique solution. \emph{Note:} You only need to prove one of these statements as the proof for the other is similar.
 \end{theorem}
 
 %Despite the fact that a group may or may not be abelian, the next result tells us that if one product is equal to the identity, then reversing the order yields the same result.
@@ -668,10 +690,12 @@ In this section, we explore the concept of a generating set for a group.
 \begin{definition}
 Let $G$ be a group and let $S$ be a subset of $G$. A finite product (under the operation of $G$) consisting of elements from $S$ or their inverses is called a \textbf{word} in $S$. That is, a word in $S$ is of the form
 \[
-s_{x_1}s_{x_2}\cdots s_{x_n},
+s_{1}^{\varepsilon_1}s_{2}^{\varepsilon_2}\cdots s_{n}^{\varepsilon_n},
 \]
-where each $s_{x_i}$ is either an element from $S$ or the inverse of an element from $S$. Each $s_{x_i}$ is called a \textbf{letter} and the set $S$ is called the \textbf{alphabet}. By convention, the identity of $G$ can be represented by the \textbf{empty word}, which is the word having no letters. The set of elements of $G$ that can be written as words in $S$ is denoted by $\langle S\rangle$ and is called the \textbf{group generated by $S$}.
+where each $s_{i}\in S$ and $\varepsilon_i\in\{\pm 1\}$. Each $s_{i}$ is called a \textbf{letter} and the set $S$ is called the \textbf{alphabet}. By convention, the identity of $G$ can be represented by the \textbf{empty word}, which is the word having no letters. The set of elements of $G$ that can be written as words in $S$ is denoted by $\langle S\rangle$ and is called the \textbf{group generated by $S$}.
 \end{definition}
+
+It is worth mentioning that we are slightly abusing notation here. For nonempty $S\subseteq G$, we can form infinitely many words in $\langle S\rangle$, but often there are many words that represent the same group element. We can partition the collection of words in the alphabet $S$ into equivalence classes based on which group element a word represents. Strictly speaking, each group element is an equivalence class of words. When we say two words are equal in the group, what we really mean is that both words are in the same equivalence class.
 
 It is important to pay close attention to our notation. While $S$ and $\langle S\rangle$ are both sets, the latter set is the set of elements we can build using letters and their inverses from $S$. It turns out that if $S$ is itself a group, then $S=\langle S\rangle$. Otherwise, $S$ is a proper subset of $\langle S\rangle$. 
 
@@ -836,25 +860,25 @@ Thankfully, we can rely on some prior knowledge to help out with associativity. 
 \begin{quotation}
 \emph{the product of corresponding elements yields the corresponding result.}
 \end{quotation}
-To see what I mean, let's color both tables with white, red, blue, and green in such a way that each element corresponds to a unique color.  If we choose our colors wisely, it is easy to see that both tables have the same structure.
+To see what I mean, let's color both tables with white, {\color{cb-orange}orange}, {\color{cb-purple}purple}, and {\color{cb-green}green} in such a way that each element corresponds to a unique color.  If we choose our colors wisely, it is easy to see that both tables have the same structure.
 
 \begin{center}
 \begin{tabular}{c!{\vrule width 2pt}c|c|c|c}
-$\circ$ & $e$ & \cellcolor{red}$v$ & \cellcolor{blue}$h$ & \cellcolor{green}$vh$ \\ \noalign{\hrule height 2pt}
-$e$ & $e$ & \cellcolor{red}$v$ & \cellcolor{blue}$h$ & \cellcolor{green}$vh$ \\
-\hline \cellcolor{red}$v$ & \cellcolor{red}$v$ & $e$ & \cellcolor{green}$vh$ & \cellcolor{blue}$h$  \\
-\hline \cellcolor{blue}$h$ & \cellcolor{blue}$h$ & \cellcolor{green}$vh$ & $e$ & \cellcolor{red}$v$\\
-\hline \cellcolor{green}$vh$ & \cellcolor{green}$vh$ & \cellcolor{blue}$h$ & \cellcolor{red}$v$ & $e$
+$\circ$ & \cellcolor{cb-lightorange}$e$ & \cellcolor{cb-orange}$v$ & \cellcolor{cb-purple}$h$ & \cellcolor{cb-lightpurple}$vh$ \\ \noalign{\hrule height 2pt}
+\cellcolor{cb-lightorange}$e$ & \cellcolor{cb-lightorange}$e$ & \cellcolor{cb-orange}$v$ & \cellcolor{cb-purple}$h$ & \cellcolor{cb-lightpurple}$vh$ \\
+\hline \cellcolor{cb-orange}$v$ & \cellcolor{cb-orange}$v$ & \cellcolor{cb-lightorange}$e$ & \cellcolor{cb-lightpurple}$vh$ & \cellcolor{cb-purple}$h$  \\
+\hline \cellcolor{cb-purple}$h$ & \cellcolor{cb-purple}$h$ & \cellcolor{cb-lightpurple}$vh$ & \cellcolor{cb-lightorange}$e$ & \cellcolor{cb-orange}$v$\\
+\hline \cellcolor{cb-lightpurple}$vh$ & \cellcolor{cb-lightpurple}$vh$ & \cellcolor{cb-purple}$h$ & \cellcolor{cb-orange}$v$ & \cellcolor{cb-lightorange}$e$
 \end{tabular}
 \hspace{1cm}
 $\longleftrightarrow$
 \hspace{1cm}
 \begin{tabular}{c!{\vrule width 2pt}c|c|c|c}
-$*$ & $e$ & \cellcolor{red}$a$ & \cellcolor{blue}$b$ & \cellcolor{green}$c$ \\ \noalign{\hrule height 2pt}
-$e$ & $e$ & \cellcolor{red}$a$ & \cellcolor{blue}$b$ & \cellcolor{green}$c$ \\
-\hline \cellcolor{red}$a$ & \cellcolor{red}$a$ & $e$ & \cellcolor{green}$c$ & \cellcolor{blue}$b$  \\
-\hline \cellcolor{blue}$b$ & \cellcolor{blue}$b$ & \cellcolor{green}$c$ & $e$ & \cellcolor{red}$a$\\
-\hline \cellcolor{green}$c$ & \cellcolor{green}$c$ & \cellcolor{blue}$b$ & \cellcolor{red}$a$ & $e$
+$*$ & \cellcolor{cb-lightorange}$\; e\; $ & \cellcolor{cb-orange}$\; a\;$ & \cellcolor{cb-purple}$\; b\;$ & \cellcolor{cb-lightpurple}$\; c\;$ \\ \noalign{\hrule height 2pt}
+\cellcolor{cb-lightorange}$\; e\;$ & \cellcolor{cb-lightorange}$e$ & \cellcolor{cb-orange}$a$ & \cellcolor{cb-purple}$b$ & \cellcolor{cb-lightpurple}$c$ \\
+\hline \cellcolor{cb-orange}$a$ & \cellcolor{cb-orange}$a$ & \cellcolor{cb-lightorange}$e$ & \cellcolor{cb-lightpurple}$c$ & \cellcolor{cb-purple}$b$  \\
+\hline \cellcolor{cb-purple}$b$ & \cellcolor{cb-purple}$b$ & \cellcolor{cb-lightpurple}$c$ & \cellcolor{cb-lightorange}$e$ & \cellcolor{cb-orange}$a$\\
+\hline \cellcolor{cb-lightpurple}$c$ & \cellcolor{cb-lightpurple}$c$ & \cellcolor{cb-purple}$b$ & \cellcolor{cb-orange}$a$ & \cellcolor{cb-lightorange}$e$
 \end{tabular}
 \end{center}
 
@@ -898,7 +922,7 @@ Let $\Spin_{1\times 2}$ denote the group of net actions that corresponds to comp
 
 Let's try to make a map for $\Spin_{1\times 2}$, but instead of writing a solution manual, we will draw a diagram of the group.  The first thing we'll do is draw each of the scramblings that we found in the previous problem.  It doesn't matter how we arrange all of these drawings, as long as there is some space between them.  Now, for each of our 8 scrambled boards, figure out what happens when we do each of our 3 allowable spins.  For each of these spins, we'll draw an arrow from the scrambled board under consideration to the resulting board.  Don't worry about whether doing each of these spins is a good idea or not.  In this case, each of our scrambled boards will have 3 arrows heading out towards 3 distinct boards.  Do you see why?  
 
-In order for us to keep straight what each arrow represents, let's color our arrows, so that doing a particular type of spin is always the same color.  For example, we could color the arrows that toggle the tile in the first position as green.  Recall that doing the same spin twice has the net effect of doing nothing, so let's just make all of our arrows point in both directions.
+In order for us to keep straight what each arrow represents, let's color our arrows, so that doing a particular type of spin is always the same color.  For example, we could color the arrows that toggle the tile in the first position as {\color{cb-green}green}.  Recall that doing the same spin twice has the net effect of doing nothing, so let's just make all of our arrows point in both directions.
 
 To make sure you are following along, consider the following scrambled board.
 
@@ -910,11 +934,6 @@ To make sure you are following along, consider the following scrambled board.
 \end{center}
 
 \noindent This board is one of our 8 possible scrambled $1\times 2$ boards.  We have three possible spins we can do to this board: toggle position 1, toggle position 2, or spin the whole board.  Each of these spins has a corresponding two-way arrow that takes us to three different scrambled boards.  Figure~\ref{fig:partial_Cayley} provides a visual representation of what we just discussed.
-
-\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=6.5mm]
-\tikzstyle{b} = [draw,very thick,blue,stealth-stealth]
-\tikzstyle{r} = [draw, very thick, red,stealth-stealth]
-\tikzstyle{g} = [draw, very thick, green, stealth-stealth]
 
 \begin{figure}[!ht]
 \centering
@@ -949,15 +968,15 @@ To make sure you are following along, consider the following scrambled board.
 \node [right=0cm of 1] (2) {};
 \end{tikzpicture}
 };
-\path[b] (E) to (F);
-\path[r] (D) to (E);
-\path[g] (B) to (E);
+\path[p2] (E) to (F);
+\path[o2] (D) to (E);
+\path[g2] (B) to (E);
 \end{tikzpicture}
 \caption{}
 \label{fig:partial_Cayley}
 \end{figure}
 
-\noindent Note that I could have drawn the four scrambled boards in Figure~\ref{fig:partial_Cayley} anywhere I wanted to, but I have a particular layout in mind.  Also, notice we have three different colored arrows. In this case, a green arrow corresponds to toggling the tile in position 1 ($s_{11}$), a blue arrow corresponds to toggling position 2 ($s_{22}$), and a red arrow corresponds to spinning the whole board ($s_{12}$). 
+\noindent Note that I could have drawn the four scrambled boards in Figure~\ref{fig:partial_Cayley} anywhere I wanted to, but I have a particular layout in mind.  Also, notice we have three different colored arrows. In this case, a {\color{cb-green}green} arrow corresponds to toggling the tile in position 1 ($s_{11}$), a {\color{cb-purple}purple} arrow corresponds to toggling position 2 ($s_{22}$), and a {\color{cb-orange}orange}  arrow corresponds to spinning the whole board ($s_{12}$). 
 
 If we include the rest of the scrambled boards and all possible spins, we obtain Figure~\ref{fig:Cayley_Spin_1x2}. Note that I've chosen a nice layout for the figure, but it's really the connections between the various boards that are important.
 
@@ -1012,18 +1031,18 @@ If we include the rest of the scrambled boards and all possible spins, we obtain
 \node [draw, right=0cm of 1] (2) {\rotatebox{180}{$\underline{1}$}};
 \end{tikzpicture}
 };
-\path[b] (A) to (B);
-\path[b] (C) to (D);
-\path[b] (E) to (F);
-\path[b] (G) to (H);
-\path[r] (B) to (C);
-\path[r] (D) to (E);
-\path[r] (F) to (G);
-\path[r] (H) to (A);
-\path[g] (B) to (E);
-\path[g] (C) to (H);
-\path[g] (D) to (G);
-\path[g] (F) to (A);
+\path[p2] (A) to (B);
+\path[p2] (C) to (D);
+\path[p2] (E) to (F);
+\path[p2] (G) to (H);
+\path[o2] (B) to (C);
+\path[o2] (D) to (E);
+\path[o2] (F) to (G);
+\path[o2] (H) to (A);
+\path[g2] (B) to (E);
+\path[g2] (C) to (H);
+\path[g2] (D) to (G);
+\path[g2] (F) to (A);
 \end{tikzpicture}
 \caption{}
 \label{fig:Cayley_Spin_1x2}
@@ -1040,7 +1059,7 @@ For example, consider the following scrambled board.
 \node [draw, right=0cm of 1] (2) {\rotatebox{180}{$\underline{1}$}};
 \end{tikzpicture}
 \end{center}
-Looking at Figure~\ref{fig:Cayley_Spin_1x2}, we see that one way to get to this board from the solved board is to follow a blue arrow and then a red arrow.  This corresponds to the word $s_{12}s_{22}$. However, it also corresponds to the word $s_{22}s_{12}s_{22}s_{11}$ even though this is not an optimal solution.  So, we can label the board in question with either $s_{12}s_{22}$ or $s_{22}s_{12}s_{22}s_{11}$ and there are other choices, as well.
+Looking at Figure~\ref{fig:Cayley_Spin_1x2}, we see that one way to get to this board from the solved board is to follow a {\color{cb-purple}purple} arrow and then a {\color{cb-orange}orange}  arrow.  This corresponds to the word $s_{12}s_{22}$. However, it also corresponds to the word $s_{22}s_{12}s_{22}s_{11}$ even though this is not an optimal solution.  So, we can label the board in question with either $s_{12}s_{22}$ or $s_{22}s_{12}s_{22}s_{11}$ and there are other choices, as well.
 
 \begin{problem}
 Using Figure~\ref{fig:Cayley_Spin_1x2}, find three distinct words in $s_{11}, s_{22}$, or $s_{12}$ that correspond to the following scrambled board.
@@ -1054,31 +1073,29 @@ Using Figure~\ref{fig:Cayley_Spin_1x2}, find three distinct words in $s_{11}, s_
 
 If we continue labeling the vertices of the directed graph in Figure~\ref{fig:Cayley_Spin_1x2}, then one possible labeling is given in Figure~\ref{fig:Cayley_Spin_1x2_group_labels}. Each word tells you how to reach the corresponding scrambled board from the solved board. The directed graph in Figure~\ref{fig:Cayley_Spin_1x2_group_labels} is called the \textbf{Cayley diagram} for $\Spin_{1\times 2}$ using $\{s_{11},s_{22},s_{12}\}$ as a generating set. It is important to point out that it will not always be the case that the arrows are two-way arrows. This happened to be the case here because each of our generators is its own inverse.
 
-\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=13mm]
-
 \begin{figure}[!ht]
 \centering
 \begin{tikzpicture}[scale=1.5,auto]
-\node (A) at (-1,2) [vert] {\scriptsize $e$};
-\node (B) at (1,2) [vert] {\scriptsize $s_{22}$};
-\node (C) at (2,.75) [vert] {\scriptsize $s_{12}s_{22}$};
-\node (D) at (2,-.75) [vert] {\scriptsize $s_{22}s_{12}s_{22}$};
-\node (E) at (1,-2) [vert] {\scriptsize $s_{11}s_{22}$};
-\node (F) at (-1,-2) [vert] {\scriptsize $s_{11}$};
-\node (G) at (-2,-.75) [vert] {\scriptsize $s_{22}s_{12}$};
-\node (H) at (-2,.75) [vert] {\scriptsize $s_{12}$};
-\path[b] (A) to (B);
-\path[b] (C) to (D);
-\path[b] (E) to (F);
-\path[b] (G) to (H);
-\path[r] (B) to (C);
-\path[r] (D) to (E);
-\path[r] (F) to (G);
-\path[r] (H) to (A);
-\path[g] (B) to (E);
-\path[g] (C) to (H);
-\path[g] (D) to (G);
-\path[g] (F) to (A);
+\node (A) at (-1,2) [vert-superfat] {\scriptsize $e$};
+\node (B) at (1,2) [vert-superfat] {\scriptsize $s_{22}$};
+\node (C) at (2,.75) [vert-superfat] {\scriptsize $s_{12}s_{22}$};
+\node (D) at (2,-.75) [vert-superfat] {\scriptsize $s_{22}s_{12}s_{22}$};
+\node (E) at (1,-2) [vert-superfat] {\scriptsize $s_{11}s_{22}$};
+\node (F) at (-1,-2) [vert-superfat] {\scriptsize $s_{11}$};
+\node (G) at (-2,-.75) [vert-superfat] {\scriptsize $s_{22}s_{12}$};
+\node (H) at (-2,.75) [vert-superfat] {\scriptsize $s_{12}$};
+\path[p2] (A) to (B);
+\path[p2] (C) to (D);
+\path[p2] (E) to (F);
+\path[p2] (G) to (H);
+\path[o2] (B) to (C);
+\path[o2] (D) to (E);
+\path[o2] (F) to (G);
+\path[o2] (H) to (A);
+\path[g2] (B) to (E);
+\path[g2] (C) to (H);
+\path[g2] (D) to (G);
+\path[g2] (F) to (A);
 \end{tikzpicture}
 \caption{Cayley diagram for $\Spin_{1\times 2}$ with generating set $\{s_{11},s_{22},s_{12}\}$.}
 \label{fig:Cayley_Spin_1x2_group_labels}
@@ -1087,20 +1104,22 @@ If we continue labeling the vertices of the directed graph in Figure~\ref{fig:Ca
 \begin{problem}\label{cayley:altSpin1x2}
 Consider the Cayley diagram for $\Spin_{1\times 2}$ in Figure~\ref{fig:Cayley_Spin_1x2_group_labels}.
 \begin{enumerate}[label=\textrm{(\alph*)}]
-\item Removing all the red arrows corresponds to forbidding the spin that rotates the full $1\times 2$ board. Can we obtain all of the scrambled boards from the solved board using only blue and green arrows? What does this tell you about $\{s_{11},s_{22}\}$?
-\item What if we remove the blue arrows? What does this tell you about $\{s_{11},s_{12}\}$?
-\item What if we remove the green arrows? What does this tell you about $\{s_{22},s_{12}\}$?
+\item Removing all the {\color{cb-orange}orange}  arrows corresponds to forbidding the spin that rotates the full $1\times 2$ board. Can we obtain all of the scrambled boards from the solved board using only {\color{cb-purple}purple} and {\color{cb-green}green} arrows? What does this tell you about $\{s_{11},s_{22}\}$?
+\item What if we remove the {\color{cb-purple}purple} arrows? What does this tell you about $\{s_{11},s_{12}\}$?
+\item What if we remove the {\color{cb-green}green} arrows? What does this tell you about $\{s_{22},s_{12}\}$?
 \end{enumerate}
 \end{problem}
 
 \begin{definition}
-Suppose $G$ is a group and $S$ is a generating set of $G$. The \textbf{Cayley diagram}\footnote{Cayley diagrams are named after their inventor Arthur Cayley, a nineteenth century British mathematician.} for $G$ with generating set $S$ is a colored directed graph constructed as follows:
+Suppose $G$ is a group and $S$ is a generating set of $G$. The \textbf{Cayley diagram} for $G$ with generating set $S$ is a colored directed graph constructed as follows:
 \begin{enumerate}[label=\textrm{(\alph*)}]
 \item The vertices correspond to elements of $G$.
 \item Each generator $s\in S$ is assigned a color, say $c_s$.
 \item For $g\in G$ and $s\in S$, there is a directed edge from $g$ to $sg$ with color $c_s$.
 \end{enumerate}
 \end{definition}
+
+Cayley diagrams are named after British mathematician \href{https://en.wikipedia.org/wiki/Arthur_Cayley}{Arthur Cayley} (1821--1895).
 
 Note that following the arrow from $g$ to $sg$ with color $c_s$ corresponds to applying the action of $s$ to $g$. Moreover, following the arrow backwards from $sg$ to $g$ corresponds to applying $s^{-1}$ to $sg$. If a generator is its own inverse (like the spins in $\Spin_{1\times 2}$), then the arrows corresponding to that generator are two-way arrows.   
 
@@ -1118,11 +1137,6 @@ Let $R_6$ denote the group of rotational symmetries of a regular hexagon and let
 \end{enumerate}
 \end{problem}
 
-\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=6.5mm]
-\tikzstyle{b} = [draw,very thick,blue,-stealth]
-\tikzstyle{r} = [draw, very thick, red,-stealth]
-\tikzstyle{g} = [draw, very thick, green, stealth-stealth]
-
 \begin{figure}[!ht]
 \centering
 \begin{tikzpicture}[scale=1.5,auto]
@@ -1132,12 +1146,12 @@ Let $R_6$ denote the group of rotational symmetries of a regular hexagon and let
 \node (r5) at (180:1.5) [vert] {{\scriptsize $r^5$}};
 \node (r4) at (240:1.5) [vert] {{\scriptsize $r^4$}};
 \node (r3) at (-60:1.5) [vert] {{\scriptsize $r^3$}};
-\path[r] (e) to (r);
-\path[r] (r) to (r2);
-\path[r] (r2) to (r3);
-\path[r] (r3) to (r4);
-\path[r] (r4) to (r5);
-\path[r] (r5) to (e);
+\path[o] (e) to (r);
+\path[o] (r) to (r2);
+\path[o] (r2) to (r3);
+\path[o] (r3) to (r4);
+\path[o] (r4) to (r5);
+\path[o] (r5) to (e);
 \end{tikzpicture}
 \caption{Cayley diagram for $R_6$ with generating set $\{r\}$.}
 \label{fig:rotation6}
@@ -1160,7 +1174,7 @@ Construct a Cayley diagram for each of the following groups using the specified 
 
 Not only are Cayley diagrams visually appealing, but they provide a map for the group in question.  That is, they provide a method for navigating the group.  Following sequences of arrows tells us how to achieve a net action.  However, each Cayley diagram very much depends on the set of generators that are chosen to generate the group.  If we change the generating set, we may end up with a very different looking Cayley diagram. For example, compare the Cayley diagrams for $D_3$ that you constructed in parts (d) and (e) of Problem~\ref{prob:make_Cayley_diagrams}.
 
-Before closing out this section, let's tackle a few more problems.
+%Before closing out this section, let's tackle a few more problems.
 
 \begin{problem}
 Consider the group $(\mathbb{Z},+)$.
@@ -1168,6 +1182,100 @@ Consider the group $(\mathbb{Z},+)$.
 \item Construct a portion of the Cayley diagram for $(\mathbb{Z},+)$ with generating set $\{1\}$.
 \item Construct a portion of the Cayley diagram for $(\mathbb{Z},+)$ with generating set $\{-1\}$. How does this diagram compare to the one in part (a)?
 \item It turns out that $\mathbb{Z}=\langle 2,3\rangle$. Construct a portion of the Cayley diagram for $(\mathbb{Z},+)$ with generating set $\{2,3\}$.
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+The Cayley diagrams of two groups of order $12$ are shown below.
+\[
+\begin{tikzpicture}
+%\tikzstyle{every node}=[font=\footnotesize]
+\begin{scope}[shift={(0,0)},scale=1.7]
+\node (e) at (0,2.5) [vert] {\scriptsize $e$};
+\node (a) at (1,2.5) [vert] {\scriptsize $s$};
+\node (aa) at (2,2.5) [vert] {\scriptsize $s^2$};
+\node (aaa) at (3,2.5) [vert] {\scriptsize $s^3$};
+%%
+\node (b) at (0,1.25) [vert] {\scriptsize $t$};
+\node (ba) at (1,1.25) [vert] {\scriptsize $ts$};
+\node (aab) at (2,1.25) [vert] {\scriptsize $s^2\!t$};
+\node (abb) at (3,1.25) [vert] {\scriptsize $st^2$};
+%%
+\node (bb) at (0,0) [vert] {\scriptsize $t^2$};
+\node (bba) at (1,0) [vert] {\scriptsize $t^2\!s$};
+\node (aabb) at (2,0) [vert] {\scriptsize $s^2\!t^2$};
+\node (ab) at (3,0) [vert] {\scriptsize $st$};
+%%
+\draw [o] (e) to (a); \draw [o] (a) to (aa);
+\draw [o] (aa) to (aaa); \draw [o] (aaa) to [bend right=25] (e);
+%%
+\draw [o] (b) to (ba); \draw [o] (ba) to (aab);
+\draw [o] (aab) to (abb); \draw [o] (abb) to [bend right=25] (b);
+%%
+\draw [o] (bb) to (bba); \draw [o] (bba) to (aabb);
+\draw [o] (aabb) to (ab); \draw [o] (ab) to [bend left=25] (bb);
+%%
+\draw [p] (e) to (b); \draw [p] (b) to (bb);
+\draw [p] (bb) to [bend left=20] (aa);
+%
+\draw [p] (aa) to (aab); \draw [p] (aab) to (aabb);
+\draw [p] (aabb) to [bend left=20] (e);
+%%
+\draw [p] (bba) to (ba); \draw [p] (ba) to (a);
+\draw [p] (a) to [bend left=20] (ab);
+%%
+\draw [p] (ab) to (abb); \draw [p] (abb) to (aaa);
+\draw [p] (aaa) to [bend left=20] (bba);
+\end{scope}
+%%
+\begin{scope}[shift={(9,0)},scale=1.1]
+%\tikzstyle{every node}=[font=\small]
+\node (e) at (0,4) [vert] {\scriptsize$e$};
+\node (x) at (1.5,4) [vert] {\scriptsize $x$};
+\node (c) at (3,4) [vert] {\scriptsize $c$};
+\node (d) at (4.5,4) [vert] {\scriptsize $d$};
+\node (a) at (0,2) [vert] {\scriptsize $a$};
+\node (b) at (1.5,2) [vert] {\scriptsize $b$};
+\node (dd) at (3,2) [vert] {\scriptsize $d^2$}; 
+\node (bb) at (4.5,2) [vert] {\scriptsize $b^2$};
+\node (aa) at (0,0) [vert] {\scriptsize $a^2$};
+\node (cc) at (1.5,0) [vert] {\scriptsize $c^2$};
+\node (z) at (3,0) [vert] {\scriptsize $z$};
+\node (y) at (4.5,0) [vert] {\scriptsize $y$};
+\draw [p2] (e) to (x);
+\draw [p2] (a) to (c);
+\draw [p2] (b) to (d);
+\draw [p2] (aa) to (bb);
+\draw [p2] (cc) to (dd);
+\draw [p2] (z) to (y);
+\draw [o] (e) to (a);
+\draw [o] (a) to (aa);
+\draw [o] (aa) to [bend left] (e);
+\draw [o] (x) to (b);
+\draw [o] (b) to (cc);
+\draw [o] (cc) to [bend left] (x);
+\draw [o] (c) to (dd);
+\draw [o] (dd) to (z);
+\draw [o] (z) to [bend right] (c);
+\draw [o] (d) to (bb);
+\draw [o] (bb) to (y);
+\draw [o] (y) to [bend right] (d);
+  \end{scope}
+\end{tikzpicture}
+\]
+\begin{enumerate}[label=\textrm{(\alph*)}]
+\item What is the generating set for each group?
+\item Create a group table for each group. For consistency, please order the elements in the first group by 
+\[
+e,t,t^2,s,ts,t^2s,s^2,s^2t,s^2t^2,s^3,st^2,st
+\]
+and those in second by
+\[
+e,x, y, z, a, b, c, d, a^2, b^2, c^2, d^2.
+\]
+\item Squint your eyes. Do you see any patterns in these tables? 
+\item Find the inverse of each element. 
+\item For each element $x$, find the smallest positive exponent $k$ such that $x^k=e$.
 \end{enumerate}
 \end{problem}
 
@@ -1179,10 +1287,6 @@ Assume $G$ is a group.  Suppose that $S$ and $S'$ are two different sets that ge
 Consider the diagrams given in Figures~\ref{fig:nonCayley} and \ref{fig:nonRegular}. Explain why neither of these diagrams could possibly be the Cayley diagram for a group.
 \end{problem}
 
-\tikzstyle{b} = [draw,very thick,blue,-stealth]
-\tikzstyle{b2} = [draw,very thick,blue,stealth-stealth]
-\tikzstyle{r} = [draw, very thick, red,-stealth]
-
 \begin{figure}[!ht]
 \centering
 \begin{tikzpicture}[scale=1.5,auto]
@@ -1193,18 +1297,16 @@ Consider the diagrams given in Figures~\ref{fig:nonCayley} and \ref{fig:nonRegul
 \node (e) at (4,0) [vert] {{\scriptsize $e$}};
 \node (f) at (6,0) [vert] {{\scriptsize $f$}};
 
-\path[b2] (a) to (b);
-\path[b] (e) to (b);
-\path[r] (b) to (c);
-\path[r] (b) to (d);
-\path[b] (e) to (b);
-\path[b] (d) to (e);
+\path[p2] (a) to (b);
+\path[p] (e) to (b);
+\path[o] (b) to (c);
+\path[o] (b) to (d);
+\path[p] (e) to (b);
+\path[p] (d) to (e);
 \end{tikzpicture}
 \caption{}
 \label{fig:nonCayley}
 \end{figure}
-
-\tikzstyle{r2} = [draw, very thick, red,stealth-stealth]
 
 \begin{figure}[!ht]
 \centering
@@ -1218,18 +1320,18 @@ Consider the diagrams given in Figures~\ref{fig:nonCayley} and \ref{fig:nonRegul
 \node (g) at (2,2) [vert] {{\scriptsize $g$}};
 \node (h) at (0,2) [vert] {{\scriptsize $h$}};
 
-\path[b2] (a) to (b);
-\path[b2] (c) to (d);
-\path[b2] (h) to (g);
-\path[b2] (f) to (e);
+\path[p2] (a) to (b);
+\path[p2] (c) to (d);
+\path[p2] (h) to (g);
+\path[p2] (f) to (e);
 
-\path[r] (b) to (c);
-\path[r] (c) to (f);
-\path[r] (f) to (g);
-\path[r] (g) to (b);
+\path[o] (b) to (c);
+\path[o] (c) to (f);
+\path[o] (f) to (g);
+\path[o] (g) to (b);
 
-\path[r2] (a) to (h);
-\path[r2] (d) to (e);
+\path[o2] (a) to (h);
+\path[o2] (d) to (e);
 \end{tikzpicture}
 \caption{}
 \label{fig:nonRegular}
@@ -1242,13 +1344,10 @@ If $G$ is a group with generating set $S$, then for every $g\in G$ and $s\in S$,
 \end{theorem}
 
 \begin{theorem}
-If $G$ is a group with generating set $S$, then the Cayley diagram for $G$ with generating set $S$ is connected.  That is, for every pair of vertices $g$ and $h$, there is a path of forward or backward arrows connecting $g$ and $h$.\footnote{\emph{Hint:} First consider the case when either $g$ or $h$ is the identity $e$.}
+If $G$ is a group with generating set $S$, then the Cayley diagram for $G$ with generating set $S$ is connected.  That is, for every pair of vertices $g$ and $h$, there is a path of forward or backward arrows connecting $g$ and $h$. \emph{Hint:} First consider the case when either $g$ or $h$ is the identity $e$.
 \end{theorem}
 
-Consider the Cayley diagram for $D_3$ with generating set $\{r,s\}$ that is given in Figure~\ref{fig:D3}. Notice that we labeled the lower right corner of the Cayley diagram with the word $r^2s$.  This means that we first followed a blue arrow out of $e$ and then two red arrows.  However, we could also get to this vertex by first doing a red arrow out of $e$ followed by a blue arrow.  So, we could also have labeled this vertex with the word $sr$.  The upshot is that $r^2s=sr$.  These types of group equations are called \textbf{relations}.
-
-\tikzstyle{h} = [draw,very  thick, blue,stealth-stealth]
-\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=6.5mm]
+Consider the Cayley diagram for $D_3$ with generating set $\{r,s\}$ that is given in Figure~\ref{fig:D3}. Notice that we labeled the lower right corner of the Cayley diagram with the word $r^2s$.  This means that we first followed a {\color{cb-purple}purple} arrow out of $e$ and then two {\color{cb-orange}orange}  arrows.  However, we could also get to this vertex by first doing a {\color{cb-orange}orange}  arrow out of $e$ followed by a {\color{cb-purple}purple} arrow.  So, we could also have labeled this vertex with the word $sr$.  The upshot is that $r^2s=sr$.  These types of group equations are called \textbf{relations}.
 
 \begin{figure}
 \centering
@@ -1259,29 +1358,29 @@ Consider the Cayley diagram for $D_3$ with generating set $\{r,s\}$ that is give
 \node (h) at (90:4) [vert] {\scriptsize $s$};
 \node (hr) at (210:4) [vert] {\scriptsize $rs$};
 \node (hrr) at (-30:4) [vert] {\scriptsize $r^2s$};
-\draw [r] (e) to [bend left] (r);
-\draw [r] (r) to [bend left] (rr);
-\draw [r] (rr) to [bend left] (e);
-\draw [r] (h) to [bend right] (hr);
-\draw [r] (hr) to [bend right] (hrr);
-\draw [r] (hrr) to [bend right] (h);
-\draw [h] (e) to (h);
-\draw [h] (r) to (hrr);
-\draw [h] (rr) to (hr);
+\draw [o] (e) to [bend left] (r);
+\draw [o] (r) to [bend left] (rr);
+\draw [o] (rr) to [bend left] (e);
+\draw [o] (h) to [bend right] (hr);
+\draw [o] (hr) to [bend right] (hrr);
+\draw [o] (hrr) to [bend right] (h);
+\draw [p2] (e) to (h);
+\draw [p2] (r) to (hrr);
+\draw [p2] (rr) to (hr);
 \end{tikzpicture}
 \caption{Cayley diagram for $D_3$ with generating set $\{r,s\}$.}\label{fig:D3}
 \end{figure}
 
-We discovered this relation by starting at $e$ and then traveling a sequence of arrows to get to the vertex in the lower right corner.  However, notice that following a blue and then two red arrows is \emph{always} the same as following a red arrow and then a blue arrow regardless of which vertex we start at.  That is, the local relation $r^2s=sr$ starting at $e$ holds globally across the entire Cayley diagram.
+We discovered this relation by starting at $e$ and then traveling a sequence of arrows to get to the vertex in the lower right corner.  However, notice that following a {\color{cb-purple}purple} and then two {\color{cb-orange}orange}  arrows is \emph{always} the same as following a {\color{cb-orange}orange}  arrow and then a {\color{cb-purple}purple} arrow regardless of which vertex we start at.  That is, the local relation $r^2s=sr$ holds globally across the entire Cayley diagram.
 
 Cayley diagrams for groups will always have this uniform symmetry. That is, any local patterns in the diagram appear globally throughout the diagram. 
 
 \begin{problem}
 Let $G$ be a group with generating set $S$ and consider the corresponding Cayley diagram. Suppose
 \[
-s_{x_1}s_{x_2}\cdots s_{x_n}=s_{y_1}s_{y_2}\cdots s_{y_m}
+s_{1}^{\epsilon_1}s_{2}^{\epsilon_2}\cdots s_{n}^{\epsilon_n}=t_{1}^{\delta_1}t_{2}^{\delta_2}\cdots t_{m}^{\delta_m}
 \]
-is a relation in $G$, where each $s_{x_i}$ and $s_{y_j}$ is either an element from $S$ or the inverse of an element from $S$.  Explain what it means for this relation to hold globally across the entire Cayley diagram for $G$.
+is a relation in $G$, where each $s_{i},t_{j}\S$ and $\epsilon_i,\delta_j\in\{\pm 1\}$.  Explain what it means for this relation to hold globally across the entire Cayley diagram for $G$.
 \end{problem}
 
 You've likely noticed the following theorem while tinkering with examples.

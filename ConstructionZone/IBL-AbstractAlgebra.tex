@@ -24,9 +24,6 @@
 \usepackage{amsthm}
 \usepackage[margin=1in]{geometry}
 \usepackage[hang,flushmargin,symbol*]{footmisc}
-\usepackage{color}
-\definecolor{darkblue}{rgb}{0, 0, .6}
-\definecolor{grey}{rgb}{.7, .7, .7}
 \usepackage[breaklinks]{hyperref}
 \hypersetup{
 	colorlinks=true,
@@ -47,6 +44,50 @@
 \lfoot{}
 \cfoot{\thepage}
 \rfoot{}
+
+\usepackage{color}
+\definecolor{darkblue}{rgb}{0, 0, .6}
+\definecolor{grey}{rgb}{.7, .7, .7}
+\definecolor{grey}{rgb}{.7, .7, .7}
+\colorlet{lightred}{red!30!white}
+\colorlet{lightblue}{blue!30!white}
+\colorlet{lightyellow}{yellow!30!white}
+\colorlet{keylime}{green!10!white}
+\colorlet{darkgreen}{green!50!black}
+\colorlet{midgreen}{green!70!black}
+\colorlet{lightgreen}{darkgreen!30!white}
+\colorlet{lightpurple}{violet!60!white}
+\colorlet{darkgrey}{black!70}
+\colorlet{midgrey}{black!50}
+\definecolor{Red}{rgb}{.9,0,0}
+\definecolor{Blue}{rgb}{0,0,.9}
+\definecolor{Green}{rgb}{0,.9,0}
+\definecolor{conj-purple}{HTML}{E4B7FF}
+\definecolor{conj-orange}{HTML}{FFD4B7}
+\colorlet{lred}{red!50!white}
+\definecolor{lblue}{rgb}{0.60, 0.75, 1}
+\colorlet{lgreen}{green!40!white}
+\colorlet{lyellow}{yellow!30!white}
+%\definecolor{lpurple}{rgb}{0.6 0.35 0.8}
+\definecolor{lpurple}{rgb}{0.7 0.45 0.9}
+\colorlet{lorange}{orange!50!white}
+\definecolor{lightgrey}{rgb}{.85, .85, .85}
+\definecolor{faded}{rgb}{.75,.75,.75}
+%\definecolor{midgrey}{rgb}{.5,.5,.5}
+%\definecolor{midgrey}{rgb}{.35, .35, .35}
+%\definecolor{amethyst}{rgb}{0.6 0.4 0.8}
+\definecolor{amethyst}{rgb}{0.54 0.17 0.89}
+\definecolor{amber}{rgb}{1.0 0.49 0.0}
+
+%colorblind safe
+%from https://colorbrewer2.org
+\definecolor{cb-orange}{HTML}{E66101}
+\definecolor{cb-lightorange}{HTML}{FDB863}
+\definecolor{cb-purple}{HTML}{5E3C99}
+\definecolor{cb-lightpurple}{HTML}{B2ABD2}
+\definecolor{cb-green}{HTML}{4dAC26}
+\definecolor{cb-lightgreen}{HTML}{B8E186}
+
 
 \theoremstyle{definition}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -88,6 +129,36 @@
 
 \setlength{\epigraphwidth}{0.5\textwidth}
 \renewcommand{\sourceflush}{flushleft}
+
+%verts
+\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=6.5mm]
+\tikzstyle{vert-fat} = [circle, draw, fill=grey,inner sep=0pt, minimum size=7mm]
+\tikzstyle{vert-superfat} = [circle, draw, fill=grey,inner sep=0pt, minimum size=13mm]
+\tikzstyle{v-faded} = [circle, draw, grey, fill=lightgrey,inner sep=0pt, minimum size=1.25mm]
+\tikzstyle{v-tiny} = [circle, draw, fill=lightgrey,inner sep=0pt, minimum size=2.5mm]
+
+%edges
+\tikzstyle{p} = [draw, very thick, cb-purple,-stealth]
+\tikzstyle{p2} = [draw, very thick, cb-purple,stealth-stealth]
+\tikzstyle{o} = [draw, very thick, cb-orange,-stealth]
+\tikzstyle{o2} = [draw, very thick, cb-orange,stealth-stealth]
+\tikzstyle{g} = [draw, very thick, cb-green,-stealth]
+\tikzstyle{g2} = [draw, very thick, cb-green, stealth-stealth]
+\tikzstyle{p2-faded} = [draw, thick, cb-lightpurple,stealth-stealth]
+\tikzstyle{o2-faded} = [draw, thick, dashed, cb-lightorange,stealth-stealth]
+\tikzstyle{g2-faded} = [draw, thick, cb-lightgreen,stealth-stealth]
+
+% COLORS FOR MULTIPLICATION TABLES  
+\colorlet{tred}{red!70!white}
+\colorlet{tblue}{blue!60!white}     %(higher number is more faded)
+\colorlet{tgreen}{green!75!black}   %(higher number is brighter)
+\colorlet{tyellow}{yellow!60!white}
+\colorlet{tlime}{green!80!white}
+\colorlet{tpink}{pink}
+\colorlet{tpurple}{lpurple}
+\colorlet{torange}{orange}
+\newcommand*{\m}{5}   % counter for Cayley tables
+\newcommand*{\n}{5}   % counter for Cayley tables
 
 \begin{document}
 
