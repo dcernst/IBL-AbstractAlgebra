@@ -697,13 +697,11 @@ where each $s_{i}\in S$ and $\varepsilon_i\in\{\pm 1\}$. Each $s_{i}$ is called 
 
 It is worth mentioning that we are slightly abusing notation here. For nonempty $S\subseteq G$, we can form infinitely many words in $\langle S\rangle$, but often there are many words that represent the same group element. We can partition the collection of words in the alphabet $S$ into equivalence classes based on which group element a word represents. Strictly speaking, each group element is an equivalence class of words. When we say two words are equal in the group, what we really mean is that both words are in the same equivalence class.
 
-It is important to pay close attention to our notation. While $S$ and $\langle S\rangle$ are both sets, the latter set is the set of elements we can build using letters and their inverses from $S$. It turns out that if $S$ is itself a group, then $S=\langle S\rangle$. Otherwise, $S$ is a proper subset of $\langle S\rangle$. 
+It is also important to pay close attention to our notation. While $S$ and $\langle S\rangle$ are both sets, the latter set is the set of elements we can build using letters and their inverses from $S$. It turns out that if $S$ is itself a group, then $S=\langle S\rangle$. Otherwise, $S$ is a proper subset of $\langle S\rangle$. 
 
 \begin{example}
 Suppose $G$ is a group such that $a,b,c\in G$ and let $S=\{a,b,c\}$. Then $ab$, $c^{-1}acc$, and $ab^{-1}caa^{-1}bc^{-1}$ are words in $\langle S\rangle$. If any one of these words is not equal to $a$, $b$, or $c$, then $\langle S\rangle$ is strictly larger than $S$.
 \end{example}
-
-It is worth mentioning that we are slightly abusing notation here. For nonempty $S\subseteq G$, we can form infinitely many words in $\langle S\rangle$, but often there are many words that represent the same group element. We can partition the collection of words in the alphabet $S$ into equivalence classes based on which group element a word represents. Strictly speaking, each group element is an equivalence class of words. When we say two words are equal in the group, what we really mean is that both words are in the same equivalence class.
 
 \begin{theorem}\label{thm:subgroup_generated_by_S}
 If $G$ is a group under $*$ and $S$ is a subset of $G$, then $\langle S\rangle$ is also a group under $*$.
