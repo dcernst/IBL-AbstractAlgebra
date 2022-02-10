@@ -1,7 +1,7 @@
 \chapter{Cosets, Lagrange's Theorem, and Normal Subgroups}
 \label{chapter:cosets_lagrange_normal}
 
-\begin{section}{Cosets}
+\begin{section}{Cosets}\label{sec:Cosets}
 
 Undoubtably, you've noticed numerous times that if $G$ is a group with $H\leq G$ and $g\in G$, then both $|H|$ and $|g|$ divide $|G|$.  The theorem that says this is always the case is called Lagrange's theorem and we'll prove it towards the end of this chapter.  We begin with a definition.
 
@@ -34,7 +34,7 @@ Despite the fact that we made six calculations (one for each element in $D_3$), 
 \end{align*}
 We can make a few more observations.  First, the resulting cosets formed a partition of $D_3$.  That is, every element of $D_3$ appears in exactly one coset.  Moreover, all the cosets are the same size---two elements in each coset in this case.  Lastly, each coset can be named in multiple ways.  In particular, the elements of the coset are exactly the elements of $D_3$ we multiplied $H$ by.  For example, $Hr=Hsr$ and the elements of this coset are $r$ and $sr$.  Shortly, we will see that these observations hold, in general.
 
-Here is another significant observation we can make.  Consider the Cayley diagram for $D_3$ with generating set $\{r,s\}$ that is given in Figure~\ref{fig:D3_repeat}. Given this Cayley diagram, we can visualize the subgroup $H$ and its clones.  Moreover, $H$ and its clones are exactly the 3 right cosets of $H$.  We'll see that, in general, the \emph{right} cosets of a given subgroup are always the subgroup and its clones (see Problem~\ref{prob:RightCosetsClones}).
+Here is another significant observation we can make.  Consider the Cayley diagram for $D_3$ with generating set $\{r,s\}$ that is given in Figure~\ref{fig:D3_repeat}. Given this Cayley diagram, we can visualize the subgroup $H$ and its clones (see Section~\ref{sec:Subgroups} for a reminder of what a clone is).  Moreover, $H$ and its clones are exactly the 3 right cosets of $H$.  We'll see that, in general, the \emph{right} cosets of a given subgroup are always the subgroup and its clones (see Problem~\ref{prob:RightCosetsClones}).
 
 \tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=8mm]
 \tikzstyle{h} = [draw,very  thick, blue,stealth-stealth]
