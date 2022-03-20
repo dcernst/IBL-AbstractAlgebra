@@ -127,16 +127,20 @@ The next result should look familiar and will come in handy a few times in this 
 If $n$ is a positive integer and $m$ is any integer, then there exist unique integers $q$ (called the \textbf{quotient}) and $r$ (called the \textbf{remainder}) such that $m=nq+r$, where $0\leq r<n$.
 \end{theorem}
 
+For the forward implication in the next theorem, if $\langle g\rangle$ is finite, then there exists distinct positive integers $i$ and $j$ such that $g^i=g^j$.  Can you find a useful way to rewrite this equation? For the reverse implication, let $m\in\mathbb{Z}$ and use the Division Algorithm with $m$ and $n$.
+
 \begin{theorem}\label{thm:finite_group_finite_exponent}
-Suppose $G$ is a group and let $g\in G$. The subgroup $\langle g\rangle$ is finite if and only if there exists $n\in\mathbb{N}$ such that $g^n=e$.\footnote{For the forward implication, if $\langle g\rangle$ is finite, then there exists distinct positive integers $i$ and $j$ such that $g^i=g^j$.  Can you find a useful way to rewrite this equation? For the reverse implication, let $m\in\mathbb{Z}$ and use the Division Algorithm with $m$ and $n$.}
+Suppose $G$ is a group and let $g\in G$. The subgroup $\langle g\rangle$ is finite if and only if there exists $n\in\mathbb{N}$ such that $g^n=e$.
 \end{theorem}
 
 \begin{corollary}\label{cor:finite_group_finite_exponent}
 If $G$ is a finite group, then for all $g\in G$, there exists $n\in\mathbb{N}$ such that $g^n=e$.
 \end{corollary}
 
+Note that Theorem~\ref{thm:finite_group_finite_exponent} together with the Well-Ordering Principle guarantees the existence of a smallest positive integer $n$ such that $g^n=e$ for every $g$ in a finite group $G$. In the following theorem, the claim that the set contains $n$ distinct elements is not immediate.  You need to argue that there are no repeats in the list. Choose distinct $i,j\in\{0,1,\ldots,n-1\}$ such that $i\neq j$ and then show that $g^i\neq g^j$.  Consider a proof by contradiction and try to contradict the minimality of $n$.
+
 \begin{theorem}
-Suppose $G$ is a group and let $g\in G$ such that $\langle g\rangle$ is a finite group. If $n$ is the smallest positive integer such that $g^n=e$, then $\langle g\rangle = \{e, g, g^2, \ldots, g^{n-1}\}$ and this set contains $n$ distinct elements.\footnote{Note that Theorem~\ref{thm:finite_group_finite_exponent} together with the Well-Ordering Principle guarantees the existence of a smallest positive integer $n$ such that $g^n=e$. The claim that the set contains $n$ distinct elements is not immediate.  You need to argue that there are no repeats in the list. Choose distinct $i,j\in\{0,1,\ldots,n-1\}$ such that $i\neq j$ and then show that $g^i\neq g^j$.  Consider a proof by contradiction and try to contradict the minimality of $n$.}
+Suppose $G$ is a group and let $g\in G$ such that $\langle g\rangle$ is a finite group. If $n$ is the smallest positive integer such that $g^n=e$, then $\langle g\rangle = \{e, g, g^2, \ldots, g^{n-1}\}$ and this set contains $n$ distinct elements.
 \end{theorem}
 
 The next result provides an extremely useful interpretation of the order of an element.
@@ -179,8 +183,10 @@ Suppose $G$ is a finite cyclic group of order $n$.  Then $G$ is isomorphic to $R
 
 Most of the previous results have involved finite cyclic groups.  What about infinite cyclic groups?
 
+For the forward implication in the following theorem, try a proof by contradiction and suppose there exists integers $i$ and $j$ such that $g^i=g^j$.
+
 \begin{theorem}
-Suppose $G$ is a group and let $g\in G$. The subgroup $\langle g\rangle$ is infinite if and only if each $g^k$ is distinct for all $k\in\mathbb{Z}$.\footnote{For the forward implication, try a proof by contradiction and suppose there exists integers $i$ and $j$ such that $g^i=g^j$.}
+Suppose $G$ is a group and let $g\in G$. The subgroup $\langle g\rangle$ is infinite if and only if each $g^k$ is distinct for all $k\in\mathbb{Z}$.
 \end{theorem}
 
 \begin{theorem}\label{thm:infinite_cyclic_groups}
@@ -219,12 +225,16 @@ The next result follows immediately from Theorems~\ref{thm:mod_divisiblity} and 
 Suppose $G$ is a group and let $g\in G$ such that $|g|=n$.  Then $g^i=g^j$ if and only if $i\equiv j\pmod n$.
 \end{corollary}
 
-\begin{theorem}
-The set $\mathbb{Z}_n$ is a cyclic group under addition mod $n$.\footnote{There are two things to prove here.  First, you need to prove that $\mathbb{Z}_n$ is a group under addition mod $n$, and then you need to argue that the group is cyclic.}
-\end{theorem}
+There are two things to prove in the next theorem.  First, you need to prove that $\mathbb{Z}_n$ is a group under addition mod $n$, and then you need to argue that the group is cyclic.
 
 \begin{theorem}
-The set $U_n$ is an abelian group under multiplication mod $n$.\footnote{Like the previous theorem, there are two things to prove. First, prove that $U_n$ is a group under multiplication mod $n$, and then argue that the group is abelian.}
+The set $\mathbb{Z}_n$ is a cyclic group under addition mod $n$.
+\end{theorem}
+
+Like the previous theorem, there are two things to prove for the next theorem. First, prove that $U_n$ is a group under multiplication mod $n$, and then argue that the group is abelian.
+
+\begin{theorem}
+The set $U_n$ is an abelian group under multiplication mod $n$.
 \end{theorem}
 
 \begin{problem}
@@ -290,14 +300,16 @@ The next result officially settles Problem~\ref{prob:nZ}\ref{prob:nZothers} and 
 The subgroups of $\mathbb{Z}$ are precisely the groups $n\mathbb{Z}$ for $n\in \mathbb{Z}$.
 \end{corollary}
 
-Let's further explore finite cyclic groups.
+Let's further explore finite cyclic groups.  By Corollary~\ref{cor:order_smallest_exponent}, the order of $g^m$ is the smallest positive exponent $k$ such that $(g^m)^k=e$. To prove the next theorem, first verify that $k=\frac{n}{\gcd(n,m)}$ has the desired property and then verify that it is the smallest such exponent.
 
 \begin{theorem}\label{thm:order_of_power}
-If $G$ is a finite cyclic group with generator $g$ such that $|G|=n$, then for all $m\in\mathbb{Z}$, $\displaystyle |g^m|=\frac{n}{\gcd(n,m)}$.\footnote{By Corollary~\ref{cor:order_smallest_exponent}, the order of $g^m$ is the smallest positive exponent $k$ such that $(g^m)^k=e$. First, verify that $k=\frac{n}{\gcd(n,m)}$ has the desired property and then verify that it is the smallest such exponent.}
+If $G$ is a finite cyclic group with generator $g$ such that $|G|=n$, then for all $m\in\mathbb{Z}$, $\displaystyle |g^m|=\frac{n}{\gcd(n,m)}$.
 \end{theorem}
 
+Here is an extensive hint for proving the next theorem. Use Theorem~\ref{thm:order_of_power} for the forward implication. For the reverse implication, first prove that for all $m\in\mathbb{Z}$, $\langle g^m\rangle=\langle g^{\gcd(m,n)}\rangle$ by proving two set containments. To show $\langle g^m\rangle\subseteq \langle g^{\gcd(m,n)}\rangle$, use the fact that there exists an integer $q$ such that $m=q\cdot \gcd(m,n)$. For the reverse containment, you may freely use a fact known as Bezout's Lemma, which states that $\gcd(m,n)=nx+my$ for some integers $x$ and $y$.
+
 \begin{theorem}\label{thm:subgroups_gcd}
-If $G$ is a finite cyclic group with generator $g$ such that $|G|=n$, then $\langle g^m\rangle=\langle g^k\rangle$ if and only if $\gcd(m,n)=\gcd(k,n)$.\footnote{Use Theorem~\ref{thm:order_of_power} for the forward implication. For the reverse implication, first prove that for all $m\in\mathbb{Z}$, $\langle g^m\rangle=\langle g^{\gcd(m,n)}\rangle$ by proving two set containments. To show $\langle g^m\rangle\subseteq \langle g^{\gcd(m,n)}\rangle$, use the fact that there exists an integer $q$ such that $m=q\cdot \gcd(m,n)$. For the reverse containment, you may freely use a fact known as Bezout's Lemma, which states that $\gcd(m,n)=nx+my$ for some integers $x$ and $y$.}
+If $G$ is a finite cyclic group with generator $g$ such that $|G|=n$, then $\langle g^m\rangle=\langle g^k\rangle$ if and only if $\gcd(m,n)=\gcd(k,n)$.
 \end{theorem}
 
 \begin{problem}
@@ -340,20 +352,25 @@ If there is exactly one group up to isomorphism of order $n$, then to what group
 Suppose $G$ is a group and $x,y\in G$ such that $|x|=m$ and $|y|=n$. Is it true that $|xy|=mn$?  If this is true, provide a proof.  If this is not true, then provide a counterexample.
 \end{problem}
 
-The punchline of the next two theorems is Theorem~\ref{thm:special_abelian_implies_cyclic}.
+The punchline of the next two theorems is Theorem~\ref{thm:special_abelian_implies_cyclic}. To prove the next theorem,  first verify that $(xy)^{mn}=e$ and then suppose $|xy|=k$. What do you immediately know about the relationship between $k$ and $mn$? Next, consider $(xy)^{kn}$. Argue that $m$ divides $kn$ and then argue that $m$ divides $k$. Similarly, $n$ divides $k$. Ultimately, conclude that $mn=k$.
 
 \begin{theorem}
-Suppose $G$ is a finite abelian group and let $x,y\in G$ such that $|x|=m$ and $|y|=n$. If $\gcd(m,n)=1$, then $|xy|=mn$.\footnote{\emph{Hint:} First, verify that $(xy)^{mn}=e$. Now, suppose $|xy|=k$. What do you immediately know about the relationship between $k$ and $mn$. Next, consider $(xy)^{kn}$. Argue that $m$ divides $kn$ and then argue that $m$ divides $k$. Similarly, $n$ divides $k$. Ultimately, conclude that $mn=k$.}
+Suppose $G$ is a finite abelian group and let $x,y\in G$ such that $|x|=m$ and $|y|=n$. If $\gcd(m,n)=1$, then $|xy|=mn$.
 \end{theorem}
 
+Here is a hint for proving the next theorem. Suppose $g\in G$ such that $|g|=n$. Let $h$ be an arbitrary element in $G$ such that $|h|=m$. You need to show that $m$ divides $n$. For sake of a contradiction, assume otherwise. Then there exists a prime $p$ whose multiplicity as a factor of $m$ exceeds that of $n$. Let $p^a$ be the highest power of $p$ in $m$ and $p^b$ be the highest power of $p$ in $n$, so $a>b$. Consider the elements $g^{p^a}$ and $h^{m/p^b}$.
+
 \begin{theorem}
-Suppose $G$ is a finite abelian group. If $n$ is the maximal order among all elements in $G$, then the order of every element in $G$ divides $n$.\footnote{\emph{Hint:} Suppose $g\in G$ such that $|g|=n$. Let $h$ be an arbitrary element in $G$ such that $|h|=m$. You need to show that $m$ divides $n$. For sake of a contradiction, assume otherwise. Then there exists a prime $p$ whose multiplicity as a factor of $m$ exceeds that of $n$. Let $p^a$ be the highest power of $p$ in $m$ and $p^b$ be the highest power of $p$ in $n$, so $a>b$. Consider the elements $g^{p^a}$ and $h^{m/p^b}$.}
+Suppose $G$ is a finite abelian group. If $n$ is the maximal order among all elements in $G$, then the order of every element in $G$ divides $n$.
 \end{theorem}
 
 Recall that every cyclic group is abelian (see Theorem~\ref{thm:cyclic_implies_abelian}).  However, we know that not every abelian group is cyclic (see Problem~\ref{prob:abelian_does_not_imply_cyclic}).  The next theorem tells us that abelian groups with some additional properties are cyclic.
 
+
+Here is one method of attack for proving the next theorem. Let $n$ be the maximal order among the elements of $G$ and let $g\in G$ be an element with order $n$. Prove that $G=\langle g\rangle$.
+
 \begin{theorem}\label{thm:special_abelian_implies_cyclic}
-If $G$ is a finite abelian group with at most one subgroup of any order, then $G$ is cyclic.\footnote{\emph{Hint:} Let $n$ be the maximal order among the elements of $G$ and let $g\in G$ be an element with order $n$. Prove that $G=\langle g\rangle$.}
+If $G$ is a finite abelian group with at most one subgroup of any order, then $G$ is cyclic.
 \end{theorem}
 
 \begin{problem}
@@ -537,7 +554,20 @@ The set of permutations on $n$ objects forms a group under the operation of comp
 
 Note that it is standard convention to omit the composition symbol when writing down compositions in $S_n$.  For example, we will simply write $\alpha\beta$ to denote $\alpha \circ \beta$.
 
-Permutation diagrams are fun to play with, but we need a more efficient way of encoding information.  One way to do this is using \textbf{cycle notation}.  Consider $\alpha, \beta, \sigma$, and $\gamma$ in $S_{5}$ from the previous examples.  Below I have indicated what each permutation is equal to using cycle notation.
+Permutation diagrams are fun to play with, but we need a more efficient way of encoding information.  There are several compact and efficient notations for describing permutations in $S_n$. For our purposes, it will be handy for us to describe permutations using \textbf{cycle notation}. The \textbf{cycle} $(a_1,a_2,\ldots, a_m)$ is the permutation that sends $a_i$ to $a_{i+1}$ for $1\leq i\leq m-1$ and sends $a_m$ to $a_1$. In general, for each $\sigma\in S_n$, the numbers 1 through $n$ will be rearranged and grouped into $k$ cycles of the form
+\[
+(a_1,a_2,\ldots, a_{m_1})(a_{m_1+1},a_{m_1+2},\ldots,a_{m_2})\cdots (a_{m_{k-1}+1},a_{m_{k-1}+2},\ldots,a_{m_k})
+\]
+from which the action of $\sigma$ on any number from 1 to $n$ can easily be determined.  In particular, for any $i\in\{1,2,\ldots,n\}$, locate $i$ in the expression above.  Then $\sigma(i)$ is the next number in the corresponding cycle that is cyclicly to the right (i.e., if $i$ is not at the right end of a cycle, $\sigma(i)$ is the next number to the right, while if $i$ is at the right end of a cycle, $\sigma(i)$ is the number at the left end of the same cycle. The product of all the cycles is called the \textbf{cycle decomposition} of $\sigma$.  
+
+Notice that we can start writing a cycle with any of the numbers appearing in the cycle.  What matters is that each number in the cycle is followed by the appropriate number.  For example, $(1,3,2)=(3,2,1)=(2,1,3)$.  The \textbf{length} of a cycle is the number of entries appearing in it. If a cycle has length $m$, then it is called an \textbf{$m$-cycle}. Two cycles are said to be \textbf{disjoint} if they have no entries in common.
+
+\begin{example}
+Consider $\sigma=(1,12,8,10,4)(2,13)(3)(5,11,7)(6,9)$ in $S_{13}$.  This cycle decomposition for $\sigma$ consists of five pairwise disjoint cycles: a 5-cycle, a 2-cycle, a 1-cycle, a 3-cycle, and another 2-cycle.  For convenience, it is common to omit any 1-cycles in the decomposition.  So, we may also write $\sigma=(1,12,8,10,4)(2,13)(5,11,7)(6,9)$, keeping in mind that the absence of a number means that the permutation maps that number to itself.
+\end{example}
+
+\begin{example}
+Consider $\alpha, \beta, \sigma$, and $\gamma$ in $S_{5}$ that we had previously drawn permutation diagrams for.  Below I have indicated what each permutation is equal to using cycle notation.
 
 \begin{align*}\alpha=&\begin{pdiag}{5}{1} 
 \pdmap{1}{2}\pdmap{2}{3}\pdmap{3}{4}\pdmap{4}{5}\pdmap{5}{1}\pdendmapfill 
@@ -554,12 +584,20 @@ Permutation diagrams are fun to play with, but we need a more efficient way of e
 \gamma=&\begin{pdiag}{5}{1} 
 \pdtrans{1}{5}\pdendmapfill 
 \end{pdiag}=\ (1,5)
-\end{align*}
-Each string of numbers enclosed by parentheses is called a \textbf{cycle} and if the string of numbers has length $k$, then we call it a $k$-cycle.  For example, $\alpha$ consists of a single 5-cycle, whereas $\sigma$ consists of one 2-cycle and one 3-cycle.  In the case of $\sigma$, we say that $\sigma$ is the product of two \textbf{disjoint cycles}.  
+\end{align*} 
+\end{example}
 
-One observation that you hopefully made is that if an object in position $i$ remains unchanged, then we don't bother listing that number in the cycle notation.  However, if we wanted to, we could use the 1-cycle $(i)$ to denote this.  For example, we could write $\beta=(1)(2,4,3)(5)$.  In particular, we could denote the identity permutation in $S_5$ using $(1)(2)(3)(4)(5)$.  Yet, it is common to simply use $(1)$ to denote the identity in $S_n$ for all $n$.
+\begin{example}
+The cycle decomposition of the identity permutation in $S_n$ is $(1)(2)\cdots (n)$.  It is common to simply write this as $(1)$, again keeping in mind that the the absence of a number means that the permutation maps that number to itself. One disadvantage to this approach is that we lose information about what $n$ is.
+\end{example}
 
-Notice that the first number we choose to write down for a given cycle is arbitrary.  However, the numbers that follow are not negotiable.  Typically, we would use the smallest possible number first, but this is not necessary.  For example, the cycle $(2,4,7)$ could also be written as $(4,7,2)$ or $(7,2,4)$.
+\begin{problem}
+Suppose $\sigma\in S_{9}$ is defined by
+\[
+\sigma(1)=3, \sigma(2)=4, \sigma(3)=1, \sigma(4)=9, \sigma(5)=8, \sigma(6)=2, \sigma(7)=5, \sigma(8)=7, \sigma(9)=6.
+\]
+Find the cycle decomposition of $\sigma$. What are the lengths of the corresponding cycles?
+\end{problem}
 
 \begin{problem}\label{prob:S3-2}
 Write down all 6 elements in $S_3$ using cycle notation.
@@ -569,7 +607,7 @@ Write down all 6 elements in $S_3$ using cycle notation.
 Write down all 24 elements in $S_4$ using cycle notation.
 \end{problem}
 
-Suppose $\sigma\in S_n$.  Since $\sigma$ is one-to-one and onto, it is clear that it is possible to write $\sigma$ as a product of disjoint cycles such that each $i\in\{1,2,\ldots, n\}$ appears exactly once.
+Suppose $\sigma\in S_n$.  Since $\sigma$ is a bijection, it is clear that it is possible to write $\sigma$ as a product of disjoint cycles such that each $i\in\{1,2,\ldots, n\}$ appears exactly once.
 
 Let's see if we can figure out how to multiply elements of $S_n$ using cycle notation.  Consider the permutations $\alpha=(1,3,2)$ and $\beta=(3,4)$ in $S_4$.  To compute the composition $\alpha\beta=(1,3,2)(3,4)$, let's explore what happens in each position.  Since we are doing function composition, we should work our way from right to left.  Since 1 does not appear in the cycle notation for $\beta$, we know that $\beta(1)=1$ (i.e., $\beta$ maps 1 to 1).  Now, we see what $\alpha(1)=3$.  Thus, the composition $\alpha\beta$ maps 1 to 3 (since $\alpha\beta(1)=\alpha(\beta(1))=\alpha(1)=3$).  Next, we should return to $\beta$ and see what happens to 3---which is where we ended a moment ago.  We see that $\beta$ maps 3 to 4 and then $\alpha$ maps 4 to 4 (since 4 does not appear in the cycle notation for $\alpha$).  So, $\alpha\beta(3)=4$.  Continuing this way, we see that $\beta$ maps 4 to 3 and $\alpha$ maps 3 to 2, and so $\alpha\beta$ maps 4 to 2.  Lastly, since $\beta(2)=2$ and $\alpha(2)=1$, we have $\alpha\beta(2)=1$.  Putting this altogether, we see that $\alpha\beta=(1,3,4,2)$.  Now, you should try a few.  Things get a little trickier if the composition of two permutations results in a permutation consisting of more than a single cycle.
 
@@ -578,15 +616,18 @@ Consider $\alpha$, $\beta$, $\sigma$, and $\gamma$ for which we drew the permuta
 \begin{multicols}{2}
 \begin{enumerate}[label=\textrm{(\alph*)}]
 \item $\alpha\gamma$
-\item $\alpha^2$
-\item $\alpha^3$
-\item $\alpha^4$
-\item $\alpha^5$
+\item $\gamma\alpha$
+%\item $\alpha^2$
+%\item $\alpha^3$
+%\item $\alpha^4$
+%\item $\alpha^5$
 \item $\sigma\alpha$
-\item $\alpha^{-1}\sigma^{-1}$
+\item $\alpha\sigma$
+%\item $\alpha^{-1}\sigma^{-1}$
 \item $\beta^2$
 \item $\beta^3$
-\item $\beta\gamma\alpha$
+\item $\beta^4$
+%\item $\beta\gamma\alpha$
 \item $\sigma^3$
 \item $\sigma^6$
 \end{enumerate}
@@ -617,8 +658,10 @@ Computing the order of a permutation is fairly easy using cycle notation once we
 If $\alpha\in S_n$ such that $\alpha$ consists of a single $k$-cycle, then $|\alpha|=k$.
 \end{theorem}
 
+Recall that $\lcm(k_1,\ldots, k_m)$ is the \textbf{least common multiple} of $\{k_1,\ldots, k_m\}$.
+
 \begin{theorem}
-Suppose $\alpha\in S_n$ such that $\alpha$ consists of $m$ disjoint cycles of lengths $k_1,\ldots, k_m$.  Then $|\alpha|=\lcm(k_1,\ldots, k_m)$.\footnote{Recall that $\lcm(k_1,\ldots, k_m)$ is the \textbf{least common multiple} of $\{k_1,\ldots, k_m\}$.} 
+Suppose $\alpha\in S_n$ such that $\alpha$ consists of $m$ disjoint cycles of lengths $k_1,\ldots, k_m$.  Then $|\alpha|=\lcm(k_1,\ldots, k_m)$. 
 \end{theorem}
 
 \begin{problem}
@@ -638,15 +681,15 @@ Now, using $(1,2)$ and $(1,2,3)$ as generators, draw the Cayley diagram for $S_3
 \end{problem}
 
 \begin{problem}
-Consider $S_3$.
+Consider $S_3$. It turns out that $S_3=\langle (1,2),(1,3),(2,3)\rangle$.
 \begin{enumerate}[label=\textrm{(\alph*)}]
 \item Using $(1,2)$, $(1,3)$, and $(2,3)$ as generators, draw the Cayley diagram for $S_3$.
-\item In the previous part, we used a generating set with three elements.  Is there a smaller generating set?  If so, what is it?
+\item Is $\{(1,2),(1,3),(2,3)\}$ a minimal generating set for $S_3$?  If so, explain why.  If not, find a subset of $\{(1,2),(1,3),(2,3)\}$ that is a minimal generating set.
 \end{enumerate}
 \end{problem}
 
 \begin{problem}
-Recall that there are $4!=24$ permutations in $S_4$.    
+Recall that there are $4!=24$ permutations in $S_4$.
 \begin{enumerate}[label=\textrm{(\alph*)}]
 \item Pick any 12 permutations from $S_4$ and verify that you can write them as words in the 2-cycles $(1,2), (1,3), (1,4), (2,3), (2,4),(3,4)$.  In most circumstances, your words will not consist of products of disjoint 2-cycles.  For example, the permutation $(1,2,3)$ can be decomposed into $(1,2)(2,3)$, which is a word consisting of two 2-cycles that happen to not be disjoint.
 \item Using your same 12 permutations, verify that you can write them as words only in the 2-cycles $(1,2),(2,3),(3,4)$.
@@ -692,22 +735,314 @@ Consider $S_n$.
 The set of transpositions (respectively, the set of adjacent transpositions) from $S_n$ forms a generating set for $S_n$.
 \end{corollary}
 
-It is important to point out that the transposition representation of a permutation is not unique.  That is, there are many words in the transpositions that will equal the same permutation.  However, as we shall see in the next section, given two transposition representations for the same permutation, the number of transpositions will have the same parity (i.e., even versus odd).
-
-\begin{remark}
-Here are two interesting facts that I will let you ponder on your own time.
-\begin{enumerate}[label=\textrm{(\alph*)}]
-\item The group of rigid motion symmetries for a cube is isomorphic to $S_4$.  To convince yourself of this fact, first prove that this group has 24 actions and then ponder the action of $S_4$ on the four long diagonals of a cube.
-\item It turns out that you can generate $S_4$ with $(1,2)$ and $(1,2,3,4)$.  Moreover, you can arrange the Cayley diagram for $S_4$ with these generators on a truncated cube, which is depicted in Figure~\ref{fig:TruncatedCube}.  Try it. 
-\end{enumerate}
-\end{remark}
-
-\begin{figure}[ht!]
+\begin{problem}
+The following diagram is an unlabeled version of the Cayley diagram for $S_4$ using the adjacent transpositions $(1,2)$, $(2,3)$, and $(3,4)$ as generators.  Pick a vertex to correspond to the identity, make a suitable choice for which arrows correspond to which generators, and then label the remaining vertices with permutations in $S_4$.  The graph given below is drawn on the a three-dimensional solid called the \textbf{permutahedron} (which is a \textbf{truncated octahedron}).
 \begin{center}
-\includegraphics[width=2in]{TruncatedCube.jpg}
+\begin{tikzpicture}
+\begin{scope}[scale=.2]
+\node (3124) at (12.15,35.1) [v-tiny] {};
+\node (4123) at (23,35.8) [v-tiny] {};
+\node (4213) at (28.2,35.1) [v-tiny] {};
+\node (3214) at (17,34.35) [v-tiny] {};
+\node (4132) at (25.5,29.2) [v-faded] {};
+\node (2134) at (4.15,27.15) [v-tiny] {};
+\node (4312) at (36.2,27.15) [v-tiny] {};
+\node (2314) at (13.5,24.6) [v-tiny] {};
+\node (4231) at (32.8,21.9) [v-faded] {};
+\node (3142) at (18.3,20.8) [v-faded] {};
+\node (2143) at (7.7,20.6) [v-faded] {};
+\node (4321) at (38.2,20.6) [v-tiny] {};
+%%
+\node (1234) at (.2,17.5) [v-tiny] {};
+\node (3412) at (33.9,17.5) [v-tiny] {};
+\node (1324) at (4.7,15.7) [v-tiny] {};
+\node (2413) at (22.4,15.7) [v-tiny] {};
+\node (3241) at (25.5,14.6) [v-faded] {};
+\node (1243) at (4.15,11.1) [v-tiny] {};
+\node (3421) at (36.2,11.1) [v-tiny] {};
+\node (1423) at (13.5,6.8) [v-tiny] {};
+\node (2341) at (23,5.3) [v-faded] {};
+\node (1342) at (12.2,3.1) [v-tiny] {};
+\node (2431) at (28.1,3.1) [v-tiny] {};
+\node (1432) at (17,.6) [v-tiny] {};
+%%
+\draw [o2-faded] (4132) to (3142);
+\draw [o2-faded] (2134) to (2143);
+\draw [o2-faded] (4231) to (3241);
+\draw [o2-faded] (2341) to (2431);
+\draw [p2-faded] (4132) to (4231);
+\draw [p2-faded] (3142) to (3241);
+\draw [p2-faded] (2143) to (1243);
+\draw [p2-faded] (2341) to (1342);
+\draw [g2-faded] (4123) to (4132);
+\draw [g2-faded] (4231) to (4321);
+\draw [g2-faded] (3142) to (2143);
+\draw [g2-faded] (3241) to (2341);
+%%
+\draw [o2] (3124) to (4123);
+\draw [o2] (3214) to (4213);
+\draw [o2] (4312) to (3412);
+\draw [o2] (2314) to (2413);
+\draw [o2] (4321) to (3421);
+\draw [o2] (1234) to (1243);
+\draw [o2] (1324) to (1423);
+\draw [o2] (1342) to (1432);
+%%
+\draw [p2] (3124) to (3214);
+\draw [p2] (2134) to (1234);
+\draw [p2] (4312) to (4321);
+\draw [p2] (2314) to (1324);
+\draw [p2] (3412) to (3421); 
+\draw [p2] (2413) to (1423);
+\draw [p2] (2431) to (1432);
+\draw [p2] (4123) to (4213);
+%%
+\draw [g2] (3124) to (2134);
+\draw [g2] (4213) to (4312);
+\draw [g2] (3214) to (2314);
+\draw [g2] (1234) to (1324);
+\draw [g2] (3412) to (2413);
+\draw [g2] (1243) to (1342);
+\draw [g2] (3421) to (2431);
+\draw [g2] (1423) to (1432);
+\end{scope}
+\end{tikzpicture}
 \end{center}
-\caption{Truncated cube. [Image source: \href{https://en.wikipedia.org/wiki/Truncated_cube}{Wikipedia}]}\label{fig:TruncatedCube}
-\end{figure}
+\end{problem}
+
+It is important to point out that the transposition representation of a permutation is not unique.  That is, there are many words in the transpositions that will equal the same permutation.  This is exhibited in the previous problem where there are multiple paths from the vertex corresponding to the identity to another vertex in the Cayley diagram for $S_4$ using the adjacent transpositions as the generators.  However, as we shall see in the next section, given two transposition representations for the same permutation, the number of transpositions will have the same parity (i.e., even versus odd).
+
+\begin{problem}\label{prob:Cayley diagrams for S4}
+It turns out that
+\[
+S_4 =\langle (1,2), (1,3), (1,4)\rangle = \langle (1,2,3,4), (1,2)\rangle.
+\]
+Determine which of the generating sets listed above yield each of the Cayley diagrams given below. Label the vertices in each diagram with permutations (written in cycle notation as a product of disjoint cycles) of $S_4$. The graph on the right is sometimes called the \textbf{Nauru graph}.
+
+\[
+\begin{tikzpicture}[scale=.9]
+\begin{scope}[shift={(0,0)}]
+\node (a1) at (0:1) [v-tiny] {};  %% center hexigon
+\node (a2) at (60:1) [v-tiny] {};
+\node (a3) at (120:1) [v-tiny] {};
+\node (a4) at (180:1) [v-tiny] {};
+\node (a5) at (240:1) [v-tiny] {};
+\node (a6) at (300:1) [v-tiny] {}; 
+\node (b1) at (2,-.58) [v-tiny] {};  %% outer sides of 3 squares
+\node (b2) at (.5,1.87) [v-tiny] {};
+\node (b3) at (-.5,1.87) [v-tiny] {};  %% original yellow vertex
+\node (b4) at (-2,-.58) [v-tiny] {};
+\node (b5) at (-1.5,-1.44) [v-tiny] {};
+\node (b6) at (1.5,-1.44) [v-tiny] {};
+\node (c1) at (0:3) [v-tiny] {};   %% middle hexagon
+\node (c2) at (60:3) [v-tiny] {};
+\node (c3) at (120:3) [v-tiny] {};
+\node (c4) at (180:3) [v-tiny] {};
+\node (c5) at (240:3) [v-tiny] {};
+\node (c6) at (300:3) [v-tiny] {};
+\node (d1) at (0:4) [v-tiny] {};   % outer hexagon
+\node (d2) at (60:4) [v-tiny] {};
+\node (d3) at (120:4) [v-tiny] {};
+\node (d4) at (180:4) [v-tiny] {};
+\node (d5) at (240:4) [v-tiny] {};
+\node (d6) at (300:4) [v-tiny] {};
+\draw [o2] (a1) to (a2); \draw [p] (a3) to (a2); \draw [o2] (a3) to (a4);
+\draw [p] (a5) to (a4); \draw [o2] (a5) to (a6); \draw [p] (a1) to (a6);
+\draw [p] (b1) to (a1); \draw [p] (a2) to (b2); \draw [p] (b3) to (a3);
+\draw [p] (a4) to (b4); \draw [p] (b5) to (a5); \draw [p] (a6) to (b6);
+\draw [o2] (b1) to (c1); \draw [o2] (b2) to (c2); \draw [o2] (b3) to (c3);
+\draw [o2] (b4) to (c4); \draw [o2] (b5) to (c5); \draw [o2] (b6) to (c6);
+\draw [p] (c1) to (d1); \draw [p] (d2) to (c2); \draw [p] (c3) to (d3);
+\draw [p] (d4) to (c4); \draw [p] (c5) to (d5); \draw [p] (d6) to (c6);
+\draw [p] (b2) to (b3); \draw [p] (b4) to (b5); \draw [p] (b6) to (b1);
+\draw [p] (c2) to (c1); \draw [p] (c4) to (c3); \draw [p] (c6) to (c5);
+\draw [p] (d1) to (d2); \draw [o2] (d2) to (d3); \draw [p] (d3) to (d4);
+\draw [o2] (d4) to (d5); \draw [p] (d5) to (d6); \draw [o2] (d6) to (d1);
+\end{scope}
+%%
+\begin{scope}[shift={(9,0)},scale=1.75]
+\node (4321) at (0:1) [v-tiny] {};
+\node (3142) at (30:1) [v-tiny] {};
+\node (2314) at (60:1) [v-tiny] {};
+\node (1432) at (90:1) [v-tiny] {};
+\node (4213) at (120:1) [v-tiny] {};
+\node (3421) at (150:1) [v-tiny] {};
+\node (2143) at (180:1) [v-tiny] {};
+\node (1324) at (210:1) [v-tiny] {};
+\node (4132) at (240:1) [v-tiny] {};
+\node (3214) at (270:1) [v-tiny] {};
+\node (2431) at (300:1) [v-tiny] {};
+\node (1243) at (330:1) [v-tiny] {};
+%%
+\node (2341) at (0:2) [v-tiny] {};
+\node (1342) at (30:2) [v-tiny] {};
+\node (4312) at (60:2) [v-tiny] {};
+\node (3412) at (90:2) [v-tiny] {};
+\node (2413) at (120:2) [v-tiny] {};
+\node (1423) at (150:2) [v-tiny] {};
+\node (4123) at (180:2) [v-tiny] {};
+\node (3124) at (210:2) [v-tiny] {};
+\node (2134) at (240:2) [v-tiny] {};
+\node (1234) at (270:2) [v-tiny] {};
+\node (4231) at (300:2) [v-tiny] {};
+\node (3241) at (330:2) [v-tiny] {};
+%%
+\draw [o2] (1432) to (2431); \draw [o2] (4213) to (3214);
+\draw [o2] (2143) to (3142); \draw [o2] (1324) to (4321);
+\draw [o2] (2413) to (3412); \draw [o2] (1342) to (2341);
+\draw [o2] (4231) to (1234); \draw [o2] (3124) to (4123);
+\draw [o2] (2314) to (4312); \draw [o2] (1243) to (3241);
+\draw [o2] (4132) to (2134); \draw [o2] (3421) to (1423);
+%%
+\draw [g2] (1432) to (4132); \draw [g2] (2314) to (3214);
+\draw [g2] (3421) to (4321); \draw [g2] (2143) to (1243);
+\draw [g2] (3412) to (4312); \draw [g2] (2134) to (1234);
+\draw [g2] (2341) to (3241); \draw [g2] (4123) to (1423);
+\draw [g2] (4213) to (2413); \draw [g2] (2431) to (4231);
+\draw [g2] (1324) to (3124); \draw [g2] (3142) to (1342);
+%%
+\draw [p2] (4213) to (1243); \draw [p2] (3421) to (2431);
+\draw [p2] (1324) to (2314); \draw [p2] (4132) to (3142);
+\draw [p2] (4312) to (1342); \draw [p2] (2134) to (3124);
+\draw [p2] (1423) to (2413); \draw [p2] (4231) to (3241);
+\draw [p2] (1432) to (3412); \draw [p2] (3214) to (1234);
+\draw [p2] (2143) to (4123); \draw [p2] (4321) to (2341);
+ \end{scope}
+\end{tikzpicture}
+\]
+\end{problem}
+
+\begin{problem}\label{prob:more Cayley diagrams for S4}
+Two Cayley diagrams for the symmetric group $S_4$ are given below.
+\newcommand\aaa{1}\newcommand\bbb{2}\newcommand\ccc{3}\newcommand\ddd{4.6}
+%\tikzstyle{v-tiny} = [circle, draw, fill=lightgrey,inner sep=0pt, minimum size=2.5mm]
+%\tikzstyle{p2} = [draw, very thick, cb-purple,stealth-stealth]
+\[
+\begin{tikzpicture}
+\begin{scope}[shift={(0,0)}]
+\node (nw1) at (-1.5,1.5) [v-tiny] {};
+\node (nw2) at (-.5,1.5) [v-tiny] {}; 
+\node (nw3) at (-1.5,.5) [v-tiny] {};
+\node (ne1) at (1.5,1.5) [v-tiny] {};
+\node (ne2) at (1.5,.5) [v-tiny] {}; 
+\node (ne3) at (.5,1.5) [v-tiny] {};
+\node (se1) at (1.5,-1.5) [v-tiny] {};
+\node (se2) at (.5,-1.5) [v-tiny] {};
+\node (se3) at (1.5,-.5) [v-tiny] {}; 
+\node (sw1) at (-1.5,-1.5) [v-tiny] {};
+\node (sw2) at (-1.5,-.5) [v-tiny] {}; 
+\node (sw3) at (-.5,-1.5) [v-tiny] {};
+%
+\draw [p2] (nw2) to (ne3); \draw [p2] (ne2) to (se3);
+\draw [p2] (se2) to (sw3); \draw [p2] (sw2) to (nw3);
+\draw[o](nw2)to(nw1); \draw [o] (nw3) to (nw2); \draw [o] (nw1) to (nw3);
+\draw[o](ne2)to(ne1); \draw [o] (ne3) to (ne2); \draw [o] (ne1) to (ne3);
+\draw[o](se2)to(se1); \draw [o] (se3) to (se2); \draw [o] (se1) to (se3);
+\draw[o](sw2)to(sw1); \draw [o] (sw3) to (sw2); \draw [o] (sw1) to (sw3);
+%%
+\node (NW1) at (-2.25,2.25) [v-tiny] {};
+\node (NW2) at (-3.25,2.25) [v-tiny] {}; 
+\node (NW3) at (-2.25,3.25) [v-tiny] {};
+\node (NE1) at (2.25,2.25) [v-tiny] {};
+\node (NE2) at (2.25,3.25) [v-tiny] {}; 
+\node (NE3) at (3.25,2.25) [v-tiny] {};
+\node (SE1) at (2.25,-2.25) [v-tiny] {};
+\node (SE2) at (3.25,-2.25) [v-tiny] {};
+\node (SE3) at (2.25,-3.25) [v-tiny] {}; 
+\node (SW1) at (-2.25,-2.25) [v-tiny] {};
+\node (SW2) at (-2.25,-3.25) [v-tiny] {}; 
+\node (SW3) at (-3.25,-2.25) [v-tiny] {};
+%%
+\draw [p2] (NW3) to (NE2); \draw [p2] (NE3) to (SE2);
+\draw [p2] (SE3) to (SW2); \draw [p2] (SW3) to (NW2);
+%
+\draw[o](NW2)to(NW1); \draw [o] (NW3) to (NW2); \draw [o] (NW1) to (NW3);
+\draw[o](NE2)to(NE1); \draw [o] (NE3) to (NE2); \draw [o] (NE1) to (NE3);
+\draw[o](SE2)to(SE1); \draw [o] (SE3) to (SE2); \draw [o] (SE1) to (SE3);
+\draw[o](SW2)to(SW1); \draw [o] (SW3) to (SW2); \draw [o] (SW1) to (SW3);
+%%
+\draw [p2] (nw1) to (NW1); \draw [p2] (ne1) to (NE1);
+\draw [p2] (se1) to (SE1); \draw [p2] (sw1) to (SW1);
+\end{scope}
+%%
+\begin{scope}[shift={(9,0)}]
+\node (ne-1) at (45:\aaa) [v-tiny] {};
+\node (ne-2) at (67.5:\bbb) [v-tiny] {};
+\node (ne-3) at (22.5:\bbb) [v-tiny] {};
+\node (ne-4) at (67.5:\ccc) [v-tiny] {};
+\node (ne-5) at (22.5:\ccc) [v-tiny] {};
+\node (ne-6) at (45:\ddd) [v-tiny] {};
+%%
+\node (nw-1) at (45+90:\aaa) [v-tiny] {};
+\node (nw-2) at (67.5+90:\bbb) [v-tiny] {};
+\node (nw-3) at (22.5+90:\bbb) [v-tiny] {};
+\node (nw-4) at (67.5+90:\ccc) [v-tiny] {};
+\node (nw-5) at (22.5+90:\ccc) [v-tiny] {};
+\node (nw-6) at (45+90:\ddd) [v-tiny] {};
+%%
+\node (se-1) at (45-90:\aaa) [v-tiny] {};
+\node (se-2) at (67.5-90:\bbb) [v-tiny] {};
+\node (se-3) at (22.5-90:\bbb) [v-tiny] {};
+\node (se-4) at (67.5-90:\ccc) [v-tiny] {};
+\node (se-5) at (22.5-90:\ccc) [v-tiny] {};
+\node (se-6) at (45-90:\ddd) [v-tiny] {};
+%%
+\node (sw-1) at (45+180:\aaa) [v-tiny] {};
+\node (sw-2) at (67.5+180:\bbb) [v-tiny] {};
+\node (sw-3) at (22.5+180:\bbb) [v-tiny] {};
+\node (sw-4) at (67.5+180:\ccc) [v-tiny] {};
+\node (sw-5) at (22.5+180:\ccc) [v-tiny] {};
+\node (sw-6) at (45+180:\ddd) [v-tiny] {};
+%%
+\node (se-1) at (-45:1) [v-tiny] {};
+%%
+\draw [o] (ne-2) to (ne-1); \draw [o] (ne-3) to (ne-2);
+\draw [o] (ne-1) to (ne-3);
+\draw [p] (ne-2) to (ne-4); \draw [p] (ne-5) to (ne-3);
+\draw [o] (ne-4) to (ne-5); \draw [o] (ne-6) to (ne-4);
+\draw [o] (ne-5) to (ne-6);
+%%
+\draw [o] (nw-2) to (nw-1); \draw [o] (nw-3) to (nw-2);
+\draw [o] (nw-1) to (nw-3);
+\draw [p] (nw-2) to (nw-4); \draw [p] (nw-5) to (nw-3);
+\draw [o] (nw-4) to (nw-5); \draw [o] (nw-6) to (nw-4);
+\draw [o] (nw-5) to (nw-6);
+%%
+\draw [o] (se-2) to (se-1); \draw [o] (se-3) to (se-2);
+\draw [o] (se-1) to (se-3);
+\draw [p] (se-2) to (se-4); \draw [p] (se-5) to (se-3);
+\draw [o] (se-4) to (se-5); \draw [o] (se-6) to (se-4);
+\draw [o] (se-5) to (se-6);
+%%
+\draw [o] (sw-2) to (sw-1); \draw [o] (sw-3) to (sw-2);
+\draw [o] (sw-1) to (sw-3);
+\draw [p] (sw-2) to (sw-4); \draw [p] (sw-5) to (sw-3);
+\draw [o] (sw-4) to (sw-5); \draw [o] (sw-6) to (sw-4);
+\draw [o] (sw-5) to (sw-6);
+%%
+\draw [p] (ne-1) to (nw-1); \draw [p] (se-1) to (ne-1);
+\draw [p] (sw-1) to (se-1); \draw [p] (nw-1) to (sw-1);
+%%
+\draw [p] (nw-6) to (ne-6); \draw [p] (sw-6) to (nw-6);
+\draw [p] (se-6) to (sw-6); \draw [p] (ne-6) to (se-6);
+%%
+\draw [p] (ne-4) to (nw-5); \draw [p] (se-4) to (ne-5);
+\draw [p] (sw-4) to (se-5); \draw [p] (nw-4) to (sw-5);
+%%
+\draw [p] (nw-3) to (ne-2); \draw [p] (sw-3) to (nw-2);
+\draw [p] (se-3) to (sw-2); \draw [p] (ne-3) to (se-2);
+\end{scope}
+\end{tikzpicture}
+\]
+Determine what generating sets will yield these Cayley diagrams. Then label the nodes with permutations in cycle notation, written as a product of disjoint cycles.
+\end{problem}
+
+Here is an interesting fact that I will let you ponder. The group of rigid motion symmetries for a cube is isomorphic to $S_4$.  %To convince yourself of this fact, first prove that this group has 24 actions and then ponder the action of $S_4$ on the four long diagonals of a cube. 
+Is there a Cayley diagram in one of the last two problems that helps you visualize this fact?
+
+\end{section}
+
+\begin{section}{Permutation Groups and Cayley's Theorem}
 
 It turns out that the subgroups of symmetric groups play an important role in group theory.
 
@@ -832,6 +1167,10 @@ Classify all of the permutations in $S_4$ as even or odd.
 \end{problem}
 
 \begin{problem}
+Identify the even permutations in the Cayley diagrams for $S_4$ given in Problems~\ref{prob:Cayley diagrams for S4} and \ref{prob:more Cayley diagrams for S4}. Notice any nice patterns?
+\end{problem}
+
+\begin{problem}
 Determine whether $(1,4,2,3,5)$ is even or odd.  How about $(1,4,2,3,5)(7,9)$?
 \end{problem}
 
@@ -849,10 +1188,10 @@ And finally, we are ready to introduce the alternating groups.
 The set of all even permutations in $S_n$ is denoted by $A_n$ and is called the \textbf{alternating group}.
 \end{definition}
 
-Since we referred to $A_n$ as a group, it darn well better be a group!
+Since we referred to $A_n$ as a group, it darn well better be a group! To show that $A_n$ is a group, argue that $A_n$ is a subgroup of $S_n$ using the Two-Step Subgroup Test (see Theorem~\ref{thm:subgroup_criterion}). As expected, for $n>1$, the order of $A_n$ is exactly half the order of $S_n$. To show that $|A_n|=n!/2$ for $n>1$, prove that the number of even permutations in $S_n$ is the same as the number of odd permutations in $S_n$.  Here is one way to accomplish this. Define $f:A_n\to S_n\setminus A_n$ via $f(\sigma)=(1,2)\sigma$.  Note that $S_n\setminus A_n$ is the set of odd permutations in $S_n$. Show that $f$ is a bijection.
 
 \begin{theorem}
-The set $A_n$ forms a group under composition of permutations and has order $n!/2$.\footnote{\emph{Hint:} To show that $A_n$ is a group, argue that $A_n$ is a subgroup of $S_n$ using the Two-Step Subgroup Test (see Theorem~\ref{thm:subgroup_criterion}). To show that $|A_n|=n!/2$, prove that the number of even permutations in $S_n$ is the same as the number of odd permutations in $S_n$.  Here is one way to accomplish this. Define $f:A_n\to S_n\setminus A_n$ via $f(\sigma)=(1,2)\sigma$.  Note that $S_n\setminus A_n$ is the set of odd permutations in $S_n$. Show that $f$ is a bijection.}
+The set $A_n$ forms a group under composition of permutations and has order $n!/2$ when $n>1$.
 \end{theorem}
 
 \begin{problem}
@@ -861,6 +1200,71 @@ Find $A_3$.  What group is $A_3$ isomorphic to?
 
 \begin{problem}
 Find $A_4$ and then draw its subgroup lattice. Is $A_4$ abelian?
+\end{problem}
+
+\begin{problem}\label{prob:Cayley diagrams for A4}
+Two Cayley diagrams for $A_4$ are shown below. 
+\[
+\begin{tikzpicture}[scale=.8,auto]
+\begin{scope}[shift={(0,0)}]
+\node (l1) at (0,2.25) [v-tiny] {};
+\node (l2) at (.866,3.75) [v-tiny] {};
+\node (l3) at (-.866,3.75) [v-tiny] {};
+\node (t1) at (0,1) [v-tiny] {};
+\node (t2) at (.866,-.5) [v-tiny] {};
+\node (t3) at (-.866,-.5) [v-tiny] {};
+\node (r1) at (-3.68,-1.125) [v-tiny] {};
+\node (r2) at (-2.814,-2.5) [v-tiny] {};
+\node (r3) at (-1.948,-1.125) [v-tiny] {};
+\node (m2) at (1.948,-1.125) [v-tiny] {};
+\node (m1) at (3.68,-1.125) [v-tiny] {};
+\node (m3) at (2.814,-2.5) [v-tiny] {};
+\draw [p2] (l2) to (m1);
+\draw [p2] (m2) to (t2);
+\draw [p2] (r2) to (m3);
+\draw [p2] (l1) to (t1);
+\draw [p2] (l3) to (r1);
+\draw [p2] (r3) to (t3);
+\draw [o] (l1) to (l2);
+\draw [o] (l2) to (l3);
+\draw [o] (l3) to (l1);
+\draw [o] (t1) to (t3);
+\draw [o] (t2) to (t1);
+\draw [o] (t3) to (t2);
+\draw [o] (r1) to (r2);
+\draw [o] (r2) to (r3);
+\draw [o] (r3) to (r1);
+\draw [o] (m1) to (m2);
+\draw [o] (m2) to (m3);
+\draw [o] (m3) to (m1);
+\node at (0,-.2) {};
+\end{scope}
+%%
+\begin{scope}[shift={(10,.6)},scale=1.1]
+\node (a2) at (-45:1) [v-tiny] {};
+\node (a4) at (-135:1) [v-tiny] {};
+\node (a6) at (-225:1) [v-tiny] {};
+\node (a8) at (-315:1) [v-tiny] {};
+\node (b1) at (0:2) [v-tiny] {};
+\node (b3) at (-90:2) [v-tiny] {};
+\node (b5) at (-180:2) [v-tiny] {};
+\node (b7) at (-270:2) [v-tiny] {};
+\node (c2) at (-45:4) [v-tiny] {};
+\node (c4) at (-135:4) [v-tiny] {};
+\node (c6) at (-225:4) [v-tiny] {};
+\node (c8) at (-315:4) [v-tiny] {};
+\draw [o] (b1) to (a8); \draw [o] (a8) to (a2); \draw [o] (a2) to (b1);
+\draw [o] (a4) to (a6); \draw [o] (a6) to (b5); \draw [o] (b5) to (a4);
+\draw [o] (c2) to (b3); \draw [o] (b3) to (c4); \draw [o] (c4) to (c2);
+\draw [o] (c6) to (b7); \draw [o] (b7) to (c8); \draw [o] (c8) to (c6);
+\draw [p] (b1) to (c2); \draw [p] (c2) to (c8); \draw [p] (c8) to (b1);
+\draw [p] (b5) to (c6); \draw [p] (c6) to (c4); \draw [p] (c4) to (b5);
+\draw [p] (b3) to (a2); \draw [p] (a2) to (a4); \draw [p] (a4) to (b3);
+\draw [p] (a6) to (a8); \draw [p] (a8) to (b7); \draw [p] (b7) to (a6);
+\end{scope}
+\end{tikzpicture}
+\]
+Determine what generating sets will yield these Cayley diagrams. Then label the nodes with permutations in cycle notation, written as a product of disjoint cycles.
 \end{problem}
 
 \begin{problem}
@@ -879,7 +1283,7 @@ Does $A_8$ contain an element of order 15?  If so, find one.  If not, explain wh
 Below are a few interesting facts about $A_4$ and $A_5$, which we will state without proof.
 \begin{enumerate}[label=\textrm{(\alph*)}]
 \item The group of rigid motion symmetries for a regular tetrahedron is isomorphic to $A_4$.
-\item You can arrange the Cayley diagram for $A_4$ with generators $(1,2)(3,4)$ and $(2,3,4)$ on a truncated tetrahedron, which is depicted in Figure~\ref{fig:TruncatedTetrahedron}.
+\item You can arrange the Cayley diagram for $A_4$ with generators $(1,2)(3,4)$ and $(2,3,4)$ (see the left diagram in Problem~\ref{prob:Cayley diagrams for A4}) on a truncated tetrahedron, which is depicted in Figure~\ref{fig:TruncatedTetrahedron}.
 \item You can arrange the Cayley diagram for $A_5$ with generators $(1,2)(3,4)$ and $(1,2,3,4,5)$ on a truncated icosahedron, which is given in Figure~\ref{fig:TruncatedIcosahedron}.  You can also arrange the Cayley diagram for $A_5$ with generators $(1,2,3)$ and $(1,5)(2,4)$ on a truncated dodecahedron seen in Figure~\ref{fig:TruncatedDodecahedron}. 
 \end{enumerate}
 \end{remark}
