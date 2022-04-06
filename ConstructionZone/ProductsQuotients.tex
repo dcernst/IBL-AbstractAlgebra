@@ -33,10 +33,6 @@ and
 \]
 Moreover, the identity of the group is $(0,0)$.  As an example, the inverse of $(1,1)$ is $(3,1)$ since $(1,1)+(3,1)=(0,0)$.  There is a very natural generating set for $\mathbb{Z}_4\times \mathbb{Z}_2$, namely, $\{(1,0),(0,1)\}$ since $1\in \mathbb{Z}_4$ and $1\in \mathbb{Z}_2$ generate $\mathbb{Z}_4$ and $\mathbb{Z}_2$, respectively.  The corresponding Cayley diagram is given in Figure~\ref{fig:Cayley_Z4xZ2}.
 
-\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=6.5mm]
-\tikzstyle{b} = [draw,very thick,blue,stealth-stealth]
-\tikzstyle{r} = [draw, very thick, red,-stealth]
-
 \begin{figure}[!ht]
 \centering
 \begin{tikzpicture}[scale=1.5,auto]
@@ -49,20 +45,20 @@ Moreover, the identity of the group is $(0,0)$.  As an example, the inverse of $
 \node (20) at (-45:1) [vert] {\tiny $(2,0$};
 \node (30) at (-135:1) [vert] {\tiny $(3,0)$};
 
-\path[r] (00) to (10);
-\path[r] (10) to (20);
-\path[r] (20) to (30);
-\path[r] (30) to (00);
+\path[o] (00) to (10);
+\path[o] (10) to (20);
+\path[o] (20) to (30);
+\path[o] (30) to (00);
 
-\path[r] (01) to (11);
-\path[r] (11) to (21);
-\path[r] (21) to (31);
-\path[r] (31) to (01);
+\path[o] (01) to (11);
+\path[o] (11) to (21);
+\path[o] (21) to (31);
+\path[o] (31) to (01);
 
-\path[b] (00) to (01);
-\path[b] (10) to (11);
-\path[b] (20) to (21);
-\path[b] (30) to (31);
+\path[p2] (00) to (01);
+\path[p2] (10) to (11);
+\path[p2] (20) to (21);
+\path[p2] (30) to (31);
 \end{tikzpicture}
 \caption{Cayley diagram for $\mathbb{Z}_4 \times \mathbb{Z}_2$ with generating set $\{(1,0),(0,1)\}$.}\label{fig:Cayley_Z4xZ2}
 \end{figure}
@@ -261,14 +257,14 @@ As you found in Problem~\ref{prob:normal_in_Q8}, if we arrange the rows and colu
 \begin{center}
 \begin{tabular}{c!{\vrule width 2pt}c|c|c|c|c|c|c|c}
 $*$ & $1$ & $-1$ & $i$ & $-i$ & $j$ & $-j$ & $k$ & $-k$ \\ \noalign{\hrule height 2pt}
-$1$ & \cellcolor{green}$1$ & \cellcolor{green}$-1$ & \cellcolor{blue}$i$ & \cellcolor{blue}$-i$ & \cellcolor{red}$j$ & \cellcolor{red}$-j$ & \cellcolor{purple}$k$ & \cellcolor{purple}$-k$\\
-\hline $-1$ & \cellcolor{green}$-1$ & \cellcolor{green}$1$ & \cellcolor{blue}$-i$ & \cellcolor{blue}$i$ & \cellcolor{red}$-j$ & \cellcolor{red}$j$ & \cellcolor{purple}$-k$ & \cellcolor{purple}$k$ \\
-\hline $i$ & \cellcolor{blue}$i$ & \cellcolor{blue}$-i$ & \cellcolor{green}$-1$ & \cellcolor{green}$1$ & \cellcolor{purple}$k$ & \cellcolor{purple}$-k$ & \cellcolor{red}$-j$ & \cellcolor{red} $j$\\
-\hline $-i$ & \cellcolor{blue}$-i$ & \cellcolor{blue}$i$ & \cellcolor{green}$1$ & \cellcolor{green}$-1$ & \cellcolor{purple}$-k$ & \cellcolor{purple}$k$ & \cellcolor{red}$j$ & \cellcolor{red}$-j$\\
-\hline $j$ & \cellcolor{red}$j$ & \cellcolor{red}$-j$ & \cellcolor{purple}$-k$ & \cellcolor{purple}$k$ & \cellcolor{green}$-1$ & \cellcolor{green}$1$ & \cellcolor{blue}$i$ & \cellcolor{blue}$-i$\\
-\hline $-j$ & \cellcolor{red}$-j$ & \cellcolor{red}$j$ & \cellcolor{purple}$k$ & \cellcolor{purple}$-k$ & \cellcolor{green}$1$ & \cellcolor{green}$-1$ & \cellcolor{blue}$-i$ & \cellcolor{blue}$i$\\
-\hline $k$ & \cellcolor{purple}$k$ & \cellcolor{purple}$-k$ & \cellcolor{red}$j$ & \cellcolor{red}$-j$ & \cellcolor{blue}$-i$ & \cellcolor{blue}$i$ & \cellcolor{green}$-1$ & \cellcolor{green}$1$\\
-\hline $-k$ & \cellcolor{purple}$-k$ & \cellcolor{purple}$k$ & \cellcolor{red}$-j$ & \cellcolor{red}$j$ & \cellcolor{blue}$i$ & \cellcolor{blue}$-i$ & \cellcolor{green}$1$ & \cellcolor{green}$-1$
+$1$ & \cellcolor{cb-green}$1$ & \cellcolor{cb-green}$-1$ & \cellcolor{cb-purple}$i$ & \cellcolor{cb-purple}$-i$ & \cellcolor{cb-orange}$j$ & \cellcolor{cb-orange}$-j$ & \cellcolor{purple}$k$ & \cellcolor{purple}$-k$\\
+\hline $-1$ & \cellcolor{cb-green}$-1$ & \cellcolor{cb-green}$1$ & \cellcolor{cb-purple}$-i$ & \cellcolor{cb-purple}$i$ & \cellcolor{cb-orange}$-j$ & \cellcolor{cb-orange}$j$ & \cellcolor{purple}$-k$ & \cellcolor{purple}$k$ \\
+\hline $i$ & \cellcolor{cb-purple}$i$ & \cellcolor{cb-purple}$-i$ & \cellcolor{cb-green}$-1$ & \cellcolor{cb-green}$1$ & \cellcolor{purple}$k$ & \cellcolor{purple}$-k$ & \cellcolor{cb-orange}$-j$ & \cellcolor{cb-orange} $j$\\
+\hline $-i$ & \cellcolor{cb-purple}$-i$ & \cellcolor{cb-purple}$i$ & \cellcolor{cb-green}$1$ & \cellcolor{cb-green}$-1$ & \cellcolor{purple}$-k$ & \cellcolor{purple}$k$ & \cellcolor{cb-orange}$j$ & \cellcolor{cb-orange}$-j$\\
+\hline $j$ & \cellcolor{cb-orange}$j$ & \cellcolor{cb-orange}$-j$ & \cellcolor{purple}$-k$ & \cellcolor{purple}$k$ & \cellcolor{cb-green}$-1$ & \cellcolor{cb-green}$1$ & \cellcolor{cb-purple}$i$ & \cellcolor{cb-purple}$-i$\\
+\hline $-j$ & \cellcolor{cb-orange}$-j$ & \cellcolor{cb-orange}$j$ & \cellcolor{purple}$k$ & \cellcolor{purple}$-k$ & \cellcolor{cb-green}$1$ & \cellcolor{cb-green}$-1$ & \cellcolor{cb-purple}$-i$ & \cellcolor{cb-purple}$i$\\
+\hline $k$ & \cellcolor{purple}$k$ & \cellcolor{purple}$-k$ & \cellcolor{cb-orange}$j$ & \cellcolor{cb-orange}$-j$ & \cellcolor{cb-purple}$-i$ & \cellcolor{cb-purple}$i$ & \cellcolor{cb-green}$-1$ & \cellcolor{cb-green}$1$\\
+\hline $-k$ & \cellcolor{purple}$-k$ & \cellcolor{purple}$k$ & \cellcolor{cb-orange}$-j$ & \cellcolor{cb-orange}$j$ & \cellcolor{cb-purple}$i$ & \cellcolor{cb-purple}$-i$ & \cellcolor{cb-green}$1$ & \cellcolor{cb-green}$-1$
 \end{tabular}
 \end{center}
 
@@ -278,13 +274,7 @@ In other words, it looks like we can multiply cosets by choosing any representat
 
 Before continuing, let's continue tinkering with the same example.  Consider the Cayley diagram for $Q_8$ with generators $\{i,j,-1\}$ that is given in Figure~\ref{fig:Q8QuotientA}.
 
-\tikzstyle{2b} = [draw,very thick,blue,stealth-stealth]
-\tikzstyle{2r} = [draw, very thick, red,stealth-stealth]
-\tikzstyle{greenvert} = [circle, draw, fill=green,inner sep=0pt, minimum size=6.5mm]
-\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=6.5mm]
-\tikzstyle{b} = [draw,very thick,blue,-stealth]
-\tikzstyle{r} = [draw, very thick, red,-stealth]
-\tikzstyle{g} = [draw, very thick, green, stealth-stealth]
+\tikzstyle{greenvert} = [circle, draw, fill=cb-green,inner sep=0pt, minimum size=6.5mm]
 
 \begin{figure}[!ht]
 \centering
@@ -298,26 +288,26 @@ Before continuing, let's continue tinkering with the same example.  Consider the
 \node (-i) at (45:1) [vert] {{\scriptsize $-i$}};
 \node (-k) at (-45:1) [vert] {{\scriptsize $-k$}};
 \node (-j) at (-135:1) [vert] {{\scriptsize $-j$}};
-\path[b] (1) to (i);
-\path[b] (i) to (-1);
-\path[b] (-1) to (-i);
-\path[b] (-i) to (1);
-\path[b] (-j) to (-k);
-\path[b] (-k) to (j);
-\path[b] (j) to (k);
-\path[b] (k) to (-j);
-\path[r] (-k) to (-i);
-\path[r] (-i) to (k);
-\path[r] (k) to (i);
-\path[r] (i) to (-k);
-\path[r] (1) to (j);
-\path[r] (j) to (-1);
-\path[r] (-1) to (-j);
-\path[r] (-j) to (1);
-\path[g] (1) to (-1);
-\path[g] (j) to (-j);
-\path[g] (i) to (-i);
-\path[g] (k) to (-k);
+\path[p] (1) to (i);
+\path[p] (i) to (-1);
+\path[p] (-1) to (-i);
+\path[p] (-i) to (1);
+\path[p] (-j) to (-k);
+\path[p] (-k) to (j);
+\path[p] (j) to (k);
+\path[p] (k) to (-j);
+\path[o] (-k) to (-i);
+\path[o] (-i) to (k);
+\path[o] (k) to (i);
+\path[o] (i) to (-k);
+\path[o] (1) to (j);
+\path[o] (j) to (-1);
+\path[o] (-1) to (-j);
+\path[o] (-j) to (1);
+\path[g2] (1) to (-1);
+\path[g2] (j) to (-j);
+\path[g2] (i) to (-i);
+\path[g2] (k) to (-k);
 \end{tikzpicture}}
 \subcaptionbox{\label{fig:Q8QuotientB}}[.45\textwidth]{
 \begin{tikzpicture}[scale=1.5,auto]
@@ -325,10 +315,10 @@ Before continuing, let's continue tinkering with the same example.  Consider the
 \node (iK) at (45:1.5) [greenvert] {\scriptsize {$iK$}};
 \node (kK) at (-45:1.5) [greenvert] {{\scriptsize $kK$}};
 \node (jK) at (-135:1.5) [greenvert] {{\scriptsize $jK$}};
-\path[2b] (K) to (iK);
-\path[2r] (iK) to (kK);
-\path[2b] (kK) to (jK);
-\path[2r] (jK) to (K);
+\path[p2] (K) to (iK);
+\path[o2] (iK) to (kK);
+\path[p2] (kK) to (jK);
+\path[o2] (jK) to (K);
 \end{tikzpicture}}
 \caption{The left subfigure shows the Cayley diagram for $Q_8$ with generating set $\{i,j,-1\}$. The right subfigure shows the collapsed Cayley diagram for $Q_8$ according to the left cosets of $K=\langle -1\rangle$.}
 \label{fig:Q8Repeat}
@@ -362,18 +352,18 @@ The problem that arises in Problem~\ref{prob:bad_quotient} is that if the same a
 \node (b2) at (.2,.1) {\tiny $\bullet$};
 \node (c3) at (1.8,.1) {\tiny $\bullet$};
 \node (d3) at (2.1,.2) {\tiny $\bullet$};
-\draw[b] (a1) to [bend right=10] (a2);
-\draw[b] (b1) to [bend right=5] (b2);
-\draw[b] (c1) to [bend left=5] (c3);
-\draw[b] (d1) to [bend left=10] (d3);
+\draw[p] (a1) to [bend right=10] (a2);
+\draw[p] (b1) to [bend right=5] (b2);
+\draw[p] (c1) to [bend left=5] (c3);
+\draw[p] (d1) to [bend left=10] (d3);
 \end{tikzpicture}} & \makecell{$\longrightarrow$} &
 \makecell{
 \begin{tikzpicture}[scale=1]
 \node (g1H) at (.8,1.5) [vert] {\scriptsize $g_1H$};
 \node (g2H) at (0,0) [vert] {\scriptsize $g_2H$};
 \node (g3H) at (1.6,0) [vert] {\scriptsize $g_3H$};
-\draw[b] (g1H) to [bend right=5] (g2H);
-\draw[b] (g1H) to [bend left=5] (g3H);
+\draw[p] (g1H) to [bend right=5] (g2H);
+\draw[p] (g1H) to [bend left=5] (g3H);
 \end{tikzpicture}}
 \end{tabular}
 }
@@ -392,20 +382,20 @@ The problem that arises in Problem~\ref{prob:bad_quotient} is that if the same a
 \node (b2) at (.9,.2) {\tiny $\bullet$};
 \node (c2) at (1.1,.2) {\tiny $\bullet$};
 \node (d2) at (1.35,0) {\tiny $\bullet$};
-\draw[b] (a1) to [bend right=5] (a2);
-\draw[b] (b1) to [bend right=5] (b2);
-\draw[b] (c1) to [bend left=5] (c2);
-\draw[b] (d1) to [bend left=5] (d2);
+\draw[p] (a1) to [bend right=5] (a2);
+\draw[p] (b1) to [bend right=5] (b2);
+\draw[p] (c1) to [bend left=5] (c2);
+\draw[p] (d1) to [bend left=5] (d2);
 \end{tikzpicture}} & \makecell{$\longrightarrow$} &
 \makecell{
 \begin{tikzpicture}[scale=1]
 \node (g1H) at (0,1.5) [vert] {\scriptsize $g_1H$};
 \node (g2H) at (0,0) [vert] {\scriptsize $g_2H$};
-\draw[b] (g1H) to (g2H);
+\draw[p] (g1H) to (g2H);
 \end{tikzpicture}}
 \end{tabular}
 }
-\caption{In the left subfigure, blue arrows go from elements of the left coset $g_1H$ to elements of \emph{multiple} left cosets, which results in ambiguous blue arrows in the collapsed diagram. This implies that left coset multiplication is not well-defined in this case. In the right subfigure, blue arrows go from elements of the left coset $g_1H$ to elements inside a \emph{unique} left coset, which does not result in any ambiguity.}
+\caption{In the left subfigure, blue arrows go from elements of the left coset $g_1H$ to elements of \emph{multiple} left cosets, which results in ambiguous blue arrows in the collapsed diagram. This implies that left coset multiplication is not well defined in this case. In the right subfigure, blue arrows go from elements of the left coset $g_1H$ to elements inside a \emph{unique} left coset, which does not result in any ambiguity.}
 \label{fig:QuotientProcess}
 \end{figure}
 
@@ -413,11 +403,27 @@ The problem that arises in Problem~\ref{prob:bad_quotient} is that if the same a
 In Problem~\ref{prob:normal_in_D3}, we learned that the subgroup $K=\langle r\rangle$ is normal in $D_3$ since the left cosets are equal to the right cosets.  Note that this follows immediately from Theorem~\ref{thm:index2} since $[D_3:K]=2$.  Draw the diagram that results from performing the quotient process to $D_3$ using the subgroup $K$.  Does the resulting diagram represent a group?  If so, what group is it isomorphic to?
 \end{problem}
 
-Now, suppose $G$ is an arbitrary group and let $H\leq G$. Consider the set of left cosets of $H$.  We define
+\begin{problem}
+Consider the left Cayley diagram for $A_4$ given in Problem~\ref{prob:Cayley diagrams for A4}.  
+\begin{enumerate}[label=\textrm{(\alph*)}]
+\item  Let $H$ be the subgroup generated by the element that corresponds to the \textcolor{cb-orange}{orange} arrow. Draw the diagram that results from performing the quotient process to $A_4$ using the subgroup $H$.  Does the resulting diagram represent a group?  If so, what group is it isomorphic to? Compare with Problem~\ref{prob:not normal in A4}.
+\item Let $K$ be the subgroup generated by the element that corresponds to the \textcolor{cb-purple}{purple} arrow. Draw the diagram that results from performing the quotient process to $A_4$ using the subgroup $K$.  Does the resulting diagram represent a group?  If so, what group is it isomorphic to?
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Consider the Cayley diagram for $\mathbb{Z}_4\times \mathbb{Z}_2$ given in Figure~\ref{fig:Cayley_Z4xZ2}.
+\begin{enumerate}[label=\textrm{(\alph*)}]
+\item  Let $H=\langle (1,0)\rangle$. Draw the diagram that results from performing the quotient process to $\mathbb{Z}_4\times \mathbb{Z}_2$ using the subgroup $H$.  Does the resulting diagram represent a group?  If so, what group is it isomorphic to?
+\item Let $K=\langle (0,1)\rangle$. Draw the diagram that results from performing the quotient process to $\mathbb{Z}_4\times \mathbb{Z}_2$ using the subgroup $K$.  Does the resulting diagram represent a group?  If so, what group is it isomorphic to?
+\end{enumerate}
+\end{problem}
+
+Now, suppose $G$ is an arbitrary group and let $H\leq G$. Consider the set of left cosets of $H$.  We would like to define
 \[
-(aH)(bH):=(ab)H.
+(aH)(bH)=(ab)H.
 \]
-The natural question to ask is whether this operation is well-defined.  That is, does the result of multiplying two left cosets depend on our choice of representatives?  More specifically, suppose $c\in aH$ and $d\in bH$.  Then $cH=aH$ and $dH=bH$.  According to the operation defined above, $(cH)(dH)=cdH$.  It better be the case that $cdH=abH$, otherwise the operation is not well-defined.
+The natural question to ask is whether this operation is well defined.  That is, does the result of multiplying two left cosets depend on our choice of representatives?  More specifically, suppose $c\in aH$ and $d\in bH$.  Then $cH=aH$ and $dH=bH$.  According to the operation defined above, $(cH)(dH)=cdH$.  It better be the case that $cdH=abH$, otherwise the operation is not well defined.
 
 \begin{problem}
 Let $H=\langle s\rangle \leq D_3$.  Find specific examples of $a,b,c,d\in D_3$ such that
@@ -428,7 +434,7 @@ even though $aH=cH$ and $bH=dH$.
 \end{problem}
 
 \begin{theorem}
-Let $G$ be a group and let $H\leq G$.  Then left coset multiplication (as defined above) is well-defined if and only if $H\trianglelefteq G$.
+Let $G$ be a group and let $H\leq G$.  Then left coset multiplication (as defined above) is well defined if and only if $H\trianglelefteq G$.
 \end{theorem}
 
 \begin{theorem}\label{thm:quotient_grp}
@@ -531,14 +537,43 @@ Let $G$ be a group and let $H\trianglelefteq G$.  If $G$ is cyclic, then so is $
 Show that the converse of the previous theorem is not true by providing a specific counterexample.
 \end{problem}
 
+The next result should be straightforward to proof.
+
+\begin{theorem}
+If $G$ is a group, then $Z(G)\trianglelefteq G$.
+\end{theorem}
+
+The next theorem is surprisingly useful at times.  
+
+\begin{theorem}
+Let $G$ be a group. If $G/Z(G)$ is cyclic, then $G$ is abelian.
+\end{theorem}
+
+\begin{problem}
+Is the converse of the previous theorem true?  If so, prove it.  Otherwise, provide a counterexample.
+\end{problem}
+
+\begin{theorem}
+If $G$ is a group such that $|G|=pq$, where $p$ and $q$ are primes (not necessarily distinct), then either $Z(G)=\{e\}$ or $G$ is abelian.
+\end{theorem}
+
+\begin{problem}\label{prob:cosets in infinite groups}
+Recall that $\mathbb{Q}$ is a group under addition. Define $\mathbb{Q}^*:=\mathbb{Q}\setminus\{0\}$. It is easy to verify that $\mathbb{Q}^*$ is a group under multiplication.  Both groups are abelian, which implies that all subgroups are normal. 
+\begin{enumerate}[label=\textrm{(\alph*)}]
+\item Describe the quotient group $\mathbb{Q}/\langle -1\rangle$. In particular, what do the elements (cosets) look like? 
+\item Describe the quotient group $\mathbb{Q}*/\langle -1\rangle$. In particular, what do the elements (cosets) look like?
+\end{enumerate}
+\end{problem}
+
 Here are few additional exercises.  These ones are a bit tougher.
 
 \begin{problem}
 For each quotient group below, describe the group.  If possible, state what group each is isomorphic to.  You may assume that we are taking the quotient by a normal subgroup. 
 \begin{enumerate}[label=\textrm{(\alph*)}]
 \item $(\mathbb{Z}_4\times \mathbb{Z}_6)/\langle (0,2)\rangle$
+\item $(\mathbb{Z}_2\times \mathbb{Z}_4)/\langle (0,2)$
 \item $(\mathbb{Z}\times \mathbb{Z})/\langle (1,1)\rangle$
-\item $\mathbb{Q}/\langle 1\rangle$ (the operation on $\mathbb{Q}$ is addition)
+\item $\mathbb{Q}/\langle 1\rangle$ %(the operation on $\mathbb{Q}$ is addition)
 \end{enumerate}
 \end{problem}
 

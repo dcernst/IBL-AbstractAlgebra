@@ -67,7 +67,7 @@ Let $G_1$ and $G_2$ be groups. Define $\phi:G_1\to G_2$ via $\phi(g)=e_2$ (where
 
 Back in Section~\ref{sec:isomorphisms}, we encountered several theorems about isomorphisms.  However, at the end of that section we remarked that some of those theorems did not require that the function be one-to-one and onto.  We collect those results here for convenience.
 
-\begin{theorem}
+\begin{theorem}\label{thm:hom properties}
 Let $G_1$ and $G_2$ be groups and suppose $\phi:G_1\to G_2$ is a homomorphism.
 \begin{enumerate}[label=\textrm{(\alph*)}]
 \item If $e_1$ and $e_2$ are the identity elements of $G_1$ and $G_2$, respectively, then $\phi(e_1)=e_2$.
@@ -204,6 +204,23 @@ Use the First Isomorphism Theorem to prove that $\mathbb{Z}/6\mathbb{Z}\cong \ma
 
 \begin{problem}
 Use the First Isomorphism Theorem to prove that $(\mathbb{Z}_4\times \mathbb{Z}_2)/(\{0\}\times \mathbb{Z}_2)\cong \mathbb{Z}_4$.
+\end{problem}
+
+\begin{problem}
+Define $\mathbb{C}^*:=\mathbb{C}\setminus \{0\}$ (i.e, the set of complex numbers without zero).  It turns out that $\mathbb{C}^*$ is a group under multiplication, where 1 is the identity of the group. You can take this for granted. Define $\phi:\mathbb{R}\to \mathbb{C}^*$ via $\phi(t)=\cos(2\pi t)+i\sin(2\pi t)$, where $i^2=-1$. It is not too difficult to see that the image of $\phi$ is a circle of radius 1 centered at the origin in the complex plane. If $\phi$ is a group homomorphism, then Theorem~\ref{thm:hom properties}(c) implies that this circle is a subgroup of $\mathbb{C}^*$.
+\begin{enumerate}[label=\textrm{(\alph*)}]
+\item Prove that $\phi$ is a group homomorphism from $(\mathbb{R},+)$ to $(\mathbb{C}^*,\cdot)$. The following trigonometric identities might come in handy:
+\begin{itemize}
+\item $\sin(\alpha+\beta)=\sin(\alpha)\cos(\beta)+\cos(\alpha)\sin(\beta)$
+\item $\cos(\alpha+\beta)=\cos(\alpha)\cos(\beta)-\sin(\alpha)\sin(\beta)$.
+\end{itemize}
+\item Prove that $\ker(\phi)=\mathbb{Z}$.
+\item In light of the First Isomorphism Theorem, what conclusion can you make? Be as specific as possible.
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Use the First Isomorphism Theorem to prove that $\mathbb{Q}*/\langle -1\rangle \cong \mathbb{Q}$. Reviewing Problem~\ref{prob:cosets in infinite groups} may be helpful.
 \end{problem}
 
 The next theorem is a generalization of Theorem~\ref{thm:orderImage} and follows from the First Isomorphism Theorem together with Lagrange's Theorem.

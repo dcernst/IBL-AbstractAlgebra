@@ -369,15 +369,21 @@ If $G$ is an abelian group, then all subgroups of $G$ are normal.
 
 A group does not have to be abelian in order for all the proper subgroups to be normal.
 
-\begin{problem}
+\begin{problem}\label{prob:all subgroups of Q8 are normal}
 Argue that all of the proper subgroups of $Q_8$ are normal in $Q_8$. 
 \end{problem}
+
+\begin{problem}\label{prob:not normal in A4}
+Determine whether $\langle (1,2,3)\rangle$ is normal in $A_4$.
+\end{problem}
+
+The next theorem tells us that subgroups that are of index two are always normal. It is important to point out that this is sufficient condition for normality but not necessary. For example, see Problem~\ref{prob:all subgroups of Q8 are normal}.
 
 \begin{theorem}\label{thm:index2}
 Suppose $G$ is a group and let $H\leq G$ such that $[G:H]=2$.  Then $H\trianglelefteq G$.
 \end{theorem}
 
-It turns out that normality is not transitive.
+It turns out that normality is not transitive. That is, $H\trianglelefteq K \trianglelefteq G$ does not imply $H\trianglelefteq G$.
 
 \begin{problem}
 Consider $\langle s\rangle=\{e,s\}$ and $\langle r^2,sr^2\rangle =\{e,r^2,sr^2,s\}$. It is clear that
@@ -386,8 +392,6 @@ Consider $\langle s\rangle=\{e,s\}$ and $\langle r^2,sr^2\rangle =\{e,r^2,sr^2,s
 \]
 Show that $\langle s\rangle\trianglelefteq \langle r^2,sr^2\rangle$ and $\langle r^2,sr^2\rangle\trianglelefteq D_4$, but $\langle s\rangle\not\trianglelefteq D_4$.
 \end{problem}
-
-The previous problem illustrates that $H\trianglelefteq K \trianglelefteq G$ does not imply $H\trianglelefteq G$.
 
 \begin{definition}
 Suppose $G$ is a group and let $H\leq G$. For $g\in G$, we define the \textbf{conjugate of $H$ by $g$} to be the set
