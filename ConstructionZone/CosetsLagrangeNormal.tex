@@ -36,9 +36,9 @@ We can make a few more observations.  First, the resulting cosets formed a parti
 
 Here is another significant observation we can make.  Consider the Cayley diagram for $D_3$ with generating set $\{r,s\}$ that is given in Figure~\ref{fig:D3_repeat}. Given this Cayley diagram, we can visualize the subgroup $H$ and its clones (see Section~\ref{sec:Subgroups} for a reminder of what a clone is).  Moreover, $H$ and its clones are exactly the 3 right cosets of $H$.  We'll see that, in general, the \emph{right} cosets of a given subgroup are always the subgroup and its clones (see Problem~\ref{prob:RightCosetsClones}).
 
-\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=8mm]
-\tikzstyle{h} = [draw,very  thick, blue,stealth-stealth]
-\tikzstyle{r} = [draw, very thick, red,-stealth]
+%\tikzstyle{vert} = [circle, draw, fill=grey,inner sep=0pt, minimum size=8mm]
+%\tikzstyle{h} = [draw,very  thick, blue,stealth-stealth]
+%\tikzstyle{r} = [draw, very thick, red,-stealth]
 
 \begin{figure}[!ht]
 \centering
@@ -49,15 +49,15 @@ Here is another significant observation we can make.  Consider the Cayley diagra
 \node (h) at (90:4) [vert] {$s$};
 \node (hr) at (210:4) [vert] {$rs$};
 \node (hrr) at (-30:4) [vert] {$sr$};
-\draw [r] (e) to [bend left] (r);
-\draw [r] (r) to [bend left] (rr);
-\draw [r] (rr) to [bend left] (e);
-\draw [r] (h) to [bend right] (hr);
-\draw [r] (hr) to [bend right] (hrr);
-\draw [r] (hrr) to [bend right] (h);
-\draw [h] (e) to (h);
-\draw [h] (r) to (hrr);
-\draw [h] (rr) to (hr);
+\draw [o] (e) to [bend left] (r);
+\draw [o] (r) to [bend left] (rr);
+\draw [o] (rr) to [bend left] (e);
+\draw [o] (h) to [bend right] (hr);
+\draw [o] (hr) to [bend right] (hrr);
+\draw [o] (hrr) to [bend right] (h);
+\draw [p2] (e) to (h);
+\draw [p2] (r) to (hrr);
+\draw [p2] (rr) to (hr);
 \end{tikzpicture}
 \caption{Cayley diagram for $D_3$ with generating set $\{r,s\}$.}
 \label{fig:D3_repeat}
@@ -91,7 +91,7 @@ The left coset $srH$ must appear in the row labeled by $sr$ and in the columns l
 $*$ & \cellcolor{lightgray}$e$ & \cellcolor{lightgray}$s$ & $sr$ & $r^2$ & $rs$ & $r$ \\ \noalign{\hrule height 2pt}
 $e$ & $e$ & $s$ & $sr$ & $r^2$ & $rs$ & $r$\\
 \hline $s$ & $s$ & $e$ & $r$ & $rs$ & $r^2$ & $sr$ \\
-\hline \cellcolor{lightgray}$sr$ & \cellcolor{blue}$sr$ & \cellcolor{blue}$r^2$ & $e$ & $s$ & $r$ & $rs$\\
+\hline \cellcolor{lightgray}$sr$ & \cellcolor{cb-purple}$sr$ & \cellcolor{cb-purple}$r^2$ & $e$ & $s$ & $r$ & $rs$\\
 \hline $r^2$ & $r^2$ & $sr$ & $rs$ & $r$ & $s$ & $e$\\
 \hline $rs$ & $rs$ & $r$ & $r^2$ & $sr$ & $e$ & $s$\\
 \hline $r$ & $r$ & $rs$ & $s$ & $e$ & $sr$ & $r^2$\\
@@ -101,8 +101,8 @@ On the other hand, the right coset $Hsr$ must appear in the column labeled by $s
 \begin{center}
 \begin{tabular}{c!{\vrule width 2pt}c|c|c|c|c|c}
 $*$ & $e$ & $s$ & \cellcolor{lightgray}$sr$ & $r^2$ & $rs$ & $r$ \\ \noalign{\hrule height 2pt}
-\cellcolor{lightgray}$e$ & $e$ & $s$ & \cellcolor{blue}$sr$ & $r^2$ & $rs$ & $r$\\
-\hline \cellcolor{lightgray}$s$ & $s$ & $e$ & \cellcolor{blue}$r$ & $rs$ & $r^2$ & $sr$ \\
+\cellcolor{lightgray}$e$ & $e$ & $s$ & \cellcolor{cb-purple}$sr$ & $r^2$ & $rs$ & $r$\\
+\hline \cellcolor{lightgray}$s$ & $s$ & $e$ & \cellcolor{cb-purple}$r$ & $rs$ & $r^2$ & $sr$ \\
 \hline $sr$ & $sr$ & $r^2$ & $e$ & $s$ & $r$ & $rs$\\
 \hline $r^2$ & $r^2$ & $sr$ & $rs$ & $r$ & $s$ & $e$\\
 \hline $rs$ & $rs$ & $r$ & $r^2$ & $sr$ & $e$ & $s$\\
@@ -114,12 +114,12 @@ As we can see from the tables, $srH\neq Hsr$ since $\{sr,r^2\}\neq \{sr,r\}$.  I
 \begin{center}
 \begin{tabular}{c!{\vrule width 2pt}c|c|c|c|c|c}
 $*$ & $e$ & $s$ & $sr$ & $r^2$ & $rs$ & $r$ \\ \noalign{\hrule height 2pt}
-$e$ & \cellcolor{red}$e$ & \cellcolor{red}$s$ & \cellcolor{blue}$sr$ & \cellcolor{blue}$r^2$ & \cellcolor{green}$rs$ & \cellcolor{green}$r$\\
-\hline $s$ & \cellcolor{red}$s$ & \cellcolor{red}$e$ & \cellcolor{green}$r$ & \cellcolor{green}$rs$ & \cellcolor{blue}$r^2$ & \cellcolor{blue}$sr$ \\
-\hline $sr$ & \cellcolor{blue}$sr$ & \cellcolor{blue}$r^2$ & \cellcolor{red}$e$ & \cellcolor{red}$s$ & \cellcolor{green}$r$ & \cellcolor{green}$rs$\\
-\hline $r^2$ & \cellcolor{blue}$r^2$ & \cellcolor{blue}$sr$ & \cellcolor{green}$rs$ & \cellcolor{green}$r$ & \cellcolor{red}$s$ & \cellcolor{red}$e$\\
-\hline $rs$ & \cellcolor{green}$rs$ & \cellcolor{green}$r$ & \cellcolor{blue}$r^2$ & \cellcolor{blue}$sr$ & \cellcolor{red}$e$ & \cellcolor{red}$s$\\
-\hline $r$ & \cellcolor{green}$r$ & \cellcolor{green}$rs$ & \cellcolor{red}$s$ & \cellcolor{red}$e$ & \cellcolor{blue}$sr$ & \cellcolor{blue}$r^2$\\
+$e$ & \cellcolor{cb-orange}$e$ & \cellcolor{cb-orange}$s$ & \cellcolor{cb-purple}$sr$ & \cellcolor{cb-purple}$r^2$ & \cellcolor{green}$rs$ & \cellcolor{green}$r$\\
+\hline $s$ & \cellcolor{cb-orange}$s$ & \cellcolor{cb-orange}$e$ & \cellcolor{green}$r$ & \cellcolor{green}$rs$ & \cellcolor{cb-purple}$r^2$ & \cellcolor{cb-purple}$sr$ \\
+\hline $sr$ & \cellcolor{cb-purple}$sr$ & \cellcolor{cb-purple}$r^2$ & \cellcolor{cb-orange}$e$ & \cellcolor{cb-orange}$s$ & \cellcolor{green}$r$ & \cellcolor{green}$rs$\\
+\hline $r^2$ & \cellcolor{cb-purple}$r^2$ & \cellcolor{cb-purple}$sr$ & \cellcolor{green}$rs$ & \cellcolor{green}$r$ & \cellcolor{cb-orange}$s$ & \cellcolor{cb-orange}$e$\\
+\hline $rs$ & \cellcolor{green}$rs$ & \cellcolor{green}$r$ & \cellcolor{cb-purple}$r^2$ & \cellcolor{cb-purple}$sr$ & \cellcolor{cb-orange}$e$ & \cellcolor{cb-orange}$s$\\
+\hline $r$ & \cellcolor{green}$r$ & \cellcolor{green}$rs$ & \cellcolor{cb-orange}$s$ & \cellcolor{cb-orange}$e$ & \cellcolor{cb-purple}$sr$ & \cellcolor{cb-purple}$r^2$\\
 \end{tabular}
 \end{center}
 We would get a similar table (but in this case, not identical) if we colored the elements according to the right cosets.

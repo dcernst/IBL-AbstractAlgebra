@@ -248,27 +248,27 @@ In the previous section, we discussed a method for constructing ``larger" groups
 
 Problem~\ref{prob:checkerboard} hinted that if $H\leq G$ and we arrange the group table according to the left cosets of $H$, then the group table will have checkerboard pattern if and only if $H$ is normal in G (i.e., the left and right cosets of $H$ are the same).  For example, see the colored table prior to Problem~\ref{prob:normal_in_D3} versus the ones you created in Exercises~\ref{prob:normal_in_D3}, \ref{prob:normal_in_Q8}.  If we have the checkerboard pattern in the group table that arises from a normal subgroup, then by ``gluing together" the colored blocks, we obtain a group table for a smaller group that has the cosets as the elements. 
 
-For example, let's consider $K=\langle -1\rangle \leq Q_8$.  Problem~\ref{prob:normal_in_Q8} showed us that $K$ is normal $Q_8$.  The left (and right) cosets of $K$ in $Q_8$ are
+For example, let's consider $H=\langle -1\rangle \leq Q_8$.  Problem~\ref{prob:normal_in_Q8} showed us that $K$ is normal $Q_8$.  The left (and right) cosets of $H$ in $Q_8$ are
 \[
-K=\{1,-1\}, iK=\{i,-i\}, jK=\{j,-j\}, \text{ and } kK=\{k,-k\}.
+K=\{1,-1\}, iH=\{i,-i\}, jH=\{j,-j\}, \text{ and } kH=\{k,-k\}.
 \]
 As you found in Problem~\ref{prob:normal_in_Q8}, if we arrange the rows and columns of $Q_8$ according to these cosets, we obtain the following group table.
 
 \begin{center}
 \begin{tabular}{c!{\vrule width 2pt}c|c|c|c|c|c|c|c}
 $*$ & $1$ & $-1$ & $i$ & $-i$ & $j$ & $-j$ & $k$ & $-k$ \\ \noalign{\hrule height 2pt}
-$1$ & \cellcolor{cb-green}$1$ & \cellcolor{cb-green}$-1$ & \cellcolor{cb-purple}$i$ & \cellcolor{cb-purple}$-i$ & \cellcolor{cb-orange}$j$ & \cellcolor{cb-orange}$-j$ & \cellcolor{purple}$k$ & \cellcolor{purple}$-k$\\
-\hline $-1$ & \cellcolor{cb-green}$-1$ & \cellcolor{cb-green}$1$ & \cellcolor{cb-purple}$-i$ & \cellcolor{cb-purple}$i$ & \cellcolor{cb-orange}$-j$ & \cellcolor{cb-orange}$j$ & \cellcolor{purple}$-k$ & \cellcolor{purple}$k$ \\
-\hline $i$ & \cellcolor{cb-purple}$i$ & \cellcolor{cb-purple}$-i$ & \cellcolor{cb-green}$-1$ & \cellcolor{cb-green}$1$ & \cellcolor{purple}$k$ & \cellcolor{purple}$-k$ & \cellcolor{cb-orange}$-j$ & \cellcolor{cb-orange} $j$\\
-\hline $-i$ & \cellcolor{cb-purple}$-i$ & \cellcolor{cb-purple}$i$ & \cellcolor{cb-green}$1$ & \cellcolor{cb-green}$-1$ & \cellcolor{purple}$-k$ & \cellcolor{purple}$k$ & \cellcolor{cb-orange}$j$ & \cellcolor{cb-orange}$-j$\\
-\hline $j$ & \cellcolor{cb-orange}$j$ & \cellcolor{cb-orange}$-j$ & \cellcolor{purple}$-k$ & \cellcolor{purple}$k$ & \cellcolor{cb-green}$-1$ & \cellcolor{cb-green}$1$ & \cellcolor{cb-purple}$i$ & \cellcolor{cb-purple}$-i$\\
-\hline $-j$ & \cellcolor{cb-orange}$-j$ & \cellcolor{cb-orange}$j$ & \cellcolor{purple}$k$ & \cellcolor{purple}$-k$ & \cellcolor{cb-green}$1$ & \cellcolor{cb-green}$-1$ & \cellcolor{cb-purple}$-i$ & \cellcolor{cb-purple}$i$\\
-\hline $k$ & \cellcolor{purple}$k$ & \cellcolor{purple}$-k$ & \cellcolor{cb-orange}$j$ & \cellcolor{cb-orange}$-j$ & \cellcolor{cb-purple}$-i$ & \cellcolor{cb-purple}$i$ & \cellcolor{cb-green}$-1$ & \cellcolor{cb-green}$1$\\
-\hline $-k$ & \cellcolor{purple}$-k$ & \cellcolor{purple}$k$ & \cellcolor{cb-orange}$-j$ & \cellcolor{cb-orange}$j$ & \cellcolor{cb-purple}$i$ & \cellcolor{cb-purple}$-i$ & \cellcolor{cb-green}$1$ & \cellcolor{cb-green}$-1$
+$1$ & \cellcolor{cb-lightorange}$1$ & \cellcolor{cb-lightorange}$-1$ & \cellcolor{cb-orange}$i$ & \cellcolor{cb-orange}$-i$ & \cellcolor{cb-purple}$j$ & \cellcolor{cb-purple}$-j$ & \cellcolor{cb-lightpurple}$k$ & \cellcolor{cb-lightpurple}$-k$\\
+\hline $-1$ & \cellcolor{cb-lightorange}$-1$ & \cellcolor{cb-lightorange}$1$ & \cellcolor{cb-orange}$-i$ & \cellcolor{cb-orange}$i$ & \cellcolor{cb-purple}$-j$ & \cellcolor{cb-purple}$j$ & \cellcolor{cb-lightpurple}$-k$ & \cellcolor{cb-lightpurple}$k$ \\
+\hline $i$ & \cellcolor{cb-orange}$i$ & \cellcolor{cb-orange}$-i$ & \cellcolor{cb-lightorange}$-1$ & \cellcolor{cb-lightorange}$1$ & \cellcolor{cb-lightpurple}$k$ & \cellcolor{cb-lightpurple}$-k$ & \cellcolor{cb-purple}$-j$ & \cellcolor{cb-purple} $j$\\
+\hline $-i$ & \cellcolor{cb-orange}$-i$ & \cellcolor{cb-orange}$i$ & \cellcolor{cb-lightorange}$1$ & \cellcolor{cb-lightorange}$-1$ & \cellcolor{cb-lightpurple}$-k$ & \cellcolor{cb-lightpurple}$k$ & \cellcolor{cb-purple}$j$ & \cellcolor{cb-purple}$-j$\\
+\hline $j$ & \cellcolor{cb-purple}$j$ & \cellcolor{cb-purple}$-j$ & \cellcolor{cb-lightpurple}$-k$ & \cellcolor{cb-lightpurple}$k$ & \cellcolor{cb-lightorange}$-1$ & \cellcolor{cb-lightorange}$1$ & \cellcolor{cb-orange}$i$ & \cellcolor{cb-orange}$-i$\\
+\hline $-j$ & \cellcolor{cb-purple}$-j$ & \cellcolor{cb-purple}$j$ & \cellcolor{cb-lightpurple}$k$ & \cellcolor{cb-lightpurple}$-k$ & \cellcolor{cb-lightorange}$1$ & \cellcolor{cb-lightorange}$-1$ & \cellcolor{cb-orange}$-i$ & \cellcolor{cb-orange}$i$\\
+\hline $k$ & \cellcolor{cb-lightpurple}$k$ & \cellcolor{cb-lightpurple}$-k$ & \cellcolor{cb-purple}$j$ & \cellcolor{cb-purple}$-j$ & \cellcolor{cb-orange}$-i$ & \cellcolor{cb-orange}$i$ & \cellcolor{cb-lightorange}$-1$ & \cellcolor{cb-lightorange}$1$\\
+\hline $-k$ & \cellcolor{cb-lightpurple}$-k$ & \cellcolor{cb-lightpurple}$k$ & \cellcolor{cb-purple}$-j$ & \cellcolor{cb-purple}$j$ & \cellcolor{cb-orange}$i$ & \cellcolor{cb-orange}$-i$ & \cellcolor{cb-lightorange}$1$ & \cellcolor{cb-lightorange}$-1$
 \end{tabular}
 \end{center}
 
-If we consider the $2\times 2$ blocks as elements, it appears that we have a group table for a group with 4 elements.  Closer inspection reveals that this looks like the table for $V_4$.  If the table of $2\times 2$ blocks is going to represent a group, we need to understand the binary operation.  How do we ``multiply" cosets?  For example, the table suggests that the coset $jK$ (colored in \textcolor{red}{red}) times the coset $iK$ (colored in \textcolor{blue}{blue}) is equal to $kK$ (colored in \textcolor{purple}{purple}) despite the fact that $ji=-k\neq k$.  Yet, it is true that the product $ji=-k$ is an element in the coset $kK$.  In fact, if we look closely at the table, we see that if we pick any two cosets, the product of any element of the first coset times any element of the second coset will always result in an element in the same coset regardless of which representatives we chose.
+If we consider the $2\times 2$ blocks as elements, it appears that we have a group table for a group with 4 elements.  Closer inspection reveals that this looks like the table for $V_4$ (compare with Figure~\ref{fig:V4coloring}).  If the table of $2\times 2$ blocks is going to represent a group, we need to understand the binary operation.  How do we ``multiply" cosets?  For example, the table suggests that the coset $jH$ (colored in \textcolor{cb-lightorange}{light orange}) times the coset $iH$ (colored in \textcolor{cb-orange}{orange}) is equal to $kH$ (colored in \textcolor{cb-lightpurple}{light purple}) despite the fact that $ji=-k\neq k$.  Yet, it is true that the product $ji=-k$ is an element in the coset $kH$.  In fact, if we look closely at the table, we see that if we pick any two cosets, the product of any element of the first coset times any element of the second coset will always result in an element in the same coset regardless of which representatives we chose.
 
 In other words, it looks like we can multiply cosets by choosing any representative from each coset and then seeing what coset the product of the representatives lies in.  However, it is important to point out that this will only work if we have a checkerboard pattern of cosets, which we have seen evidence of only happening when the corresponding subgroup is normal.
 
