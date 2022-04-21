@@ -101,7 +101,10 @@ Let $G_1$ and $G_2$ be groups and suppose $\phi:G_1\to G_2$ is a homomorphism.  
 \]
 \end{definition}
 
-The kernel of a homomorphism is analogous to the null space of a linear transformation of vector spaces.  
+The kernel of a homomorphism is analogous to the null space of a linear transformation of vector spaces.  Given the definition of the kernel, we see that we can phrase the kernel in terms of a preimage:
+\[
+\ker(\phi)=\phi^{-1}(\{e_2\}).
+\]
 
 \begin{problem}
 Identify the kernel and image for the homomorphism given in Problem~\ref{prob:homomorphism}.
@@ -124,10 +127,65 @@ The upshot of Theorems~\ref{thm:kernel_normal} and \ref{thm:canonical_projection
 The next theorem tells us that two elements in the domain of a group homomorphism map to the same element in the codomain if and only if they are in the same coset of the kernel.
 
 \begin{theorem}\label{thm:same_image}
-Let $G_1$ and $G_2$ be groups and suppose $\phi:G_1\to G_2$ is a homomorphism. Then $\phi(a) = \phi(b)$ if and only if $a\in b\ker(\phi)$.
+Let $G_1$ and $G_2$ be groups and suppose $\phi:G_1\to G_2$ is a homomorphism. Then $\phi(a) = \phi(b)$ if and only if $a\in b\ker(\phi)$ if and only if $a\ker(\phi)=b\ker(\phi)$.
 \end{theorem}
 
-One consequence of Theorem~\ref{thm:same_image} is that if the kernel of a homomorphism has order $k$, then the homomorphism is $k$-to-1.  That is, every element in the range has exactly $k$ elements from the domain that map to it.  In particular, each of these collections of $k$ elements corresponds to a coset of the kernel. 
+Suppose $\phi:G_1\to G_2$ is a homomorphism. Recall that each of the left cosets of the kernel have the same cardinality by Corollary~\ref{cor:cosets_same_size}.  If the kernel has finite order $k$, then one consequence of Theorem~\ref{thm:same_image} is that the homomorphism $\phi$ is $k$-to-1. Now, let $g\in G_1$ and suppose $\phi(g)=h$. It follows from the previous theorem that  $\phi^{-1}(\{h\})=g\ker(\phi)$.  That is, each left coset of $\ker(\phi)$ is the preimage of some element in $G_2$ (and vice versa).  Figure~\ref{fig:fibers are cosets of ker} provides a visual representation of this phenomenon in the case when $G_1$ is finite and $\phi$ is surjective (and hence $G_2$ is also finite). 
+
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}[scale=1.6]
+\draw (0,1) -- (0,5) -- (2.5,5) -- (2.5,1) -- (0,1);
+\draw (0,4) -- (2.5,4);
+\draw (0,3) -- (2.5,3);
+\draw (0,2) -- (2.5,2);
+\node (e) at (.25,4.5) [vert-small] {{$e_1$}};
+\node at (.75,4.5) [vert-small] {};
+\node at (1.25,4.5) [vert-small] {{$g_1$}};
+\node at (2.25,4.5) [vert-small] {};
+
+\node at (1.75,4.5) {$\cdots$};
+
+\node (e) at (.25,3.5) [vert-small] {{$g_2$}};
+\node at (.75,3.5) [vert-small] {};
+\node at (1.25,3.5) [vert-small] {};
+\node at (2.25,3.5) [vert-small] {};
+
+\node at (1.75,3.5) {$\cdots$};
+
+\node at (1,2.5) {$\vdots$};
+
+\node (e) at (.25,1.5) [vert-small] {};
+\node at (.75,1.5) [vert-small] {{$g_n$}};
+\node at (1.25,1.5) [vert-small] {};
+\node at (2.25,1.5) [vert-small] {};
+
+\node at (1.75,1.5) {$\cdots$};
+
+\node at (4.5,4.5) [vert-small] {{$e_1$}};
+\node at (4.5,3.5) [vert-small] {{$h_2$}};
+\node at (4.5,1.5) [vert-small] {{$h_n$}};
+
+\node at (4.5,2.5) {$\vdots$};
+
+\node[left] at (-.1,4.5) {$\phi^{-1}(e_H)=\ker(\phi)$};
+\node[left] at (-.1,3.5) {$\phi^{-1}(h_2)=g_2\ker(\phi)$};
+\node[left] at (-.1,1.5) {$\phi^{-1}(h_n)=g_n\ker(\phi)$};
+\node[right] at (5.1,1.5) {\phantom{$\phi^{-1}(h_n)=g_n\ker(\phi)$}};
+
+\draw[|-stealth] (2.6,4.5) to (3.9,4.5);
+\draw[|-stealth] (2.6,3.5) to (3.9,3.5);
+\node at (3,2.5) {$\vdots$};
+\draw[|-stealth] (2.6,1.5) to (3.9,1.5);
+
+\draw (4,1) -- (4,5) -- (5,5) -- (5,1) -- (4,1);
+\node (G1) at (1.25,5.2) {$G_1$};
+\node (G2) at (4.5,5.2) {$G_2$};
+\path (G1) edge [bend left,-stealth] node[above] {$\phi$} (G2);
+\end{tikzpicture}
+\caption{Left cosets of $\ker(\phi)$ correspond to preimages of elements in range of $\phi$.}
+\label{fig:fibers are cosets of ker}
+\end{figure}
 
 \begin{problem}
 Suppose $\phi:\mathbb{Z}_{20}\to\mathbb{Z}_{20}$ is a group homomorphism such that $\ker(\phi)=\{0,5,10,15\}$.  If $\phi(13)=8$, determine all elements that $\phi$ maps to 8.
@@ -170,7 +228,9 @@ Let $F$ be the set of all functions from $\mathbb{R}$ to $\mathbb{R}$ and let $D
 
 \begin{section}{The Isomorphism Theorems}
 
-The next theorem is arguably the crowning achievement of the course.
+The next theorem is sometimes called the \textbf{Fundamental Theorem of Homomorphisms}, but is more commonly is referred to as the \textbf{First Isomorphism Theorem}. Recall that if $\phi:G_1\to G_2$ is a homomorphism, then $\ker(\phi)$ is always a normal subgroup of $G_1$.  This implies that $G_1/\ker(\phi)$ is a well-defined group.  The First Isomorphism Theorem states that this quotient group is isomorphic to the image of $\phi$. The motivation behind this theorem is baked into Figure~\ref{fig:fibers are cosets of ker}. We can obtain a bijective function $\psi$ from the cosets of the kernel to the image of $\phi$ by ``collapsing" the cosets of the kernel.
+
+Here is an analogy for helping understand the content of First Isomorphism.  Suppose we have a collection airplanes filled with passengers and a collection of potential destination cities such that at most one airplane may land at each city.  The function $\phi$ indicates which city each passenger lands at while the function $\psi$ indicates which city each airplane lands at.  Moreover, the codomain for the function $\psi$ consists only of the cities that an airplane lands at. Amazingly, this new function $\psi:G_1/\ker(\phi)\to \phi(G_1)$ inherits the homomorphic property from $\phi$.
 
 \begin{theorem}[The First Isomorphism Theorem]
 Let $G_1$ and $G_2$ be groups and suppose $\phi:G_1\to G_2$ is a homomorphism. Then
@@ -182,6 +242,8 @@ If $\phi$ is onto, then
 G_1/\ker(\phi)\cong G_2.
 \]
 \end{theorem}
+
+At this time, you should take a moment to reflect on how the First Isomorphism Theorem and the quotient process we discussed in Section~\ref{sec:Quotient Groups} are related.
 
 \begin{problem}
 Let $\phi:Q_8\to V_4$ be the homomorphism described in Problem~\ref{prob:Q8toV4}. Use the First Isomorphism Theorem to prove that $Q_8/\langle-1\rangle\cong V_4$.

@@ -242,7 +242,7 @@ Find all abelian groups up to isomorphism for each of the following orders.
 
 \end{section}
 
-\begin{section}{Quotients of Groups}
+\begin{section}{Quotients of Groups}\label{sec:Quotient Groups}
 
 In the previous section, we discussed a method for constructing ``larger" groups from ``smaller" groups using a direct product construction.  In this section, we will in some sense do the opposite.
 
@@ -312,25 +312,29 @@ Before continuing, let's continue tinkering with the same example.  Consider the
 \subcaptionbox{\label{fig:Q8QuotientB}}[.45\textwidth]{
 \begin{tikzpicture}[scale=1.5,auto]
 \node (K) at (135:1.5) [greenvert] {{\scriptsize $K$}};
-\node (iK) at (45:1.5) [greenvert] {\scriptsize {$iK$}};
-\node (kK) at (-45:1.5) [greenvert] {{\scriptsize $kK$}};
-\node (jK) at (-135:1.5) [greenvert] {{\scriptsize $jK$}};
+\node (iK) at (45:1.5) [greenvert] {\scriptsize {$Ki$}};
+\node (kK) at (-45:1.5) [greenvert] {{\scriptsize $Kk$}};
+\node (jK) at (-135:1.5) [greenvert] {{\scriptsize $Kj$}};
 \path[p2] (K) to (iK);
 \path[o2] (iK) to (kK);
 \path[p2] (kK) to (jK);
 \path[o2] (jK) to (K);
 \end{tikzpicture}}
-\caption{The left subfigure shows the Cayley diagram for $Q_8$ with generating set $\{i,j,-1\}$. The right subfigure shows the collapsed Cayley diagram for $Q_8$ according to the left cosets of $K=\langle -1\rangle$.}
+\caption{The left subfigure shows the Cayley diagram for $Q_8$ with generating set $\{i,j,-1\}$. The right subfigure shows the collapsed Cayley diagram for $Q_8$ according to the right cosets of $K=\langle -1\rangle$.}
 \label{fig:Q8Repeat}
 \end{figure}
 
-We can visualize the right cosets of $K$ as the clumps of vertices connected together with the two-way green arrows.  In this case, we are also seeing the left cosets since $K$ is normal in $Q_8$.  If we collapse the cosets onto each other and collapse the corresponding arrows, we obtain the diagram given in Figure~\ref{fig:Q8QuotientB}. It is clear that this diagram is the Cayley diagram for a group that is isomorphic to $V_4$.  For reasons we will understand shortly, this processing of collapsing a Cayley diagram according to the cosets of a normal subgroup is called the ``quotient process."
+We can visualize the right cosets of $K$ as the four clumps of vertices connected together with the two-way green arrows. These are the clones of $K$. In this case, we are also seeing the left cosets since $K$ is normal in $Q_8$.  If we collapse the right cosets onto each other and collapse the corresponding arrows, we obtain the diagram given in Figure~\ref{fig:Q8QuotientB}. It is clear that this diagram is the Cayley diagram for a group that is isomorphic to $V_4$.  
+
+This process of collapsing a Cayley diagram for a group $G$ according to the right cosets of a subgroup $H$ is called the \textbf{quotient process}.  The vertices in the resulting diagram are the right cosets (i.e., clones) of $H$. If there is an arrow from $g_1$ to $g_2$ in the Cayley diagram for $G$ such that $g_1$ and $g_2$ are in different right cosets, then there is an arrow of the same color from the right coset containing $g_1$ (i.e., $Hg_1$) to the right coset containing $g_2$ (i.e., $Hg_2$).
+
+For reasons we will understand shortly, applying the quotient process to $G$ according to a subgroup $H$ results in the Cayley diagram for a group if and only if $H$ is normal in $G$.
 
 \begin{problem}\label{prob:bad_quotient}
 Let's see what happens if we attempt the quotient process for a subgroup that is not normal.  Consider $H=\langle s\rangle \leq D_3$.  In Problem~\ref{prob:left_cosets_D3}, we discovered that the left cosets of $H$ are not the same as the right cosets of $H$.  This implies that $H$ is not normal in $D_3$.  Consider the standard Cayley diagram for $D_3$ that uses the generators $r$ and $s$.  Draw the diagram that results from attempting the quotient process on $D_3$ using the subgroup $H$.  Explain why this diagram cannot be the diagram for a group.
 \end{problem}
 
-The problem that arises in Problem~\ref{prob:bad_quotient} is that if the same arrow types (i.e., those representing the same generator) leaving a coset do not point at elements in the same coset, attempting the quotient process will result in a diagram that cannot be a Cayley diagram for a group since we have more than one arrow of the same type leaving a vertex.  In Figure~\ref{fig:QuotientProcessBad}, we illustrate what goes wrong if all the arrows for a generator pointing out of a coset do not unanimously point to elements in the same coset.  In Figure~\ref{fig:QuotientProcessGood}, all the arrows point to elements in the same coset, and in this case, it appears that everything works out just fine.
+The problem that arises in Problem~\ref{prob:bad_quotient} is that if the same arrow types (i.e., those representing the same generator) leaving a right coset do not point at elements in the same right coset, attempting the quotient process will result in a diagram that cannot be a Cayley diagram for a group since we have more than one arrow of the same type leaving a vertex.  In Figure~\ref{fig:QuotientProcessBad}, we illustrate what goes wrong if all the arrows for a generator pointing out of a right coset (i.e., clone) do not unanimously point to elements in the same right coset.  In Figure~\ref{fig:QuotientProcessGood}, all the arrows point to elements in the same right coset, and in this case, it appears that everything works out just fine.
 
 %figure adapted from Matt Macauley.
 \begin{figure}[!ht]
@@ -341,9 +345,9 @@ The problem that arises in Problem~\ref{prob:bad_quotient} is that if the same a
 \draw (0,0) circle (.65); 
 \draw (2,0) circle (.65);
 \draw (1,1.8) circle (.65);
-\node at (0,-.15) {\scriptsize $g_2H$};
-\node at (2,-.15) {\scriptsize $g_3H$};
-\node at (1,1.9) {\scriptsize $g_1H$};
+\node at (0,-.15) {\scriptsize $Hg_2$};
+\node at (2,-.15) {\scriptsize $Hg_3$};
+\node at (1,1.9) {\scriptsize $Hg_1$};
 \node (a1) at (.75,1.6) {\tiny $\bullet$};
 \node (b1) at (.9,1.5) {\tiny $\bullet$};
 \node (c1) at (1.1,1.5) {\tiny $\bullet$};
@@ -359,9 +363,9 @@ The problem that arises in Problem~\ref{prob:bad_quotient} is that if the same a
 \end{tikzpicture}} & \makecell{$\longrightarrow$} &
 \makecell{
 \begin{tikzpicture}[scale=1]
-\node (g1H) at (.8,1.5) [vert] {\scriptsize $g_1H$};
-\node (g2H) at (0,0) [vert] {\scriptsize $g_2H$};
-\node (g3H) at (1.6,0) [vert] {\scriptsize $g_3H$};
+\node (g1H) at (.8,1.5) [vert] {\scriptsize $Hg_1$};
+\node (g2H) at (0,0) [vert] {\scriptsize $Hg_2$};
+\node (g3H) at (1.6,0) [vert] {\scriptsize $Hg_3$};
 \draw[p] (g1H) to [bend right=5] (g2H);
 \draw[p] (g1H) to [bend left=5] (g3H);
 \end{tikzpicture}}
@@ -372,8 +376,8 @@ The problem that arises in Problem~\ref{prob:bad_quotient} is that if the same a
 \makecell{\begin{tikzpicture}[scale=1,,shorten >= -2pt, shorten <= -2pt]
 \draw (1,0) circle (.65);
 \draw (1,1.8) circle (.65);
-\node at (1,-.2) {\scriptsize $g_2H$};
-\node at (1,1.9) {\scriptsize $g_1H$};
+\node at (1,-.2) {\scriptsize $Hg_2$};
+\node at (1,1.9) {\scriptsize $Hg_1$};
 \node (a1) at (.65,1.6) {\tiny $\bullet$};
 \node (b1) at (.9,1.5) {\tiny $\bullet$};
 \node (c1) at (1.1,1.5) {\tiny $\bullet$};
@@ -389,13 +393,13 @@ The problem that arises in Problem~\ref{prob:bad_quotient} is that if the same a
 \end{tikzpicture}} & \makecell{$\longrightarrow$} &
 \makecell{
 \begin{tikzpicture}[scale=1]
-\node (g1H) at (0,1.5) [vert] {\scriptsize $g_1H$};
-\node (g2H) at (0,0) [vert] {\scriptsize $g_2H$};
+\node (g1H) at (0,1.5) [vert] {\scriptsize $Hg_1$};
+\node (g2H) at (0,0) [vert] {\scriptsize $Hg_2$};
 \draw[p] (g1H) to (g2H);
 \end{tikzpicture}}
 \end{tabular}
 }
-\caption{In the left subfigure, blue arrows go from elements of the left coset $g_1H$ to elements of \emph{multiple} left cosets, which results in ambiguous blue arrows in the collapsed diagram. This implies that left coset multiplication is not well defined in this case. In the right subfigure, blue arrows go from elements of the left coset $g_1H$ to elements inside a \emph{unique} left coset, which does not result in any ambiguity.}
+\caption{In the left subfigure, blue arrows go from elements of the right coset $Hg_1$ to elements of \emph{multiple} left cosets, which results in ambiguous blue arrows in the diagram resulting from the quotient process. This implies that right coset multiplication is not well defined in this case. In the right subfigure, blue arrows go from elements of the right coset $Hg_1$ to elements inside a \emph{unique} right coset, which does not result in any ambiguity in the diagram resulting from the quotient process.}
 \label{fig:QuotientProcess}
 \end{figure}
 
@@ -461,7 +465,7 @@ Suppose $G$ is a group and $H\trianglelefteq G$, so that $G/H$ is a group. Recal
 \[
 (aH)(bH) = abH.
 \]
-Moreover, the identity in $G/H$ is $eH = H$ since $(aH)(eH) = aH$. By Corollary~\ref{cor:order_smallest_exponent} $|aH| = k$ if and only $(aH)^k = H$ and $k$ is the smallest such positive exponent with this property. But notice that $(aH)^k = a^kH$. So, in order to compute the order of $aH$, we need to find the smallest positive exponent $k$ such that $a^kH = H$, but $a^kH = H$ exactly when $a^k$ is in $H$. The upshot is that to find the order of $aH$ in $G/H$, we need the smallest positive $k$ such that $a^k$ is in $H$.
+Moreover, the identity in $G/H$ is $eH = H$ since $(aH)(eH) = aH$. By Corollary~\ref{cor:order_smallest_exponent} $|aH| = k$ if and only if $(aH)^k = H$ and $k$ is the smallest such positive exponent with this property. But notice that $(aH)^k = a^kH$. So, in order to compute the order of $aH$, we need to find the smallest positive exponent $k$ such that $a^kH = H$, but $a^kH = H$ exactly when $a^k$ is in $H$. The upshot is that to find the order of $aH$ in $G/H$, we need the smallest positive $k$ such that $a^k$ is in $H$.
 
 \begin{problem}%Borrowing from Fraleigh Exercises 9--15 in Section 14.
 Find the order of the given element in the quotient group. You may assume that we are taking the quotient by a normal subgroup. 
