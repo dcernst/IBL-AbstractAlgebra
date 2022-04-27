@@ -16,7 +16,7 @@ A \textbf{ring} $R$ is a set together with two binary operations $+$ and $\cdot$
 
 We make a couple comments about notation.
 \begin{enumerate}[label=\textrm{(\alph*)}]
-\item The additive identity usually denoted by 0.  However, you should keep in mind that 0 may or may not be the number ``zero".
+\item The additive identity is usually denoted by 0.  However, you should keep in mind that 0 may or may not be the number ``zero".
 \item The additive inverse of the ring element $a\in R$ is denoted $-a$.
 \item We often write $ab$ in place of $a\cdot b$.
 \item When we have an expression in a ring involving a mixture of addition and multiplication, we follow the standard conventions involving the order of operation. For example, when we write $ab+c$, this is short for $(ab)+c$ and not $a(b+c)$.
@@ -144,7 +144,7 @@ Any finite integral domain is a field.
 Here are a few examples.  Details left as an exercise.
 \begin{enumerate}[label=\textrm{(\alph*)}]
 \item \textbf{Zero Ring}: If $R=\{0\}$, we can turn $R$ into a ring in the obvious way.  The zero ring is a finite commutative ring with 1.  It is the only ring where the additive and multiplicative identities are equal.  The zero ring is not a division ring, not a field, and not an integral domain.
-\item \textbf{Trivial Ring:} Given any abelian group $R$, we can turn $R$ into a ring by defining multiplication via $ab=0$ for all $a,b\in R$. Trivial rings are commutative rings in which every nonzero element is a zero divisor.  Hence a trivial ring is not a division ring, not a field, and not a integral domain.
+\item \textbf{Trivial Ring:} Given any abelian group $R$, we can turn $R$ into a ring by defining multiplication via $ab=0$ for all $a,b\in R$. Trivial rings are commutative rings in which every nonzero element is a zero divisor.  Hence a trivial ring is not a division ring, not a field, and not an integral domain.
 \item 
 %The integers $\mathbb{Z}$ form a ring under the usual operations of addition and multiplication.  
 The integers form an integral domain, but $\mathbb{Z}$ is not a division ring, and hence not a field.
@@ -156,7 +156,7 @@ The group of units $U(\mathbb{Z}_n)$ is the set of elements in $\mathbb{Z}_n$ th
 \item \textbf{Polynomial Ring:} Fix a commutative ring $R$.  Let $R[x]$ denote the set of polynomials in the variable $x$ with coefficients in $R$.  Then $R[x]$ is a commutative ring. Moreover, $R[x]$ is a ring with 1 if and only if $R$ is a ring with 1. The units of $R[x]$ are exactly the units of $R$ (if there are any). So, $R[x]$ is never a division ring nor a field.  However, if $R$ is an integral domain, then so is $R[x]$. 
 \item \textbf{Matrix Ring:} Fix a ring $R$ and let $n$ be a positive integer.  Let $M_n(R)$ be the set of $n\times n$ matrices with entries from $R$.  Then $M_n(R)$ forms a ring under ordinary matrix addition and multiplication.  If $R$ is nontrivial and $n\geq 2$, then $M_n(R)$ always has zero divisors and $M_n(R)$ is not commutative even if $R$ is.  If $R$ has a 1, then the matrix with 1's down the diagonal and 0's elsewhere is the multiplicative identity in $M_n(R)$.  In this case, the group of units is the set of invertible $n\times n$ matrices, denoted $GL_n(R)$ and called the \textbf{general linear group of degree $n$ over $R$}.
 \item \textbf{Quadratic Field:} Define $\mathbb{Q}(\sqrt{2})=\{a+b\sqrt{2}\mid a,b\in\mathbb{Q}\}$.  It turns out that $\mathbb{Q}(\sqrt{2})$ is a field.  In fact, we can replace 2 with any rational number that is not a perfect square in $\mathbb{Q}$.
-\item \textbf{Hamilton Quaternions:} Define $\mathbb{H}=\{a+bi+cj+dk\mid a,b,c,d\in\mathbb{R}, i,j,k\in Q_8\}$  Then $\mathbb{H}$ forms a ring, where addition is defined componentwise in $i$, $j$, and $k$ and multiplication is defined by expanding products and the simplifying using the relations of $Q_8$.  It turns out that $\mathbb{H}$ is a non-commutative ring with 1.
+\item \textbf{Hamilton Quaternions:} Define $\mathbb{H}=\{a+bi+cj+dk\mid a,b,c,d\in\mathbb{R}, i,j,k\in Q_8\}$.  Then $\mathbb{H}$ forms a ring, where addition is defined componentwise in $i$, $j$, and $k$ and multiplication is defined by expanding products and then simplifying using the relations of $Q_8$.  It turns out that $\mathbb{H}$ is a non-commutative ring with 1.
 \end{enumerate}
 \end{example}
 
@@ -178,7 +178,7 @@ Here are a few quick examples.
 \item $\mathbb{Z}$ is a subring of $\mathbb{Q}$, which is a subring of $\mathbb{R}$, which in turn is a subring of $\mathbb{C}$.
 \item $2\mathbb{Z}$ is a subring of $\mathbb{Z}$.
 \item The set $\mathbb{Z}(\sqrt{2})=\{a+b\sqrt{2}\mid a,b\in\mathbb{Z}\}$ is a subring of $\mathbb{Q}(\sqrt{2})$.
-\item The ring $R$ is a subring of $R[x]$ if we identify $R$ with set of constant functions.
+\item The ring $R$ is a subring of $R[x]$ if we identify $R$ with the set of constant functions.
 \item The set of polynomials with zero constant term in $R[x]$ is a subring of $R[x]$.
 \item $\mathbb{Z}[x]$ is a subring of $\mathbb{Q}[x]$.
 \item $\mathbb{Z}_n$ is \emph{not} a subring of $\mathbb{Z}$ as the operations are different.
