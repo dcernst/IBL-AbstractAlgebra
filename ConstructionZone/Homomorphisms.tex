@@ -130,7 +130,7 @@ The next theorem tells us that two elements in the domain of a group homomorphis
 Let $G_1$ and $G_2$ be groups and suppose $\phi:G_1\to G_2$ is a homomorphism. Then $\phi(a) = \phi(b)$ if and only if $a\in b\ker(\phi)$ if and only if $a\ker(\phi)=b\ker(\phi)$.
 \end{theorem}
 
-Suppose $\phi:G_1\to G_2$ is a homomorphism. Recall that each of the left cosets of the kernel have the same cardinality by Corollary~\ref{cor:cosets_same_size}.  If the kernel has finite order $k$, then one consequence of Theorem~\ref{thm:same_image} is that the homomorphism $\phi$ is $k$-to-1. Now, let $g\in G_1$ and suppose $\phi(g)=h$. It follows from the previous theorem that  $\phi^{-1}(\{h\})=g\ker(\phi)$.  That is, each left coset of $\ker(\phi)$ is the preimage of some element in $G_2$ (and vice versa).  Figure~\ref{fig:fibers are cosets of ker} provides a visual representation of this phenomenon in the case when $G_1$ is finite and $\phi$ is surjective (and hence $G_2$ is also finite). 
+Suppose $\phi:G_1\to G_2$ is a homomorphism. Recall that each of the left cosets of the kernel have the same cardinality by Corollary~\ref{cor:cosets_same_size}.  If the kernel has finite order $k$, then one consequence of Theorem~\ref{thm:same_image} is that the homomorphism $\phi$ is uniformily $k$-to-1. Now, let $g\in G_1$ and suppose $\phi(g)=h$. It follows from the previous theorem that  $\phi^{-1}(\{h\})=g\ker(\phi)$.  That is, each left coset of $\ker(\phi)$ is the preimage of some element in $G_2$ (and vice versa).  Figure~\ref{fig:fibers are cosets of ker} provides a visual representation of this phenomenon in the case when $G_1$ is finite and $\phi$ is surjective (and hence $G_2$ is also finite). 
 
 \begin{figure}[!ht]
 \centering
@@ -162,13 +162,13 @@ Suppose $\phi:G_1\to G_2$ is a homomorphism. Recall that each of the left cosets
 
 \node at (1.75,1.5) {$\cdots$};
 
-\node at (4.5,4.5) [vert-small] {{$e_1$}};
+\node at (4.5,4.5) [vert-small] {{$e_2$}};
 \node at (4.5,3.5) [vert-small] {{$h_2$}};
 \node at (4.5,1.5) [vert-small] {{$h_n$}};
 
 \node at (4.5,2.5) {$\vdots$};
 
-\node[left] at (-.1,4.5) {$\phi^{-1}(e_H)=\ker(\phi)$};
+\node[left] at (-.1,4.5) {$\phi^{-1}(e_2)=\ker(\phi)$};
 \node[left] at (-.1,3.5) {$\phi^{-1}(h_2)=g_2\ker(\phi)$};
 \node[left] at (-.1,1.5) {$\phi^{-1}(h_n)=g_n\ker(\phi)$};
 \node[right] at (5.1,1.5) {\phantom{$\phi^{-1}(h_n)=g_n\ker(\phi)$}};
